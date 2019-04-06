@@ -1,0 +1,6 @@
+framework module Pods_Aruba {
+  umbrella header "Pods-Aruba-umbrella.h"
+
+  export *
+  module * { export * }
+}

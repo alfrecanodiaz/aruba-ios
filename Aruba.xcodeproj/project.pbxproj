@@ -14,6 +14,17 @@
 		3B26A3C022584BD30063ECAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B26A3BE22584BD30063ECAA /* LaunchScreen.storyboard */; };
 		3B26A3CB22584BD30063ECAA /* ArubaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26A3CA22584BD30063ECAA /* ArubaTests.swift */; };
 		3B26A3D622584BD30063ECAA /* ArubaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26A3D522584BD30063ECAA /* ArubaUITests.swift */; };
+		3BD43CF1225856B900AC3411 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BD43CF0225856B900AC3411 /* Start.storyboard */; };
+		3BD43CF3225858B000AC3411 /* AButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CF2225858B000AC3411 /* AButton.swift */; };
+		3BD43CF62258594D00AC3411 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CF52258594D00AC3411 /* Colors.swift */; };
+		3BD43CFB22585B7F00AC3411 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CFA22585B7F00AC3411 /* LandingViewController.swift */; };
+		3BD43CFD22585B9200AC3411 /* RegisterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CFC22585B9200AC3411 /* RegisterTableViewController.swift */; };
+		3BD43CFF22585EF000AC3411 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CFE22585EF000AC3411 /* HTTPClient.swift */; };
+		3BD43D012258608700AC3411 /* JSONDecoder+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D002258608700AC3411 /* JSONDecoder+Utils.swift */; };
+		3BD43D05225861C300AC3411 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D04225861C300AC3411 /* User.swift */; };
+		4CFB3436FF898A02A3CB1B16 /* Pods_ArubaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB5DFA16BEBD9049A9C88C0 /* Pods_ArubaTests.framework */; };
+		504779E3E806BD1CC210E25F /* Pods_ArubaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496D39961CE2E05473FF0CBC /* Pods_ArubaUITests.framework */; };
+		C48160F9BD5D0AD5944F0195 /* Pods_Aruba.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D51EC17E35B0F4B48A69CF8 /* Pods_Aruba.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0558D970D0CA945C6C2661E0 /* Pods-Aruba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aruba.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Aruba/Pods-Aruba.debug.xcconfig"; sourceTree = "<group>"; };
 		3B26A3B222584BD10063ECAA /* Aruba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aruba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B26A3B522584BD10063ECAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B26A3B722584BD10063ECAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +59,22 @@
 		3B26A3D122584BD30063ECAA /* ArubaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ArubaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B26A3D522584BD30063ECAA /* ArubaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArubaUITests.swift; sourceTree = "<group>"; };
 		3B26A3D722584BD30063ECAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BD43CF0225856B900AC3411 /* Start.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
+		3BD43CF2225858B000AC3411 /* AButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AButton.swift; sourceTree = "<group>"; };
+		3BD43CF52258594D00AC3411 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		3BD43CFA22585B7F00AC3411 /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		3BD43CFC22585B9200AC3411 /* RegisterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTableViewController.swift; sourceTree = "<group>"; };
+		3BD43CFE22585EF000AC3411 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		3BD43D002258608700AC3411 /* JSONDecoder+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Utils.swift"; sourceTree = "<group>"; };
+		3BD43D04225861C300AC3411 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		496D39961CE2E05473FF0CBC /* Pods_ArubaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArubaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D51EC17E35B0F4B48A69CF8 /* Pods_Aruba.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aruba.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F3C20A30C6A99E339F6600B /* Pods-ArubaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArubaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArubaTests/Pods-ArubaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		89C589BCD472F06024F9FBAC /* Pods-Aruba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aruba.release.xcconfig"; path = "Pods/Target Support Files/Pods-Aruba/Pods-Aruba.release.xcconfig"; sourceTree = "<group>"; };
+		8E19267E83A702696BD13303 /* Pods-ArubaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArubaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArubaUITests/Pods-ArubaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8EA4AA119F1E8F11172D2267 /* Pods-ArubaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArubaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArubaTests/Pods-ArubaTests.release.xcconfig"; sourceTree = "<group>"; };
+		D6FAFCA051FE3148AA5163E7 /* Pods-ArubaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArubaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ArubaUITests/Pods-ArubaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		EAB5DFA16BEBD9049A9C88C0 /* Pods_ArubaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArubaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C48160F9BD5D0AD5944F0195 /* Pods_Aruba.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CFB3436FF898A02A3CB1B16 /* Pods_ArubaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				504779E3E806BD1CC210E25F /* Pods_ArubaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +112,8 @@
 				3B26A3C922584BD30063ECAA /* ArubaTests */,
 				3B26A3D422584BD30063ECAA /* ArubaUITests */,
 				3B26A3B322584BD10063ECAA /* Products */,
+				9173B25B04E066D00D761154 /* Pods */,
+				B6F5B3FB5B2700766330E809 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +130,17 @@
 		3B26A3B422584BD10063ECAA /* Aruba */ = {
 			isa = PBXGroup;
 			children = (
+				3BD43D03225861B700AC3411 /* Models */,
+				3BD43CF922585B6900AC3411 /* Landing */,
 				3B26A3B522584BD10063ECAA /* AppDelegate.swift */,
 				3B26A3B722584BD10063ECAA /* ViewController.swift */,
 				3B26A3B922584BD10063ECAA /* Main.storyboard */,
 				3B26A3BC22584BD30063ECAA /* Assets.xcassets */,
 				3B26A3BE22584BD30063ECAA /* LaunchScreen.storyboard */,
 				3B26A3C122584BD30063ECAA /* Info.plist */,
+				3BD43CF4225858B500AC3411 /* Helper Classes */,
+				3BD43CF72258595100AC3411 /* Constants */,
+				3BD43D022258608B00AC3411 /* Extensions */,
 			);
 			path = Aruba;
 			sourceTree = "<group>";
@@ -125,6 +163,72 @@
 			path = ArubaUITests;
 			sourceTree = "<group>";
 		};
+		3BD43CF4225858B500AC3411 /* Helper Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3BD43CF2225858B000AC3411 /* AButton.swift */,
+				3BD43CFE22585EF000AC3411 /* HTTPClient.swift */,
+			);
+			path = "Helper Classes";
+			sourceTree = "<group>";
+		};
+		3BD43CF72258595100AC3411 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				3BD43CF52258594D00AC3411 /* Colors.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		3BD43CF922585B6900AC3411 /* Landing */ = {
+			isa = PBXGroup;
+			children = (
+				3BD43CF0225856B900AC3411 /* Start.storyboard */,
+				3BD43CFA22585B7F00AC3411 /* LandingViewController.swift */,
+				3BD43CFC22585B9200AC3411 /* RegisterTableViewController.swift */,
+			);
+			path = Landing;
+			sourceTree = "<group>";
+		};
+		3BD43D022258608B00AC3411 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3BD43D002258608700AC3411 /* JSONDecoder+Utils.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3BD43D03225861B700AC3411 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3BD43D04225861C300AC3411 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9173B25B04E066D00D761154 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0558D970D0CA945C6C2661E0 /* Pods-Aruba.debug.xcconfig */,
+				89C589BCD472F06024F9FBAC /* Pods-Aruba.release.xcconfig */,
+				7F3C20A30C6A99E339F6600B /* Pods-ArubaTests.debug.xcconfig */,
+				8EA4AA119F1E8F11172D2267 /* Pods-ArubaTests.release.xcconfig */,
+				8E19267E83A702696BD13303 /* Pods-ArubaUITests.debug.xcconfig */,
+				D6FAFCA051FE3148AA5163E7 /* Pods-ArubaUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B6F5B3FB5B2700766330E809 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D51EC17E35B0F4B48A69CF8 /* Pods_Aruba.framework */,
+				EAB5DFA16BEBD9049A9C88C0 /* Pods_ArubaTests.framework */,
+				496D39961CE2E05473FF0CBC /* Pods_ArubaUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +236,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B26A3DA22584BD30063ECAA /* Build configuration list for PBXNativeTarget "Aruba" */;
 			buildPhases = (
+				ACAB64AB17CDA4748F428E75 /* [CP] Check Pods Manifest.lock */,
 				3B26A3AE22584BD10063ECAA /* Sources */,
 				3B26A3AF22584BD10063ECAA /* Frameworks */,
 				3B26A3B022584BD10063ECAA /* Resources */,
+				5F0F75822D6C078A00A3710C /* [CP] Embed Pods Frameworks */,
+				3BD43CF822585A9E00AC3411 /* SwiftLint Script */,
 			);
 			buildRules = (
 			);
@@ -149,6 +256,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B26A3DD22584BD30063ECAA /* Build configuration list for PBXNativeTarget "ArubaTests" */;
 			buildPhases = (
+				2C1A62C781F37F24846BD1B1 /* [CP] Check Pods Manifest.lock */,
 				3B26A3C222584BD30063ECAA /* Sources */,
 				3B26A3C322584BD30063ECAA /* Frameworks */,
 				3B26A3C422584BD30063ECAA /* Resources */,
@@ -167,6 +275,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3B26A3E022584BD30063ECAA /* Build configuration list for PBXNativeTarget "ArubaUITests" */;
 			buildPhases = (
+				EB0CE8173791528D1E27FE65 /* [CP] Check Pods Manifest.lock */,
 				3B26A3CD22584BD30063ECAA /* Sources */,
 				3B26A3CE22584BD30063ECAA /* Frameworks */,
 				3B26A3CF22584BD30063ECAA /* Resources */,
@@ -230,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B26A3C022584BD30063ECAA /* LaunchScreen.storyboard in Resources */,
+				3BD43CF1225856B900AC3411 /* Start.storyboard in Resources */,
 				3B26A3BD22584BD30063ECAA /* Assets.xcassets in Resources */,
 				3B26A3BB22584BD10063ECAA /* Main.storyboard in Resources */,
 			);
@@ -251,12 +361,112 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2C1A62C781F37F24846BD1B1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ArubaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3BD43CF822585A9E00AC3411 /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		5F0F75822D6C078A00A3710C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Aruba/Pods-Aruba-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Aruba/Pods-Aruba-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACAB64AB17CDA4748F428E75 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Aruba-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB0CE8173791528D1E27FE65 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ArubaUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3B26A3AE22584BD10063ECAA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BD43CF3225858B000AC3411 /* AButton.swift in Sources */,
+				3BD43CF62258594D00AC3411 /* Colors.swift in Sources */,
 				3B26A3B822584BD10063ECAA /* ViewController.swift in Sources */,
+				3BD43CFF22585EF000AC3411 /* HTTPClient.swift in Sources */,
+				3BD43CFB22585B7F00AC3411 /* LandingViewController.swift in Sources */,
+				3BD43D05225861C300AC3411 /* User.swift in Sources */,
+				3BD43CFD22585B9200AC3411 /* RegisterTableViewController.swift in Sources */,
+				3BD43D012258608700AC3411 /* JSONDecoder+Utils.swift in Sources */,
 				3B26A3B622584BD10063ECAA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,11 +640,13 @@
 		};
 		3B26A3DB22584BD30063ECAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0558D970D0CA945C6C2661E0 /* Pods-Aruba.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = Aruba/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -442,17 +654,19 @@
 				PRODUCT_BUNDLE_IDENTIFIER = py.com.nextgen.Aruba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		3B26A3DC22584BD30063ECAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89C589BCD472F06024F9FBAC /* Pods-Aruba.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = Aruba/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -460,12 +674,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = py.com.nextgen.Aruba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		3B26A3DE22584BD30063ECAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F3C20A30C6A99E339F6600B /* Pods-ArubaTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -487,6 +702,7 @@
 		};
 		3B26A3DF22584BD30063ECAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EA4AA119F1E8F11172D2267 /* Pods-ArubaTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +724,7 @@
 		};
 		3B26A3E122584BD30063ECAA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8E19267E83A702696BD13303 /* Pods-ArubaUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -528,6 +745,7 @@
 		};
 		3B26A3E222584BD30063ECAA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6FAFCA051FE3148AA5163E7 /* Pods-ArubaUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

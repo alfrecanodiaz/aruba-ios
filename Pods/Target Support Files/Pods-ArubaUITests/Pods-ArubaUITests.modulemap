@@ -1,0 +1,6 @@
+framework module Pods_ArubaUITests {
+  umbrella header "Pods-ArubaUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,1421 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0E75371116D2E4B098269C671F0742FA /* Pods-Aruba-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 954FF54A6CBF7E6C06388A9E5C9EBD3B /* Pods-Aruba-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		10EB23E9ECC4B33E16933BB1EA560B6A /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1F383415E854163FAAF38F14C5D0D9 /* Timeline.swift */; };
+		16947A151C20F6A59DBA7BEA9F171F7D /* UISideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E37AFD121FE920B6D057E9E25662221 /* UISideMenuNavigationController.swift */; };
+		1B9EDEDC964E6B08F78920B4F4B9DB84 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 926FC2F303F135B237B6B2A9AF9A057B /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1D6B1CEDB3586D5044017E44923385C1 /* Pods-ArubaUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 515B79426E8B0A3B1B94B2D6E6A02129 /* Pods-ArubaUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		230046892EE5103675AD312AFE9B432C /* SideMenu-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2974B6A1A67625F60CEB3F7232389A06 /* SideMenu-dummy.m */; };
+		2A0534E6ED4BEF84B7A0E4D27FBF5A06 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		3626B94094672CB1C9DEA32B9F9502E1 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5287FE8AAC1330E52872D9613C0AF7 /* TaskDelegate.swift */; };
+		36C16F2DFFD2AFF1AAA51EC1FD51F661 /* MaterialTextField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1238A3C51772BC0BCD1B6BAC97DF63CD /* MaterialTextField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49CA686DE09586D8E72BB7F275EB58E3 /* UIImage+MFTint.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C11806BC7F817E1689CD814A6117A4 /* UIImage+MFTint.m */; };
+		4D4BFF90CBCD872CF3565B517520000B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73E3BF95A5B9CDC5C028762AD1BA1A2 /* Request.swift */; };
+		54575857B580DC4E2AD76CF1EE996B5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		554BFE202E5121D78D496F31C8E839DA /* MFTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 2934F847098D0C1C58B80BA69F2CCC5E /* MFTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5B8ACF60132A024A5831CA31F399DFB9 /* UIFont+MaterialTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BB555FA4C98732E7C1E9A30D78FFF0F /* UIFont+MaterialTextField.m */; };
+		5BFF007ACE5AF1FA18FF9D7C667A9ED3 /* UIColor+MaterialTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = C0150B955A449E358382A8C3E0237C90 /* UIColor+MaterialTextField.m */; };
+		5C37D8C56C278D2D0FAE99437FFAABAB /* UITableViewVibrantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278125A27E71486514AD4809362534B /* UITableViewVibrantCell.swift */; };
+		5D503EE6A49A644C0BAEE94C55CA7073 /* Pods-ArubaUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 787FF818D46A6D076C6B11B7624D41CB /* Pods-ArubaUITests-dummy.m */; };
+		5EED564ADC71AD1A5D69906BB0A76C98 /* Pods-Aruba-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B43BA380AA820EEC596B445E31497704 /* Pods-Aruba-dummy.m */; };
+		5F4A3E2D534F17A91E411F75BAB0E232 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		61200D01A1855D7920CEF835C8BE00B0 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAE7BB0F92A443B07FE8F8A0D960FDCA /* DispatchQueue+Alamofire.swift */; };
+		6197286479CF3452495BCACF6D3D279B /* UITextField+MFClearButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 5ADA925A617C4039538C09449C911834 /* UITextField+MFClearButton.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		62F65AD8DC4F0F9610F4B8B4738EC094 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EECA0B4571E6339429B39F1A565F5B /* ServerTrustPolicy.swift */; };
+		63097A3037152211165596A7DD92A59F /* SideMenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6DD8ABF640D65007FCB1C4812970C7 /* SideMenuManager.swift */; };
+		6595B810AE35BE0F21F6B8BF8AC4AFE2 /* SideMenuTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836C481FCA73248175B1C0DD505DCCFC /* SideMenuTransition.swift */; };
+		7444E26FC26CD3F0C2A833EF09A27A45 /* Pods-ArubaTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 43121B677FA5F581567588F6F3F0CFCB /* Pods-ArubaTests-dummy.m */; };
+		75A5E897699B5A96A065ECC359ADD0D9 /* MaterialTextField-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E7A2B0B4710C3E0506E4D300D60D6928 /* MaterialTextField-dummy.m */; };
+		7B5FE28C7EA4122B0598738E54DBEBD8 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5206EC833F1ACF3284C325C2F15E34B2 /* SessionDelegate.swift */; };
+		7D8CC01E8C9EFFF9F4D65406CDE0AB66 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C9989543C6C4CBD807FB32485571FA6 /* Result.swift */; };
+		834F4D9819C6010E611A7E151B8899C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		86A9BEA4873AA74ED6A55D8504CEF791 /* UIColor+MaterialTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C71EE4EC53D98824932409D9F23FC22 /* UIColor+MaterialTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9003164DC60697FFEFA57684EE29C5E4 /* MaterialTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D4285C6A655C03B0BD7C25B9B62E50B /* MaterialTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9E1D53AB444B5D34A21F4958281E9AE2 /* MFTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 1732068393EDFF6A4C00E2E8AE7A84E3 /* MFTextField.m */; };
+		9ED2BB2981896E0A39EFA365503F58CE /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EEC9B84CA101AA4BFAD9B3FE73E528 /* AFError.swift */; };
+		A2A6F71B727312BD45CC7A4AAD7B0AB7 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB25B3B0890071F2143D8260EFFEFC4C /* NetworkReachabilityManager.swift */; };
+		A3C46817173A412BAD8AA81289697B5E /* UITextField+MFClearButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 565B35A25B01991DB6C8AE45EF41571F /* UITextField+MFClearButton.m */; };
+		A9EEEA7477981DEEBC72432DE9990A4B /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 17932BA84597A3658FCDC396C1C04C29 /* Alamofire-dummy.m */; };
+		AE1EF48399533730D0066E04B22CA2D6 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFB6764CB698E181D1B22A52652E5A30 /* SessionManager.swift */; };
+		B65FCF589DA398C3EFE0128064E510EC /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB9A4B1A7D198C4C66C82392EEF302C /* MultipartFormData.swift */; };
+		BBEFE2F9CEB73DC7BD97FFA66A0D9D4F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41CBBCA52855F3449ACB39E66C5A529 /* Validation.swift */; };
+		BE3AAC479CFBAA16786CEE23B1B02CFF /* SideMenu-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 49BA9489E175F046765C7F9AF1F09CE3 /* SideMenu-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BE5C67A07E289FE1F9BE27335B159997 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF9720175E853EF2ED462F527EF3087 /* ParameterEncoding.swift */; };
+		BF97E3FAAB28949743F5C21898DD350A /* UIFont+MaterialTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 59BF4211FB8EDE7AF3197BA2E563BBE3 /* UIFont+MaterialTextField.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CB6D60925223897FFA2662667DF83E8A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = C437524A0D100E0F3FBCE60C8DA1A7F6 /* Response.swift */; };
+		DAC85BE2DAD834D9F34081693FD063FB /* Pods-ArubaTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 944680AA347A06FB0F08535E2A4A94D8 /* Pods-ArubaTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E0AE709A8F450C55F6D7FE0E929AEF0B /* UIImage+MFTint.h in Headers */ = {isa = PBXBuildFile; fileRef = 045F9068C4D0C13B4F4C11B9DEF29A19 /* UIImage+MFTint.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EC5F0C5EBDB63E3C7BC52AE2C1D97A94 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA43B7533F66AC2961C91A9C1480832 /* Notifications.swift */; };
+		F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D42441D082AD609FCDCC0D74B327B /* ResponseSerialization.swift */; };
+		F8B3D3092ED0417E8CDF32033F6122F5 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACCABA3A025AE89A15559A36FD840DA /* Alamofire.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1774286BC9A612B388F3F0B1237E6E2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 17D1131A370110DFCB28CC0421076E6E;
+			remoteInfo = "Pods-Aruba";
+		};
+		A38EFE397E40840F0CF662E500A8C690 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 17D1131A370110DFCB28CC0421076E6E;
+			remoteInfo = "Pods-Aruba";
+		};
+		AE23879DF7150ED595266F733A68971D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 82513019EBCD8013EF277157A3F21093;
+			remoteInfo = SideMenu;
+		};
+		CAABE25AAD8C8F74A0491BAAA7A7BA15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63C971EDB4110A23793BD04B3F5CF981;
+			remoteInfo = MaterialTextField;
+		};
+		E65F87079EBDEA21B5BFBBB697A945B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
+			remoteInfo = Alamofire;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		045F9068C4D0C13B4F4C11B9DEF29A19 /* UIImage+MFTint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+MFTint.h"; path = "MaterialTextField/UIImage+MFTint.h"; sourceTree = "<group>"; };
+		0BF9720175E853EF2ED462F527EF3087 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
+		0C9989543C6C4CBD807FB32485571FA6 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
+		0E1D42441D082AD609FCDCC0D74B327B /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
+		11D0597A17B0D83812E39A6D308EC7AA /* Pods-ArubaUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ArubaUITests.modulemap"; sourceTree = "<group>"; };
+		1238A3C51772BC0BCD1B6BAC97DF63CD /* MaterialTextField-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MaterialTextField-umbrella.h"; sourceTree = "<group>"; };
+		1732068393EDFF6A4C00E2E8AE7A84E3 /* MFTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MFTextField.m; path = MaterialTextField/MFTextField.m; sourceTree = "<group>"; };
+		17932BA84597A3658FCDC396C1C04C29 /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
+		1C5A75444CEF9A8F64080CBF36C9B3AE /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		1C63C013CEDD70212288A7DFC0D4FDFB /* Pods-Aruba-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Aruba-acknowledgements.plist"; sourceTree = "<group>"; };
+		1C97C08946339A210AD44391991756C8 /* Pods-ArubaTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ArubaTests-resources.sh"; sourceTree = "<group>"; };
+		1D4285C6A655C03B0BD7C25B9B62E50B /* MaterialTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MaterialTextField.h; path = MaterialTextField/MaterialTextField.h; sourceTree = "<group>"; };
+		212CC394D12A6575E852CACF5CEB157E /* SideMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SideMenu.framework; path = SideMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27D5E854528CA44D6421F7483D5BC935 /* Pods-ArubaUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ArubaUITests-resources.sh"; sourceTree = "<group>"; };
+		2934F847098D0C1C58B80BA69F2CCC5E /* MFTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MFTextField.h; path = MaterialTextField/MFTextField.h; sourceTree = "<group>"; };
+		2974B6A1A67625F60CEB3F7232389A06 /* SideMenu-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SideMenu-dummy.m"; sourceTree = "<group>"; };
+		2EB1C113B085CCE1AB8E61875A449F51 /* MaterialTextField-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MaterialTextField-prefix.pch"; sourceTree = "<group>"; };
+		348DC52B4B8F84C134BBBE954E3FA6D1 /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
+		37658AD977ACA52A4AEBBEBD6CF1DDC7 /* Pods-Aruba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Aruba.release.xcconfig"; sourceTree = "<group>"; };
+		3D2804B9FAD7A25358FF784D2F650976 /* Pods-ArubaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ArubaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		43121B677FA5F581567588F6F3F0CFCB /* Pods-ArubaTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ArubaTests-dummy.m"; sourceTree = "<group>"; };
+		46C8B0B81AF8BBCFF3499CC096AF8124 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		483C0A7BFF008E0AB72C982CA52E948E /* Pods-Aruba.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Aruba.modulemap"; sourceTree = "<group>"; };
+		49BA9489E175F046765C7F9AF1F09CE3 /* SideMenu-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SideMenu-umbrella.h"; sourceTree = "<group>"; };
+		4C71EE4EC53D98824932409D9F23FC22 /* UIColor+MaterialTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIColor+MaterialTextField.h"; path = "MaterialTextField/UIColor+MaterialTextField.h"; sourceTree = "<group>"; };
+		50B167B7C290C78635E84C4A29D5D882 /* Pods-ArubaUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ArubaUITests-frameworks.sh"; sourceTree = "<group>"; };
+		515B79426E8B0A3B1B94B2D6E6A02129 /* Pods-ArubaUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ArubaUITests-umbrella.h"; sourceTree = "<group>"; };
+		5206EC833F1ACF3284C325C2F15E34B2 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
+		551ACAAA16DC1B604F5A53AAEA75B65C /* Pods-ArubaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ArubaTests.release.xcconfig"; sourceTree = "<group>"; };
+		565B35A25B01991DB6C8AE45EF41571F /* UITextField+MFClearButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+MFClearButton.m"; path = "MaterialTextField/UITextField+MFClearButton.m"; sourceTree = "<group>"; };
+		59BF4211FB8EDE7AF3197BA2E563BBE3 /* UIFont+MaterialTextField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIFont+MaterialTextField.h"; path = "MaterialTextField/UIFont+MaterialTextField.h"; sourceTree = "<group>"; };
+		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5ADA925A617C4039538C09449C911834 /* UITextField+MFClearButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextField+MFClearButton.h"; path = "MaterialTextField/UITextField+MFClearButton.h"; sourceTree = "<group>"; };
+		6062FEC2DEE37E23CBB12952087A5DAD /* Pods-ArubaTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ArubaTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		62EEC9B84CA101AA4BFAD9B3FE73E528 /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
+		6683486BE1DDDE3FB48BC639426F214E /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
+		6805D402786920211217D83ABE2D2B0B /* Pods-Aruba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Aruba.debug.xcconfig"; sourceTree = "<group>"; };
+		6BB555FA4C98732E7C1E9A30D78FFF0F /* UIFont+MaterialTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIFont+MaterialTextField.m"; path = "MaterialTextField/UIFont+MaterialTextField.m"; sourceTree = "<group>"; };
+		787FF818D46A6D076C6B11B7624D41CB /* Pods-ArubaUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ArubaUITests-dummy.m"; sourceTree = "<group>"; };
+		78F09C82E7A95A0FF6A9CCE56A6AD40B /* SideMenu.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SideMenu.modulemap; sourceTree = "<group>"; };
+		79FC40DB4A094C6CFE3A1EDCF839D1EB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D6DD8ABF640D65007FCB1C4812970C7 /* SideMenuManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuManager.swift; path = Pod/Classes/SideMenuManager.swift; sourceTree = "<group>"; };
+		7E37AFD121FE920B6D057E9E25662221 /* UISideMenuNavigationController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UISideMenuNavigationController.swift; path = Pod/Classes/UISideMenuNavigationController.swift; sourceTree = "<group>"; };
+		7F328884C9B6386557BBF85813670B1E /* MaterialTextField.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MaterialTextField.modulemap; sourceTree = "<group>"; };
+		7F615C643597FEE2C60FC256EA847C49 /* Pods-Aruba-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Aruba-frameworks.sh"; sourceTree = "<group>"; };
+		836C481FCA73248175B1C0DD505DCCFC /* SideMenuTransition.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SideMenuTransition.swift; path = Pod/Classes/SideMenuTransition.swift; sourceTree = "<group>"; };
+		8A6E783FA96E8E276F50BE13534D1362 /* Pods_Aruba.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Aruba.framework; path = "Pods-Aruba.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		90EECA0B4571E6339429B39F1A565F5B /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
+		91310C53A4BB648C2BC1A2DE37337C32 /* Pods_ArubaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ArubaUITests.framework; path = "Pods-ArubaUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		926FC2F303F135B237B6B2A9AF9A057B /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		944680AA347A06FB0F08535E2A4A94D8 /* Pods-ArubaTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-ArubaTests-umbrella.h"; sourceTree = "<group>"; };
+		954FF54A6CBF7E6C06388A9E5C9EBD3B /* Pods-Aruba-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Aruba-umbrella.h"; sourceTree = "<group>"; };
+		970719A6AFFFA6B4223EAB0E068EBD6C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98CF7D8B9AD10CE50EBEDD4F1A8FD6B2 /* Pods-ArubaUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ArubaUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9AA5C5FC6A23E7B9A8A66BF6C9127E43 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABA43B7533F66AC2961C91A9C1480832 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
+		AC21AAF747417321989313F98BFF40A0 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE5A13CCB01F5F0C0CBDA4B638C067AB /* Pods-ArubaUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ArubaUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		B43BA380AA820EEC596B445E31497704 /* Pods-Aruba-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Aruba-dummy.m"; sourceTree = "<group>"; };
+		B6E245626921A8DC7D60F12A02F9A080 /* Pods-ArubaTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-ArubaTests.modulemap"; sourceTree = "<group>"; };
+		BAE7BB0F92A443B07FE8F8A0D960FDCA /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
+		BB992A05291658FC38C7E46DDA0B0133 /* SideMenu-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SideMenu-prefix.pch"; sourceTree = "<group>"; };
+		BEB9A4B1A7D198C4C66C82392EEF302C /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
+		C0150B955A449E358382A8C3E0237C90 /* UIColor+MaterialTextField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+MaterialTextField.m"; path = "MaterialTextField/UIColor+MaterialTextField.m"; sourceTree = "<group>"; };
+		C278125A27E71486514AD4809362534B /* UITableViewVibrantCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UITableViewVibrantCell.swift; path = Pod/Classes/UITableViewVibrantCell.swift; sourceTree = "<group>"; };
+		C33C02081D97729A9B483DE9DDA56A55 /* MaterialTextField.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MaterialTextField.xcconfig; sourceTree = "<group>"; };
+		C3796AEDCE6CB0C4D608FF667C394683 /* Pods_ArubaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_ArubaTests.framework; path = "Pods-ArubaTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C437524A0D100E0F3FBCE60C8DA1A7F6 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
+		C6FE58DABB9A5E08A4AFFE9485F35049 /* Pods-ArubaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ArubaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CDDC45C3C697BF74ED578E51FE5C460A /* Pods-ArubaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ArubaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CE10FF138E9746C91EC7308D9598D6E7 /* MaterialTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MaterialTextField.framework; path = MaterialTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEA082C2EA373406493F930205E2938F /* Pods-ArubaTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ArubaTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		CF5287FE8AAC1330E52872D9613C0AF7 /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
+		D41CBBCA52855F3449ACB39E66C5A529 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
+		DE3EA6C1354C4BBDD96F8D82ACA90D43 /* SideMenu.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SideMenu.xcconfig; sourceTree = "<group>"; };
+		E095EB16C7F48C490A71B072B004B1DC /* Pods-Aruba-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Aruba-resources.sh"; sourceTree = "<group>"; };
+		E3C11806BC7F817E1689CD814A6117A4 /* UIImage+MFTint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+MFTint.m"; path = "MaterialTextField/UIImage+MFTint.m"; sourceTree = "<group>"; };
+		E46C27FD627853F318F022B229B6ADBB /* Pods-ArubaTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ArubaTests-frameworks.sh"; sourceTree = "<group>"; };
+		E7A2B0B4710C3E0506E4D300D60D6928 /* MaterialTextField-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MaterialTextField-dummy.m"; sourceTree = "<group>"; };
+		EC92D240270312C39D96AAD2535D52E9 /* Pods-Aruba-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Aruba-acknowledgements.markdown"; sourceTree = "<group>"; };
+		EFB6764CB698E181D1B22A52652E5A30 /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
+		F6AD43EFB9C48CD76F04A47999D2A382 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F73E3BF95A5B9CDC5C028762AD1BA1A2 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
+		FA1F383415E854163FAAF38F14C5D0D9 /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
+		FACCABA3A025AE89A15559A36FD840DA /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
+		FB25B3B0890071F2143D8260EFFEFC4C /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
+		FE6DE672692C841398F344C2CB683507 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		02044CDB0D6BAC985C2365B5E6511AA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D4BFF90CBCD872CF3565B517520000B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FDBFCEB3377B03D31E8D069BD8925D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F4A3E2D534F17A91E411F75BAB0E232 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		29196CFF2F9B217689AFEC20D16CFA7D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC5F0C5EBDB63E3C7BC52AE2C1D97A94 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		33606D296D27789A3250B9CA3B0E868B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54575857B580DC4E2AD76CF1EE996B5E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99195E4207764744AEC07ECCBCD550EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				834F4D9819C6010E611A7E151B8899C3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF4828DE3625B1112A1A372F22984698 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A0534E6ED4BEF84B7A0E4D27FBF5A06 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3753E2F421D803C315A5EA178E2EE369 /* MaterialTextField */ = {
+			isa = PBXGroup;
+			children = (
+				1D4285C6A655C03B0BD7C25B9B62E50B /* MaterialTextField.h */,
+				2934F847098D0C1C58B80BA69F2CCC5E /* MFTextField.h */,
+				1732068393EDFF6A4C00E2E8AE7A84E3 /* MFTextField.m */,
+				4C71EE4EC53D98824932409D9F23FC22 /* UIColor+MaterialTextField.h */,
+				C0150B955A449E358382A8C3E0237C90 /* UIColor+MaterialTextField.m */,
+				59BF4211FB8EDE7AF3197BA2E563BBE3 /* UIFont+MaterialTextField.h */,
+				6BB555FA4C98732E7C1E9A30D78FFF0F /* UIFont+MaterialTextField.m */,
+				045F9068C4D0C13B4F4C11B9DEF29A19 /* UIImage+MFTint.h */,
+				E3C11806BC7F817E1689CD814A6117A4 /* UIImage+MFTint.m */,
+				5ADA925A617C4039538C09449C911834 /* UITextField+MFClearButton.h */,
+				565B35A25B01991DB6C8AE45EF41571F /* UITextField+MFClearButton.m */,
+				FE0D86EF2001C65F869C3604BC9DF569 /* Support Files */,
+			);
+			name = MaterialTextField;
+			path = MaterialTextField;
+			sourceTree = "<group>";
+		};
+		3BB0827A9E45DADE2B43822EFCD3E810 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				62EEC9B84CA101AA4BFAD9B3FE73E528 /* AFError.swift */,
+				FACCABA3A025AE89A15559A36FD840DA /* Alamofire.swift */,
+				BAE7BB0F92A443B07FE8F8A0D960FDCA /* DispatchQueue+Alamofire.swift */,
+				BEB9A4B1A7D198C4C66C82392EEF302C /* MultipartFormData.swift */,
+				FB25B3B0890071F2143D8260EFFEFC4C /* NetworkReachabilityManager.swift */,
+				ABA43B7533F66AC2961C91A9C1480832 /* Notifications.swift */,
+				0BF9720175E853EF2ED462F527EF3087 /* ParameterEncoding.swift */,
+				F73E3BF95A5B9CDC5C028762AD1BA1A2 /* Request.swift */,
+				C437524A0D100E0F3FBCE60C8DA1A7F6 /* Response.swift */,
+				0E1D42441D082AD609FCDCC0D74B327B /* ResponseSerialization.swift */,
+				0C9989543C6C4CBD807FB32485571FA6 /* Result.swift */,
+				90EECA0B4571E6339429B39F1A565F5B /* ServerTrustPolicy.swift */,
+				5206EC833F1ACF3284C325C2F15E34B2 /* SessionDelegate.swift */,
+				EFB6764CB698E181D1B22A52652E5A30 /* SessionManager.swift */,
+				CF5287FE8AAC1330E52872D9613C0AF7 /* TaskDelegate.swift */,
+				FA1F383415E854163FAAF38F14C5D0D9 /* Timeline.swift */,
+				D41CBBCA52855F3449ACB39E66C5A529 /* Validation.swift */,
+				BD4F96726BF8C1353E892ED4ACA98179 /* Support Files */,
+			);
+			name = Alamofire;
+			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		44D2186AEC31CB955BFFA9DF729084B5 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				46C8B0B81AF8BBCFF3499CC096AF8124 /* Info.plist */,
+				78F09C82E7A95A0FF6A9CCE56A6AD40B /* SideMenu.modulemap */,
+				DE3EA6C1354C4BBDD96F8D82ACA90D43 /* SideMenu.xcconfig */,
+				2974B6A1A67625F60CEB3F7232389A06 /* SideMenu-dummy.m */,
+				BB992A05291658FC38C7E46DDA0B0133 /* SideMenu-prefix.pch */,
+				49BA9489E175F046765C7F9AF1F09CE3 /* SideMenu-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SideMenu";
+			sourceTree = "<group>";
+		};
+		4A1C389D06FEC4B6736C71C7D3117C20 /* Pods-ArubaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				970719A6AFFFA6B4223EAB0E068EBD6C /* Info.plist */,
+				11D0597A17B0D83812E39A6D308EC7AA /* Pods-ArubaUITests.modulemap */,
+				98CF7D8B9AD10CE50EBEDD4F1A8FD6B2 /* Pods-ArubaUITests-acknowledgements.markdown */,
+				AE5A13CCB01F5F0C0CBDA4B638C067AB /* Pods-ArubaUITests-acknowledgements.plist */,
+				787FF818D46A6D076C6B11B7624D41CB /* Pods-ArubaUITests-dummy.m */,
+				50B167B7C290C78635E84C4A29D5D882 /* Pods-ArubaUITests-frameworks.sh */,
+				27D5E854528CA44D6421F7483D5BC935 /* Pods-ArubaUITests-resources.sh */,
+				515B79426E8B0A3B1B94B2D6E6A02129 /* Pods-ArubaUITests-umbrella.h */,
+				CDDC45C3C697BF74ED578E51FE5C460A /* Pods-ArubaUITests.debug.xcconfig */,
+				C6FE58DABB9A5E08A4AFFE9485F35049 /* Pods-ArubaUITests.release.xcconfig */,
+			);
+			name = "Pods-ArubaUITests";
+			path = "Target Support Files/Pods-ArubaUITests";
+			sourceTree = "<group>";
+		};
+		4A880937BE3DF36A5016E25C02355A21 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FD48AF2DCFEAAEF2FE537F11F9D2EA3C /* Pods-Aruba */,
+				5C385B81EEFEA22E6BF3D28E27D6D9CF /* Pods-ArubaTests */,
+				4A1C389D06FEC4B6736C71C7D3117C20 /* Pods-ArubaUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		5C385B81EEFEA22E6BF3D28E27D6D9CF /* Pods-ArubaTests */ = {
+			isa = PBXGroup;
+			children = (
+				FE6DE672692C841398F344C2CB683507 /* Info.plist */,
+				B6E245626921A8DC7D60F12A02F9A080 /* Pods-ArubaTests.modulemap */,
+				6062FEC2DEE37E23CBB12952087A5DAD /* Pods-ArubaTests-acknowledgements.markdown */,
+				CEA082C2EA373406493F930205E2938F /* Pods-ArubaTests-acknowledgements.plist */,
+				43121B677FA5F581567588F6F3F0CFCB /* Pods-ArubaTests-dummy.m */,
+				E46C27FD627853F318F022B229B6ADBB /* Pods-ArubaTests-frameworks.sh */,
+				1C97C08946339A210AD44391991756C8 /* Pods-ArubaTests-resources.sh */,
+				944680AA347A06FB0F08535E2A4A94D8 /* Pods-ArubaTests-umbrella.h */,
+				3D2804B9FAD7A25358FF784D2F650976 /* Pods-ArubaTests.debug.xcconfig */,
+				551ACAAA16DC1B604F5A53AAEA75B65C /* Pods-ArubaTests.release.xcconfig */,
+			);
+			name = "Pods-ArubaTests";
+			path = "Target Support Files/Pods-ArubaTests";
+			sourceTree = "<group>";
+		};
+		5E0D919E635D23B70123790B8308F8EF /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		76781C146F12B6C700DA7B34702AF394 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				7D6DD8ABF640D65007FCB1C4812970C7 /* SideMenuManager.swift */,
+				836C481FCA73248175B1C0DD505DCCFC /* SideMenuTransition.swift */,
+				7E37AFD121FE920B6D057E9E25662221 /* UISideMenuNavigationController.swift */,
+				C278125A27E71486514AD4809362534B /* UITableViewVibrantCell.swift */,
+				44D2186AEC31CB955BFFA9DF729084B5 /* Support Files */,
+			);
+			name = SideMenu;
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				B2D6350A226A6B7B702E95F4B3A93840 /* Pods */,
+				AAB4E31D9425280E16D2F3C599C29F58 /* Products */,
+				4A880937BE3DF36A5016E25C02355A21 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		AAB4E31D9425280E16D2F3C599C29F58 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC21AAF747417321989313F98BFF40A0 /* Alamofire.framework */,
+				CE10FF138E9746C91EC7308D9598D6E7 /* MaterialTextField.framework */,
+				8A6E783FA96E8E276F50BE13534D1362 /* Pods_Aruba.framework */,
+				C3796AEDCE6CB0C4D608FF667C394683 /* Pods_ArubaTests.framework */,
+				91310C53A4BB648C2BC1A2DE37337C32 /* Pods_ArubaUITests.framework */,
+				212CC394D12A6575E852CACF5CEB157E /* SideMenu.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AD72B827E201DAAFA2D7EF3583B2511F /* SwiftLint */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SwiftLint;
+			path = SwiftLint;
+			sourceTree = "<group>";
+		};
+		B2D6350A226A6B7B702E95F4B3A93840 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3BB0827A9E45DADE2B43822EFCD3E810 /* Alamofire */,
+				3753E2F421D803C315A5EA178E2EE369 /* MaterialTextField */,
+				76781C146F12B6C700DA7B34702AF394 /* SideMenu */,
+				AD72B827E201DAAFA2D7EF3583B2511F /* SwiftLint */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5E0D919E635D23B70123790B8308F8EF /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BD4F96726BF8C1353E892ED4ACA98179 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1C5A75444CEF9A8F64080CBF36C9B3AE /* Alamofire.modulemap */,
+				348DC52B4B8F84C134BBBE954E3FA6D1 /* Alamofire.xcconfig */,
+				17932BA84597A3658FCDC396C1C04C29 /* Alamofire-dummy.m */,
+				6683486BE1DDDE3FB48BC639426F214E /* Alamofire-prefix.pch */,
+				926FC2F303F135B237B6B2A9AF9A057B /* Alamofire-umbrella.h */,
+				F6AD43EFB9C48CD76F04A47999D2A382 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Alamofire";
+			sourceTree = "<group>";
+		};
+		FD48AF2DCFEAAEF2FE537F11F9D2EA3C /* Pods-Aruba */ = {
+			isa = PBXGroup;
+			children = (
+				79FC40DB4A094C6CFE3A1EDCF839D1EB /* Info.plist */,
+				483C0A7BFF008E0AB72C982CA52E948E /* Pods-Aruba.modulemap */,
+				EC92D240270312C39D96AAD2535D52E9 /* Pods-Aruba-acknowledgements.markdown */,
+				1C63C013CEDD70212288A7DFC0D4FDFB /* Pods-Aruba-acknowledgements.plist */,
+				B43BA380AA820EEC596B445E31497704 /* Pods-Aruba-dummy.m */,
+				7F615C643597FEE2C60FC256EA847C49 /* Pods-Aruba-frameworks.sh */,
+				E095EB16C7F48C490A71B072B004B1DC /* Pods-Aruba-resources.sh */,
+				954FF54A6CBF7E6C06388A9E5C9EBD3B /* Pods-Aruba-umbrella.h */,
+				6805D402786920211217D83ABE2D2B0B /* Pods-Aruba.debug.xcconfig */,
+				37658AD977ACA52A4AEBBEBD6CF1DDC7 /* Pods-Aruba.release.xcconfig */,
+			);
+			name = "Pods-Aruba";
+			path = "Target Support Files/Pods-Aruba";
+			sourceTree = "<group>";
+		};
+		FE0D86EF2001C65F869C3604BC9DF569 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9AA5C5FC6A23E7B9A8A66BF6C9127E43 /* Info.plist */,
+				7F328884C9B6386557BBF85813670B1E /* MaterialTextField.modulemap */,
+				C33C02081D97729A9B483DE9DDA56A55 /* MaterialTextField.xcconfig */,
+				E7A2B0B4710C3E0506E4D300D60D6928 /* MaterialTextField-dummy.m */,
+				2EB1C113B085CCE1AB8E61875A449F51 /* MaterialTextField-prefix.pch */,
+				1238A3C51772BC0BCD1B6BAC97DF63CD /* MaterialTextField-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MaterialTextField";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3A8C8B7606D2C877D3586A81799559E2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DAC85BE2DAD834D9F34081693FD063FB /* Pods-ArubaTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8FF5E1BD39432D8BD7126F78FB320E5E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D6B1CEDB3586D5044017E44923385C1 /* Pods-ArubaUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AD82D1A3A95DE62D88049FC60CB104DC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0E75371116D2E4B098269C671F0742FA /* Pods-Aruba-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4002B6E97835FDCCAA5963EFE09A3E0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B9EDEDC964E6B08F78920B4F4B9DB84 /* Alamofire-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCBEDEF8E0F91500A6714CC3417F0836 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE3AAC479CFBAA16786CEE23B1B02CFF /* SideMenu-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D6C4E27469A2CD4093DED00EC2AAD30C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36C16F2DFFD2AFF1AAA51EC1FD51F661 /* MaterialTextField-umbrella.h in Headers */,
+				9003164DC60697FFEFA57684EE29C5E4 /* MaterialTextField.h in Headers */,
+				554BFE202E5121D78D496F31C8E839DA /* MFTextField.h in Headers */,
+				86A9BEA4873AA74ED6A55D8504CEF791 /* UIColor+MaterialTextField.h in Headers */,
+				BF97E3FAAB28949743F5C21898DD350A /* UIFont+MaterialTextField.h in Headers */,
+				E0AE709A8F450C55F6D7FE0E929AEF0B /* UIImage+MFTint.h in Headers */,
+				6197286479CF3452495BCACF6D3D279B /* UITextField+MFClearButton.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		17D1131A370110DFCB28CC0421076E6E /* Pods-Aruba */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44FECE76C512ED4BF53BB1777A5E73AB /* Build configuration list for PBXNativeTarget "Pods-Aruba" */;
+			buildPhases = (
+				0F791CB43D113B9F34B6BF0A8C60AEF8 /* Sources */,
+				02044CDB0D6BAC985C2365B5E6511AA4 /* Frameworks */,
+				AD82D1A3A95DE62D88049FC60CB104DC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03A0795F293E360C9A3CA255DCD84C2A /* PBXTargetDependency */,
+				4E68B37B3836ECD6AF534026701C010C /* PBXTargetDependency */,
+				84FA5DCFF439141CCD3D611F5C9D7577 /* PBXTargetDependency */,
+			);
+			name = "Pods-Aruba";
+			productName = "Pods-Aruba";
+			productReference = 8A6E783FA96E8E276F50BE13534D1362 /* Pods_Aruba.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		1937D120B72CA6196F55D5EE342BEFAB /* Pods-ArubaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65BA6DAD531B1EC3151178995A1244E0 /* Build configuration list for PBXNativeTarget "Pods-ArubaUITests" */;
+			buildPhases = (
+				D8C532700433078ADADCACFC2C11B375 /* Sources */,
+				29196CFF2F9B217689AFEC20D16CFA7D /* Frameworks */,
+				8FF5E1BD39432D8BD7126F78FB320E5E /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				54FE195057833B6CF564AEA84728543C /* PBXTargetDependency */,
+			);
+			name = "Pods-ArubaUITests";
+			productName = "Pods-ArubaUITests";
+			productReference = 91310C53A4BB648C2BC1A2DE37337C32 /* Pods_ArubaUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		63C971EDB4110A23793BD04B3F5CF981 /* MaterialTextField */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BA30DECD11ACD6F30E23D0DB71774B3 /* Build configuration list for PBXNativeTarget "MaterialTextField" */;
+			buildPhases = (
+				C04FE493320062BD1A457D4BE908043D /* Sources */,
+				BF4828DE3625B1112A1A372F22984698 /* Frameworks */,
+				D6C4E27469A2CD4093DED00EC2AAD30C /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MaterialTextField;
+			productName = MaterialTextField;
+			productReference = CE10FF138E9746C91EC7308D9598D6E7 /* MaterialTextField.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		82513019EBCD8013EF277157A3F21093 /* SideMenu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A19AD3FFE1C590AF883A23DD7784CA28 /* Build configuration list for PBXNativeTarget "SideMenu" */;
+			buildPhases = (
+				6D29F6BCEC8EB1734CE5F6C5EBC9D759 /* Sources */,
+				1FDBFCEB3377B03D31E8D069BD8925D9 /* Frameworks */,
+				BCBEDEF8E0F91500A6714CC3417F0836 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SideMenu;
+			productName = SideMenu;
+			productReference = 212CC394D12A6575E852CACF5CEB157E /* SideMenu.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 419E5D95491847CD79841B971A8A3277 /* Build configuration list for PBXNativeTarget "Alamofire" */;
+			buildPhases = (
+				32B9974868188C4803318E36329C87FE /* Sources */,
+				99195E4207764744AEC07ECCBCD550EB /* Frameworks */,
+				B4002B6E97835FDCCAA5963EFE09A3E0 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Alamofire;
+			productName = Alamofire;
+			productReference = AC21AAF747417321989313F98BFF40A0 /* Alamofire.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		936F524C93A0A7A780AA6FAAF1DC8250 /* Pods-ArubaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4ECF99E919EE3FE1A3C26BB337400B8 /* Build configuration list for PBXNativeTarget "Pods-ArubaTests" */;
+			buildPhases = (
+				B181416C2E9C753501A27A2C98FC611C /* Sources */,
+				33606D296D27789A3250B9CA3B0E868B /* Frameworks */,
+				3A8C8B7606D2C877D3586A81799559E2 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6EB43A1DE7A9F3B392EE6C89A31CE51D /* PBXTargetDependency */,
+			);
+			name = "Pods-ArubaTests";
+			productName = "Pods-ArubaTests";
+			productReference = C3796AEDCE6CB0C4D608FF667C394683 /* Pods_ArubaTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = AAB4E31D9425280E16D2F3C599C29F58 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */,
+				63C971EDB4110A23793BD04B3F5CF981 /* MaterialTextField */,
+				17D1131A370110DFCB28CC0421076E6E /* Pods-Aruba */,
+				936F524C93A0A7A780AA6FAAF1DC8250 /* Pods-ArubaTests */,
+				1937D120B72CA6196F55D5EE342BEFAB /* Pods-ArubaUITests */,
+				82513019EBCD8013EF277157A3F21093 /* SideMenu */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0F791CB43D113B9F34B6BF0A8C60AEF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5EED564ADC71AD1A5D69906BB0A76C98 /* Pods-Aruba-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32B9974868188C4803318E36329C87FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9ED2BB2981896E0A39EFA365503F58CE /* AFError.swift in Sources */,
+				A9EEEA7477981DEEBC72432DE9990A4B /* Alamofire-dummy.m in Sources */,
+				F8B3D3092ED0417E8CDF32033F6122F5 /* Alamofire.swift in Sources */,
+				61200D01A1855D7920CEF835C8BE00B0 /* DispatchQueue+Alamofire.swift in Sources */,
+				B65FCF589DA398C3EFE0128064E510EC /* MultipartFormData.swift in Sources */,
+				A2A6F71B727312BD45CC7A4AAD7B0AB7 /* NetworkReachabilityManager.swift in Sources */,
+				EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */,
+				BE5C67A07E289FE1F9BE27335B159997 /* ParameterEncoding.swift in Sources */,
+				5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */,
+				CB6D60925223897FFA2662667DF83E8A /* Response.swift in Sources */,
+				F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */,
+				7D8CC01E8C9EFFF9F4D65406CDE0AB66 /* Result.swift in Sources */,
+				62F65AD8DC4F0F9610F4B8B4738EC094 /* ServerTrustPolicy.swift in Sources */,
+				7B5FE28C7EA4122B0598738E54DBEBD8 /* SessionDelegate.swift in Sources */,
+				AE1EF48399533730D0066E04B22CA2D6 /* SessionManager.swift in Sources */,
+				3626B94094672CB1C9DEA32B9F9502E1 /* TaskDelegate.swift in Sources */,
+				10EB23E9ECC4B33E16933BB1EA560B6A /* Timeline.swift in Sources */,
+				BBEFE2F9CEB73DC7BD97FFA66A0D9D4F /* Validation.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D29F6BCEC8EB1734CE5F6C5EBC9D759 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				230046892EE5103675AD312AFE9B432C /* SideMenu-dummy.m in Sources */,
+				63097A3037152211165596A7DD92A59F /* SideMenuManager.swift in Sources */,
+				6595B810AE35BE0F21F6B8BF8AC4AFE2 /* SideMenuTransition.swift in Sources */,
+				16947A151C20F6A59DBA7BEA9F171F7D /* UISideMenuNavigationController.swift in Sources */,
+				5C37D8C56C278D2D0FAE99437FFAABAB /* UITableViewVibrantCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B181416C2E9C753501A27A2C98FC611C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7444E26FC26CD3F0C2A833EF09A27A45 /* Pods-ArubaTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C04FE493320062BD1A457D4BE908043D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75A5E897699B5A96A065ECC359ADD0D9 /* MaterialTextField-dummy.m in Sources */,
+				9E1D53AB444B5D34A21F4958281E9AE2 /* MFTextField.m in Sources */,
+				5BFF007ACE5AF1FA18FF9D7C667A9ED3 /* UIColor+MaterialTextField.m in Sources */,
+				5B8ACF60132A024A5831CA31F399DFB9 /* UIFont+MaterialTextField.m in Sources */,
+				49CA686DE09586D8E72BB7F275EB58E3 /* UIImage+MFTint.m in Sources */,
+				A3C46817173A412BAD8AA81289697B5E /* UITextField+MFClearButton.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D8C532700433078ADADCACFC2C11B375 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D503EE6A49A644C0BAEE94C55CA7073 /* Pods-ArubaUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		03A0795F293E360C9A3CA255DCD84C2A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = 88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */;
+			targetProxy = E65F87079EBDEA21B5BFBBB697A945B9 /* PBXContainerItemProxy */;
+		};
+		4E68B37B3836ECD6AF534026701C010C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MaterialTextField;
+			target = 63C971EDB4110A23793BD04B3F5CF981 /* MaterialTextField */;
+			targetProxy = CAABE25AAD8C8F74A0491BAAA7A7BA15 /* PBXContainerItemProxy */;
+		};
+		54FE195057833B6CF564AEA84728543C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Aruba";
+			target = 17D1131A370110DFCB28CC0421076E6E /* Pods-Aruba */;
+			targetProxy = A38EFE397E40840F0CF662E500A8C690 /* PBXContainerItemProxy */;
+		};
+		6EB43A1DE7A9F3B392EE6C89A31CE51D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Aruba";
+			target = 17D1131A370110DFCB28CC0421076E6E /* Pods-Aruba */;
+			targetProxy = 1774286BC9A612B388F3F0B1237E6E2C /* PBXContainerItemProxy */;
+		};
+		84FA5DCFF439141CCD3D611F5C9D7577 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SideMenu;
+			target = 82513019EBCD8013EF277157A3F21093 /* SideMenu */;
+			targetProxy = AE23879DF7150ED595266F733A68971D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		08638A96A528B1EC32DE62F8A728389D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		259087FA6665CCEB51A1807BF737A769 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE3EA6C1354C4BBDD96F8D82ACA90D43 /* SideMenu.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SideMenu/SideMenu-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SideMenu/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SideMenu/SideMenu.modulemap";
+				PRODUCT_MODULE_NAME = SideMenu;
+				PRODUCT_NAME = SideMenu;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3DD4A5A654126EBD0B40BE34EB6D2695 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CDDC45C3C697BF74ED578E51FE5C460A /* Pods-ArubaUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ArubaUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ArubaUITests/Pods-ArubaUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		57B50EEEA958589F7B7E1DA6BFC5ED44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 551ACAAA16DC1B604F5A53AAEA75B65C /* Pods-ArubaTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ArubaTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ArubaTests/Pods-ArubaTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		73B72A52A384DA5E936101FF12269FAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37658AD977ACA52A4AEBBEBD6CF1DDC7 /* Pods-Aruba.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Aruba/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Aruba/Pods-Aruba.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		86D71AA2966DEBAD7DFE57CEC6278DB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C33C02081D97729A9B483DE9DDA56A55 /* MaterialTextField.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MaterialTextField/MaterialTextField-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MaterialTextField/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/MaterialTextField/MaterialTextField.modulemap";
+				PRODUCT_MODULE_NAME = MaterialTextField;
+				PRODUCT_NAME = MaterialTextField;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8B292ED477E59B3C62F68B9974C33215 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 348DC52B4B8F84C134BBBE954E3FA6D1 /* Alamofire.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				PRODUCT_MODULE_NAME = Alamofire;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		9DAE5233986C01ADB6E67169C53A3FD2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		A16B91A55CD246044F820B4B1B89D445 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D2804B9FAD7A25358FF784D2F650976 /* Pods-ArubaTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ArubaTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ArubaTests/Pods-ArubaTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CA3901C365A126EB28656C01F5852A53 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6FE58DABB9A5E08A4AFFE9485F35049 /* Pods-ArubaUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-ArubaUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-ArubaUITests/Pods-ArubaUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D00E6EAEB0C7A591845C4384CBAA0F06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C33C02081D97729A9B483DE9DDA56A55 /* MaterialTextField.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MaterialTextField/MaterialTextField-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MaterialTextField/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/MaterialTextField/MaterialTextField.modulemap";
+				PRODUCT_MODULE_NAME = MaterialTextField;
+				PRODUCT_NAME = MaterialTextField;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DED8A4D9DAA960464AC911FEDD3D35C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 348DC52B4B8F84C134BBBE954E3FA6D1 /* Alamofire.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				PRODUCT_MODULE_NAME = Alamofire;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E5F4F602842E6484AAF185E58B4054DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE3EA6C1354C4BBDD96F8D82ACA90D43 /* SideMenu.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SideMenu/SideMenu-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SideMenu/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SideMenu/SideMenu.modulemap";
+				PRODUCT_MODULE_NAME = SideMenu;
+				PRODUCT_NAME = SideMenu;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F57521454D1106696A149EDC9D6D32CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6805D402786920211217D83ABE2D2B0B /* Pods-Aruba.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Aruba/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Aruba/Pods-Aruba.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DAE5233986C01ADB6E67169C53A3FD2 /* Debug */,
+				08638A96A528B1EC32DE62F8A728389D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3BA30DECD11ACD6F30E23D0DB71774B3 /* Build configuration list for PBXNativeTarget "MaterialTextField" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				86D71AA2966DEBAD7DFE57CEC6278DB3 /* Debug */,
+				D00E6EAEB0C7A591845C4384CBAA0F06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		419E5D95491847CD79841B971A8A3277 /* Build configuration list for PBXNativeTarget "Alamofire" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DED8A4D9DAA960464AC911FEDD3D35C1 /* Debug */,
+				8B292ED477E59B3C62F68B9974C33215 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44FECE76C512ED4BF53BB1777A5E73AB /* Build configuration list for PBXNativeTarget "Pods-Aruba" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F57521454D1106696A149EDC9D6D32CD /* Debug */,
+				73B72A52A384DA5E936101FF12269FAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65BA6DAD531B1EC3151178995A1244E0 /* Build configuration list for PBXNativeTarget "Pods-ArubaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3DD4A5A654126EBD0B40BE34EB6D2695 /* Debug */,
+				CA3901C365A126EB28656C01F5852A53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A19AD3FFE1C590AF883A23DD7784CA28 /* Build configuration list for PBXNativeTarget "SideMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5F4F602842E6484AAF185E58B4054DA /* Debug */,
+				259087FA6665CCEB51A1807BF737A769 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4ECF99E919EE3FE1A3C26BB337400B8 /* Build configuration list for PBXNativeTarget "Pods-ArubaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A16B91A55CD246044F820B4B1B89D445 /* Debug */,
+				57B50EEEA958589F7B7E1DA6BFC5ED44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
