@@ -22,6 +22,14 @@
 		3BD43D012258608700AC3411 /* JSONDecoder+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D002258608700AC3411 /* JSONDecoder+Utils.swift */; };
 		3BD43D05225861C300AC3411 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D04225861C300AC3411 /* User.swift */; };
 		3BD43D092258FCC700AC3411 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D082258FCC700AC3411 /* HomeTableViewController.swift */; };
+		3BD43D0C2259122B00AC3411 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D0B2259122B00AC3411 /* SideMenuTableViewController.swift */; };
+		3BD43D0F2259156000AC3411 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D0E2259156000AC3411 /* ProfileTableViewController.swift */; };
+		3BD43D112259170C00AC3411 /* ProfileHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D102259170C00AC3411 /* ProfileHeaderTableViewCell.swift */; };
+		3BD43D1822591A7100AC3411 /* GenericDataCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D1622591A7100AC3411 /* GenericDataCellTableViewCell.swift */; };
+		3BD43D1922591A7100AC3411 /* GenericDataCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BD43D1722591A7100AC3411 /* GenericDataCellTableViewCell.xib */; };
+		3BD43D1B22591B2900AC3411 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D1A22591B2900AC3411 /* Address.swift */; };
+		3BD43D1D22591CB000AC3411 /* Tax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D1C22591CB000AC3411 /* Tax.swift */; };
+		3BD43D2022591FC700AC3411 /* GenericDataCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D1F22591FC700AC3411 /* GenericDataCellViewModel.swift */; };
 		4CFB3436FF898A02A3CB1B16 /* Pods_ArubaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB5DFA16BEBD9049A9C88C0 /* Pods_ArubaTests.framework */; };
 		504779E3E806BD1CC210E25F /* Pods_ArubaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496D39961CE2E05473FF0CBC /* Pods_ArubaUITests.framework */; };
 		C48160F9BD5D0AD5944F0195 /* Pods_Aruba.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D51EC17E35B0F4B48A69CF8 /* Pods_Aruba.framework */; };
@@ -68,6 +76,14 @@
 		3BD43D04225861C300AC3411 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3BD43D06225864CF00AC3411 /* Aruba.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Aruba.entitlements; sourceTree = "<group>"; };
 		3BD43D082258FCC700AC3411 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		3BD43D0B2259122B00AC3411 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
+		3BD43D0E2259156000AC3411 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		3BD43D102259170C00AC3411 /* ProfileHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		3BD43D1622591A7100AC3411 /* GenericDataCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDataCellTableViewCell.swift; sourceTree = "<group>"; };
+		3BD43D1722591A7100AC3411 /* GenericDataCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenericDataCellTableViewCell.xib; sourceTree = "<group>"; };
+		3BD43D1A22591B2900AC3411 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		3BD43D1C22591CB000AC3411 /* Tax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tax.swift; sourceTree = "<group>"; };
+		3BD43D1F22591FC700AC3411 /* GenericDataCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDataCellViewModel.swift; sourceTree = "<group>"; };
 		496D39961CE2E05473FF0CBC /* Pods_ArubaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArubaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D51EC17E35B0F4B48A69CF8 /* Pods_Aruba.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aruba.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F3C20A30C6A99E339F6600B /* Pods-ArubaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArubaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArubaTests/Pods-ArubaTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +147,8 @@
 		3B26A3B422584BD10063ECAA /* Aruba */ = {
 			isa = PBXGroup;
 			children = (
+				3BD43D0D2259155200AC3411 /* Profile */,
+				3BD43D0A2259121700AC3411 /* Side Menu */,
 				3BD43D072258FCBA00AC3411 /* Home */,
 				3BD43D06225864CF00AC3411 /* Aruba.entitlements */,
 				3BD43D03225861B700AC3411 /* Models */,
@@ -203,6 +221,8 @@
 			isa = PBXGroup;
 			children = (
 				3BD43D04225861C300AC3411 /* User.swift */,
+				3BD43D1A22591B2900AC3411 /* Address.swift */,
+				3BD43D1C22591CB000AC3411 /* Tax.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -214,6 +234,34 @@
 				3BD43D082258FCC700AC3411 /* HomeTableViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		3BD43D0A2259121700AC3411 /* Side Menu */ = {
+			isa = PBXGroup;
+			children = (
+				3BD43D0B2259122B00AC3411 /* SideMenuTableViewController.swift */,
+			);
+			path = "Side Menu";
+			sourceTree = "<group>";
+		};
+		3BD43D0D2259155200AC3411 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				3BD43D1E22591FB400AC3411 /* ViewModels */,
+				3BD43D0E2259156000AC3411 /* ProfileTableViewController.swift */,
+				3BD43D102259170C00AC3411 /* ProfileHeaderTableViewCell.swift */,
+				3BD43D1622591A7100AC3411 /* GenericDataCellTableViewCell.swift */,
+				3BD43D1722591A7100AC3411 /* GenericDataCellTableViewCell.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		3BD43D1E22591FB400AC3411 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3BD43D1F22591FC700AC3411 /* GenericDataCellViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		9173B25B04E066D00D761154 /* Pods */ = {
@@ -359,6 +407,7 @@
 				3B26A3C022584BD30063ECAA /* LaunchScreen.storyboard in Resources */,
 				3BD43CF1225856B900AC3411 /* Start.storyboard in Resources */,
 				3B26A3BD22584BD30063ECAA /* Assets.xcassets in Resources */,
+				3BD43D1922591A7100AC3411 /* GenericDataCellTableViewCell.xib in Resources */,
 				3B26A3BB22584BD10063ECAA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,13 +528,20 @@
 			files = (
 				3BD43CF3225858B000AC3411 /* AButton.swift in Sources */,
 				3BD43CF62258594D00AC3411 /* Colors.swift in Sources */,
+				3BD43D1822591A7100AC3411 /* GenericDataCellTableViewCell.swift in Sources */,
 				3BD43CFF22585EF000AC3411 /* HTTPClient.swift in Sources */,
 				3BD43CFB22585B7F00AC3411 /* LandingViewController.swift in Sources */,
 				3BD43D05225861C300AC3411 /* User.swift in Sources */,
+				3BD43D1B22591B2900AC3411 /* Address.swift in Sources */,
 				3BD43CFD22585B9200AC3411 /* RegisterTableViewController.swift in Sources */,
 				3BD43D092258FCC700AC3411 /* HomeTableViewController.swift in Sources */,
 				3BD43D012258608700AC3411 /* JSONDecoder+Utils.swift in Sources */,
+				3BD43D112259170C00AC3411 /* ProfileHeaderTableViewCell.swift in Sources */,
 				3B26A3B622584BD10063ECAA /* AppDelegate.swift in Sources */,
+				3BD43D2022591FC700AC3411 /* GenericDataCellViewModel.swift in Sources */,
+				3BD43D1D22591CB000AC3411 /* Tax.swift in Sources */,
+				3BD43D0F2259156000AC3411 /* ProfileTableViewController.swift in Sources */,
+				3BD43D0C2259122B00AC3411 /* SideMenuTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
