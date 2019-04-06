@@ -8,83 +8,75 @@
 
 import UIKit
 
+struct Category {
+    let image: UIImage?
+    let title: String
+    let color: UIColor
+    
+    init(imageName: String, title: String, color: UIColor) {
+        image = UIImage(named: imageName)
+        self.title = title
+        self.color = color
+    }
+}
+
 class HomeTableViewController: UITableViewController {
+    
+    var entryAnimationDone: Bool = false
+    
+    struct Cells {
+        static let Category = "homeCategoryCell"
+    }
+    
+    var categories:[Category] = [] {
+        didSet {
+            tableView.reloadSections(IndexSet(integer: 0), with: .fade)
+        }
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        categories = [Category(imageName: "peluqueria_blanco", title: "PELUQUERIA", color: Colors.Peluqueria), Category(imageName: "manicura_blanco", title: "MANICURA/PEDICURA", color: Colors.Manicura), Category(imageName: "estetica_blanco", title: "ESTETICA", color: Colors.Estetica), Category(imageName: "masajes_blanco", title: "MASAJES", color: Colors.Masajes),Category(imageName: "nutricion_blanco", title: "NUTRICIÓN", color: Colors.Nutricion), Category(imageName: "barberia_blanco", title: "BARBERIA", color: Colors.Peluqueria)]
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+
+        return categories.count
     }
-
-    /*
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return (tableView.bounds.height - (UIApplication.shared.statusBarFrame.size.height +
+            (self.navigationController?.navigationBar.frame.height ?? 0.0)))/6
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.Category, for: indexPath) as? HomeCategoryTableViewCell else { return UITableViewCell() }
+        cell.configure(category: categories[indexPath.row])
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if !entryAnimationDone {
+            cell.transform = CGAffineTransform(translationX: 0, y: -40)
+            cell.alpha = 0
+            UIView.animate(withDuration: 0.3, delay: TimeInterval(0.1*Double(indexPath.row)), usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: [.curveEaseInOut], animations: {
+                cell.transform = CGAffineTransform.identity
+                cell.alpha = 1
+            }) { (end) in
+                self.entryAnimationDone = true
+            }
+        }
+//        guard let cell = cell as? HomeCategoryTableViewCell else { return }
+//        cell.backgroundImageView.layer.cornerRadius = cell.backgroundImageView.bounds.width/2
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

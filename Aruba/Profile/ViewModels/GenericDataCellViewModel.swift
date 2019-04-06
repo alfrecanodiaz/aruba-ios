@@ -22,4 +22,13 @@ class GenericDataCellViewModel {
         attributedDataString = attr
     }
     
+    init(title: String, content: String) {
+        let attr = NSMutableAttributedString()
+        let title = NSAttributedString(string: title + ": ", attributes: [.font : UIFont.boldSystemFont(ofSize: 12)])
+        let content = NSAttributedString(string: content, attributes: [.font : UIFont.systemFont(ofSize: 12)])
+        attr.append(title)
+        attr.append(content)
+        attributedDataString = attr
+    }
+    
 }

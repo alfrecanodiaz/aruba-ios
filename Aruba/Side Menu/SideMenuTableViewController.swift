@@ -30,6 +30,11 @@ class SideMenuTableViewController: UITableViewController {
         profileImageView.layer.cornerRadius = profileImageView.bounds.width/2
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 1:

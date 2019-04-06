@@ -48,7 +48,7 @@ class ProfileTableViewController: UITableViewController {
             return addresses.count
         }
         if section == 2 {
-            return 1
+            return 2
         }
         return 0
     }
@@ -56,16 +56,20 @@ class ProfileTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.Header, for: indexPath) as? ProfileHeaderTableViewCell else { return UITableViewCell() }
-            
+            cell.profileImageView.layer.cornerRadius = cell.profileImageView.bounds.width/2
             return cell
         } else if indexPath.section == 1 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.GenericData, for: indexPath) as? GenericDataCellTableViewCell else { return UITableViewCell() }
-            
+            cell.viewModel = GenericDataCellViewModel(address: addresses[indexPath.row])
             return cell
 
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.GenericData, for: indexPath) as? GenericDataCellTableViewCell else { return UITableViewCell() }
-
+            if indexPath.row == 0 {
+                cell.viewModel = GenericDataCellViewModel(title: "NOMBRE: ",content: tax.socialReason)
+            } else {
+                cell.viewModel = GenericDataCellViewModel(title: "RUC: ",content: tax.socialReason)
+            }
             return cell
         }
     }
@@ -91,11 +95,11 @@ class ProfileTableViewController: UITableViewController {
         let lbl = UILabel()
         if section == 1 {
             lbl.text = "DIRECCIÓNES"
-            imgView.backgroundColor = .red
+            imgView.image = UIImage(named: "pin")
 
         } else {
             lbl.text = "FACTURA"
-            imgView.backgroundColor = .green
+            imgView.image = UIImage(named: "factura")
 
         }
         view.addSubview(lbl)
@@ -116,7 +120,7 @@ class ProfileTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return tableView.bounds.height*0.35
+            return tableView.bounds.height*0.3
         }
         return UITableView.automaticDimension
     }
