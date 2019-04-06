@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3B26A3B622584BD10063ECAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26A3B522584BD10063ECAA /* AppDelegate.swift */; };
-		3B26A3B822584BD10063ECAA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26A3B722584BD10063ECAA /* ViewController.swift */; };
 		3B26A3BB22584BD10063ECAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B26A3B922584BD10063ECAA /* Main.storyboard */; };
 		3B26A3BD22584BD30063ECAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B26A3BC22584BD30063ECAA /* Assets.xcassets */; };
 		3B26A3C022584BD30063ECAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B26A3BE22584BD30063ECAA /* LaunchScreen.storyboard */; };
@@ -22,6 +21,7 @@
 		3BD43CFF22585EF000AC3411 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CFE22585EF000AC3411 /* HTTPClient.swift */; };
 		3BD43D012258608700AC3411 /* JSONDecoder+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D002258608700AC3411 /* JSONDecoder+Utils.swift */; };
 		3BD43D05225861C300AC3411 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D04225861C300AC3411 /* User.swift */; };
+		3BD43D092258FCC700AC3411 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D082258FCC700AC3411 /* HomeTableViewController.swift */; };
 		4CFB3436FF898A02A3CB1B16 /* Pods_ArubaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB5DFA16BEBD9049A9C88C0 /* Pods_ArubaTests.framework */; };
 		504779E3E806BD1CC210E25F /* Pods_ArubaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496D39961CE2E05473FF0CBC /* Pods_ArubaUITests.framework */; };
 		C48160F9BD5D0AD5944F0195 /* Pods_Aruba.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D51EC17E35B0F4B48A69CF8 /* Pods_Aruba.framework */; };
@@ -48,7 +48,6 @@
 		0558D970D0CA945C6C2661E0 /* Pods-Aruba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aruba.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Aruba/Pods-Aruba.debug.xcconfig"; sourceTree = "<group>"; };
 		3B26A3B222584BD10063ECAA /* Aruba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aruba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B26A3B522584BD10063ECAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3B26A3B722584BD10063ECAA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3B26A3BA22584BD10063ECAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B26A3BC22584BD30063ECAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B26A3BF22584BD30063ECAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -67,6 +66,8 @@
 		3BD43CFE22585EF000AC3411 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		3BD43D002258608700AC3411 /* JSONDecoder+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Utils.swift"; sourceTree = "<group>"; };
 		3BD43D04225861C300AC3411 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3BD43D06225864CF00AC3411 /* Aruba.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Aruba.entitlements; sourceTree = "<group>"; };
+		3BD43D082258FCC700AC3411 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		496D39961CE2E05473FF0CBC /* Pods_ArubaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArubaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D51EC17E35B0F4B48A69CF8 /* Pods_Aruba.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aruba.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F3C20A30C6A99E339F6600B /* Pods-ArubaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArubaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArubaTests/Pods-ArubaTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,11 +131,11 @@
 		3B26A3B422584BD10063ECAA /* Aruba */ = {
 			isa = PBXGroup;
 			children = (
+				3BD43D072258FCBA00AC3411 /* Home */,
+				3BD43D06225864CF00AC3411 /* Aruba.entitlements */,
 				3BD43D03225861B700AC3411 /* Models */,
 				3BD43CF922585B6900AC3411 /* Landing */,
 				3B26A3B522584BD10063ECAA /* AppDelegate.swift */,
-				3B26A3B722584BD10063ECAA /* ViewController.swift */,
-				3B26A3B922584BD10063ECAA /* Main.storyboard */,
 				3B26A3BC22584BD30063ECAA /* Assets.xcassets */,
 				3B26A3BE22584BD30063ECAA /* LaunchScreen.storyboard */,
 				3B26A3C122584BD30063ECAA /* Info.plist */,
@@ -204,6 +205,15 @@
 				3BD43D04225861C300AC3411 /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3BD43D072258FCBA00AC3411 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				3B26A3B922584BD10063ECAA /* Main.storyboard */,
+				3BD43D082258FCC700AC3411 /* HomeTableViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		9173B25B04E066D00D761154 /* Pods */ = {
@@ -302,6 +312,14 @@
 				TargetAttributes = {
 					3B26A3B122584BD10063ECAA = {
 						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					3B26A3C522584BD30063ECAA = {
 						CreatedOnToolsVersion = 10.2;
@@ -461,11 +479,11 @@
 			files = (
 				3BD43CF3225858B000AC3411 /* AButton.swift in Sources */,
 				3BD43CF62258594D00AC3411 /* Colors.swift in Sources */,
-				3B26A3B822584BD10063ECAA /* ViewController.swift in Sources */,
 				3BD43CFF22585EF000AC3411 /* HTTPClient.swift in Sources */,
 				3BD43CFB22585B7F00AC3411 /* LandingViewController.swift in Sources */,
 				3BD43D05225861C300AC3411 /* User.swift in Sources */,
 				3BD43CFD22585B9200AC3411 /* RegisterTableViewController.swift in Sources */,
+				3BD43D092258FCC700AC3411 /* HomeTableViewController.swift in Sources */,
 				3BD43D012258608700AC3411 /* JSONDecoder+Utils.swift in Sources */,
 				3B26A3B622584BD10063ECAA /* AppDelegate.swift in Sources */,
 			);
@@ -643,6 +661,7 @@
 			baseConfigurationReference = 0558D970D0CA945C6C2661E0 /* Pods-Aruba.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Aruba/Aruba.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = Aruba/Info.plist;
@@ -663,6 +682,7 @@
 			baseConfigurationReference = 89C589BCD472F06024F9FBAC /* Pods-Aruba.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Aruba/Aruba.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = Aruba/Info.plist;

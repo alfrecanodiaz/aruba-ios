@@ -31,6 +31,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fL6-yM-cnF" customClass="AButton" customModule="Aruba" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="65" width="374" height="50"/>
                                         <state key="normal" title="INICIAR SESIÓN CON TU EMAIL"/>
+                                        <connections>
+                                            <segue destination="WzW-od-tg4" kind="show" id="ud0-O0-XH9"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcl-sl-88B" customClass="AButton" customModule="Aruba" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="130" width="374" height="50"/>
@@ -172,7 +175,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jl5-2v-w5C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="282.60869565217394" y="123.88392857142857"/>
+            <point key="canvasLocation" x="213" y="114"/>
         </scene>
     </scenes>
 </document>
