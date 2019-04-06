@@ -23,5 +23,10 @@ class ProfileHeaderTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    override func draw(_ rect: CGRect) {
+        profileImageView.layer.cornerRadius = profileImageView.bounds.width/2
+        super.draw(rect)
+    }
 
 }

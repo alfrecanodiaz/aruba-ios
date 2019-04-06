@@ -10,6 +10,7 @@ import UIKit
 
 class GenericDataCellTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var helperView: UIView!
     @IBOutlet weak var deleteBtn: UIButton!
     @IBOutlet weak var dataLbl: UILabel!
     
@@ -21,7 +22,15 @@ class GenericDataCellTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        helperView.layer.cornerRadius = 20
+        helperView.clipsToBounds = true
+        selectionStyle = .none
+    }
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        deleteBtn.layer.cornerRadius = deleteBtn.bounds.width/2
+        deleteBtn.clipsToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

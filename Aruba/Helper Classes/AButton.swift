@@ -17,6 +17,7 @@ class AButton: UIButton {
         super.awakeFromNib()
         backgroundColor = Colors.ButtonGreen
         titleLabel?.textColor = .white
+        titleLabel?.font = UIFont(name: "Lato-Bold", size: 14)
         layer.masksToBounds = false
         layer.cornerRadius = cornerRadius
         layer.shadowColor = UIColor.black.cgColor

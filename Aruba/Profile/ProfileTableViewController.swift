@@ -56,7 +56,6 @@ class ProfileTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.Header, for: indexPath) as? ProfileHeaderTableViewCell else { return UITableViewCell() }
-            cell.profileImageView.layer.cornerRadius = cell.profileImageView.bounds.width/2
             return cell
         } else if indexPath.section == 1 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.GenericData, for: indexPath) as? GenericDataCellTableViewCell else { return UITableViewCell() }

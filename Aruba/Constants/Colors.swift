@@ -9,10 +9,10 @@
 import UIKit
 
 struct Colors {
-    static let ButtonGreen = UIColor.green
+    static let ButtonGreen = UIColor(hexRGB: "78DDCD")!
     static let ButtonGray = UIColor.gray
     static let ButtonBrown = UIColor.brown
-    
+
     //categories
     static let Peluqueria = UIColor(hexRGB: "75AEA8")!
     static let Manicura = UIColor(hexRGB: "78DDCD")!

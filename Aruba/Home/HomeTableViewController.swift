@@ -20,10 +20,10 @@ struct Category {
     }
 }
 
-class HomeTableViewController: UITableViewController {
+class HomeTableViewController: BaseTableViewController {
     
     var entryAnimationDone: Bool = false
-    
+    var popup: PopupTableViewController!
     struct Cells {
         static let Category = "homeCategoryCell"
     }
@@ -48,7 +48,6 @@ class HomeTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         return categories.count
     }
     
@@ -61,6 +60,17 @@ class HomeTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.Category, for: indexPath) as? HomeCategoryTableViewCell else { return UITableViewCell() }
         cell.configure(category: categories[indexPath.row])
         return cell
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        popup = showPopup(title: "Dirección del servicio", options: [GenericDataCellViewModel(address: Address()),GenericDataCellViewModel(address: Address())], delegate: self)
+    }
+    
+    override func popupDidSelectAccept(selectedIndex: Int) {
+        super.popupDidSelectAccept(selectedIndex: selectedIndex)
+        popup.dismiss(animated: true, completion: nil)
+        print("Selected index: \(selectedIndex)")
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
