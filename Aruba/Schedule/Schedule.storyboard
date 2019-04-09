@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YwU-Tg-j1u">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--People Quantiy Selection View Controller-->
+        <scene sceneID="Hrl-DX-7cg">
+            <objects>
+                <viewController id="YwU-Tg-j1u" customClass="PeopleQuantiySelectionViewController" customModule="Aruba" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DAl-9C-CUp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2u1-s9-oeZ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="733"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zS3-PO-ecS" customClass="PeopleQuantityView" customModule="Aruba" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="244.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2lJ-2d-GA0" customClass="PeopleQuantityView" customModule="Aruba" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="244.5" width="414" height="244"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxn-CF-Pun" customClass="PeopleQuantityView" customModule="Aruba" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="488.5" width="414" height="244.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhJ-ee-HnM" customClass="AButton" customModule="Aruba" customModuleProvider="target">
+                                <rect key="frame" x="40" y="787" width="334" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="vSc-NB-9zb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                <state key="normal" title="CONTINUAR"/>
+                                <connections>
+                                    <segue destination="RRk-Cs-4Un" kind="show" id="HbP-RA-7xd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2u1-s9-oeZ" firstAttribute="top" secondItem="8OU-1v-jx4" secondAttribute="top" id="7Dz-qV-TrF"/>
+                            <constraint firstItem="qhJ-ee-HnM" firstAttribute="top" secondItem="2u1-s9-oeZ" secondAttribute="bottom" constant="10" id="ASN-vU-BI0"/>
+                            <constraint firstItem="2u1-s9-oeZ" firstAttribute="leading" secondItem="8OU-1v-jx4" secondAttribute="leading" id="M6z-Ul-JHQ"/>
+                            <constraint firstItem="8OU-1v-jx4" firstAttribute="trailing" secondItem="qhJ-ee-HnM" secondAttribute="trailing" constant="40" id="YwR-Yy-b7H"/>
+                            <constraint firstItem="8OU-1v-jx4" firstAttribute="bottom" secondItem="qhJ-ee-HnM" secondAttribute="bottom" constant="25" id="bOE-Lh-kHU"/>
+                            <constraint firstItem="qhJ-ee-HnM" firstAttribute="leading" secondItem="8OU-1v-jx4" secondAttribute="leading" constant="40" id="c8t-qK-5cq"/>
+                            <constraint firstItem="8OU-1v-jx4" firstAttribute="trailing" secondItem="2u1-s9-oeZ" secondAttribute="trailing" id="dEw-9X-uj4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8OU-1v-jx4"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="R3R-Pz-il5"/>
+                    <connections>
+                        <outlet property="childrenView" destination="yxn-CF-Pun" id="gJb-80-B5G"/>
+                        <outlet property="menView" destination="2lJ-2d-GA0" id="veJ-cT-P6Z"/>
+                        <outlet property="womenView" destination="zS3-PO-ecS" id="uKV-aA-gPw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZjD-GC-YEA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1134.7826086956522" y="135.9375"/>
+        </scene>
+        <!--Service Selection View Controller-->
+        <scene sceneID="42g-iS-LET">
+            <objects>
+                <viewController id="RRk-Cs-4Un" customClass="ServiceSelectionViewController" customModule="Aruba" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NmW-XT-asv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ea-jC-r2N">
+                                <rect key="frame" x="0.0" y="44" width="414" height="225"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yMq-gE-ne7">
+                                <rect key="frame" x="16" y="279" width="382" height="29"/>
+                                <segments>
+                                    <segment title="CLÁSICO"/>
+                                    <segment title="TÉCNICO"/>
+                                    <segment title="COIFFEUR"/>
+                                </segments>
+                                <color key="tintColor" red="0.7848016619682312" green="0.68481916189193726" blue="0.59863740205764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e17-08-1nY">
+                                <rect key="frame" x="16" y="327" width="382" height="426.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JVG-pu-zv9">
+                                <rect key="frame" x="0.0" y="753.5" width="414" height="108.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0ea-jC-r2N" firstAttribute="height" secondItem="NmW-XT-asv" secondAttribute="height" multiplier="0.25" constant="1" id="475-zH-GbS"/>
+                            <constraint firstItem="JVG-pu-zv9" firstAttribute="top" secondItem="e17-08-1nY" secondAttribute="bottom" id="4Vz-ny-fQm"/>
+                            <constraint firstItem="rub-Eb-2pX" firstAttribute="trailing" secondItem="e17-08-1nY" secondAttribute="trailing" constant="16" id="7cL-Sh-4kn"/>
+                            <constraint firstItem="JVG-pu-zv9" firstAttribute="height" secondItem="NmW-XT-asv" secondAttribute="height" multiplier="0.12" constant="1" id="8wW-t7-dvH"/>
+                            <constraint firstItem="yMq-gE-ne7" firstAttribute="top" secondItem="0ea-jC-r2N" secondAttribute="bottom" constant="10" id="E5l-Bb-YTr"/>
+                            <constraint firstItem="rub-Eb-2pX" firstAttribute="bottom" secondItem="JVG-pu-zv9" secondAttribute="bottom" id="GRj-B7-Ma6"/>
+                            <constraint firstItem="e17-08-1nY" firstAttribute="top" secondItem="yMq-gE-ne7" secondAttribute="bottom" constant="20" id="Mcb-mI-ep1"/>
+                            <constraint firstItem="JVG-pu-zv9" firstAttribute="leading" secondItem="rub-Eb-2pX" secondAttribute="leading" id="R4d-4F-I4e"/>
+                            <constraint firstItem="rub-Eb-2pX" firstAttribute="trailing" secondItem="yMq-gE-ne7" secondAttribute="trailing" constant="16" id="Ws5-ar-n3B"/>
+                            <constraint firstItem="e17-08-1nY" firstAttribute="leading" secondItem="rub-Eb-2pX" secondAttribute="leading" constant="16" id="a9R-gz-7yH"/>
+                            <constraint firstItem="0ea-jC-r2N" firstAttribute="top" secondItem="rub-Eb-2pX" secondAttribute="top" id="c4d-qd-SHj"/>
+                            <constraint firstItem="rub-Eb-2pX" firstAttribute="trailing" secondItem="0ea-jC-r2N" secondAttribute="trailing" id="eWB-Z3-LLr"/>
+                            <constraint firstItem="yMq-gE-ne7" firstAttribute="leading" secondItem="rub-Eb-2pX" secondAttribute="leading" constant="16" id="hBl-to-gzz"/>
+                            <constraint firstItem="0ea-jC-r2N" firstAttribute="leading" secondItem="rub-Eb-2pX" secondAttribute="leading" id="i5v-hU-C86"/>
+                            <constraint firstItem="rub-Eb-2pX" firstAttribute="trailing" secondItem="JVG-pu-zv9" secondAttribute="trailing" id="slI-a1-Fb2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rub-Eb-2pX"/>
+                    </view>
+                    <connections>
+                        <outlet property="serviceTypeSegmentedControl" destination="yMq-gE-ne7" id="DF2-7a-M7f"/>
+                        <outlet property="tableView" destination="e17-08-1nY" id="P8r-i2-KHW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wXh-v0-zEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1902.8985507246377" y="135.9375"/>
+        </scene>
+    </scenes>
+</document>

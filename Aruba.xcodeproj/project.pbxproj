@@ -21,6 +21,14 @@
 		3B28FFFA22595588004268CB /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B28FFF722595588004268CB /* Lato-Bold.ttf */; };
 		3B28FFFB22595588004268CB /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B28FFF822595588004268CB /* Lato-Regular.ttf */; };
 		3B28FFFC22595588004268CB /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B28FFF922595588004268CB /* Lato-Black.ttf */; };
+		3B7EC0AD225C20A300ED799D /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7EC0AC225C20A300ED799D /* Schedule.storyboard */; };
+		3B7EC0AF225C219200ED799D /* PeopleQuantiySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0AE225C219200ED799D /* PeopleQuantiySelectionViewController.swift */; };
+		3B7EC0B1225C21D500ED799D /* PeopleQuantityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0B0225C21D500ED799D /* PeopleQuantityView.swift */; };
+		3B7EC0B3225C21E600ED799D /* PeopleQuantityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B7EC0B2225C21E600ED799D /* PeopleQuantityView.xib */; };
+		3B7EC0B5225C2A5200ED799D /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0B4225C2A5200ED799D /* UIView+Utils.swift */; };
+		3B7EC0B9225C347F00ED799D /* ServiceSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0B7225C347F00ED799D /* ServiceSelectionTableViewCell.swift */; };
+		3B7EC0BA225C347F00ED799D /* ServiceSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B7EC0B8225C347F00ED799D /* ServiceSelectionTableViewCell.xib */; };
+		3B7EC0BC225C352300ED799D /* ServiceSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0BB225C352300ED799D /* ServiceSelectionViewController.swift */; };
 		3BD43CF1225856B900AC3411 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BD43CF0225856B900AC3411 /* Start.storyboard */; };
 		3BD43CF3225858B000AC3411 /* AButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CF2225858B000AC3411 /* AButton.swift */; };
 		3BD43CF62258594D00AC3411 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CF52258594D00AC3411 /* Colors.swift */; };
@@ -84,6 +92,14 @@
 		3B28FFF722595588004268CB /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		3B28FFF822595588004268CB /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		3B28FFF922595588004268CB /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		3B7EC0AC225C20A300ED799D /* Schedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
+		3B7EC0AE225C219200ED799D /* PeopleQuantiySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleQuantiySelectionViewController.swift; sourceTree = "<group>"; };
+		3B7EC0B0225C21D500ED799D /* PeopleQuantityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleQuantityView.swift; sourceTree = "<group>"; };
+		3B7EC0B2225C21E600ED799D /* PeopleQuantityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeopleQuantityView.xib; sourceTree = "<group>"; };
+		3B7EC0B4225C2A5200ED799D /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
+		3B7EC0B7225C347F00ED799D /* ServiceSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSelectionTableViewCell.swift; sourceTree = "<group>"; };
+		3B7EC0B8225C347F00ED799D /* ServiceSelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceSelectionTableViewCell.xib; sourceTree = "<group>"; };
+		3B7EC0BB225C352300ED799D /* ServiceSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSelectionViewController.swift; sourceTree = "<group>"; };
 		3BD43CF0225856B900AC3411 /* Start.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
 		3BD43CF2225858B000AC3411 /* AButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AButton.swift; sourceTree = "<group>"; };
 		3BD43CF52258594D00AC3411 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -167,6 +183,7 @@
 		3B26A3B422584BD10063ECAA /* Aruba */ = {
 			isa = PBXGroup;
 			children = (
+				3B7EC0AB225C206F00ED799D /* Schedule */,
 				3B28FFF62259557F004268CB /* Fonts */,
 				3B28FFEA225947F3004268CB /* Popup */,
 				3BD43D0D2259155200AC3411 /* Profile */,
@@ -233,6 +250,28 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		3B7EC0AB225C206F00ED799D /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				3B7EC0AC225C20A300ED799D /* Schedule.storyboard */,
+				3B7EC0B6225C345400ED799D /* Service Selection */,
+				3B7EC0AE225C219200ED799D /* PeopleQuantiySelectionViewController.swift */,
+				3B7EC0B0225C21D500ED799D /* PeopleQuantityView.swift */,
+				3B7EC0B2225C21E600ED799D /* PeopleQuantityView.xib */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		3B7EC0B6225C345400ED799D /* Service Selection */ = {
+			isa = PBXGroup;
+			children = (
+				3B7EC0B7225C347F00ED799D /* ServiceSelectionTableViewCell.swift */,
+				3B7EC0B8225C347F00ED799D /* ServiceSelectionTableViewCell.xib */,
+				3B7EC0BB225C352300ED799D /* ServiceSelectionViewController.swift */,
+			);
+			path = "Service Selection";
+			sourceTree = "<group>";
+		};
 		3BD43CF4225858B500AC3411 /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +305,7 @@
 				3BD43D002258608700AC3411 /* JSONDecoder+Utils.swift */,
 				3BD43D2322592DE200AC3411 /* UIColor+Utils.swift */,
 				3B28FFEF22594C6B004268CB /* UIViewController+Utils.swift */,
+				3B7EC0B4225C2A5200ED799D /* UIView+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -458,8 +498,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B7EC0B3225C21E600ED799D /* PeopleQuantityView.xib in Resources */,
+				3B7EC0BA225C347F00ED799D /* ServiceSelectionTableViewCell.xib in Resources */,
 				3B26A3C022584BD30063ECAA /* LaunchScreen.storyboard in Resources */,
 				3B28FFFA22595588004268CB /* Lato-Bold.ttf in Resources */,
+				3B7EC0AD225C20A300ED799D /* Schedule.storyboard in Resources */,
 				3BD43CF1225856B900AC3411 /* Start.storyboard in Resources */,
 				3B26A3BD22584BD30063ECAA /* Assets.xcassets in Resources */,
 				3B28FFFC22595588004268CB /* Lato-Black.ttf in Resources */,
@@ -591,6 +634,7 @@
 				3BD43CFF22585EF000AC3411 /* HTTPClient.swift in Sources */,
 				3BD43CFB22585B7F00AC3411 /* LandingViewController.swift in Sources */,
 				3BD43D05225861C300AC3411 /* User.swift in Sources */,
+				3B7EC0B5225C2A5200ED799D /* UIView+Utils.swift in Sources */,
 				3BD43D1B22591B2900AC3411 /* Address.swift in Sources */,
 				3BD43CFD22585B9200AC3411 /* RegisterTableViewController.swift in Sources */,
 				3B28FFEC22594809004268CB /* PopupTableViewController.swift in Sources */,
@@ -598,9 +642,13 @@
 				3BD43D2422592DE200AC3411 /* UIColor+Utils.swift in Sources */,
 				3BD43D012258608700AC3411 /* JSONDecoder+Utils.swift in Sources */,
 				3BD43D112259170C00AC3411 /* ProfileHeaderTableViewCell.swift in Sources */,
+				3B7EC0B1225C21D500ED799D /* PeopleQuantityView.swift in Sources */,
+				3B7EC0BC225C352300ED799D /* ServiceSelectionViewController.swift in Sources */,
 				3B28FFEE22594892004268CB /* APopoverTableViewController.swift in Sources */,
 				3B26A3B622584BD10063ECAA /* AppDelegate.swift in Sources */,
+				3B7EC0B9225C347F00ED799D /* ServiceSelectionTableViewCell.swift in Sources */,
 				3BD43D2022591FC700AC3411 /* GenericDataCellViewModel.swift in Sources */,
+				3B7EC0AF225C219200ED799D /* PeopleQuantiySelectionViewController.swift in Sources */,
 				3BD43D2222592B4700AC3411 /* HomeCategoryTableViewCell.swift in Sources */,
 				3BD43D1D22591CB000AC3411 /* Tax.swift in Sources */,
 				3BD43D0F2259156000AC3411 /* ProfileTableViewController.swift in Sources */,

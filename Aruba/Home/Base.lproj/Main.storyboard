@@ -435,10 +435,21 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="JNC-Pr-vLc" kind="show" identifier="scheduleServiceSegue" id="iHf-2c-acN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V5i-JQ-wVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1734.7826086956522" y="135.9375"/>
+        </scene>
+        <!--Schedule-->
+        <scene sceneID="3fj-vC-Fcs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Schedule" id="JNC-Pr-vLc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zs7-F4-ogG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2536" y="-15"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pw2-wl-oZg">

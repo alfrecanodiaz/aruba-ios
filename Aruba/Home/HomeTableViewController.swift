@@ -28,6 +28,10 @@ class HomeTableViewController: BaseTableViewController {
         static let Category = "homeCategoryCell"
     }
     
+    struct Segues {
+        static let ScheduleService = "scheduleServiceSegue"
+    }
+    
     var categories:[Category] = [] {
         didSet {
             tableView.reloadSections(IndexSet(integer: 0), with: .fade)
@@ -70,6 +74,7 @@ class HomeTableViewController: BaseTableViewController {
     override func popupDidSelectAccept(selectedIndex: Int) {
         super.popupDidSelectAccept(selectedIndex: selectedIndex)
         popup.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: Segues.ScheduleService, sender: self)
         print("Selected index: \(selectedIndex)")
     }
     
