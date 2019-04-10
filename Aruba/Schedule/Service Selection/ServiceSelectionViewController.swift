@@ -10,11 +10,20 @@ import UIKit
 
 class ServiceSelectionViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var countLbl: UILabel!
+    @IBOutlet weak var genderLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var serviceTypeSegmentedControl: UISegmentedControl!
-    
+    @IBOutlet weak var totalLbl: UILabel!
+        
     struct Cells {
         static let ServiceSelection = "ServiceSelectionCell"
+    }
+    
+    struct Segues {
+        static let DateAssignments = "pushDateAssignmentSegue"
+        static let Popup = "presentPopup"
     }
     
     struct ServiceOption {
@@ -35,15 +44,21 @@ class ServiceSelectionViewController: UIViewController {
     }
     
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == Segues.DateAssignments {
+            
+        }
+        if segue.identifier == Segues.Popup {
+            
+        }
     }
-    */
+    
+    @IBAction func unwindToServiceSelection(segue: UIStoryboardSegue) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.performSegue(withIdentifier: Segues.DateAssignments, sender: self)
+        }
+    }
 
 }
 
@@ -51,6 +66,7 @@ extension ServiceSelectionViewController: UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return serviceOptions.count
+        // TODO: Replace with real data
         return 10
     }
     

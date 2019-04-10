@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         configureSideMenu()
+        configureNavBar()
         return true
     }
 
@@ -46,6 +47,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func configureSideMenu() {
         SideMenuManager.default.menuAnimationBackgroundColor = .clear
+    }
+    
+    func configureNavBar() {
+        UINavigationBar.appearance().tintColor = .white
     }
 
 }

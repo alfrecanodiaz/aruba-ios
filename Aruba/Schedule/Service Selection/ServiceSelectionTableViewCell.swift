@@ -10,9 +10,13 @@ import UIKit
 
 class ServiceSelectionTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var detailBtn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        detailBtn.backgroundColor = Colors.ButtonGray
+        detailBtn.layer.cornerRadius = 6
+        detailBtn.clipsToBounds = true
+        detailBtn.titleLabel?.adjustsFontSizeToFitWidth = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
