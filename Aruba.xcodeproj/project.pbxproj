@@ -38,6 +38,7 @@
 		3B7EC0D62263E95300ED799D /* DateSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0D52263E95300ED799D /* DateSelectionViewController.swift */; };
 		3B7EC0D82263F1B200ED799D /* HourAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0D72263F1B200ED799D /* HourAssignmentViewController.swift */; };
 		3B7EC0DA2263F24800ED799D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0D92263F24800ED799D /* ProgressView.swift */; };
+		3B7EC0DC2263FADC00ED799D /* HourCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0DB2263FADC00ED799D /* HourCollectionViewCell.swift */; };
 		3BD43CF1225856B900AC3411 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BD43CF0225856B900AC3411 /* Start.storyboard */; };
 		3BD43CF3225858B000AC3411 /* AButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CF2225858B000AC3411 /* AButton.swift */; };
 		3BD43CF62258594D00AC3411 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CF52258594D00AC3411 /* Colors.swift */; };
@@ -118,6 +119,7 @@
 		3B7EC0D52263E95300ED799D /* DateSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionViewController.swift; sourceTree = "<group>"; };
 		3B7EC0D72263F1B200ED799D /* HourAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourAssignmentViewController.swift; sourceTree = "<group>"; };
 		3B7EC0D92263F24800ED799D /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		3B7EC0DB2263FADC00ED799D /* HourCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourCollectionViewCell.swift; sourceTree = "<group>"; };
 		3BD43CF0225856B900AC3411 /* Start.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
 		3BD43CF2225858B000AC3411 /* AButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AButton.swift; sourceTree = "<group>"; };
 		3BD43CF52258594D00AC3411 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				3B7EC0D32263D4C700ED799D /* DateSelectionCollectionViewCell.swift */,
 				3B7EC0D52263E95300ED799D /* DateSelectionViewController.swift */,
 				3B7EC0D72263F1B200ED799D /* HourAssignmentViewController.swift */,
+				3B7EC0DB2263FADC00ED799D /* HourCollectionViewCell.swift */,
 			);
 			path = "Date Selection";
 			sourceTree = "<group>";
@@ -703,6 +706,7 @@
 				3B7EC0B1225C21D500ED799D /* PeopleQuantityView.swift in Sources */,
 				3B7EC0BC225C352300ED799D /* ServiceSelectionViewController.swift in Sources */,
 				3B28FFEE22594892004268CB /* APopoverTableViewController.swift in Sources */,
+				3B7EC0DC2263FADC00ED799D /* HourCollectionViewCell.swift in Sources */,
 				3B26A3B622584BD10063ECAA /* AppDelegate.swift in Sources */,
 				3B7EC0B9225C347F00ED799D /* ServiceSelectionTableViewCell.swift in Sources */,
 				3BD43D2022591FC700AC3411 /* GenericDataCellViewModel.swift in Sources */,

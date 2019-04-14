@@ -45,10 +45,20 @@ class DateSelectionViewController: UIViewController, UICollectionViewDataSource,
         static let Date = "DateSelectionCell"
     }
     
+    struct Segues {
+        static let HourAssignment = "HourAssignmentSegue"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         dates = [AssignmentDate(dateInFuture: 0), AssignmentDate(dateInFuture: 1),AssignmentDate(dateInFuture: 2),AssignmentDate(dateInFuture: 3),AssignmentDate(dateInFuture: 4),AssignmentDate(dateInFuture: 5),AssignmentDate(dateInFuture: 6),AssignmentDate(dateInFuture: 7)]
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.HourAssignment, let dvc = segue.destination as? HourAssignmentViewController {
+            dvc.date = dates[selectedDateIndex]
+        }
     }
 
 
