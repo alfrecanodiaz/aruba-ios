@@ -21,4 +21,5 @@ class ARoundView: UIView {
         layer.cornerRadius = bounds.width/2
         clipsToBounds = true
     }
+    
 }

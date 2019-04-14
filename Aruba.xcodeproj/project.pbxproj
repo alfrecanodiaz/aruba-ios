@@ -34,6 +34,10 @@
 		3B7EC0C3225D6EE700ED799D /* TransparentPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0C2225D6EE700ED799D /* TransparentPopupViewController.swift */; };
 		3B7EC0C8225D727500ED799D /* DateAssignmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0C7225D727500ED799D /* DateAssignmentTableViewCell.swift */; };
 		3B7EC0CA225D773A00ED799D /* DateAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0C9225D773A00ED799D /* DateAssignmentViewController.swift */; };
+		3B7EC0D42263D4C700ED799D /* DateSelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0D32263D4C700ED799D /* DateSelectionCollectionViewCell.swift */; };
+		3B7EC0D62263E95300ED799D /* DateSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0D52263E95300ED799D /* DateSelectionViewController.swift */; };
+		3B7EC0D82263F1B200ED799D /* HourAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0D72263F1B200ED799D /* HourAssignmentViewController.swift */; };
+		3B7EC0DA2263F24800ED799D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0D92263F24800ED799D /* ProgressView.swift */; };
 		3BD43CF1225856B900AC3411 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BD43CF0225856B900AC3411 /* Start.storyboard */; };
 		3BD43CF3225858B000AC3411 /* AButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CF2225858B000AC3411 /* AButton.swift */; };
 		3BD43CF62258594D00AC3411 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CF52258594D00AC3411 /* Colors.swift */; };
@@ -110,6 +114,10 @@
 		3B7EC0C2225D6EE700ED799D /* TransparentPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentPopupViewController.swift; sourceTree = "<group>"; };
 		3B7EC0C7225D727500ED799D /* DateAssignmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAssignmentTableViewCell.swift; sourceTree = "<group>"; };
 		3B7EC0C9225D773A00ED799D /* DateAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAssignmentViewController.swift; sourceTree = "<group>"; };
+		3B7EC0D32263D4C700ED799D /* DateSelectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionCollectionViewCell.swift; sourceTree = "<group>"; };
+		3B7EC0D52263E95300ED799D /* DateSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionViewController.swift; sourceTree = "<group>"; };
+		3B7EC0D72263F1B200ED799D /* HourAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourAssignmentViewController.swift; sourceTree = "<group>"; };
+		3B7EC0D92263F24800ED799D /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		3BD43CF0225856B900AC3411 /* Start.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
 		3BD43CF2225858B000AC3411 /* AButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AButton.swift; sourceTree = "<group>"; };
 		3BD43CF52258594D00AC3411 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -263,6 +271,7 @@
 		3B7EC0AB225C206F00ED799D /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				3B7EC0CE2263D47B00ED799D /* Date Selection */,
 				3B7EC0AC225C20A300ED799D /* Schedule.storyboard */,
 				3B7EC0C4225D722E00ED799D /* Date Assignment */,
 				3B7EC0C1225D6EC800ED799D /* Transparent Popup */,
@@ -301,6 +310,16 @@
 			path = "Date Assignment";
 			sourceTree = "<group>";
 		};
+		3B7EC0CE2263D47B00ED799D /* Date Selection */ = {
+			isa = PBXGroup;
+			children = (
+				3B7EC0D32263D4C700ED799D /* DateSelectionCollectionViewCell.swift */,
+				3B7EC0D52263E95300ED799D /* DateSelectionViewController.swift */,
+				3B7EC0D72263F1B200ED799D /* HourAssignmentViewController.swift */,
+			);
+			path = "Date Selection";
+			sourceTree = "<group>";
+		};
 		3BD43CF4225858B500AC3411 /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +327,7 @@
 				3BD43CFE22585EF000AC3411 /* HTTPClient.swift */,
 				3B7EC0BD225D679700ED799D /* ARoundView.swift */,
 				3B7EC0BF225D692C00ED799D /* ARoundButton.swift */,
+				3B7EC0D92263F24800ED799D /* ProgressView.swift */,
 			);
 			path = "Helper Classes";
 			sourceTree = "<group>";
@@ -664,14 +684,17 @@
 				3B28FFF522595178004268CB /* BaseViewController.swift in Sources */,
 				3BD43D1822591A7100AC3411 /* GenericDataCellTableViewCell.swift in Sources */,
 				3BD43CFF22585EF000AC3411 /* HTTPClient.swift in Sources */,
+				3B7EC0D82263F1B200ED799D /* HourAssignmentViewController.swift in Sources */,
 				3BD43CFB22585B7F00AC3411 /* LandingViewController.swift in Sources */,
 				3BD43D05225861C300AC3411 /* User.swift in Sources */,
+				3B7EC0D42263D4C700ED799D /* DateSelectionCollectionViewCell.swift in Sources */,
 				3B7EC0C8225D727500ED799D /* DateAssignmentTableViewCell.swift in Sources */,
 				3B7EC0B5225C2A5200ED799D /* UIView+Utils.swift in Sources */,
 				3BD43D1B22591B2900AC3411 /* Address.swift in Sources */,
 				3B7EC0BE225D679700ED799D /* ARoundView.swift in Sources */,
 				3BD43CFD22585B9200AC3411 /* RegisterTableViewController.swift in Sources */,
 				3B7EC0C3225D6EE700ED799D /* TransparentPopupViewController.swift in Sources */,
+				3B7EC0DA2263F24800ED799D /* ProgressView.swift in Sources */,
 				3B28FFEC22594809004268CB /* PopupTableViewController.swift in Sources */,
 				3BD43D092258FCC700AC3411 /* HomeTableViewController.swift in Sources */,
 				3BD43D2422592DE200AC3411 /* UIColor+Utils.swift in Sources */,
@@ -688,6 +711,7 @@
 				3B7EC0CA225D773A00ED799D /* DateAssignmentViewController.swift in Sources */,
 				3BD43D1D22591CB000AC3411 /* Tax.swift in Sources */,
 				3BD43D0F2259156000AC3411 /* ProfileTableViewController.swift in Sources */,
+				3B7EC0D62263E95300ED799D /* DateSelectionViewController.swift in Sources */,
 				3B28FFF222595165004268CB /* BaseTableViewController.swift in Sources */,
 				3BD43D0C2259122B00AC3411 /* SideMenuTableViewController.swift in Sources */,
 			);

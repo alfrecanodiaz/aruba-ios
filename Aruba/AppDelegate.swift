@@ -51,6 +51,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func configureNavBar() {
         UINavigationBar.appearance().tintColor = .white
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor : UIColor.white]
+
     }
 
 }

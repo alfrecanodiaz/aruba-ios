@@ -23,6 +23,7 @@ class PeopleQuantiySelectionViewController: UIViewController {
     }
     
     func configureView() {
+        title = "Cantidad De Personas"
         womenView.configure(for: .Woman)
         menView.configure(for: .Men)
         childrenView.configure(for: .Children)

@@ -26,27 +26,93 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhx-Ks-7ut">
+                                <rect key="frame" x="2" y="52" width="410" height="5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="OgU-bp-95y">
+                                        <rect key="frame" x="2" y="0.0" width="406" height="5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SHx-od-da5" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="64.5" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dgw-oe-zS1" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="68.5" y="0.0" width="64" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lnB-PQ-dVL" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="136.5" y="0.0" width="64.5" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DrQ-be-dLD" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="205" y="0.0" width="64.5" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8d-vL-P1n" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="273.5" y="0.0" width="64" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sXq-pv-Enz" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="341.5" y="0.0" width="64.5" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="OgU-bp-95y" firstAttribute="leading" secondItem="jhx-Ks-7ut" secondAttribute="leading" constant="2" id="3DR-UH-4hN"/>
+                                    <constraint firstAttribute="trailing" secondItem="OgU-bp-95y" secondAttribute="trailing" constant="2" id="689-EA-6Ji"/>
+                                    <constraint firstAttribute="height" constant="5" id="EBw-HY-VG1"/>
+                                    <constraint firstItem="OgU-bp-95y" firstAttribute="top" secondItem="jhx-Ks-7ut" secondAttribute="top" id="QX4-Nr-xdI"/>
+                                    <constraint firstAttribute="bottom" secondItem="OgU-bp-95y" secondAttribute="bottom" id="XVE-8b-jeU"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CANTIDAD DE PERSONAS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aag-wF-kxR">
+                                <rect key="frame" x="16" y="69" width="382" height="20.5"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="2u1-s9-oeZ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="733"/>
+                                <rect key="frame" x="0.0" y="99.5" width="414" height="687.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zS3-PO-ecS" customClass="PeopleQuantityView" customModule="Aruba" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="244.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="229"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2lJ-2d-GA0" customClass="PeopleQuantityView" customModule="Aruba" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="244.5" width="414" height="244"/>
+                                        <rect key="frame" x="0.0" y="229" width="414" height="229.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxn-CF-Pun" customClass="PeopleQuantityView" customModule="Aruba" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="488.5" width="414" height="244.5"/>
+                                        <rect key="frame" x="0.0" y="458.5" width="414" height="229"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhJ-ee-HnM" customClass="AButton" customModule="Aruba" customModuleProvider="target">
-                                <rect key="frame" x="40" y="787" width="334" height="50"/>
+                                <rect key="frame" x="40" y="797" width="334" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="vSc-NB-9zb"/>
+                                    <constraint firstAttribute="height" constant="40" id="vSc-NB-9zb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                                 <state key="normal" title="CONTINUAR"/>
@@ -57,13 +123,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="2u1-s9-oeZ" firstAttribute="top" secondItem="8OU-1v-jx4" secondAttribute="top" id="7Dz-qV-TrF"/>
                             <constraint firstItem="qhJ-ee-HnM" firstAttribute="top" secondItem="2u1-s9-oeZ" secondAttribute="bottom" constant="10" id="ASN-vU-BI0"/>
+                            <constraint firstItem="aag-wF-kxR" firstAttribute="leading" secondItem="8OU-1v-jx4" secondAttribute="leading" constant="16" id="F4n-Ms-oN0"/>
+                            <constraint firstItem="jhx-Ks-7ut" firstAttribute="top" secondItem="8OU-1v-jx4" secondAttribute="top" constant="8" id="IIV-fW-Rhv"/>
                             <constraint firstItem="2u1-s9-oeZ" firstAttribute="leading" secondItem="8OU-1v-jx4" secondAttribute="leading" id="M6z-Ul-JHQ"/>
+                            <constraint firstItem="8OU-1v-jx4" firstAttribute="trailing" secondItem="aag-wF-kxR" secondAttribute="trailing" constant="16" id="MSV-n1-nr0"/>
+                            <constraint firstItem="aag-wF-kxR" firstAttribute="top" secondItem="jhx-Ks-7ut" secondAttribute="bottom" constant="12" id="SE7-oA-Hbg"/>
+                            <constraint firstItem="jhx-Ks-7ut" firstAttribute="leading" secondItem="8OU-1v-jx4" secondAttribute="leading" constant="2" id="TkB-Vk-zlN"/>
                             <constraint firstItem="8OU-1v-jx4" firstAttribute="trailing" secondItem="qhJ-ee-HnM" secondAttribute="trailing" constant="40" id="YwR-Yy-b7H"/>
                             <constraint firstItem="8OU-1v-jx4" firstAttribute="bottom" secondItem="qhJ-ee-HnM" secondAttribute="bottom" constant="25" id="bOE-Lh-kHU"/>
                             <constraint firstItem="qhJ-ee-HnM" firstAttribute="leading" secondItem="8OU-1v-jx4" secondAttribute="leading" constant="40" id="c8t-qK-5cq"/>
                             <constraint firstItem="8OU-1v-jx4" firstAttribute="trailing" secondItem="2u1-s9-oeZ" secondAttribute="trailing" id="dEw-9X-uj4"/>
+                            <constraint firstItem="2u1-s9-oeZ" firstAttribute="top" secondItem="aag-wF-kxR" secondAttribute="bottom" constant="10" id="os8-tz-pjd"/>
+                            <constraint firstItem="8OU-1v-jx4" firstAttribute="trailing" secondItem="jhx-Ks-7ut" secondAttribute="trailing" constant="2" id="ya1-8T-26L"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8OU-1v-jx4"/>
                     </view>
@@ -86,8 +158,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gd2-2W-eNG">
+                                <rect key="frame" x="2" y="52" width="410" height="5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="4vL-Db-I4M">
+                                        <rect key="frame" x="2" y="0.0" width="406" height="5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZMF-aj-wlQ" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="64.5" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7p-Jb-sbU" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="68.5" y="0.0" width="64" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWx-tR-Pf2" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="136.5" y="0.0" width="64.5" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4sR-LH-yWz" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="205" y="0.0" width="64.5" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFc-GY-Sv1" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="273.5" y="0.0" width="64" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NhM-0g-WTj" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="341.5" y="0.0" width="64.5" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="4vL-Db-I4M" secondAttribute="trailing" constant="2" id="4a1-7k-1DF"/>
+                                    <constraint firstAttribute="bottom" secondItem="4vL-Db-I4M" secondAttribute="bottom" id="Bmu-Fd-9t0"/>
+                                    <constraint firstItem="4vL-Db-I4M" firstAttribute="top" secondItem="Gd2-2W-eNG" secondAttribute="top" id="EJy-2p-rVx"/>
+                                    <constraint firstItem="4vL-Db-I4M" firstAttribute="leading" secondItem="Gd2-2W-eNG" secondAttribute="leading" constant="2" id="EWH-aD-quE"/>
+                                    <constraint firstAttribute="height" constant="5" id="dU6-YS-tLa"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ea-jC-r2N">
-                                <rect key="frame" x="0.0" y="44" width="414" height="225"/>
+                                <rect key="frame" x="0.0" y="65" width="414" height="225"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="women" translatesAutoresizingMaskIntoConstraints="NO" id="c4U-I1-Oiv">
                                         <rect key="frame" x="134.5" y="44.5" width="145" height="136.00000000000003"/>
@@ -134,7 +266,7 @@
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yMq-gE-ne7">
-                                <rect key="frame" x="16" y="279" width="382" height="29"/>
+                                <rect key="frame" x="16" y="300" width="382" height="29"/>
                                 <segments>
                                     <segment title="CLÁSICO"/>
                                     <segment title="TÉCNICO"/>
@@ -143,7 +275,7 @@
                                 <color key="tintColor" red="0.7848016619682312" green="0.68481916189193726" blue="0.59863740205764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e17-08-1nY">
-                                <rect key="frame" x="16" y="327" width="382" height="399.5"/>
+                                <rect key="frame" x="16" y="348" width="382" height="378.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JVG-pu-zv9">
@@ -225,15 +357,18 @@
                         <constraints>
                             <constraint firstItem="0ea-jC-r2N" firstAttribute="height" secondItem="NmW-XT-asv" secondAttribute="height" multiplier="0.25" constant="1" id="475-zH-GbS"/>
                             <constraint firstItem="JVG-pu-zv9" firstAttribute="top" secondItem="e17-08-1nY" secondAttribute="bottom" id="4Vz-ny-fQm"/>
+                            <constraint firstItem="Gd2-2W-eNG" firstAttribute="top" secondItem="rub-Eb-2pX" secondAttribute="top" constant="8" id="5zv-Li-I2G"/>
                             <constraint firstItem="rub-Eb-2pX" firstAttribute="trailing" secondItem="e17-08-1nY" secondAttribute="trailing" constant="16" id="7cL-Sh-4kn"/>
                             <constraint firstItem="JVG-pu-zv9" firstAttribute="height" secondItem="NmW-XT-asv" secondAttribute="height" multiplier="0.15" constant="1" id="8wW-t7-dvH"/>
                             <constraint firstItem="yMq-gE-ne7" firstAttribute="top" secondItem="0ea-jC-r2N" secondAttribute="bottom" constant="10" id="E5l-Bb-YTr"/>
                             <constraint firstItem="rub-Eb-2pX" firstAttribute="bottom" secondItem="JVG-pu-zv9" secondAttribute="bottom" id="GRj-B7-Ma6"/>
+                            <constraint firstItem="rub-Eb-2pX" firstAttribute="trailing" secondItem="Gd2-2W-eNG" secondAttribute="trailing" constant="2" id="Ht8-BR-EVv"/>
                             <constraint firstItem="e17-08-1nY" firstAttribute="top" secondItem="yMq-gE-ne7" secondAttribute="bottom" constant="20" id="Mcb-mI-ep1"/>
                             <constraint firstItem="JVG-pu-zv9" firstAttribute="leading" secondItem="rub-Eb-2pX" secondAttribute="leading" id="R4d-4F-I4e"/>
+                            <constraint firstItem="0ea-jC-r2N" firstAttribute="top" secondItem="Gd2-2W-eNG" secondAttribute="bottom" constant="8" id="ShB-Re-feG"/>
                             <constraint firstItem="rub-Eb-2pX" firstAttribute="trailing" secondItem="yMq-gE-ne7" secondAttribute="trailing" constant="16" id="Ws5-ar-n3B"/>
+                            <constraint firstItem="Gd2-2W-eNG" firstAttribute="leading" secondItem="rub-Eb-2pX" secondAttribute="leading" constant="2" id="YI3-oY-VEh"/>
                             <constraint firstItem="e17-08-1nY" firstAttribute="leading" secondItem="rub-Eb-2pX" secondAttribute="leading" constant="16" id="a9R-gz-7yH"/>
-                            <constraint firstItem="0ea-jC-r2N" firstAttribute="top" secondItem="rub-Eb-2pX" secondAttribute="top" id="c4d-qd-SHj"/>
                             <constraint firstItem="rub-Eb-2pX" firstAttribute="trailing" secondItem="0ea-jC-r2N" secondAttribute="trailing" id="eWB-Z3-LLr"/>
                             <constraint firstItem="yMq-gE-ne7" firstAttribute="leading" secondItem="rub-Eb-2pX" secondAttribute="leading" constant="16" id="hBl-to-gzz"/>
                             <constraint firstItem="0ea-jC-r2N" firstAttribute="leading" secondItem="rub-Eb-2pX" secondAttribute="leading" id="i5v-hU-C86"/>
@@ -337,8 +472,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yo9-Td-m5t">
+                                <rect key="frame" x="2" y="52" width="410" height="5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="exO-Wa-4V6">
+                                        <rect key="frame" x="2" y="0.0" width="406" height="5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uDK-b1-JTJ" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="64.5" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eEC-uK-l6p" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="68.5" y="0.0" width="64" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YbB-Kj-v1o" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="136.5" y="0.0" width="64.5" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xme-Iv-a24" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="205" y="0.0" width="64.5" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3iw-ug-oV7" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="273.5" y="0.0" width="64" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2O-tW-3Yp" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="341.5" y="0.0" width="64.5" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="exO-Wa-4V6" firstAttribute="top" secondItem="yo9-Td-m5t" secondAttribute="top" id="5VH-H8-Xy4"/>
+                                    <constraint firstAttribute="height" constant="5" id="OaH-hn-2LM"/>
+                                    <constraint firstAttribute="trailing" secondItem="exO-Wa-4V6" secondAttribute="trailing" constant="2" id="SJQ-4Y-tsU"/>
+                                    <constraint firstItem="exO-Wa-4V6" firstAttribute="leading" secondItem="yo9-Td-m5t" secondAttribute="leading" constant="2" id="bix-rL-EF7"/>
+                                    <constraint firstAttribute="bottom" secondItem="exO-Wa-4V6" secondAttribute="bottom" id="cIn-CD-awY"/>
+                                </constraints>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ASIGNAR FECHA Y HORA POR PERSONA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOY-Dz-erw">
-                                <rect key="frame" x="16" y="64" width="382" height="17"/>
+                                <rect key="frame" x="16" y="77" width="382" height="17"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -352,7 +547,7 @@
                                 <state key="normal" title="CONTINUAR"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PUL-2v-I0Q">
-                                <rect key="frame" x="0.0" y="121" width="414" height="641"/>
+                                <rect key="frame" x="0.0" y="114" width="414" height="648"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateAssignmentCell" rowHeight="79" id="YBU-jQ-Trv" customClass="DateAssignmentTableViewCell" customModule="Aruba" customModuleProvider="target">
@@ -401,21 +596,339 @@
                         <constraints>
                             <constraint firstItem="PUL-2v-I0Q" firstAttribute="leading" secondItem="Vb5-CZ-HLP" secondAttribute="leading" id="1xz-mW-vyu"/>
                             <constraint firstItem="Vb5-CZ-HLP" firstAttribute="trailing" secondItem="PUL-2v-I0Q" secondAttribute="trailing" id="3Q4-Yh-spS"/>
+                            <constraint firstItem="Vb5-CZ-HLP" firstAttribute="trailing" secondItem="yo9-Td-m5t" secondAttribute="trailing" constant="2" id="3aI-eK-Zxm"/>
                             <constraint firstItem="nAP-Jg-I5A" firstAttribute="top" secondItem="PUL-2v-I0Q" secondAttribute="bottom" constant="40" id="5ai-Ap-ERB"/>
                             <constraint firstItem="Vb5-CZ-HLP" firstAttribute="trailing" secondItem="lOY-Dz-erw" secondAttribute="trailing" constant="16" id="8hc-JF-1B5"/>
-                            <constraint firstItem="lOY-Dz-erw" firstAttribute="top" secondItem="Vb5-CZ-HLP" secondAttribute="top" constant="20" id="KaG-iT-Hmh"/>
+                            <constraint firstItem="yo9-Td-m5t" firstAttribute="top" secondItem="Vb5-CZ-HLP" secondAttribute="top" constant="8" id="WYF-ET-QBb"/>
                             <constraint firstItem="Vb5-CZ-HLP" firstAttribute="trailing" secondItem="nAP-Jg-I5A" secondAttribute="trailing" constant="40" id="WYR-vJ-Msu"/>
-                            <constraint firstItem="PUL-2v-I0Q" firstAttribute="top" secondItem="lOY-Dz-erw" secondAttribute="bottom" constant="40" id="dYS-3Q-Y7f"/>
+                            <constraint firstItem="PUL-2v-I0Q" firstAttribute="top" secondItem="lOY-Dz-erw" secondAttribute="bottom" constant="20" id="dYS-3Q-Y7f"/>
+                            <constraint firstItem="lOY-Dz-erw" firstAttribute="top" secondItem="yo9-Td-m5t" secondAttribute="bottom" constant="20" id="eGg-Ek-bLW"/>
                             <constraint firstItem="nAP-Jg-I5A" firstAttribute="leading" secondItem="Vb5-CZ-HLP" secondAttribute="leading" constant="40" id="ef4-IC-EIa"/>
                             <constraint firstItem="Vb5-CZ-HLP" firstAttribute="bottom" secondItem="nAP-Jg-I5A" secondAttribute="bottom" constant="20" id="ifI-Yd-US6"/>
+                            <constraint firstItem="yo9-Td-m5t" firstAttribute="leading" secondItem="Vb5-CZ-HLP" secondAttribute="leading" constant="2" id="v4d-kh-N8r"/>
                             <constraint firstItem="lOY-Dz-erw" firstAttribute="leading" secondItem="Vb5-CZ-HLP" secondAttribute="leading" constant="16" id="zFR-8q-qMO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vb5-CZ-HLP"/>
                     </view>
+                    <connections>
+                        <segue destination="aH6-kx-gMW" kind="show" identifier="DateAssignmentSegue" id="fiO-2u-iZ6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rr8-7d-1XY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3486" y="138"/>
+        </scene>
+        <!--Date Selection View Controller-->
+        <scene sceneID="dKO-ln-lVq">
+            <objects>
+                <viewController id="aH6-kx-gMW" customClass="DateSelectionViewController" customModule="Aruba" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wpm-Hg-aLk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EyB-4h-HGi">
+                                <rect key="frame" x="0.0" y="52" width="414" height="5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Raa-qS-d5g">
+                                        <rect key="frame" x="2" y="0.0" width="410" height="5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0fD-FE-Iqc" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="65" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1F-Uj-tML" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="69" y="0.0" width="65" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fCk-nA-aio" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="138" y="0.0" width="65" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ItI-Ok-tY6" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="207" y="0.0" width="65" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i7u-nb-HdZ" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="276" y="0.0" width="65" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LfA-pi-hfN" customClass="ProgressView" customModule="Aruba" customModuleProvider="target">
+                                                <rect key="frame" x="345" y="0.0" width="65" height="5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selected" value="NO"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Raa-qS-d5g" secondAttribute="trailing" constant="2" id="77N-nE-YK8"/>
+                                    <constraint firstItem="Raa-qS-d5g" firstAttribute="top" secondItem="EyB-4h-HGi" secondAttribute="top" id="9VI-uY-0Xb"/>
+                                    <constraint firstAttribute="bottom" secondItem="Raa-qS-d5g" secondAttribute="bottom" id="GWq-t7-CJQ"/>
+                                    <constraint firstItem="Raa-qS-d5g" firstAttribute="leading" secondItem="EyB-4h-HGi" secondAttribute="leading" constant="2" id="NmV-jL-25X"/>
+                                    <constraint firstAttribute="height" constant="5" id="Vkj-Nt-gpH"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="g9l-i4-6Ah">
+                                <rect key="frame" x="20" y="69" width="374" height="30"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDu-oH-n0O">
+                                        <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MUJER 01" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uV6-PB-TsU">
+                                                <rect key="frame" x="16" y="8" width="187" height="14"/>
+                                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="15"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.89365547895431519" green="0.89433497190475464" blue="0.89376074075698853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="uV6-PB-TsU" secondAttribute="trailing" constant="-16" id="5r6-iI-xjD"/>
+                                            <constraint firstItem="uV6-PB-TsU" firstAttribute="top" secondItem="SDu-oH-n0O" secondAttribute="top" constant="8" id="6cV-n6-WYV"/>
+                                            <constraint firstAttribute="bottom" secondItem="uV6-PB-TsU" secondAttribute="bottom" constant="8" id="CNx-oJ-EiO"/>
+                                            <constraint firstItem="uV6-PB-TsU" firstAttribute="leading" secondItem="SDu-oH-n0O" secondAttribute="leading" constant="16" id="JJM-vL-htL"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AGENDAR FECHA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKf-10-o2e">
+                                        <rect key="frame" x="187" y="0.0" width="187" height="30"/>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0Vd-70-FBf"/>
+                                </constraints>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAg-UD-SXO">
+                                <rect key="frame" x="20" y="107" width="374" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="fgU-hy-Stc"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NLK-91-owu">
+                                <rect key="frame" x="20" y="116" width="374" height="580.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="f0d-ZQ-EgC">
+                                    <size key="itemSize" width="203" height="192"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DateSelectionCell" id="tUJ-w8-wL9" customClass="DateSelectionCollectionViewCell" customModule="Aruba" customModuleProvider="target">
+                                        <rect key="frame" x="85.5" y="0.0" width="203" height="192"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="203" height="192"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xme-hh-kWR">
+                                                    <rect key="frame" x="8" y="8" width="187" height="176"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8hG-ff-yeb">
+                                                            <rect key="frame" x="12" y="12" width="163" height="152"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="3RF-Ep-VrY">
+                                                                    <rect key="frame" x="0.0" y="49.5" width="163" height="18"/>
+                                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="15"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L6p-FK-6lz">
+                                                                    <rect key="frame" x="0.0" y="75.5" width="163" height="1"/>
+                                                                    <color key="backgroundColor" red="0.85541671514511108" green="0.85606878995895386" blue="0.8555176854133606" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="1" id="hRI-pp-beN"/>
+                                                                    </constraints>
+                                                                </view>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="O9a-tc-ThK">
+                                                                    <rect key="frame" x="0.0" y="84.5" width="163" height="13.5"/>
+                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="11"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="3RF-Ep-VrY" secondAttribute="trailing" id="32e-rC-32a"/>
+                                                                <constraint firstItem="3RF-Ep-VrY" firstAttribute="leading" secondItem="8hG-ff-yeb" secondAttribute="leading" id="8xA-zd-u8a"/>
+                                                                <constraint firstItem="L6p-FK-6lz" firstAttribute="centerY" secondItem="8hG-ff-yeb" secondAttribute="centerY" id="AsR-Xh-Nrr"/>
+                                                                <constraint firstItem="3RF-Ep-VrY" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8hG-ff-yeb" secondAttribute="top" id="BSj-hD-6Eq"/>
+                                                                <constraint firstAttribute="trailing" secondItem="O9a-tc-ThK" secondAttribute="trailing" id="DEB-MA-9P0"/>
+                                                                <constraint firstItem="L6p-FK-6lz" firstAttribute="top" secondItem="3RF-Ep-VrY" secondAttribute="bottom" constant="8" id="QTk-HG-WXt"/>
+                                                                <constraint firstItem="L6p-FK-6lz" firstAttribute="leading" secondItem="8hG-ff-yeb" secondAttribute="leading" id="Ywd-vG-xD5"/>
+                                                                <constraint firstItem="O9a-tc-ThK" firstAttribute="leading" secondItem="8hG-ff-yeb" secondAttribute="leading" id="nN5-ar-End"/>
+                                                                <constraint firstAttribute="trailing" secondItem="L6p-FK-6lz" secondAttribute="trailing" id="tcM-4I-3l5"/>
+                                                                <constraint firstItem="O9a-tc-ThK" firstAttribute="top" secondItem="L6p-FK-6lz" secondAttribute="bottom" constant="8" id="upx-zi-AH2"/>
+                                                            </constraints>
+                                                        </view>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.47058823529999999" green="0.86666666670000003" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstItem="8hG-ff-yeb" firstAttribute="top" secondItem="Xme-hh-kWR" secondAttribute="top" constant="12" id="224-qe-Rki"/>
+                                                        <constraint firstItem="8hG-ff-yeb" firstAttribute="leading" secondItem="Xme-hh-kWR" secondAttribute="leading" constant="12" id="blO-BE-cs7"/>
+                                                        <constraint firstAttribute="trailing" secondItem="8hG-ff-yeb" secondAttribute="trailing" constant="12" id="dDb-eJ-F6N"/>
+                                                        <constraint firstAttribute="bottom" secondItem="8hG-ff-yeb" secondAttribute="bottom" constant="12" id="kN3-d2-lNF"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="Xme-hh-kWR" firstAttribute="leading" secondItem="tUJ-w8-wL9" secondAttribute="leading" constant="8" id="KZz-dO-oRK"/>
+                                            <constraint firstAttribute="trailing" secondItem="Xme-hh-kWR" secondAttribute="trailing" constant="8" id="PFg-fr-Fya"/>
+                                            <constraint firstItem="Xme-hh-kWR" firstAttribute="top" secondItem="tUJ-w8-wL9" secondAttribute="top" constant="8" id="ozc-V0-IJA"/>
+                                            <constraint firstAttribute="bottom" secondItem="Xme-hh-kWR" secondAttribute="bottom" constant="8" id="sZY-t5-rMQ"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dayLbl" destination="3RF-Ep-VrY" id="CeT-gY-uWU"/>
+                                            <outlet property="descriptionLbl" destination="O9a-tc-ThK" id="RD6-Me-PP8"/>
+                                            <outlet property="roundView" destination="Xme-hh-kWR" id="cyF-cM-FKs"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="aH6-kx-gMW" id="ejq-i7-3st"/>
+                                    <outlet property="delegate" destination="aH6-kx-gMW" id="eUG-tb-7UD"/>
+                                </connections>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g6n-8E-jIi">
+                                <rect key="frame" x="0.0" y="726.5" width="414" height="135.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Yoo-nG-cav">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="135.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Av8-hK-ne2">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MONTO TOTAL Gs.:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pu-UT-hgS">
+                                                        <rect key="frame" x="20" y="23.5" width="136.5" height="18"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="150.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3P-po-xh0">
+                                                        <rect key="frame" x="302.5" y="22.5" width="59.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bib-p4-6it" customClass="ARoundButton" customModule="Aruba" customModuleProvider="target">
+                                                        <rect key="frame" x="378" y="22.5" width="20" height="20"/>
+                                                        <color key="backgroundColor" red="0.47058823529999999" green="0.86666666670000003" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="20" id="JL3-po-FYm"/>
+                                                            <constraint firstAttribute="height" constant="20" id="wm1-GJ-K0k"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
+                                                        <state key="normal" title="＾"/>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.89365547899999997" green="0.8943349719" blue="0.89376074080000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="bib-p4-6it" secondAttribute="trailing" constant="16" id="1YM-ge-5ks"/>
+                                                    <constraint firstItem="b3P-po-xh0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5pu-UT-hgS" secondAttribute="trailing" constant="20" id="JYA-GK-V3j"/>
+                                                    <constraint firstItem="bib-p4-6it" firstAttribute="leading" secondItem="b3P-po-xh0" secondAttribute="trailing" constant="16" id="Ovf-cN-01Q"/>
+                                                    <constraint firstItem="5pu-UT-hgS" firstAttribute="leading" secondItem="Av8-hK-ne2" secondAttribute="leading" constant="20" id="Pxp-TT-1A6"/>
+                                                    <constraint firstItem="bib-p4-6it" firstAttribute="centerY" secondItem="Av8-hK-ne2" secondAttribute="centerY" id="TbE-GP-4YH"/>
+                                                    <constraint firstItem="b3P-po-xh0" firstAttribute="centerY" secondItem="Av8-hK-ne2" secondAttribute="centerY" id="gqy-0c-yf5"/>
+                                                    <constraint firstItem="5pu-UT-hgS" firstAttribute="centerY" secondItem="Av8-hK-ne2" secondAttribute="centerY" id="hQX-sD-IgZ"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="66p-D3-b9t">
+                                                <rect key="frame" x="0.0" y="71" width="414" height="64.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xQb-X1-ADI" customClass="AButton" customModule="Aruba" customModuleProvider="target">
+                                                        <rect key="frame" x="40" y="0.0" width="334" height="56.5"/>
+                                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
+                                                        <state key="normal" title="CONTINUAR"/>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="xQb-X1-ADI" firstAttribute="leading" secondItem="66p-D3-b9t" secondAttribute="leading" constant="40" id="GuJ-st-C2F"/>
+                                                    <constraint firstItem="xQb-X1-ADI" firstAttribute="top" secondItem="66p-D3-b9t" secondAttribute="top" id="LYN-3F-OZH"/>
+                                                    <constraint firstAttribute="bottom" secondItem="xQb-X1-ADI" secondAttribute="bottom" constant="8" id="MRE-5h-wuG"/>
+                                                    <constraint firstAttribute="trailing" secondItem="xQb-X1-ADI" secondAttribute="trailing" constant="40" id="WwC-4v-vL5"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Yoo-nG-cav" firstAttribute="leading" secondItem="g6n-8E-jIi" secondAttribute="leading" id="Neg-c3-BHk"/>
+                                    <constraint firstItem="Yoo-nG-cav" firstAttribute="top" secondItem="g6n-8E-jIi" secondAttribute="top" id="V0E-1r-4tm"/>
+                                    <constraint firstAttribute="bottom" secondItem="Yoo-nG-cav" secondAttribute="bottom" id="eLg-kI-37V"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yoo-nG-cav" secondAttribute="trailing" id="zCl-C1-PXW"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EyB-4h-HGi" firstAttribute="leading" secondItem="aKm-gp-hd9" secondAttribute="leading" id="92G-H3-gfB"/>
+                            <constraint firstItem="nAg-UD-SXO" firstAttribute="top" secondItem="g9l-i4-6Ah" secondAttribute="bottom" constant="8" id="BPQ-DV-pDL"/>
+                            <constraint firstItem="aKm-gp-hd9" firstAttribute="trailing" secondItem="nAg-UD-SXO" secondAttribute="trailing" constant="20" id="NAD-yO-9er"/>
+                            <constraint firstItem="g9l-i4-6Ah" firstAttribute="top" secondItem="EyB-4h-HGi" secondAttribute="bottom" constant="12" id="OPT-Di-wGo"/>
+                            <constraint firstItem="aKm-gp-hd9" firstAttribute="trailing" secondItem="NLK-91-owu" secondAttribute="trailing" constant="20" id="SfL-SA-fHg"/>
+                            <constraint firstItem="EyB-4h-HGi" firstAttribute="top" secondItem="aKm-gp-hd9" secondAttribute="top" constant="8" id="b6C-en-Vgz"/>
+                            <constraint firstItem="g9l-i4-6Ah" firstAttribute="leading" secondItem="aKm-gp-hd9" secondAttribute="leading" constant="20" id="c2m-ez-xv1"/>
+                            <constraint firstItem="NLK-91-owu" firstAttribute="top" secondItem="nAg-UD-SXO" secondAttribute="bottom" constant="8" id="dpw-5U-xzg"/>
+                            <constraint firstItem="Yoo-nG-cav" firstAttribute="height" secondItem="wpm-Hg-aLk" secondAttribute="height" multiplier="0.15" constant="1" id="eHV-Z5-4ew"/>
+                            <constraint firstItem="g6n-8E-jIi" firstAttribute="top" secondItem="NLK-91-owu" secondAttribute="bottom" constant="30" id="exf-Fi-BbI"/>
+                            <constraint firstItem="NLK-91-owu" firstAttribute="leading" secondItem="aKm-gp-hd9" secondAttribute="leading" constant="20" id="fjW-fc-tDe"/>
+                            <constraint firstItem="nAg-UD-SXO" firstAttribute="leading" secondItem="aKm-gp-hd9" secondAttribute="leading" constant="20" id="go0-TQ-oSD"/>
+                            <constraint firstItem="aKm-gp-hd9" firstAttribute="trailing" secondItem="g9l-i4-6Ah" secondAttribute="trailing" constant="20" id="lTR-FN-cdG"/>
+                            <constraint firstItem="g6n-8E-jIi" firstAttribute="leading" secondItem="aKm-gp-hd9" secondAttribute="leading" id="q0S-AA-WHd"/>
+                            <constraint firstItem="aKm-gp-hd9" firstAttribute="trailing" secondItem="EyB-4h-HGi" secondAttribute="trailing" id="rvG-hy-Nsu"/>
+                            <constraint firstItem="aKm-gp-hd9" firstAttribute="bottom" secondItem="g6n-8E-jIi" secondAttribute="bottom" id="sgt-Hp-oN7"/>
+                            <constraint firstItem="aKm-gp-hd9" firstAttribute="trailing" secondItem="g6n-8E-jIi" secondAttribute="trailing" id="zRr-pS-mKu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aKm-gp-hd9"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="NLK-91-owu" id="OZ5-Bc-uCD"/>
+                        <outlet property="genderContainerView" destination="SDu-oH-n0O" id="4N6-4z-llx"/>
+                        <segue destination="Qjc-KL-dud" kind="show" identifier="HourAssignmentSegue" id="04A-WE-hhJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BQ1-y4-wE3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4156.521739130435" y="142.63392857142856"/>
+        </scene>
+        <!--Hour Assignment View Controller-->
+        <scene sceneID="K4I-Ig-syX">
+            <objects>
+                <viewController id="Qjc-KL-dud" customClass="HourAssignmentViewController" customModule="Aruba" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f5F-ES-4x1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="3sx-Rj-hPN"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EhK-hY-4Pb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4878" y="144"/>
         </scene>
     </scenes>
     <resources>

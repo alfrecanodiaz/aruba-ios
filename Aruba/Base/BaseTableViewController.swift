@@ -10,6 +10,8 @@ import UIKit
 
 class BaseTableViewController: UITableViewController {
 
+    var entryAnimationDone: Bool = false
+
     let backgroundBlackView: UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
@@ -26,7 +28,18 @@ class BaseTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if !entryAnimationDone {
+            cell.transform = CGAffineTransform(translationX: 0, y: 40)
+            cell.alpha = 0
+            UIView.animate(withDuration: 0.3, delay: TimeInterval(0.1*Double(indexPath.row)), usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: [.curveEaseInOut], animations: {
+                cell.transform = CGAffineTransform.identity
+                cell.alpha = 1
+            }) { (end) in
+                self.entryAnimationDone = true
+            }
+        }
+    }
 
 
 }

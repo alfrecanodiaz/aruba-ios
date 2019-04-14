@@ -22,7 +22,6 @@ struct Category {
 
 class HomeTableViewController: BaseTableViewController {
     
-    var entryAnimationDone: Bool = false
     var popup: PopupTableViewController!
     struct Cells {
         static let Category = "homeCategoryCell"
@@ -78,20 +77,9 @@ class HomeTableViewController: BaseTableViewController {
         print("Selected index: \(selectedIndex)")
     }
     
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if !entryAnimationDone {
-            cell.transform = CGAffineTransform(translationX: 0, y: -40)
-            cell.alpha = 0
-            UIView.animate(withDuration: 0.3, delay: TimeInterval(0.1*Double(indexPath.row)), usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: [.curveEaseInOut], animations: {
-                cell.transform = CGAffineTransform.identity
-                cell.alpha = 1
-            }) { (end) in
-                self.entryAnimationDone = true
-            }
-        }
+  
 //        guard let cell = cell as? HomeCategoryTableViewCell else { return }
 //        cell.backgroundImageView.layer.cornerRadius = cell.backgroundImageView.bounds.width/2
-    }
 
 
 }

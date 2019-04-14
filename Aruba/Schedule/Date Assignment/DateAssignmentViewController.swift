@@ -34,9 +34,14 @@ struct Person {
 class DateAssignmentViewController: UIViewController {
 
     var persons: [Person] = [Person(gender: .Women),Person(gender: .Women), Person(gender: .Man),Person(gender: .Children)]
+    var entryAnimationDone: Bool = false
     
     struct Cells {
         static let DateAssignment = "dateAssignmentCell"
+    }
+    
+    struct Segues {
+        static let DateAssignment = "DateAssignmentSegue"
     }
     
     override func viewDidLoad() {
@@ -75,4 +80,24 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
         cell.configure(person: persons[indexPath.row])
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        self.performSegue(withIdentifier: Segues.DateAssignment, sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if !entryAnimationDone {
+            cell.transform = CGAffineTransform(translationX: 0, y: 40)
+            cell.alpha = 0
+            UIView.animate(withDuration: 0.3, delay: TimeInterval(0.1*Double(indexPath.row)), usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: [.curveEaseInOut], animations: {
+                cell.transform = CGAffineTransform.identity
+                cell.alpha = 1
+            }) { (end) in
+                self.entryAnimationDone = true
+            }
+        }
+    }
+    
+    
 }
