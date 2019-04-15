@@ -39,6 +39,10 @@
 		3B7EC0D82263F1B200ED799D /* HourAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0D72263F1B200ED799D /* HourAssignmentViewController.swift */; };
 		3B7EC0DA2263F24800ED799D /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0D92263F24800ED799D /* ProgressView.swift */; };
 		3B7EC0DC2263FADC00ED799D /* HourCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0DB2263FADC00ED799D /* HourCollectionViewCell.swift */; };
+		3B7EC0DE2263FFF100ED799D /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0DD2263FFF100ED799D /* BaseNavigationController.swift */; };
+		3B7EC0E1226404F400ED799D /* ProfesionalSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0E0226404F400ED799D /* ProfesionalSelectionViewController.swift */; };
+		3B7EC0E42264066C00ED799D /* ProfessionalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0E22264066C00ED799D /* ProfessionalTableViewCell.swift */; };
+		3B7EC0E52264066C00ED799D /* ProfessionalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B7EC0E32264066C00ED799D /* ProfessionalTableViewCell.xib */; };
 		3BD43CF1225856B900AC3411 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BD43CF0225856B900AC3411 /* Start.storyboard */; };
 		3BD43CF3225858B000AC3411 /* AButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CF2225858B000AC3411 /* AButton.swift */; };
 		3BD43CF62258594D00AC3411 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CF52258594D00AC3411 /* Colors.swift */; };
@@ -120,6 +124,10 @@
 		3B7EC0D72263F1B200ED799D /* HourAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourAssignmentViewController.swift; sourceTree = "<group>"; };
 		3B7EC0D92263F24800ED799D /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		3B7EC0DB2263FADC00ED799D /* HourCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourCollectionViewCell.swift; sourceTree = "<group>"; };
+		3B7EC0DD2263FFF100ED799D /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		3B7EC0E0226404F400ED799D /* ProfesionalSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfesionalSelectionViewController.swift; sourceTree = "<group>"; };
+		3B7EC0E22264066C00ED799D /* ProfessionalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalTableViewCell.swift; sourceTree = "<group>"; };
+		3B7EC0E32264066C00ED799D /* ProfessionalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfessionalTableViewCell.xib; sourceTree = "<group>"; };
 		3BD43CF0225856B900AC3411 /* Start.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
 		3BD43CF2225858B000AC3411 /* AButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AButton.swift; sourceTree = "<group>"; };
 		3BD43CF52258594D00AC3411 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -256,6 +264,7 @@
 			children = (
 				3B28FFF122595165004268CB /* BaseTableViewController.swift */,
 				3B28FFF422595178004268CB /* BaseViewController.swift */,
+				3B7EC0DD2263FFF100ED799D /* BaseNavigationController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -273,6 +282,7 @@
 		3B7EC0AB225C206F00ED799D /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				3B7EC0DF226404E300ED799D /* Profesional selection */,
 				3B7EC0CE2263D47B00ED799D /* Date Selection */,
 				3B7EC0AC225C20A300ED799D /* Schedule.storyboard */,
 				3B7EC0C4225D722E00ED799D /* Date Assignment */,
@@ -321,6 +331,16 @@
 				3B7EC0DB2263FADC00ED799D /* HourCollectionViewCell.swift */,
 			);
 			path = "Date Selection";
+			sourceTree = "<group>";
+		};
+		3B7EC0DF226404E300ED799D /* Profesional selection */ = {
+			isa = PBXGroup;
+			children = (
+				3B7EC0E0226404F400ED799D /* ProfesionalSelectionViewController.swift */,
+				3B7EC0E22264066C00ED799D /* ProfessionalTableViewCell.swift */,
+				3B7EC0E32264066C00ED799D /* ProfessionalTableViewCell.xib */,
+			);
+			path = "Profesional selection";
 			sourceTree = "<group>";
 		};
 		3BD43CF4225858B500AC3411 /* Helper Classes */ = {
@@ -562,6 +582,7 @@
 				3B28FFFC22595588004268CB /* Lato-Black.ttf in Resources */,
 				3B28FFFB22595588004268CB /* Lato-Regular.ttf in Resources */,
 				3BD43D1922591A7100AC3411 /* GenericDataCellTableViewCell.xib in Resources */,
+				3B7EC0E52264066C00ED799D /* ProfessionalTableViewCell.xib in Resources */,
 				3B26A3BB22584BD10063ECAA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -624,12 +645,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Aruba/Pods-Aruba-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -706,6 +729,7 @@
 				3B7EC0B1225C21D500ED799D /* PeopleQuantityView.swift in Sources */,
 				3B7EC0BC225C352300ED799D /* ServiceSelectionViewController.swift in Sources */,
 				3B28FFEE22594892004268CB /* APopoverTableViewController.swift in Sources */,
+				3B7EC0DE2263FFF100ED799D /* BaseNavigationController.swift in Sources */,
 				3B7EC0DC2263FADC00ED799D /* HourCollectionViewCell.swift in Sources */,
 				3B26A3B622584BD10063ECAA /* AppDelegate.swift in Sources */,
 				3B7EC0B9225C347F00ED799D /* ServiceSelectionTableViewCell.swift in Sources */,
@@ -713,11 +737,13 @@
 				3B7EC0AF225C219200ED799D /* PeopleQuantiySelectionViewController.swift in Sources */,
 				3BD43D2222592B4700AC3411 /* HomeCategoryTableViewCell.swift in Sources */,
 				3B7EC0CA225D773A00ED799D /* DateAssignmentViewController.swift in Sources */,
+				3B7EC0E1226404F400ED799D /* ProfesionalSelectionViewController.swift in Sources */,
 				3BD43D1D22591CB000AC3411 /* Tax.swift in Sources */,
 				3BD43D0F2259156000AC3411 /* ProfileTableViewController.swift in Sources */,
 				3B7EC0D62263E95300ED799D /* DateSelectionViewController.swift in Sources */,
 				3B28FFF222595165004268CB /* BaseTableViewController.swift in Sources */,
 				3BD43D0C2259122B00AC3411 /* SideMenuTableViewController.swift in Sources */,
+				3B7EC0E42264066C00ED799D /* ProfessionalTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

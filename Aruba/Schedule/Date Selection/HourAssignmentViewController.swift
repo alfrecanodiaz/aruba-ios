@@ -64,10 +64,26 @@ class HourAssignmentViewController: UIViewController, UICollectionViewDataSource
         hours = [Hour(hourString: "7:00"),Hour(hourString: "7:30"),Hour(hourString: "8:00"),Hour(hourString: "8:30"),Hour(hourString: "9:00"),Hour(hourString: "9:30"),Hour(hourString: "10:00"),Hour(hourString: "10:30"),Hour(hourString: "11:00"),Hour(hourString: "11:30")]
     }
     
+    
+    @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+        
+        //TODO: CHECK THE VALUES
+        if sender.selectedSegmentIndex == 0 {
+             hours = [Hour(hourString: "7:00"),Hour(hourString: "7:30"),Hour(hourString: "8:00"),Hour(hourString: "8:30"),Hour(hourString: "9:00"),Hour(hourString: "9:30"),Hour(hourString: "10:00"),Hour(hourString: "10:30"),Hour(hourString: "11:00"),Hour(hourString: "11:30")]
+        } else if sender.selectedSegmentIndex == 1 {
+             hours = [Hour(hourString: "1:00"),Hour(hourString: "1:30"),Hour(hourString: "2:00"),Hour(hourString: "2:30"),Hour(hourString: "3:00"),Hour(hourString: "3:30"),Hour(hourString: "4:00"),Hour(hourString: "4:30"),Hour(hourString: "5:00"),Hour(hourString: "5:30")]
+        } else {
+             hours = [Hour(hourString: "6:00"),Hour(hourString: "6:30"),Hour(hourString: "7:00"),Hour(hourString: "7:30"),Hour(hourString: "8:00"),Hour(hourString: "8:30"),Hour(hourString: "9:00"),Hour(hourString: "9:30"),Hour(hourString: "10:00"),Hour(hourString: "10:30")]
+        }
+        selectedHourIndex = 0
+        collectionView.reloadData()
+    }
+    
+    
 
     /*
     // MARK: - Navigation
-
+ 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.

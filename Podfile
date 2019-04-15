@@ -10,6 +10,8 @@ target 'Aruba' do
   pod 'SwiftLint'
   pod 'SideMenu'
   pod 'MaterialTextField'
+  pod 'SVProgressHUD'
+
   target 'ArubaTests' do
     inherit! :search_paths
     # Pods for testing
