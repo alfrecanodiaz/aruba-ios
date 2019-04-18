@@ -10,6 +10,9 @@ import UIKit
 
 struct Person {
     let gender: Gender
+    var scheduleProducts: [Product] = []
+    var scheduleDate: ScheduleDate?
+    var index: Int = 1
     
     enum Gender: String {
         case Women = "MUJER", Children = "NIÑO", Man = "HOMBRE"
@@ -26,16 +29,44 @@ struct Person {
         }
     }
     
-    init(gender: Gender) {
+    init(gender: Gender, index: Int) {
         self.gender = gender
+        self.index = index
     }
+    
+    
+}
+
+struct ScheduleData {
+    let persons: [Person]
+    
+    func totalPriceString() -> String? {
+        var total: Double = 0
+        
+        for person in self.persons {
+            for product in person.scheduleProducts {
+                total = total + product.price
+            }
+        }
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale(identifier: "es_PY")
+        return formatter.string(from: NSNumber(value: total))
+    }
+}
+
+struct ScheduleDate {
+    
 }
 
 class DateAssignmentViewController: UIViewController {
 
-    var persons: [Person] = [Person(gender: .Women),Person(gender: .Women), Person(gender: .Man),Person(gender: .Children)]
     var entryAnimationDone: Bool = false
     
+    var scheduleData: ScheduleData!
+    private var remainingPersons: [Person] = []
+    private var configuredPersons: [Person] = []
+    private var selectedPerson: Person!
     struct Cells {
         static let DateAssignment = "dateAssignmentCell"
     }
@@ -46,28 +77,39 @@ class DateAssignmentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        setupView()
     }
     
+    private func setupView() {
+        
+        remainingPersons = scheduleData.persons
+        
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.DateAssignment, let dvc = segue.destination as? DateSelectionViewController {
+            dvc.scheduleData = scheduleData
+            dvc.person = selectedPerson
+        }
+    }
+    
+    @IBAction func  unwindToDateAssignmentSegue(segue: UIStoryboardSegue) {
+        // TODO: remove configured person from remaining person array
+    }
 }
 
 extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view data source
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return persons.count
+        if section == 0 {
+            return remainingPersons.count
+        }
+        return configuredPersons.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -77,13 +119,22 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.DateAssignment, for: indexPath) as! DateAssignmentTableViewCell
         
-        cell.configure(person: persons[indexPath.row])
+        if indexPath.section == 0 {
+            cell.configure(person: remainingPersons[indexPath.row], scheduled: false)
+        } else {
+            cell.configure(person: configuredPersons[indexPath.row], scheduled: true)
+        }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        self.performSegue(withIdentifier: Segues.DateAssignment, sender: self)
+        if indexPath.section == 0 {
+            selectedPerson = remainingPersons[indexPath.row]
+            self.performSegue(withIdentifier: Segues.DateAssignment, sender: self)
+
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

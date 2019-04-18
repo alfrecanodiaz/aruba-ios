@@ -67,7 +67,7 @@ class HomeTableViewController: BaseTableViewController {
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        popup = showPopup(title: "Dirección del servicio", options: [GenericDataCellViewModel(address: Address()),GenericDataCellViewModel(address: Address())], delegate: self)
+        popup = showOptionPopup(title: "Dirección del servicio", options: [GenericDataCellViewModel(address: Address()),GenericDataCellViewModel(address: Address())], delegate: self)
     }
     
     override func popupDidSelectAccept(selectedIndex: Int) {

@@ -51,7 +51,7 @@ extension BaseTableViewController: UIPopoverPresentationControllerDelegate, Popu
     }
     
     
-    func showPopup(title:String, options: [GenericDataCellViewModel], delegate: BaseTableViewController) -> PopupTableViewController {
+    func showOptionPopup(title:String, options: [GenericDataCellViewModel], delegate: BaseTableViewController) -> PopupTableViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let popup = storyboard.instantiateViewController(withIdentifier: "PopupTableViewControllerID") as! PopupTableViewController
         popup.delegate = delegate

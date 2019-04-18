@@ -21,6 +21,7 @@
 		3B28FFFA22595588004268CB /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B28FFF722595588004268CB /* Lato-Bold.ttf */; };
 		3B28FFFB22595588004268CB /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B28FFF822595588004268CB /* Lato-Regular.ttf */; };
 		3B28FFFC22595588004268CB /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B28FFF922595588004268CB /* Lato-Black.ttf */; };
+		3B67BA4022690FC500871F77 /* ProductDescriptionPopupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B67BA3F22690FC500871F77 /* ProductDescriptionPopupTableViewController.swift */; };
 		3B7EC0AD225C20A300ED799D /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7EC0AC225C20A300ED799D /* Schedule.storyboard */; };
 		3B7EC0AF225C219200ED799D /* PeopleQuantiySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0AE225C219200ED799D /* PeopleQuantiySelectionViewController.swift */; };
 		3B7EC0B1225C21D500ED799D /* PeopleQuantityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0B0225C21D500ED799D /* PeopleQuantityView.swift */; };
@@ -106,6 +107,7 @@
 		3B28FFF722595588004268CB /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		3B28FFF822595588004268CB /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		3B28FFF922595588004268CB /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		3B67BA3F22690FC500871F77 /* ProductDescriptionPopupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionPopupTableViewController.swift; sourceTree = "<group>"; };
 		3B7EC0AC225C20A300ED799D /* Schedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
 		3B7EC0AE225C219200ED799D /* PeopleQuantiySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleQuantiySelectionViewController.swift; sourceTree = "<group>"; };
 		3B7EC0B0225C21D500ED799D /* PeopleQuantityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleQuantityView.swift; sourceTree = "<group>"; };
@@ -279,12 +281,21 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		3B67BA3E22690C8F00871F77 /* ProductDescriptionPopup */ = {
+			isa = PBXGroup;
+			children = (
+				3B67BA3F22690FC500871F77 /* ProductDescriptionPopupTableViewController.swift */,
+			);
+			path = ProductDescriptionPopup;
+			sourceTree = "<group>";
+		};
 		3B7EC0AB225C206F00ED799D /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				3B67BA3E22690C8F00871F77 /* ProductDescriptionPopup */,
+				3B7EC0AC225C20A300ED799D /* Schedule.storyboard */,
 				3B7EC0DF226404E300ED799D /* Profesional selection */,
 				3B7EC0CE2263D47B00ED799D /* Date Selection */,
-				3B7EC0AC225C20A300ED799D /* Schedule.storyboard */,
 				3B7EC0C4225D722E00ED799D /* Date Assignment */,
 				3B7EC0C1225D6EC800ED799D /* Transparent Popup */,
 				3B7EC0B6225C345400ED799D /* Service Selection */,
@@ -720,6 +731,7 @@
 				3B7EC0BE225D679700ED799D /* ARoundView.swift in Sources */,
 				3BD43CFD22585B9200AC3411 /* RegisterTableViewController.swift in Sources */,
 				3B7EC0C3225D6EE700ED799D /* TransparentPopupViewController.swift in Sources */,
+				3B67BA4022690FC500871F77 /* ProductDescriptionPopupTableViewController.swift in Sources */,
 				3B7EC0DA2263F24800ED799D /* ProgressView.swift in Sources */,
 				3B28FFEC22594809004268CB /* PopupTableViewController.swift in Sources */,
 				3BD43D092258FCC700AC3411 /* HomeTableViewController.swift in Sources */,
@@ -930,7 +942,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = py.com.nextgen.Aruba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -951,7 +963,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = py.com.nextgen.Aruba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

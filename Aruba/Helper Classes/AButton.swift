@@ -31,4 +31,11 @@ class AButton: UIButton {
         layer.shadowRadius = 1.0
     }
     
+    func setEnabled(_ enabled: Bool) {
+        isUserInteractionEnabled = enabled
+        UIView.animate(withDuration: 0.35) {
+            self.backgroundColor = enabled ? Colors.ButtonGreen : Colors.ButtonGray
+        }
+    }
+    
 }

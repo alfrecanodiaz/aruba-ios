@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,6 +30,9 @@
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jO3-WF-zTK">
                         <rect key="frame" x="14" y="33" width="51" height="31"/>
                         <color key="onTintColor" red="0.47058823529999999" green="0.86666666670000003" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <connections>
+                            <action selector="switchAction:" destination="KGk-i7-Jjw" eventType="valueChanged" id="tvP-4h-1Xi"/>
+                        </connections>
                     </switch>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lavado Normal" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0j-UN-xTI">
                         <rect key="frame" x="73" y="25" width="93" height="46.5"/>
@@ -45,6 +48,9 @@
                         <state key="normal" title="QUE INCLUYE">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <connections>
+                            <action selector="detailAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0ZN-bi-p5t"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -62,6 +68,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="detailBtn" destination="a96-BM-F68" id="5Q9-6F-BXe"/>
+                <outlet property="productName" destination="l0j-UN-xTI" id="JWL-5V-ht3"/>
+                <outlet property="productSwitch" destination="jO3-WF-zTK" id="sbo-Ar-dXA"/>
             </connections>
             <point key="canvasLocation" x="202.17391304347828" y="168.41517857142856"/>
         </tableViewCell>

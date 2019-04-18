@@ -31,8 +31,15 @@ class HourAssignmentViewController: UIViewController, UICollectionViewDataSource
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var dateDescriptionLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var totalLbl: UILabel!
     
     var date: AssignmentDate!
+    var scheduleData: ScheduleData!
+    var person: Person!
+    struct Segues {
+        static let Professionals = "showProfessionalSelection"
+    }
+
     
     var hours: [Hour] = []
     var selectedHourIndex: Int = 0
@@ -62,6 +69,8 @@ class HourAssignmentViewController: UIViewController, UICollectionViewDataSource
         dateDescriptionLabel.text = dateFormatter.string(from: date.date).uppercased()
         
         hours = [Hour(hourString: "7:00"),Hour(hourString: "7:30"),Hour(hourString: "8:00"),Hour(hourString: "8:30"),Hour(hourString: "9:00"),Hour(hourString: "9:30"),Hour(hourString: "10:00"),Hour(hourString: "10:30"),Hour(hourString: "11:00"),Hour(hourString: "11:30")]
+        totalLbl.text = scheduleData.totalPriceString()
+
     }
     
     
@@ -81,15 +90,15 @@ class HourAssignmentViewController: UIViewController, UICollectionViewDataSource
     
     
 
-    /*
     // MARK: - Navigation
  
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == Segues.Professionals, let dvc = segue.destination as? ProfesionalSelectionViewController {
+            dvc.scheduleData = scheduleData
+            dvc.person = person
+        }
     }
-    */
     
     // MARK: UICollectionViewDataSource
     

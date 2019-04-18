@@ -22,9 +22,12 @@ struct AssignmentDate {
     }
 }
 
+
+
 class DateSelectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var personLbl: UILabel!
     
     @IBOutlet weak var genderContainerView: UIView! {
         didSet {
@@ -32,6 +35,7 @@ class DateSelectionViewController: UIViewController, UICollectionViewDataSource,
             genderContainerView.clipsToBounds = true
         }
     }
+    @IBOutlet weak var totalLbl: UILabel!
     
     
     var dates: [AssignmentDate] = []
@@ -39,8 +43,9 @@ class DateSelectionViewController: UIViewController, UICollectionViewDataSource,
     let spacing: CGFloat = 0
     
     private var animationDone: Bool = false
-
-    
+    var scheduleData: ScheduleData!
+    var person: Person!
+    var index: Int!
     struct Cells {
         static let Date = "DateSelectionCell"
     }
@@ -52,12 +57,16 @@ class DateSelectionViewController: UIViewController, UICollectionViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         dates = [AssignmentDate(dateInFuture: 0), AssignmentDate(dateInFuture: 1),AssignmentDate(dateInFuture: 2),AssignmentDate(dateInFuture: 3),AssignmentDate(dateInFuture: 4),AssignmentDate(dateInFuture: 5),AssignmentDate(dateInFuture: 6),AssignmentDate(dateInFuture: 7)]
-        
+        totalLbl.text = scheduleData.totalPriceString()
+        personLbl.text = person.gender.rawValue + " " + String(describing: person.index)
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.HourAssignment, let dvc = segue.destination as? HourAssignmentViewController {
             dvc.date = dates[selectedDateIndex]
+            dvc.scheduleData = scheduleData
+            dvc.person = person
         }
     }
 

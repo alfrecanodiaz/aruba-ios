@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol PeopleQuantityViewDelegate: class {
+    func quantityDidChange(for peopleQuantityView: PeopleQuantityView, quantity: Int)
+}
+
 @IBDesignable
 class PeopleQuantityView: UIView, NibLoadable {
 
@@ -20,6 +24,7 @@ class PeopleQuantityView: UIView, NibLoadable {
     let maximum: Int = 99
     var currentCount: Int = 0
     let nibName = "PeopleQuantityView"
+    weak var delegate: PeopleQuantityViewDelegate?
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -52,9 +57,9 @@ class PeopleQuantityView: UIView, NibLoadable {
         case .Children:
             configureForChildren()
         case .Men:
-            configureForWoman()
-        case .Woman:
             configureForMen()
+        case .Woman:
+            configureForWoman()
         }
     }
     
@@ -78,6 +83,7 @@ class PeopleQuantityView: UIView, NibLoadable {
             return
         }
         currentCount = currentCount - 1
+        delegate?.quantityDidChange(for: self, quantity: currentCount)
         quantityLbl.text = "\(currentCount)"
     }
     
@@ -86,6 +92,7 @@ class PeopleQuantityView: UIView, NibLoadable {
             return
         }
         currentCount = currentCount + 1
+        delegate?.quantityDidChange(for: self, quantity: currentCount)
         quantityLbl.text = "\(currentCount)"
     }
     

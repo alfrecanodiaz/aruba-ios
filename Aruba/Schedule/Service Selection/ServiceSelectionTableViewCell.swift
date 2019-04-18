@@ -8,8 +8,16 @@
 
 import UIKit
 
+protocol ServiceSelectionTableViewCellDelegate: class {
+    func didSelectProduct(selected: Bool, at indexPath: IndexPath)
+    func didSelectViewProductDescription(at indexPath: IndexPath)
+
+}
+
 class ServiceSelectionTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var productSwitch: UISwitch!
+    @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var detailBtn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,11 +26,23 @@ class ServiceSelectionTableViewCell: UITableViewCell {
         detailBtn.clipsToBounds = true
         detailBtn.titleLabel?.adjustsFontSizeToFitWidth = true
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    var indexPath: IndexPath!
+    
+    weak var delegate: ServiceSelectionTableViewCellDelegate?
+    
+    func configure(product: Product ,isSelected: Bool, indexPath: IndexPath) {
+        productSwitch.setOn(isSelected, animated: false)
+        productName.text = product.name
+        self.indexPath = indexPath
+    }
+    
+    @IBAction func switchAction(_ sender: UISwitch) {
+        delegate?.didSelectProduct(selected: sender.isOn, at: indexPath)
+    }
+    
+    @IBAction func detailAction(_ sender: UIButton) {
+        delegate?.didSelectViewProductDescription(at: indexPath)
     }
     
 }

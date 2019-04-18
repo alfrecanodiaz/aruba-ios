@@ -19,9 +19,12 @@ class ProfesionalSelectionViewController: UIViewController {
             tableView.register(UINib(nibName: "ProfessionalTableViewCell", bundle: nil), forCellReuseIdentifier: Cells.Professional)
         }
     }
+    @IBOutlet weak var personLbl: UILabel!
     
+    @IBOutlet weak var totalLbl: UILabel!
     var professionals: [Professional] = []
-    
+    var scheduleData: ScheduleData!
+    var person: Person!
     
     struct Cells {
         static let Professional = "ProfessionalCell"
@@ -31,6 +34,9 @@ class ProfesionalSelectionViewController: UIViewController {
         super.viewDidLoad()
 
         professionals = [Professional(),Professional(),Professional(),Professional(),Professional(),Professional(),Professional(),Professional()]
+        totalLbl.text = scheduleData.totalPriceString()
+        personLbl.text = person.gender.rawValue + " " + String(describing: person.index)
+
     }
     
 
