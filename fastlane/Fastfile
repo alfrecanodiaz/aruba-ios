@@ -30,6 +30,12 @@ platform :ios do
     quiet: true,                            # Don't print status logs like 'Linting ' & 'Done linting' (Default: false)
     strict: false                            # Fail on warnings? (Default: false)
 )
+# upload to Beta by Crashlytics
+ crashlytics(
+   # keys for organization: Horus
+   api_token: "4bc699018d3cc73b116241db8670d5edad65e9ee",
+   build_secret: "4cf76ccceebbde788b23a5ea0f130c0b739737bd1f848a4830ababa9c1a1f1d9"
+ )
 
   end
   lane :tests do
