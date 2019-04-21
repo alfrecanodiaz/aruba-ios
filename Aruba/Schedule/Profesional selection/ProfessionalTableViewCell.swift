@@ -18,11 +18,8 @@ class ProfessionalTableViewCell: UITableViewCell {
     }
 
     @IBOutlet weak var plusButton: UIButton!
-    @IBOutlet weak var profileImageView: UIImageView! {
-        didSet {
-            profileImageView.layer.cornerRadius = 30
-        }
-    }
+    @IBOutlet weak var profileImageView: ARoundImage!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

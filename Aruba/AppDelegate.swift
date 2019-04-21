@@ -11,6 +11,7 @@ import SideMenu
 import Firebase
 import Fabric
 import Crashlytics
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,7 +24,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configureNavBar()
         configureFirebase()
         configureFabric()
+        registerFirebaseNotifications(for: application)
         return true
+    }
+
+    private func registerFirebaseNotifications(for application: UIApplication) {
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+
+        application.registerForRemoteNotifications()
+        Messaging.messaging().delegate = self
+
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -66,4 +88,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Crashlytics.self])
     }
 
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
+
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        print(remoteMessage)
+    }
+
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print(fcmToken)
+    }
 }

@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		3B048EEB226CBA5800EBE6FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B048EEA226CBA5800EBE6FD /* GoogleService-Info.plist */; };
+		3B048EF1226CF8B400EBE6FD /* ARoundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B048EF0226CF8B400EBE6FD /* ARoundImage.swift */; };
+		3B048EF3226CFC3600EBE6FD /* ABoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B048EF2226CFC3600EBE6FD /* ABoxView.swift */; };
+		3B048EF5226D001100EBE6FD /* ALoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B048EF4226D001100EBE6FD /* ALoader.swift */; };
+		3B048EF8226D00FA00EBE6FD /* SuccessScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B048EF7226D00FA00EBE6FD /* SuccessScheduleViewController.swift */; };
+		3B048EFA226D04D200EBE6FD /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B048EF9226D04D200EBE6FD /* String+Utils.swift */; };
+		3B048EFD226D08AF00EBE6FD /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B048EFC226D08AF00EBE6FD /* Person.swift */; };
+		3B048EFF226D08BA00EBE6FD /* ScheduleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B048EFE226D08BA00EBE6FD /* ScheduleData.swift */; };
 		3B26A3B622584BD10063ECAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26A3B522584BD10063ECAA /* AppDelegate.swift */; };
 		3B26A3BB22584BD10063ECAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B26A3B922584BD10063ECAA /* Main.storyboard */; };
 		3B26A3BD22584BD30063ECAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B26A3BC22584BD30063ECAA /* Assets.xcassets */; };
@@ -89,6 +96,13 @@
 /* Begin PBXFileReference section */
 		0558D970D0CA945C6C2661E0 /* Pods-Aruba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aruba.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Aruba/Pods-Aruba.debug.xcconfig"; sourceTree = "<group>"; };
 		3B048EEA226CBA5800EBE6FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3B048EF0226CF8B400EBE6FD /* ARoundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARoundImage.swift; sourceTree = "<group>"; };
+		3B048EF2226CFC3600EBE6FD /* ABoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABoxView.swift; sourceTree = "<group>"; };
+		3B048EF4226D001100EBE6FD /* ALoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ALoader.swift; sourceTree = "<group>"; };
+		3B048EF7226D00FA00EBE6FD /* SuccessScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessScheduleViewController.swift; sourceTree = "<group>"; };
+		3B048EF9226D04D200EBE6FD /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
+		3B048EFC226D08AF00EBE6FD /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		3B048EFE226D08BA00EBE6FD /* ScheduleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleData.swift; sourceTree = "<group>"; };
 		3B26A3B222584BD10063ECAA /* Aruba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aruba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B26A3B522584BD10063ECAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B26A3BA22584BD10063ECAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -197,6 +211,14 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		3B048EF6226D00E300EBE6FD /* Success Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				3B048EF7226D00FA00EBE6FD /* SuccessScheduleViewController.swift */,
+			);
+			path = "Success Schedule";
+			sourceTree = "<group>";
+		};
 		3B26A3A922584BD10063ECAA = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +325,7 @@
 		3B7EC0AB225C206F00ED799D /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				3B048EF6226D00E300EBE6FD /* Success Schedule */,
 				3B67BA3E22690C8F00871F77 /* ProductDescriptionPopup */,
 				3B7EC0AC225C20A300ED799D /* Schedule.storyboard */,
 				3B7EC0DF226404E300ED799D /* Profesional selection */,
@@ -373,6 +396,9 @@
 				3B7EC0BD225D679700ED799D /* ARoundView.swift */,
 				3B7EC0BF225D692C00ED799D /* ARoundButton.swift */,
 				3B7EC0D92263F24800ED799D /* ProgressView.swift */,
+				3B048EF0226CF8B400EBE6FD /* ARoundImage.swift */,
+				3B048EF2226CFC3600EBE6FD /* ABoxView.swift */,
+				3B048EF4226D001100EBE6FD /* ALoader.swift */,
 			);
 			path = "Helper Classes";
 			sourceTree = "<group>";
@@ -402,6 +428,7 @@
 				3BD43D2322592DE200AC3411 /* UIColor+Utils.swift */,
 				3B28FFEF22594C6B004268CB /* UIViewController+Utils.swift */,
 				3B7EC0B4225C2A5200ED799D /* UIView+Utils.swift */,
+				3B048EF9226D04D200EBE6FD /* String+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -412,6 +439,8 @@
 				3BD43D04225861C300AC3411 /* User.swift */,
 				3BD43D1A22591B2900AC3411 /* Address.swift */,
 				3BD43D1C22591CB000AC3411 /* Tax.swift */,
+				3B048EFC226D08AF00EBE6FD /* Person.swift */,
+				3B048EFE226D08BA00EBE6FD /* ScheduleData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -651,14 +680,10 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
 			name = Fabric;
-			outputFileListPaths = (
-			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -689,6 +714,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -698,6 +724,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -754,12 +781,14 @@
 				3BD43CF3225858B000AC3411 /* AButton.swift in Sources */,
 				3BD43CF62258594D00AC3411 /* Colors.swift in Sources */,
 				3B28FFF022594C6B004268CB /* UIViewController+Utils.swift in Sources */,
+				3B048EFA226D04D200EBE6FD /* String+Utils.swift in Sources */,
 				3B28FFF522595178004268CB /* BaseViewController.swift in Sources */,
 				3BD43D1822591A7100AC3411 /* GenericDataCellTableViewCell.swift in Sources */,
 				3BD43CFF22585EF000AC3411 /* HTTPClient.swift in Sources */,
 				3B7EC0D82263F1B200ED799D /* HourAssignmentViewController.swift in Sources */,
 				3BD43CFB22585B7F00AC3411 /* LandingViewController.swift in Sources */,
 				3BD43D05225861C300AC3411 /* User.swift in Sources */,
+				3B048EF3226CFC3600EBE6FD /* ABoxView.swift in Sources */,
 				3B7EC0D42263D4C700ED799D /* DateSelectionCollectionViewCell.swift in Sources */,
 				3B7EC0C8225D727500ED799D /* DateAssignmentTableViewCell.swift in Sources */,
 				3B7EC0B5225C2A5200ED799D /* UIView+Utils.swift in Sources */,
@@ -772,20 +801,25 @@
 				3B28FFEC22594809004268CB /* PopupTableViewController.swift in Sources */,
 				3BD43D092258FCC700AC3411 /* HomeTableViewController.swift in Sources */,
 				3BD43D2422592DE200AC3411 /* UIColor+Utils.swift in Sources */,
+				3B048EF5226D001100EBE6FD /* ALoader.swift in Sources */,
 				3BD43D012258608700AC3411 /* JSONDecoder+Utils.swift in Sources */,
 				3BD43D112259170C00AC3411 /* ProfileHeaderTableViewCell.swift in Sources */,
 				3B7EC0B1225C21D500ED799D /* PeopleQuantityView.swift in Sources */,
 				3B7EC0BC225C352300ED799D /* ServiceSelectionViewController.swift in Sources */,
 				3B28FFEE22594892004268CB /* APopoverTableViewController.swift in Sources */,
+				3B048EFD226D08AF00EBE6FD /* Person.swift in Sources */,
+				3B048EFF226D08BA00EBE6FD /* ScheduleData.swift in Sources */,
 				3B7EC0DE2263FFF100ED799D /* BaseNavigationController.swift in Sources */,
 				3B7EC0DC2263FADC00ED799D /* HourCollectionViewCell.swift in Sources */,
 				3B26A3B622584BD10063ECAA /* AppDelegate.swift in Sources */,
 				3B7EC0B9225C347F00ED799D /* ServiceSelectionTableViewCell.swift in Sources */,
 				3BD43D2022591FC700AC3411 /* GenericDataCellViewModel.swift in Sources */,
 				3B7EC0AF225C219200ED799D /* PeopleQuantiySelectionViewController.swift in Sources */,
+				3B048EF1226CF8B400EBE6FD /* ARoundImage.swift in Sources */,
 				3BD43D2222592B4700AC3411 /* HomeCategoryTableViewCell.swift in Sources */,
 				3B7EC0CA225D773A00ED799D /* DateAssignmentViewController.swift in Sources */,
 				3B7EC0E1226404F400ED799D /* ProfesionalSelectionViewController.swift in Sources */,
+				3B048EF8226D00FA00EBE6FD /* SuccessScheduleViewController.swift in Sources */,
 				3BD43D1D22591CB000AC3411 /* Tax.swift in Sources */,
 				3BD43D0F2259156000AC3411 /* ProfileTableViewController.swift in Sources */,
 				3B7EC0D62263E95300ED799D /* DateSelectionViewController.swift in Sources */,

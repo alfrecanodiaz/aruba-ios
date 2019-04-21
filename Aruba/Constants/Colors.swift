@@ -10,6 +10,7 @@ import UIKit
 
 struct Colors {
     static let ButtonGreen = UIColor(hexRGB: "78DDCD")!
+    static let ButtonHighlightedGreen = #colorLiteral(red: 0.2903032208, green: 0.5338145648, blue: 0.4986980302, alpha: 1)
     static let ButtonGray = UIColor.gray
     static let ButtonBrown = UIColor.brown
 

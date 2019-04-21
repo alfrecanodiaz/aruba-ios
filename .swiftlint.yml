@@ -42,10 +42,10 @@ type_name:
  #   error: 50
   excluded: iPhone # excluded via string
 identifier_name:
- # min_length: # only min_length
+  min_length: 2 # only min_length
  #   error: 4 # only error
   excluded: # excluded via string array
- #   - id
- #   - URL
- #   - GlobalAPIKey
+    - id
+    - URL
+    - GlobalAPIKey
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji, sonarqube, markdown)

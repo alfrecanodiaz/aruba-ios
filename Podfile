@@ -12,6 +12,7 @@ target 'Aruba' do
   pod 'MaterialTextField'
   pod 'SVProgressHUD'
   pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
   pod 'Fabric'
   pod 'Crashlytics'
   

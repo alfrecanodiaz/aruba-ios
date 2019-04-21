@@ -24,7 +24,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="389" height="107.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oro-Ye-a7k">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oro-Ye-a7k" customClass="ARoundImage" customModule="Aruba" customModuleProvider="target">
                         <rect key="frame" x="10" y="24" width="60" height="60"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="I1l-fq-3bK"/>
@@ -83,7 +83,7 @@
                 <outlet property="likeBtn" destination="mXY-KC-C0K" id="uPT-w1-AMN"/>
                 <outlet property="nameLbl" destination="5oA-qf-03C" id="WA6-Of-qrz"/>
                 <outlet property="plusButton" destination="evA-x9-Ngz" id="z2L-Mw-cX8"/>
-                <outlet property="profileImageView" destination="Oro-Ye-a7k" id="cHr-ad-aVm"/>
+                <outlet property="profileImageView" destination="Oro-Ye-a7k" id="57m-EI-zZq"/>
             </connections>
             <point key="canvasLocation" x="84.782608695652186" y="56.25"/>
         </tableViewCell>

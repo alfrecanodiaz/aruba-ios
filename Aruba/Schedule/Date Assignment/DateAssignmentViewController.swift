@@ -8,64 +8,25 @@
 
 import UIKit
 
-struct Person {
-    let gender: Gender
-    var scheduleProducts: [Product] = []
-    var scheduleDate: ScheduleDate?
-    var index: Int = 1
-
-    enum Gender: String {
-        case women = "MUJER", children = "NIÑO", man = "HOMBRE"
-
-        var image: UIImage {
-            switch self {
-            case .women:
-                return #imageLiteral(resourceName: "women")
-            case .children:
-                return #imageLiteral(resourceName: "women")
-            case .man:
-                return #imageLiteral(resourceName: "women")
-            }
-        }
-    }
-
-    init(gender: Gender, index: Int) {
-        self.gender = gender
-        self.index = index
-    }
-
-}
-
-struct ScheduleData {
-    let persons: [Person]
-
-    func totalPriceString() -> String? {
-        var total: Double = 0
-
-        for person in self.persons {
-            for product in person.scheduleProducts {
-                total += product.price
-            }
-        }
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.locale = Locale(identifier: "es_PY")
-        return formatter.string(from: NSNumber(value: total))
-    }
-}
-
 struct ScheduleDate {
 
 }
 
 class DateAssignmentViewController: UIViewController {
 
-    var entryAnimationDone: Bool = false
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.tableFooterView = UIView(frame: CGRect.zero)
+        }
+    }
 
+    var entryAnimationDone: Bool = false
     var scheduleData: ScheduleData!
+
     private var remainingPersons: [Person] = []
-    private var configuredPersons: [Person] = []
+    private var scheduledPersons: [Person] = []
     private var selectedPerson: Person!
+
     struct Cells {
         static let DateAssignment = "dateAssignmentCell"
     }
@@ -91,7 +52,12 @@ class DateAssignmentViewController: UIViewController {
     }
 
     @IBAction func  unwindToDateAssignmentSegue(segue: UIStoryboardSegue) {
-        // TODO: remove configured person from remaining person array
+        remainingPersons.removeAll { (person) -> Bool in
+            person.id == selectedPerson.id
+        }
+        scheduledPersons.append(selectedPerson)
+        selectedPerson = nil
+        tableView.reloadData()
     }
 }
 
@@ -106,7 +72,7 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
         if section == 0 {
             return remainingPersons.count
         }
-        return configuredPersons.count
+        return scheduledPersons.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -114,12 +80,12 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.DateAssignment, for: indexPath) as! DateAssignmentTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.DateAssignment, for: indexPath) as? DateAssignmentTableViewCell else { return UITableViewCell() }
 
         if indexPath.section == 0 {
             cell.configure(person: remainingPersons[indexPath.row], scheduled: false)
         } else {
-            cell.configure(person: configuredPersons[indexPath.row], scheduled: true)
+            cell.configure(person: scheduledPersons[indexPath.row], scheduled: true)
         }
 
         return cell
@@ -135,16 +101,27 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let completion: ((Bool) -> Void) = { _ in
+            self.entryAnimationDone = true
+        }
         if !entryAnimationDone {
             cell.transform = CGAffineTransform(translationX: 0, y: 40)
             cell.alpha = 0
             UIView.animate(withDuration: 0.3, delay: TimeInterval(0.1*Double(indexPath.row)), usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: [.curveEaseInOut], animations: {
                 cell.transform = CGAffineTransform.identity
                 cell.alpha = 1
-            }) { (_) in
-                self.entryAnimationDone = true
-            }
+            }, completion: completion)
         }
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Por Agendar"
+        }
+        if scheduledPersons.isEmpty {
+            return nil
+        }
+        return "Agendados"
     }
 
 }
