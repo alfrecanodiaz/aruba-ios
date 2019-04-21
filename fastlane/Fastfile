@@ -20,7 +20,9 @@ platform :ios do
   lane :beta do
     build_app(workspace: "Aruba.xcworkspace", scheme: "Aruba")
     upload_to_testflight
-    slack(message: "Successfully distributed a new beta build")
+    slack(message: "Successfully distributed a new beta build",
+      success: true,
+             slack_url: "https://hooks.slack.com/services/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")
     swiftlint(
     mode: :lint,                            # SwiftLint mode: :lint (default) or :autocorrect
     executable: "Pods/SwiftLint/swiftlint", # The SwiftLint binary path (optional). Important if you've installed it via CocoaPods

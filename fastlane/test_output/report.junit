@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='ArubaTests.xctest' tests='2' failures='0'>
+  <testsuite name='ArubaTests.ArubaTests' tests='2' failures='0'>
+    <testcase classname='ArubaTests.ArubaTests' name='testExample' time='0.001'/>
+    <testcase classname='ArubaTests.ArubaTests' name='testPerformanceExample' time='0.390'/>
+  </testsuite>
+</testsuites>

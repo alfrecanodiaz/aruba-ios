@@ -9,6 +9,8 @@
 import UIKit
 import SideMenu
 import Firebase
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configureSideMenu()
         configureNavBar()
         configureFirebase()
+        configureFabric()
         return true
     }
 
@@ -57,6 +60,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func configureFirebase() {
         FirebaseApp.configure()
+    }
+
+    private func configureFabric() {
+        Fabric.with([Crashlytics.self])
     }
 
 }
