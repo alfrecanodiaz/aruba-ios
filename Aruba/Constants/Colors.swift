@@ -16,7 +16,7 @@ struct Colors {
     //categories
     static let Peluqueria = UIColor(hexRGB: "75AEA8")!
     static let Manicura = UIColor(hexRGB: "78DDCD")!
-    
+
     static let Estetica = UIColor(hexRGB: "B8A18F")!
     static let Masajes = UIColor(hexRGB: "D5BEAD")!
     static let Nutricion = UIColor(hexRGB: "CCCCCC")!

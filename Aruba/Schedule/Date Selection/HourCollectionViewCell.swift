@@ -9,7 +9,7 @@
 import UIKit
 
 class HourCollectionViewCell: UICollectionViewCell {
-    
+
     @IBOutlet weak var hourLbl: UILabel!
     @IBOutlet weak var containerView: UIView! {
         didSet {
@@ -19,7 +19,7 @@ class HourCollectionViewCell: UICollectionViewCell {
             containerView.layer.borderWidth = 1
         }
     }
-    
+
     func configure(hour: Hour, selected: Bool) {
         hourLbl.text = hour.hourString
         if selected {
@@ -28,5 +28,5 @@ class HourCollectionViewCell: UICollectionViewCell {
             containerView.backgroundColor = .white
         }
     }
-    
+
 }

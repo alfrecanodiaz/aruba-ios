@@ -9,7 +9,7 @@
 import UIKit
 
 class ServiceSelectionViewController: UIViewController {
-    
+
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var countLbl: UILabel!
     @IBOutlet weak var genderLbl: UILabel!
@@ -17,31 +17,31 @@ class ServiceSelectionViewController: UIViewController {
     @IBOutlet weak var serviceTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var totalLbl: UILabel!
     @IBOutlet weak var continueBtn: AButton!
-    
+
     struct Cells {
         static let ServiceSelection = "ServiceSelectionCell"
     }
-    
+
     struct Segues {
         static let DateAssignments = "pushDateAssignmentSegue"
         static let Popup = "presentPopup"
         static let ProductPopup = "showProductPopover"
     }
-    
-    var products: [Product] = [Product(name: "Shampoo", description: "Una descripcion larga de un producto", image: #imageLiteral(resourceName: "profile"), price: 10000),Product(name: "Maquillaje", description: "Una descripcion larga de un producto", image: #imageLiteral(resourceName: "profile"), price: 23000),Product(name: "Shampoo", description: "Una descripcion larga de un producto", image: #imageLiteral(resourceName: "profile"), price: 10000),Product(name: "Shampoo", description: "Una descripcion larga de un producto", image: #imageLiteral(resourceName: "profile"), price: 10000),Product(name: "Shampoo", description: "Una descripcion larga de un producto", image: #imageLiteral(resourceName: "profile"), price: 10000),Product(name: "Shampoo", description: "Una descripcion larga de un producto", image: #imageLiteral(resourceName: "profile"), price: 10000)]
-    
+
+    var products: [Product] = [Product(name: "Shampoo", description: "Una descripcion larga de un producto", image: #imageLiteral(resourceName: "profile"), price: 10000), Product(name: "Maquillaje", description: "Una descripcion larga de un producto", image: #imageLiteral(resourceName: "profile"), price: 23000), Product(name: "Shampoo", description: "Una descripcion larga de un producto", image: #imageLiteral(resourceName: "profile"), price: 10000), Product(name: "Shampoo", description: "Una descripcion larga de un producto", image: #imageLiteral(resourceName: "profile"), price: 10000), Product(name: "Shampoo", description: "Una descripcion larga de un producto", image: #imageLiteral(resourceName: "profile"), price: 10000), Product(name: "Shampoo", description: "Una descripcion larga de un producto", image: #imageLiteral(resourceName: "profile"), price: 10000)]
+
     private var selectedIndexPaths: [IndexPath] = []
     private var currentPerson: Person!
     private var remainingPersons: [Person] = []
     var persons: [Person]!
-    
+
     var schedulePersons: [Person] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
-    
+
     func setupView() {
         tableView.register(UINib(nibName: "ServiceSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: Cells.ServiceSelection)
         tableView.dataSource = self
@@ -50,20 +50,19 @@ class ServiceSelectionViewController: UIViewController {
         currentPerson = remainingPersons.remove(at: 0)
         setupView(for: currentPerson)
     }
-    
-    
+
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.DateAssignments {
             let dvc = segue.destination as! DateAssignmentViewController
             dvc.scheduleData = ScheduleData(persons: schedulePersons)
-            
+
         }
         if segue.identifier == Segues.Popup {
-            
+
         }
     }
-    
+
     @IBAction func unwindToServiceSelection(segue: UIStoryboardSegue) {
         currentPerson.scheduleProducts = selectedIndexPaths.map({products[$0.row]})
         schedulePersons.append(currentPerson)
@@ -75,10 +74,9 @@ class ServiceSelectionViewController: UIViewController {
             currentPerson = remainingPersons.remove(at: 0)
             setupView(for: currentPerson)
         }
-        
-      
+
     }
-    
+
     private func setupView(for person: Person) {
         imageView.image = person.gender.image
         genderLbl.text = person.gender.rawValue
@@ -92,7 +90,7 @@ class ServiceSelectionViewController: UIViewController {
         continueBtn.setEnabled(false)
         calculateTotal()
     }
-    
+
     public func showProductDescriptionPopup(product: Product) {
         let popup = self.storyboard?.instantiateViewController(withIdentifier: "ProductDescriptionPopupTableViewControllerID") as! ProductDescriptionPopupTableViewController
         popup.product = product
@@ -102,36 +100,35 @@ class ServiceSelectionViewController: UIViewController {
         popover?.sourceView = view
         popover?.sourceRect = view.bounds
         popover?.permittedArrowDirections = .init(rawValue: 0)
-        
+
         popup.delegate = self
         present(popup, animated: true, completion: nil)
     }
-    
+
 }
 
 extension ServiceSelectionViewController: UITableViewDataSource, UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return products.count
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.ServiceSelection, for: indexPath) as? ServiceSelectionTableViewCell else { return UITableViewCell() }
-        
+
         cell.configure(product: products[indexPath.row], isSelected: selectedIndexPaths.contains(indexPath), indexPath: indexPath)
-        
+
         cell.delegate = self
         return cell
     }
-    
-    
+
     private func calculateTotal() {
         var total: Double = 0
-        
+
         for indexPath in selectedIndexPaths {
             total = products[indexPath.row].price + total
         }
@@ -140,15 +137,14 @@ extension ServiceSelectionViewController: UITableViewDataSource, UITableViewDele
         formatter.locale = Locale(identifier: "es_PY")
         totalLbl.text = formatter.string(from: NSNumber(value: total))
     }
-    
+
 }
 
 extension ServiceSelectionViewController: ServiceSelectionTableViewCellDelegate {
     func didSelectViewProductDescription(at indexPath: IndexPath) {
         showProductDescriptionPopup(product: products[indexPath.row])
     }
-    
-    
+
     func didSelectProduct(selected: Bool, at indexPath: IndexPath) {
         if selected {
             selectedIndexPaths.append(indexPath)
@@ -162,7 +158,7 @@ extension ServiceSelectionViewController: ServiceSelectionTableViewCellDelegate 
 }
 
 extension ServiceSelectionViewController: ProductPopupDelegate {
-    
+
     func didSelectProduct(product: Product) {
         //TODO, create real comparison
         guard let index = products.firstIndex(where: {$0.name == product.name}) else { return }
@@ -172,9 +168,7 @@ extension ServiceSelectionViewController: ProductPopupDelegate {
         }
         tableView.reloadData()
     }
-    
-    
-    
+
 }
 
 extension ServiceSelectionViewController: UIPopoverPresentationControllerDelegate {

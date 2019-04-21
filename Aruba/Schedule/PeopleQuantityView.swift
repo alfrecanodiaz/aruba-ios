@@ -20,24 +20,22 @@ class PeopleQuantityView: UIView, NibLoadable {
     @IBOutlet weak var plusBtn: AButton!
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var quantityLbl: UILabel!
-    
+
     let maximum: Int = 99
     var currentCount: Int = 0
     let nibName = "PeopleQuantityView"
     weak var delegate: PeopleQuantityViewDelegate?
-    
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupFromNib()
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupFromNib()
     }
-    
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         minusBtn.layer.cornerRadius = 25
@@ -47,53 +45,49 @@ class PeopleQuantityView: UIView, NibLoadable {
         plusBtn.titleLabel?.font = UIFont(name: "Lato-Bold", size: 50)
         minusBtn.backgroundColor = Colors.ButtonGray
     }
-    
-    enum SelectionType {
-        case Woman, Men, Children
-    }
-    
-    func configure(for selectionType: SelectionType) {
+
+    func configure(for selectionType: Person.Gender) {
         switch selectionType {
-        case .Children:
+        case .children:
             configureForChildren()
-        case .Men:
+        case .man:
             configureForMen()
-        case .Woman:
+        case .women:
             configureForWoman()
         }
     }
-    
+
     func configureForChildren() {
         imageView.image = #imageLiteral(resourceName: "selection_children")
         descriptionLbl.text = "NIÑOS"
     }
-    
+
     func configureForWoman() {
         imageView.image = #imageLiteral(resourceName: "selection_women")
         descriptionLbl.text = "MUJERES"
     }
-    
+
     func configureForMen() {
         imageView.image = #imageLiteral(resourceName: "selection_men")
         descriptionLbl.text = "HOMBRES"
     }
-    
+
     @IBAction func minusAction(_ sender: AButton) {
         if currentCount - 1 < 0 {
             return
         }
-        currentCount = currentCount - 1
+        currentCount -= 1
         delegate?.quantityDidChange(for: self, quantity: currentCount)
         quantityLbl.text = "\(currentCount)"
     }
-    
+
     @IBAction func plusAction(_ sender: AButton) {
         if currentCount + 1 > maximum {
             return
         }
-        currentCount = currentCount + 1
+        currentCount += 1
         delegate?.quantityDidChange(for: self, quantity: currentCount)
         quantityLbl.text = "\(currentCount)"
     }
-    
+
 }

@@ -13,39 +13,38 @@ struct Person {
     var scheduleProducts: [Product] = []
     var scheduleDate: ScheduleDate?
     var index: Int = 1
-    
+
     enum Gender: String {
-        case Women = "MUJER", Children = "NIÑO", Man = "HOMBRE"
-        
+        case women = "MUJER", children = "NIÑO", man = "HOMBRE"
+
         var image: UIImage {
             switch self {
-            case .Women:
+            case .women:
                 return #imageLiteral(resourceName: "women")
-            case .Children:
+            case .children:
                 return #imageLiteral(resourceName: "women")
-            case .Man:
+            case .man:
                 return #imageLiteral(resourceName: "women")
             }
         }
     }
-    
+
     init(gender: Gender, index: Int) {
         self.gender = gender
         self.index = index
     }
-    
-    
+
 }
 
 struct ScheduleData {
     let persons: [Person]
-    
+
     func totalPriceString() -> String? {
         var total: Double = 0
-        
+
         for person in self.persons {
             for product in person.scheduleProducts {
-                total = total + product.price
+                total += product.price
             }
         }
         let formatter = NumberFormatter()
@@ -56,13 +55,13 @@ struct ScheduleData {
 }
 
 struct ScheduleDate {
-    
+
 }
 
 class DateAssignmentViewController: UIViewController {
 
     var entryAnimationDone: Bool = false
-    
+
     var scheduleData: ScheduleData!
     private var remainingPersons: [Person] = []
     private var configuredPersons: [Person] = []
@@ -70,29 +69,27 @@ class DateAssignmentViewController: UIViewController {
     struct Cells {
         static let DateAssignment = "dateAssignmentCell"
     }
-    
+
     struct Segues {
         static let DateAssignment = "DateAssignmentSegue"
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
-    
+
     private func setupView() {
-        
         remainingPersons = scheduleData.persons
-        
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.DateAssignment, let dvc = segue.destination as? DateSelectionViewController {
             dvc.scheduleData = scheduleData
             dvc.person = selectedPerson
         }
     }
-    
+
     @IBAction func  unwindToDateAssignmentSegue(segue: UIStoryboardSegue) {
         // TODO: remove configured person from remaining person array
     }
@@ -100,34 +97,34 @@ class DateAssignmentViewController: UIViewController {
 
 extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelegate {
     // MARK: - Table view data source
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return remainingPersons.count
         }
         return configuredPersons.count
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 79
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.DateAssignment, for: indexPath) as! DateAssignmentTableViewCell
-        
+
         if indexPath.section == 0 {
             cell.configure(person: remainingPersons[indexPath.row], scheduled: false)
         } else {
             cell.configure(person: configuredPersons[indexPath.row], scheduled: true)
         }
-        
+
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.section == 0 {
@@ -136,7 +133,7 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
 
         }
     }
-    
+
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if !entryAnimationDone {
             cell.transform = CGAffineTransform(translationX: 0, y: 40)
@@ -144,11 +141,10 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
             UIView.animate(withDuration: 0.3, delay: TimeInterval(0.1*Double(indexPath.row)), usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: [.curveEaseInOut], animations: {
                 cell.transform = CGAffineTransform.identity
                 cell.alpha = 1
-            }) { (end) in
+            }) { (_) in
                 self.entryAnimationDone = true
             }
         }
     }
-    
-    
+
 }

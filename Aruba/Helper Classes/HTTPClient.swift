@@ -10,15 +10,14 @@ import Foundation
 import Alamofire
 
 class HTTPClient {
-    
-    
-    enum ApiError: Error {        
-        case NoInternet, API500, API401, NoData
+
+    enum ApiError: Error {
+        case noInternet, api500, api401, noData
     }
-    
+
     enum Mehtod {
         case GET, POST
-        
+
         var value: Alamofire.HTTPMethod {
             switch self {
             case .GET:
@@ -28,16 +27,16 @@ class HTTPClient {
             }
         }
     }
-    
+
     static let baseURL: String = "http://" // TODO: get real server address
-    
-    static func request<T: Codable>(method: Mehtod, path: String, completion: @escaping (T?,Error?) -> Void) {
+
+    static func request<T: Codable>(method: Mehtod, path: String, completion: @escaping (T?, Error?) -> Void) {
         let url = baseURL + path
-        Alamofire.request(url,method: method.value)
+        Alamofire.request(url, method: method.value)
             .responseData { response in
                 let decoder = JSONDecoder()
                 let result: Result<T> = decoder.decodeResponse(from: response)
-                completion(result.value,result.error)
+                completion(result.value, result.error)
         }
     }
 }

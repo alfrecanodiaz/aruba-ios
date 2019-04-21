@@ -190,6 +190,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B048EEC226CCA8500EBE6FD /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		3B26A3A922584BD10063ECAA = {
 			isa = PBXGroup;
 			children = (
@@ -215,6 +222,7 @@
 		3B26A3B422584BD10063ECAA /* Aruba */ = {
 			isa = PBXGroup;
 			children = (
+				3B048EEC226CCA8500EBE6FD /* Protocols */,
 				3B048EEA226CBA5800EBE6FD /* GoogleService-Info.plist */,
 				3B7EC0AB225C206F00ED799D /* Schedule */,
 				3B28FFF62259557F004268CB /* Fonts */,

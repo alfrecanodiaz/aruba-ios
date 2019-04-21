@@ -11,7 +11,7 @@ import Foundation
 struct Tax {
     let ruc: String
     let socialReason: String
-    
+
     init() {
         ruc = "80023233-9"
         socialReason = "Aruba SA"

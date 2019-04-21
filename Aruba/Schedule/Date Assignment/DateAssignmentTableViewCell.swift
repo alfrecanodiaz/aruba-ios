@@ -12,12 +12,12 @@ class DateAssignmentTableViewCell: UITableViewCell {
 
     @IBOutlet weak var genderImageView: UIImageView!
     @IBOutlet weak var genderLbl: UILabel!
-    
+
     func configure(person: Person, scheduled: Bool) {
         genderImageView.image = person.gender.image
         genderLbl.text = person.gender.rawValue
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -17,7 +17,7 @@ class BaseTableViewController: UITableViewController {
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         return view
     }()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,7 +27,7 @@ class BaseTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
+
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if !entryAnimationDone {
             cell.transform = CGAffineTransform(translationX: 0, y: 40)
@@ -35,23 +35,21 @@ class BaseTableViewController: UITableViewController {
             UIView.animate(withDuration: 0.3, delay: TimeInterval(0.1*Double(indexPath.row)), usingSpringWithDamping: 0.9, initialSpringVelocity: 0.5, options: [.curveEaseInOut], animations: {
                 cell.transform = CGAffineTransform.identity
                 cell.alpha = 1
-            }) { (end) in
+            }) { (_) in
                 self.entryAnimationDone = true
             }
         }
     }
 
-
 }
 
 extension BaseTableViewController: UIPopoverPresentationControllerDelegate, PopupDelegate {
-    
+
     @objc func popupDidSelectAccept(selectedIndex: Int) {
         removeBlackBackgroundView()
     }
-    
-    
-    func showOptionPopup(title:String, options: [GenericDataCellViewModel], delegate: BaseTableViewController) -> PopupTableViewController {
+
+    func showOptionPopup(title: String, options: [GenericDataCellViewModel], delegate: BaseTableViewController) -> PopupTableViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let popup = storyboard.instantiateViewController(withIdentifier: "PopupTableViewControllerID") as! PopupTableViewController
         popup.delegate = delegate
@@ -67,24 +65,23 @@ extension BaseTableViewController: UIPopoverPresentationControllerDelegate, Popu
         present(popup, animated: true, completion: nil)
         return popup
     }
-    
+
     public func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return .none
     }
-    
+
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
         removeBlackBackgroundView()
     }
-    
-    
+
     func removeBlackBackgroundView() {
         UIView.animate(withDuration: 0.34, animations: {
             self.backgroundBlackView.alpha = 0
-        }) { (end) in
+        }) { (_) in
             self.backgroundBlackView.removeFromSuperview()
         }
     }
-    
+
     func addBlackBackgroundView() {
         self.backgroundBlackView.alpha = 0
         self.view.addSubview(backgroundBlackView)
@@ -92,5 +89,5 @@ extension BaseTableViewController: UIPopoverPresentationControllerDelegate, Popu
             self.backgroundBlackView.alpha = 1
         }
     }
-    
+
 }

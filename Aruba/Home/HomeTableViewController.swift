@@ -12,7 +12,7 @@ struct Category {
     let image: UIImage?
     let title: String
     let color: UIColor
-    
+
     init(imageName: String, title: String, color: UIColor) {
         image = UIImage(named: imageName)
         self.title = title
@@ -21,26 +21,25 @@ struct Category {
 }
 
 class HomeTableViewController: BaseTableViewController {
-    
+
     var popup: PopupTableViewController!
     struct Cells {
         static let Category = "homeCategoryCell"
     }
-    
+
     struct Segues {
         static let ScheduleService = "scheduleServiceSegue"
     }
-    
-    var categories:[Category] = [] {
+
+    var categories: [Category] = [] {
         didSet {
             tableView.reloadSections(IndexSet(integer: 0), with: .fade)
         }
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        categories = [Category(imageName: "peluqueria_blanco", title: "PELUQUERIA", color: Colors.Peluqueria), Category(imageName: "manicura_blanco", title: "MANICURA/PEDICURA", color: Colors.Manicura), Category(imageName: "estetica_blanco", title: "ESTETICA", color: Colors.Estetica), Category(imageName: "masajes_blanco", title: "MASAJES", color: Colors.Masajes),Category(imageName: "nutricion_blanco", title: "NUTRICIÓN", color: Colors.Nutricion), Category(imageName: "barberia_blanco", title: "BARBERIA", color: Colors.Peluqueria)]
+        categories = [Category(imageName: "peluqueria_blanco", title: "PELUQUERIA", color: Colors.Peluqueria), Category(imageName: "manicura_blanco", title: "MANICURA/PEDICURA", color: Colors.Manicura), Category(imageName: "estetica_blanco", title: "ESTETICA", color: Colors.Estetica), Category(imageName: "masajes_blanco", title: "MASAJES", color: Colors.Masajes), Category(imageName: "nutricion_blanco", title: "NUTRICIÓN", color: Colors.Nutricion), Category(imageName: "barberia_blanco", title: "BARBERIA", color: Colors.Peluqueria)]
     }
 
     // MARK: - Table view data source
@@ -53,33 +52,30 @@ class HomeTableViewController: BaseTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categories.count
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return (tableView.bounds.height - (UIApplication.shared.statusBarFrame.size.height +
             (self.navigationController?.navigationBar.frame.height ?? 0.0)))/6
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.Category, for: indexPath) as? HomeCategoryTableViewCell else { return UITableViewCell() }
         cell.configure(category: categories[indexPath.row])
         return cell
     }
-    
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        popup = showOptionPopup(title: "Dirección del servicio", options: [GenericDataCellViewModel(address: Address()),GenericDataCellViewModel(address: Address())], delegate: self)
+        popup = showOptionPopup(title: "Dirección del servicio", options: [GenericDataCellViewModel(address: Address()), GenericDataCellViewModel(address: Address())], delegate: self)
     }
-    
+
     override func popupDidSelectAccept(selectedIndex: Int) {
         super.popupDidSelectAccept(selectedIndex: selectedIndex)
         popup.dismiss(animated: true, completion: nil)
         self.performSegue(withIdentifier: Segues.ScheduleService, sender: self)
         print("Selected index: \(selectedIndex)")
     }
-    
-  
+
 //        guard let cell = cell as? HomeCategoryTableViewCell else { return }
 //        cell.backgroundImageView.layer.cornerRadius = cell.backgroundImageView.bounds.width/2
-
 
 }

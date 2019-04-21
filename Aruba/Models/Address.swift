@@ -16,7 +16,7 @@ struct Address: Codable {
     let street2: String
     let houseNumber: String
     let reference: String
-    
+
     init () {
         name = "Casa"
         lat = 0

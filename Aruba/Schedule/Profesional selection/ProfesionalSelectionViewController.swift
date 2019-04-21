@@ -9,7 +9,7 @@
 import UIKit
 
 struct Professional {
-    
+
 }
 
 class ProfesionalSelectionViewController: UIViewController {
@@ -20,25 +20,24 @@ class ProfesionalSelectionViewController: UIViewController {
         }
     }
     @IBOutlet weak var personLbl: UILabel!
-    
+
     @IBOutlet weak var totalLbl: UILabel!
     var professionals: [Professional] = []
     var scheduleData: ScheduleData!
     var person: Person!
-    
+
     struct Cells {
         static let Professional = "ProfessionalCell"
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        professionals = [Professional(),Professional(),Professional(),Professional(),Professional(),Professional(),Professional(),Professional()]
+        professionals = [Professional(), Professional(), Professional(), Professional(), Professional(), Professional(), Professional(), Professional()]
         totalLbl.text = scheduleData.totalPriceString()
         personLbl.text = person.gender.rawValue + " " + String(describing: person.index)
 
     }
-    
 
     /*
     // MARK: - Navigation
@@ -53,20 +52,19 @@ class ProfesionalSelectionViewController: UIViewController {
 }
 
 extension ProfesionalSelectionViewController: UITableViewDataSource, UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return professionals.count
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Cells.Professional, for: indexPath) as! ProfessionalTableViewCell
-        
+
         return cell
     }
-    
-    
+
 }

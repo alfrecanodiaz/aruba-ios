@@ -10,25 +10,24 @@ import UIKit
 
 class ProfileTableViewController: UITableViewController {
 
-    
     struct Cells {
         static let Header = "profileHeaderCell"
         static let GenericData = "GenericDataCellTableViewCell"
     }
-    
+
     var addresses: [Address] = []
     var tax: Tax = Tax()
-    
+
     let headerHeight: CGFloat = 80
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
-    
+
     func setupView() {
         tableView.register(UINib(nibName: Cells.GenericData, bundle: nil), forCellReuseIdentifier: Cells.GenericData)
-        addresses = [Address(),Address(),Address()]
+        addresses = [Address(), Address(), Address()]
         tableView.reloadData()
     }
 
@@ -52,7 +51,7 @@ class ProfileTableViewController: UITableViewController {
         }
         return 0
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.Header, for: indexPath) as? ProfileHeaderTableViewCell else { return UITableViewCell() }
@@ -65,18 +64,18 @@ class ProfileTableViewController: UITableViewController {
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.GenericData, for: indexPath) as? GenericDataCellTableViewCell else { return UITableViewCell() }
             if indexPath.row == 0 {
-                cell.viewModel = GenericDataCellViewModel(title: "NOMBRE: ",content: tax.socialReason)
+                cell.viewModel = GenericDataCellViewModel(title: "NOMBRE: ", content: tax.socialReason)
             } else {
-                cell.viewModel = GenericDataCellViewModel(title: "RUC: ",content: tax.socialReason)
+                cell.viewModel = GenericDataCellViewModel(title: "RUC: ", content: tax.socialReason)
             }
             return cell
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return headerViewForSection(section: section)
     }
-    
+
     func headerViewForSection(section: Int) -> UIView? {
         if section == 0 {
             return nil
@@ -108,7 +107,7 @@ class ProfileTableViewController: UITableViewController {
         lbl.font = UIFont.boldSystemFont(ofSize: 14)
         return view
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return 0
@@ -116,7 +115,7 @@ class ProfileTableViewController: UITableViewController {
             return headerHeight
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return tableView.bounds.height*0.3

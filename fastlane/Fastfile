@@ -21,5 +21,16 @@ platform :ios do
     build_app(workspace: "Aruba.xcworkspace", scheme: "Aruba")
     upload_to_testflight
     slack(message: "Successfully distributed a new beta build")
+    swiftlint(
+    mode: :lint,                            # SwiftLint mode: :lint (default) or :autocorrect
+    executable: "Pods/SwiftLint/swiftlint", # The SwiftLint binary path (optional). Important if you've installed it via CocoaPods
+    ignore_exit_status: true,               # Allow fastlane to continue even if SwiftLint returns a non-zero exit status (Default: false)
+    quiet: true,                            # Don't print status logs like 'Linting ' & 'Done linting' (Default: false)
+    strict: false                            # Fail on warnings? (Default: false)
+)
+
+  end
+  lane :tests do
+    run_tests(scheme: "ArubaTests")
   end
 end

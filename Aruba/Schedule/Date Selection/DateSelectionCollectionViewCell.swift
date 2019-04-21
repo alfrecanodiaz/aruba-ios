@@ -9,7 +9,7 @@
 import UIKit
 
 class DateSelectionCollectionViewCell: UICollectionViewCell {
-    
+
     @IBOutlet weak var roundView: UIView! {
         didSet {
             roundView.layer.cornerRadius = 25
@@ -17,10 +17,10 @@ class DateSelectionCollectionViewCell: UICollectionViewCell {
             roundView.layer.borderWidth = 1
         }
     }
-    
+
     @IBOutlet weak var dayLbl: UILabel!
     @IBOutlet weak var descriptionLbl: UILabel!
-    
+
     func configure(aDate: AssignmentDate, selected: Bool) {
         if selected {
             roundView.backgroundColor = Colors.ButtonGreen
@@ -34,11 +34,11 @@ class DateSelectionCollectionViewCell: UICollectionViewCell {
             dayLbl.textColor = .darkGray
             roundView.layer.borderColor = UIColor.lightGray.cgColor
         }
-        
+
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "es_PY")
         dateFormatter.dateFormat = "EEEE"
-        
+
         if aDate.dateInFuture == 0 {
             dayLbl.text = "HOY"
         } else if aDate.dateInFuture == 1 {

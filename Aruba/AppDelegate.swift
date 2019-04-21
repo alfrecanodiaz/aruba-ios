@@ -15,9 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+
         configureSideMenu()
         configureNavBar()
         configureFirebase()
@@ -46,20 +45,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    
     private func configureSideMenu() {
         SideMenuManager.default.menuAnimationBackgroundColor = .clear
     }
-    
+
     private func configureNavBar() {
         UINavigationBar.appearance().tintColor = .white
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor : UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
 
     }
-    
+
     private func configureFirebase() {
         FirebaseApp.configure()
     }
 
 }
-

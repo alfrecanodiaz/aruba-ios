@@ -9,11 +9,11 @@
 import UIKit
 
 class HomeCategoryTableViewCell: UITableViewCell {
-    
+
     @IBOutlet weak var backgroundImageView: UIView!
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
@@ -24,14 +24,13 @@ class HomeCategoryTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
     func configure(category: Category) {
         contentView.backgroundColor = category.color
         iconImage.image = category.image
         titleLbl.text = category.title
     }
 
-    
     override func draw(_ rect: CGRect) {
         backgroundImageView.layer.cornerRadius = backgroundImageView.frame.size.height/2
         super.draw(rect)

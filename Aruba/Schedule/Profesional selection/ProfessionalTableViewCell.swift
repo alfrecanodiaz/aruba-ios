@@ -9,14 +9,14 @@
 import UIKit
 
 class ProfessionalTableViewCell: UITableViewCell {
-    
+
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var likeBtn: UIButton! {
         didSet {
             likeBtn.imageView?.contentMode = .scaleAspectFit
         }
     }
-    
+
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var profileImageView: UIImageView! {
         didSet {
@@ -33,5 +33,5 @@ class ProfessionalTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

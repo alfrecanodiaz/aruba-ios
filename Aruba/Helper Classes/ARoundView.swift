@@ -10,16 +10,16 @@ import Foundation
 import UIKit
 
 class ARoundView: UIView {
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
+
     }
-    
+
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         layer.cornerRadius = bounds.width/2
         clipsToBounds = true
     }
-    
+
 }

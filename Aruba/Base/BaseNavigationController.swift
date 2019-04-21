@@ -17,7 +17,6 @@ class BaseNavigationController: UINavigationController {
         imgView.image = UIImage(named: "ARUBA_LOGO-BLANCO")
         viewControllers.first?.navigationItem.titleView = imgView
     }
-    
 
     override public func pushViewController(_ viewController: UIViewController, animated: Bool) {
         super.pushViewController(viewController, animated: animated)

@@ -10,59 +10,52 @@ import UIKit
 
 class PeopleQuantiySelectionViewController: UIViewController {
 
-
     @IBOutlet weak var womenView: PeopleQuantityView!
     @IBOutlet weak var menView: PeopleQuantityView!
     @IBOutlet weak var childrenView: PeopleQuantityView!
     @IBOutlet weak var nextBtn: AButton!
-    
     struct Segues {
         static let ServiceSelection = "showServiceSelection"
     }
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
     }
-    
+
     func configureView() {
         title = "Cantidad De Personas"
-        womenView.configure(for: .Woman)
+        womenView.configure(for: .women)
         womenView.delegate = self
-        menView.configure(for: .Men)
+        menView.configure(for: .man)
         menView.delegate = self
-        childrenView.configure(for: .Children)
+        childrenView.configure(for: .children)
         childrenView.delegate = self
         nextBtn.setEnabled(false)
     }
-    
 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.ServiceSelection, let dvc = segue.destination as? ServiceSelectionViewController {
-            
             var persons: [Person] = []
-            
-            var i = 0
-            while i < womenView.currentCount {
-                persons.append(Person(gender: .Women, index: i + 1))
-                i += 1
+            var count = 0
+            while count < womenView.currentCount {
+                persons.append(Person(gender: .women, index: count + 1))
+                count += 1
             }
-            i = 0
-            while i < menView.currentCount {
-                persons.append(Person(gender: .Man, index: i + 1))
-                i += 1
+            count = 0
+            while count < menView.currentCount {
+                persons.append(Person(gender: .man, index: count + 1))
+                count += 1
             }
-            i = 0
-            while i < childrenView.currentCount {
-                persons.append(Person(gender: .Children, index: i + 1))
-                i += 1
+            count = 0
+            while count < childrenView.currentCount {
+                persons.append(Person(gender: .children, index: count + 1))
+                count += 1
             }
-            
+
             dvc.persons = persons
         }
     }

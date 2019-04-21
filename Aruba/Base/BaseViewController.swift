@@ -9,7 +9,7 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-    
+
     let backgroundBlackView: UIView = {
        let view = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
         view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
@@ -22,20 +22,17 @@ class BaseViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
 }
 
-
 extension BaseViewController: UIPopoverPresentationControllerDelegate, PopupDelegate {
-    
+
     @objc func popupDidSelectAccept(selectedIndex: Int) {
         removeBlackBackgroundView()
     }
-    
-    
-    func showPopup(title:String, options: [GenericDataCellViewModel], delegate: BaseViewController) -> PopupTableViewController {
+
+    func showPopup(title: String, options: [GenericDataCellViewModel], delegate: BaseViewController) -> PopupTableViewController? {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let popup = storyboard.instantiateViewController(withIdentifier: "PopupTableViewControllerID") as! PopupTableViewController
+        guard let popup = storyboard.instantiateViewController(withIdentifier: "PopupTableViewControllerID") as? PopupTableViewController else { return nil }
         popup.delegate = delegate
         popup.titleString = title
         popup.options = options
@@ -49,24 +46,24 @@ extension BaseViewController: UIPopoverPresentationControllerDelegate, PopupDele
         present(popup, animated: true, completion: nil)
         return popup
     }
-    
+
     public func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
         return .none
     }
-    
+
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {
         removeBlackBackgroundView()
     }
-    
-    
+
     func removeBlackBackgroundView() {
-        UIView.animate(withDuration: 0.34, animations: {
-            self.backgroundBlackView.alpha = 0
-        }) { (end) in
+        let completion: ((Bool) -> Void ) = {_ in
             self.backgroundBlackView.removeFromSuperview()
         }
+        UIView.animate(withDuration: 0.34, animations: {
+            self.backgroundBlackView.alpha = 0
+        }, completion: completion)
     }
-    
+
     func addBlackBackgroundView() {
         self.backgroundBlackView.alpha = 0
         self.view.addSubview(backgroundBlackView)
@@ -74,5 +71,5 @@ extension BaseViewController: UIPopoverPresentationControllerDelegate, PopupDele
             self.backgroundBlackView.alpha = 1
         }
     }
-    
+
 }

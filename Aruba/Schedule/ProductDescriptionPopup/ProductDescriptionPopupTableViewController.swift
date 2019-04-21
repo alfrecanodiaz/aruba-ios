@@ -20,13 +20,13 @@ protocol ProductPopupDelegate: class {
 }
 
 class ProductDescriptionPopupTableViewController: BaseTableViewController {
-    
+
     @IBOutlet weak var productNameLbl: UILabel!
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var productDescriptionTextView: UITextView!
-    
+
     weak var delegate: ProductPopupDelegate?
-    
+
     var product: Product!
 
     override func viewDidLoad() {

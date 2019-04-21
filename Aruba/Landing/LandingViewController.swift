@@ -13,12 +13,12 @@ class LandingViewController: UIViewController {
     @IBOutlet weak var facebookLoginBtn: AButton!
     @IBOutlet weak var mailLoginBtn: AButton!
     @IBOutlet weak var servicesBtn: AButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
-    
+
     func setupView() {
             servicesBtn.backgroundColor = Colors.ButtonGreen
             mailLoginBtn.backgroundColor = Colors.ButtonBrown

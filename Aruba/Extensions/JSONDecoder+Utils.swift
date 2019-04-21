@@ -15,12 +15,12 @@ extension JSONDecoder {
             print(response.error!)
             return .failure(response.error!)
         }
-        
+
         guard let responseData = response.data else {
             print("didn't get any data from API")
-            return .failure(HTTPClient.ApiError.NoData)
+            return .failure(HTTPClient.ApiError.noData)
         }
-        
+
         do {
             let item = try decode(T.self, from: responseData)
             return .success(item)

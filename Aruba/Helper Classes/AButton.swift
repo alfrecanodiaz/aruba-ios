@@ -9,10 +9,10 @@
 import UIKit
 
 class AButton: UIButton {
-    
+
     private var shadowLayer: CAShapeLayer!
     private let cornerRadius: CGFloat = 10
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = Colors.ButtonGreen
@@ -22,7 +22,7 @@ class AButton: UIButton {
         layer.cornerRadius = cornerRadius
         layer.shadowColor = UIColor.black.cgColor
     }
-        
+
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: layer.cornerRadius).cgPath
@@ -30,12 +30,12 @@ class AButton: UIButton {
         layer.shadowOpacity = 0.5
         layer.shadowRadius = 1.0
     }
-    
+
     func setEnabled(_ enabled: Bool) {
         isUserInteractionEnabled = enabled
         UIView.animate(withDuration: 0.35) {
             self.backgroundColor = enabled ? Colors.ButtonGreen : Colors.ButtonGray
         }
     }
-    
+
 }

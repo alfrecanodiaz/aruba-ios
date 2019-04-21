@@ -21,14 +21,13 @@ class PopupTableViewController: APopoverTableViewController {
         }
     }
     weak var delegate: PopupDelegate?
-    
+
     private let headerHeight: CGFloat = 50
     private let footerHeight: CGFloat = 70
-    
+
     struct Cells {
         static let GenericData = "GenericDataCellTableViewCell"
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,22 +45,22 @@ class PopupTableViewController: APopoverTableViewController {
         // #warning Incomplete implementation, return the number of rows
         return options.count
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.GenericData, for: indexPath) as? GenericDataCellTableViewCell else { return UITableViewCell() }
         cell.viewModel = options[indexPath.row]
-        
+
         return cell
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-    
+
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: headerHeight))
         let lbl = UILabel()
-    
+
         view.addSubview(lbl)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0).isActive = true
@@ -82,18 +81,18 @@ class PopupTableViewController: APopoverTableViewController {
         stackView.addArrangedSubview(cancelBtn)
         cancelBtn.backgroundColor = Colors.ButtonGreen
         stackView.alignment = .center
-        
+
         return stackView
     }
-  
+
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return footerHeight
     }
-    
+
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return headerHeight
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.popupDidSelectAccept(selectedIndex: indexPath.row)
     }

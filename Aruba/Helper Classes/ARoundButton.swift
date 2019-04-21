@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class ARoundButton: UIButton {
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = bounds.width/2

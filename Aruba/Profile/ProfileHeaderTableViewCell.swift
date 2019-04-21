@@ -13,7 +13,7 @@ class ProfileHeaderTableViewCell: UITableViewCell {
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var greetingLbl: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -23,7 +23,7 @@ class ProfileHeaderTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
     override func draw(_ rect: CGRect) {
         profileImageView.layer.cornerRadius = profileImageView.bounds.width/2
         super.draw(rect)

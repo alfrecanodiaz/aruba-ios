@@ -26,23 +26,23 @@ class ServiceSelectionTableViewCell: UITableViewCell {
         detailBtn.clipsToBounds = true
         detailBtn.titleLabel?.adjustsFontSizeToFitWidth = true
     }
-    
+
     var indexPath: IndexPath!
-    
+
     weak var delegate: ServiceSelectionTableViewCellDelegate?
-    
-    func configure(product: Product ,isSelected: Bool, indexPath: IndexPath) {
+
+    func configure(product: Product, isSelected: Bool, indexPath: IndexPath) {
         productSwitch.setOn(isSelected, animated: false)
         productName.text = product.name
         self.indexPath = indexPath
     }
-    
+
     @IBAction func switchAction(_ sender: UISwitch) {
         delegate?.didSelectProduct(selected: sender.isOn, at: indexPath)
     }
-    
+
     @IBAction func detailAction(_ sender: UIButton) {
         delegate?.didSelectViewProductDescription(at: indexPath)
     }
-    
+
 }
