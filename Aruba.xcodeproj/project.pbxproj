@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B048EEB226CBA5800EBE6FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B048EEA226CBA5800EBE6FD /* GoogleService-Info.plist */; };
 		3B26A3B622584BD10063ECAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26A3B522584BD10063ECAA /* AppDelegate.swift */; };
 		3B26A3BB22584BD10063ECAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B26A3B922584BD10063ECAA /* Main.storyboard */; };
 		3B26A3BD22584BD30063ECAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B26A3BC22584BD30063ECAA /* Assets.xcassets */; };
@@ -87,6 +88,7 @@
 
 /* Begin PBXFileReference section */
 		0558D970D0CA945C6C2661E0 /* Pods-Aruba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aruba.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Aruba/Pods-Aruba.debug.xcconfig"; sourceTree = "<group>"; };
+		3B048EEA226CBA5800EBE6FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B26A3B222584BD10063ECAA /* Aruba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aruba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B26A3B522584BD10063ECAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B26A3BA22584BD10063ECAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 		3B26A3B422584BD10063ECAA /* Aruba */ = {
 			isa = PBXGroup;
 			children = (
+				3B048EEA226CBA5800EBE6FD /* GoogleService-Info.plist */,
 				3B7EC0AB225C206F00ED799D /* Schedule */,
 				3B28FFF62259557F004268CB /* Fonts */,
 				3B28FFEA225947F3004268CB /* Popup */,
@@ -583,6 +586,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B048EEB226CBA5800EBE6FD /* GoogleService-Info.plist in Resources */,
 				3B7EC0B3225C21E600ED799D /* PeopleQuantityView.xib in Resources */,
 				3B7EC0BA225C347F00ED799D /* ServiceSelectionTableViewCell.xib in Resources */,
 				3B26A3C022584BD30063ECAA /* LaunchScreen.storyboard in Resources */,
@@ -655,16 +659,20 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Aruba/Pods-Aruba-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

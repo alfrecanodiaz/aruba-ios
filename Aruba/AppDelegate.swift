@@ -8,6 +8,7 @@
 
 import UIKit
 import SideMenu
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         configureSideMenu()
         configureNavBar()
+        configureFirebase()
         return true
     }
 
@@ -45,14 +47,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     
-    func configureSideMenu() {
+    private func configureSideMenu() {
         SideMenuManager.default.menuAnimationBackgroundColor = .clear
     }
     
-    func configureNavBar() {
+    private func configureNavBar() {
         UINavigationBar.appearance().tintColor = .white
         UINavigationBar.appearance().titleTextAttributes = [.foregroundColor : UIColor.white]
 
+    }
+    
+    private func configureFirebase() {
+        FirebaseApp.configure()
     }
 
 }

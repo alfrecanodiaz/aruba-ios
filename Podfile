@@ -11,6 +11,7 @@ target 'Aruba' do
   pod 'SideMenu'
   pod 'MaterialTextField'
   pod 'SVProgressHUD'
+  pod 'Firebase/Core'
   
   post_install do |installer|
       installer.pods_project.build_configurations.each do |config|

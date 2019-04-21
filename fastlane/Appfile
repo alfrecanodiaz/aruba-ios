@@ -1,0 +1,8 @@
+app_identifier("py.com.nextgen.Aruba") # The bundle identifier of your app
+apple_id("javierrivarola91@gmail.com") # Your Apple email address
+
+itc_team_id("117796046") # App Store Connect Team ID
+team_id("P5FUN8DH8K") # Developer Portal Team ID
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile
