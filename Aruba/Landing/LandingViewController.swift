@@ -37,11 +37,14 @@ class LandingViewController: UIViewController {
     */
 
     @IBAction func facebookAction(_ sender: AButton) {
-        FBSDKLoginManager().logIn(withReadPermissions: ["public_profile","email"], from: self) { (result, error) in
+        FBSDKLoginManager().logIn(withReadPermissions: ["public_profile","email"], from: self) { [weak self] (result, error) in
             if let error = error {
                 print(error.localizedDescription)
             } else {
-                guard let token = result?.token.tokenString else { return }
+                if result?.isCancelled ?? true {
+                    print("Canceled")
+                }
+                guard let token = result?.token else { return }
 
                 let params = ["fields" : "id, name, first_name, last_name, picture.type(large), email "]
                 let graphRequest = FBSDKGraphRequest.init(graphPath: "/me", parameters: params)
@@ -52,7 +55,7 @@ class LandingViewController: UIViewController {
                     let lastName = info["last_name"] as? String ?? ""
                     let email = info["email"] as? String ?? ""
 
-                    AuthManager.registerFacebook(firstName: firstName, lastName: lastName, email: email, token: token, completion: { (loginViewModel, error) in
+                    AuthManager.registerFacebook(firstName: firstName, lastName: lastName, email: email, token: token.tokenString, completion: { (loginViewModel, error) in
 
                     })
                 }
