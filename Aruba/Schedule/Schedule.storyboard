@@ -229,13 +229,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MUJER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cr2-w3-CDT">
-                                        <rect key="frame" x="289.5" y="104" width="51.5" height="17.5"/>
+                                        <rect key="frame" x="289.5" y="103.5" width="50" height="18"/>
                                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MTc-49-aka" customClass="ARoundView" customModule="Aruba" customModuleProvider="target">
-                                        <rect key="frame" x="300.5" y="129.5" width="30" height="30"/>
+                                        <rect key="frame" x="299.5" y="129.5" width="30" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i2x-iU-bpX">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -295,7 +295,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gs. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uv9-Qz-VxI">
-                                                        <rect key="frame" x="324" y="23" width="38" height="19"/>
+                                                        <rect key="frame" x="327" y="22.5" width="35" height="19.5"/>
                                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -720,7 +720,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MUJER 01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5NO-Bg-cDZ">
-                                                    <rect key="frame" x="96" y="9.5" width="91.5" height="60"/>
+                                                    <rect key="frame" x="96" y="9.5" width="89" height="60"/>
                                                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1441,6 +1441,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EhK-hY-4Pb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4706" y="144"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="0mt-14-cP7">
+            <objects>
+                <viewController id="JVv-hG-FYX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ktb-B5-GX0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="mgo-oK-7hC"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gXA-WU-hVG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5481" y="-523"/>
         </scene>
         <!--Profesional Selection View Controller-->
         <scene sceneID="txY-JE-EID">

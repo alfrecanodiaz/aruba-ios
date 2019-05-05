@@ -15,6 +15,8 @@
 		3B048EFA226D04D200EBE6FD /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B048EF9226D04D200EBE6FD /* String+Utils.swift */; };
 		3B048EFD226D08AF00EBE6FD /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B048EFC226D08AF00EBE6FD /* Person.swift */; };
 		3B048EFF226D08BA00EBE6FD /* ScheduleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B048EFE226D08BA00EBE6FD /* ScheduleData.swift */; };
+		3B048F02227F170A00EBE6FD /* ATextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B048F01227F170A00EBE6FD /* ATextField.swift */; };
+		3B048F05227F192C00EBE6FD /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B048F04227F192C00EBE6FD /* AuthManager.swift */; };
 		3B26A3B622584BD10063ECAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26A3B522584BD10063ECAA /* AppDelegate.swift */; };
 		3B26A3BB22584BD10063ECAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B26A3B922584BD10063ECAA /* Main.storyboard */; };
 		3B26A3BD22584BD30063ECAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B26A3BC22584BD30063ECAA /* Assets.xcassets */; };
@@ -103,6 +105,8 @@
 		3B048EF9226D04D200EBE6FD /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		3B048EFC226D08AF00EBE6FD /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		3B048EFE226D08BA00EBE6FD /* ScheduleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleData.swift; sourceTree = "<group>"; };
+		3B048F01227F170A00EBE6FD /* ATextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATextField.swift; sourceTree = "<group>"; };
+		3B048F04227F192C00EBE6FD /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		3B26A3B222584BD10063ECAA /* Aruba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aruba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B26A3B522584BD10063ECAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B26A3BA22584BD10063ECAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -219,6 +223,14 @@
 			path = "Success Schedule";
 			sourceTree = "<group>";
 		};
+		3B048F03227F191F00EBE6FD /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3B048F04227F192C00EBE6FD /* AuthManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		3B26A3A922584BD10063ECAA = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +256,8 @@
 		3B26A3B422584BD10063ECAA /* Aruba */ = {
 			isa = PBXGroup;
 			children = (
+				3B048F03227F191F00EBE6FD /* Managers */,
+				3BD43CF922585B6900AC3411 /* Landing */,
 				3B048EEC226CCA8500EBE6FD /* Protocols */,
 				3B048EEA226CBA5800EBE6FD /* GoogleService-Info.plist */,
 				3B7EC0AB225C206F00ED799D /* Schedule */,
@@ -254,7 +268,6 @@
 				3BD43D072258FCBA00AC3411 /* Home */,
 				3BD43D06225864CF00AC3411 /* Aruba.entitlements */,
 				3BD43D03225861B700AC3411 /* Models */,
-				3BD43CF922585B6900AC3411 /* Landing */,
 				3B26A3B522584BD10063ECAA /* AppDelegate.swift */,
 				3B26A3BC22584BD30063ECAA /* Assets.xcassets */,
 				3B26A3BE22584BD30063ECAA /* LaunchScreen.storyboard */,
@@ -325,9 +338,9 @@
 		3B7EC0AB225C206F00ED799D /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				3B7EC0AC225C20A300ED799D /* Schedule.storyboard */,
 				3B048EF6226D00E300EBE6FD /* Success Schedule */,
 				3B67BA3E22690C8F00871F77 /* ProductDescriptionPopup */,
-				3B7EC0AC225C20A300ED799D /* Schedule.storyboard */,
 				3B7EC0DF226404E300ED799D /* Profesional selection */,
 				3B7EC0CE2263D47B00ED799D /* Date Selection */,
 				3B7EC0C4225D722E00ED799D /* Date Assignment */,
@@ -399,6 +412,7 @@
 				3B048EF0226CF8B400EBE6FD /* ARoundImage.swift */,
 				3B048EF2226CFC3600EBE6FD /* ABoxView.swift */,
 				3B048EF4226D001100EBE6FD /* ALoader.swift */,
+				3B048F01227F170A00EBE6FD /* ATextField.swift */,
 			);
 			path = "Helper Classes";
 			sourceTree = "<group>";
@@ -712,6 +726,9 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Aruba/Pods-Aruba-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
@@ -722,6 +739,9 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
@@ -782,6 +802,7 @@
 				3BD43CF62258594D00AC3411 /* Colors.swift in Sources */,
 				3B28FFF022594C6B004268CB /* UIViewController+Utils.swift in Sources */,
 				3B048EFA226D04D200EBE6FD /* String+Utils.swift in Sources */,
+				3B048F05227F192C00EBE6FD /* AuthManager.swift in Sources */,
 				3B28FFF522595178004268CB /* BaseViewController.swift in Sources */,
 				3BD43D1822591A7100AC3411 /* GenericDataCellTableViewCell.swift in Sources */,
 				3BD43CFF22585EF000AC3411 /* HTTPClient.swift in Sources */,
@@ -800,6 +821,7 @@
 				3B7EC0DA2263F24800ED799D /* ProgressView.swift in Sources */,
 				3B28FFEC22594809004268CB /* PopupTableViewController.swift in Sources */,
 				3BD43D092258FCC700AC3411 /* HomeTableViewController.swift in Sources */,
+				3B048F02227F170A00EBE6FD /* ATextField.swift in Sources */,
 				3BD43D2422592DE200AC3411 /* UIColor+Utils.swift in Sources */,
 				3B048EF5226D001100EBE6FD /* ALoader.swift in Sources */,
 				3BD43D012258608700AC3411 /* JSONDecoder+Utils.swift in Sources */,
@@ -935,6 +957,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -989,6 +1012,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1004,6 +1028,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aruba/Aruba.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = Aruba/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1016,6 +1041,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "Aruba Development Profile";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -1027,6 +1053,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aruba/Aruba.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = Aruba/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1040,6 +1067,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};

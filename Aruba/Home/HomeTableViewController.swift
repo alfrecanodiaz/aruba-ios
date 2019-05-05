@@ -39,7 +39,7 @@ class HomeTableViewController: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        categories = [Category(imageName: "peluqueria_blanco", title: "PELUQUERIA", color: Colors.Peluqueria), Category(imageName: "manicura_blanco", title: "MANICURA/PEDICURA", color: Colors.Manicura), Category(imageName: "estetica_blanco", title: "ESTETICA", color: Colors.Estetica), Category(imageName: "masajes_blanco", title: "MASAJES", color: Colors.Masajes), Category(imageName: "nutricion_blanco", title: "NUTRICIÓN", color: Colors.Nutricion), Category(imageName: "barberia_blanco", title: "BARBERIA", color: Colors.Peluqueria)]
+        categories = [Category(imageName: "peluqueria_blanco", title: "PELUQUERIA", color: Colors.Peluqueria), Category(imageName: "manicura_blanco", title: "MANICURA/PEDICURA", color: Colors.Manicura), Category(imageName: "estetica_blanco", title: "ESTETICA", color: Colors.Estetica), Category(imageName: "aruba1", title: "MASAJES", color: Colors.Masajes), Category(imageName: "nutricion_blanco", title: "NUTRICIÓN", color: Colors.Nutricion), Category(imageName: "barberia_blanco", title: "BARBERIA", color: Colors.Peluqueria)]
     }
 
     // MARK: - Table view data source

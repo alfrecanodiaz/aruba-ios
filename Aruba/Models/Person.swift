@@ -9,11 +9,7 @@
 import Foundation
 import UIKit
 
-struct Person: Equatable {
-
-    static func == (lhs: Person, rhs: Person) -> Bool {
-        return lhs.id == rhs.id
-    }
+struct Person {
 
     let gender: Gender
     var scheduleProducts: [Product] = []
@@ -41,5 +37,10 @@ struct Person: Equatable {
         self.index = index
         self.id = String().generateID()
     }
+}
 
+extension Person: Equatable {
+    static func == (lhs: Person, rhs: Person) -> Bool {
+        return lhs.id == rhs.id
+    }
 }

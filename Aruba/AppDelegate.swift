@@ -12,6 +12,8 @@ import Firebase
 import Fabric
 import Crashlytics
 import UserNotifications
+import FirebaseMessaging
+import FBSDKLoginKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configureFirebase()
         configureFabric()
         registerFirebaseNotifications(for: application)
+        FBSDKApplicationDelegate.sharedInstance()?.application(application, didFinishLaunchingWithOptions: launchOptions)
+
         return true
     }
 

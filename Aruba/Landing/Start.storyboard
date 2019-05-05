@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Landing View Controller-->
         <scene sceneID="IM2-jf-b5Q">
@@ -38,6 +43,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcl-sl-88B" customClass="AButton" customModule="Aruba" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="130" width="374" height="50"/>
                                         <state key="normal" title="INICIAR SESIÓN CON FACEBOOK"/>
+                                        <connections>
+                                            <action selector="facebookAction:" destination="79G-XW-YBd" eventType="touchUpInside" id="jdb-PI-sjI"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -65,26 +73,110 @@
             </objects>
             <point key="canvasLocation" x="-636.23188405797111" y="113.83928571428571"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Register Table View Controller-->
         <scene sceneID="KhL-uK-7wA">
             <objects>
-                <tableViewController id="WzW-od-tg4" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bC0-E6-rW6">
+                <tableViewController id="WzW-od-tg4" customClass="RegisterTableViewController" customModule="Aruba" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bC0-E6-rW6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
                             <tableViewSection id="TTB-BP-MAd">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="67" id="wR6-cv-A8B">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Zrx-ou-EXm">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wR6-cv-A8B" id="1rr-zg-QqO">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="66.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zrx-ou-EXm" id="iix-KL-bqh">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0S3-2V-c5l" customClass="MFTextField">
-                                                    <rect key="frame" x="16" y="8" width="382" height="50.5"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Shh-Q3-ESZ">
+                                                    <rect key="frame" x="362" y="7" width="36" height="30"/>
+                                                    <state key="normal" title="Atras">
+                                                        <color key="titleColor" red="0.47161269189999999" green="0.86628204580000001" blue="0.80280357599999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="backAction:" destination="WzW-od-tg4" eventType="touchUpInside" id="kzb-vt-l3W"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Shh-Q3-ESZ" secondAttribute="trailing" constant="16" id="w0I-UU-EFy"/>
+                                                <constraint firstItem="Shh-Q3-ESZ" firstAttribute="centerY" secondItem="iix-KL-bqh" secondAttribute="centerY" id="xYF-EV-7oE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="200" id="fB1-99-34c">
+                                        <rect key="frame" x="0.0" y="44" width="414" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fB1-99-34c" id="wU7-sj-OQG">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l6x-9h-xay">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxy-Tn-dmb" customClass="ARoundView" customModule="Aruba" customModuleProvider="target">
+                                                    <rect key="frame" x="184.5" y="137.5" width="45" height="45"/>
+                                                    <color key="backgroundColor" red="0.47161269189999999" green="0.86628204580000001" blue="0.80280357599999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="45" id="ISl-Zo-Ztw"/>
+                                                        <constraint firstAttribute="height" constant="45" id="XeM-Gq-dUz"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="l6x-9h-xay" secondAttribute="trailing" id="0D1-x6-1fV"/>
+                                                <constraint firstItem="cxy-Tn-dmb" firstAttribute="bottom" secondItem="l6x-9h-xay" secondAttribute="bottom" constant="22.5" id="SQb-id-UsA"/>
+                                                <constraint firstItem="l6x-9h-xay" firstAttribute="leading" secondItem="wU7-sj-OQG" secondAttribute="leading" id="mSR-8b-9wt"/>
+                                                <constraint firstAttribute="bottom" secondItem="l6x-9h-xay" secondAttribute="bottom" constant="40" id="nQC-mG-yhO"/>
+                                                <constraint firstItem="l6x-9h-xay" firstAttribute="top" secondItem="wU7-sj-OQG" secondAttribute="top" id="x66-IH-2WP"/>
+                                                <constraint firstItem="cxy-Tn-dmb" firstAttribute="centerX" secondItem="wU7-sj-OQG" secondAttribute="centerX" id="xoR-ZI-gc5"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="56" id="eGJ-Yk-5VN">
+                                        <rect key="frame" x="0.0" y="244" width="414" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eGJ-Yk-5VN" id="fwM-3U-yZe">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registrarme con mi Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y1n-pq-MSl">
+                                                    <rect key="frame" x="20" y="8" width="374" height="31"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nrc-nJ-1cG">
+                                                    <rect key="frame" x="40" y="47" width="334" height="1"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="Ful-3c-gkO"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Nrc-nJ-1cG" firstAttribute="top" secondItem="y1n-pq-MSl" secondAttribute="bottom" constant="8" id="0g9-q7-nss"/>
+                                                <constraint firstItem="y1n-pq-MSl" firstAttribute="leading" secondItem="fwM-3U-yZe" secondAttribute="leading" constant="20" id="8bq-6P-AaY"/>
+                                                <constraint firstItem="Nrc-nJ-1cG" firstAttribute="leading" secondItem="fwM-3U-yZe" secondAttribute="leading" constant="40" id="Asb-MN-hfI"/>
+                                                <constraint firstItem="y1n-pq-MSl" firstAttribute="top" secondItem="fwM-3U-yZe" secondAttribute="top" constant="8" id="SNn-0K-UWN"/>
+                                                <constraint firstAttribute="trailing" secondItem="Nrc-nJ-1cG" secondAttribute="trailing" constant="40" id="hYS-IU-pmw"/>
+                                                <constraint firstAttribute="bottom" secondItem="Nrc-nJ-1cG" secondAttribute="bottom" constant="8" id="jG0-X0-AaJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="y1n-pq-MSl" secondAttribute="trailing" constant="20" id="lMU-JK-qz9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="67" id="wR6-cv-A8B">
+                                        <rect key="frame" x="0.0" y="300" width="414" height="67"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wR6-cv-A8B" id="1rr-zg-QqO">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0S3-2V-c5l" customClass="ATextField" customModule="Aruba" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="8" width="382" height="51"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -98,15 +190,15 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="67" id="Ige-NH-NlA">
-                                        <rect key="frame" x="0.0" y="67" width="414" height="67"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="67" id="Ige-NH-NlA">
+                                        <rect key="frame" x="0.0" y="367" width="414" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ige-NH-NlA" id="hGA-zI-MHq">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="66.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gf6-LM-ey2" customClass="MFTextField">
-                                                    <rect key="frame" x="16" y="8" width="382" height="50.5"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Apellido" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gf6-LM-ey2" customClass="ATextField" customModule="Aruba" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="8" width="382" height="51"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -120,18 +212,18 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="67" id="j3P-eX-cHh">
-                                        <rect key="frame" x="0.0" y="134" width="414" height="67"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="67" id="j3P-eX-cHh">
+                                        <rect key="frame" x="0.0" y="434" width="414" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j3P-eX-cHh" id="DzT-3S-Qbd">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="66.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="il0-U5-0Rh" customClass="MFTextField">
-                                                    <rect key="frame" x="16" y="8" width="382" height="50.5"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="il0-U5-0Rh" customClass="ATextField" customModule="Aruba" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="8" width="382" height="51"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -142,18 +234,18 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="67" id="MML-8D-b8u">
-                                        <rect key="frame" x="0.0" y="201" width="414" height="67"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="67" id="MML-8D-b8u">
+                                        <rect key="frame" x="0.0" y="501" width="414" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MML-8D-b8u" id="whm-aQ-mIl">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="66.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZFu-Ei-87j" customClass="MFTextField">
-                                                    <rect key="frame" x="16" y="8" width="382" height="50.5"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZFu-Ei-87j" customClass="ATextField" customModule="Aruba" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="8" width="382" height="51"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -161,6 +253,33 @@
                                                 <constraint firstAttribute="trailing" secondItem="ZFu-Ei-87j" secondAttribute="trailing" constant="16" id="enh-qW-XM5"/>
                                                 <constraint firstAttribute="bottom" secondItem="ZFu-Ei-87j" secondAttribute="bottom" constant="8" id="fOd-xq-3cc"/>
                                                 <constraint firstItem="ZFu-Ei-87j" firstAttribute="top" secondItem="whm-aQ-mIl" secondAttribute="top" constant="8" id="ohQ-cQ-Act"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="102" id="9y0-oA-j7f">
+                                        <rect key="frame" x="0.0" y="568" width="414" height="102"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9y0-oA-j7f" id="9dD-RX-55t">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fj1-Cn-xip" customClass="AButton" customModule="Aruba" customModuleProvider="target">
+                                                    <rect key="frame" x="40" y="37" width="334" height="45"/>
+                                                    <color key="backgroundColor" red="0.47161269189999999" green="0.86628204580000001" blue="0.80280357599999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="50g-Em-lqN"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
+                                                    <state key="normal" title="REGISTRARME"/>
+                                                    <connections>
+                                                        <action selector="registerAction:" destination="WzW-od-tg4" eventType="touchUpInside" id="YOg-zR-tiq"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Fj1-Cn-xip" firstAttribute="leading" secondItem="9dD-RX-55t" secondAttribute="leading" constant="40" id="HXm-2c-GWR"/>
+                                                <constraint firstAttribute="bottom" secondItem="Fj1-Cn-xip" secondAttribute="bottom" constant="20" id="SsV-Ve-fo2"/>
+                                                <constraint firstAttribute="trailing" secondItem="Fj1-Cn-xip" secondAttribute="trailing" constant="40" id="grA-sO-v6S"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -172,10 +291,16 @@
                             <outlet property="delegate" destination="WzW-od-tg4" id="zAA-jA-eHX"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="emailTxt" destination="il0-U5-0Rh" id="NtO-zu-tQL"/>
+                        <outlet property="firstNameTxt" destination="0S3-2V-c5l" id="uO8-L6-NW8"/>
+                        <outlet property="lastNameTxt" destination="gf6-LM-ey2" id="Kid-ga-usb"/>
+                        <outlet property="passwordTxt" destination="ZFu-Ei-87j" id="NtS-TW-ui3"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jl5-2v-w5C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="213" y="114"/>
+            <point key="canvasLocation" x="211.59420289855075" y="113.83928571428571"/>
         </scene>
     </scenes>
 </document>

@@ -28,15 +28,30 @@ class HTTPClient {
         }
     }
 
-    static let baseURL: String = "http://" // TODO: get real server address
+    enum Endpoint: String {
+        case userRegister = "users/add"
+        case userLogin = "users/login"
+        case userModify = "users/modify"
+    }
 
-    static func request<T: Codable>(method: Mehtod, path: String, completion: @escaping (T?, Error?) -> Void) {
-        let url = baseURL + path
-        Alamofire.request(url, method: method.value)
+    static let baseURL: String = "https://181.120.219.8:8443/aruba_war/"
+
+    static func request<T: Codable>(method: Mehtod, path: HTTPClient.Endpoint ,data: [String:String]? = nil, completion: @escaping (T?, Error?) -> Void) {
+        let url = baseURL + path.rawValue
+        Alamofire.request(url, method: method.value, parameters: data)
             .responseData { response in
-                let decoder = JSONDecoder()
-                let result: Result<T> = decoder.decodeResponse(from: response)
-                completion(result.value, result.error)
+                switch response.result {
+                case .success(let data):
+                    print("Success with data: \(data)")
+                    let decoder = JSONDecoder()
+                    let result: Result<T> = decoder.decodeResponse(from: response)
+                    completion(result.value, result.error)
+                case .failure(let error):
+                    if error._code == NSURLErrorTimedOut {
+                        print("Request timeout!")
+                    }
+                    print("error with \(error)")
+                }
         }
     }
 }

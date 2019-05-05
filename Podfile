@@ -15,7 +15,8 @@ target 'Aruba' do
   pod 'Firebase/Messaging'
   pod 'Fabric'
   pod 'Crashlytics'
-  
+  pod 'FBSDKLoginKit'
+
   post_install do |installer|
       installer.pods_project.build_configurations.each do |config|
           # Do not need debug information for pods

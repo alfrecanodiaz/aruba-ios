@@ -47,15 +47,29 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uvv-NQ-GeR">
                             <rect key="frame" x="129.5" y="119.5" width="174" height="170"/>
                             <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selection_children" translatesAutoresizingMaskIntoConstraints="NO" id="8II-ev-GSf">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selection_women" translatesAutoresizingMaskIntoConstraints="NO" id="8II-ev-GSf">
                                     <rect key="frame" x="0.0" y="0.0" width="174" height="154"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kM0-fP-q5l">
-                                    <rect key="frame" x="138.5" y="13" width="10.5" height="21"/>
-                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
-                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fhm-T7-k6L" customClass="ARoundView" customModule="Aruba" customModuleProvider="target">
+                                    <rect key="frame" x="124" y="1" width="40" height="40"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kM0-fP-q5l">
+                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="4be-Iy-wfp"/>
+                                        <constraint firstAttribute="bottom" secondItem="kM0-fP-q5l" secondAttribute="bottom" id="XUG-XN-wF6"/>
+                                        <constraint firstAttribute="height" constant="40" id="Ycp-NI-vJB"/>
+                                        <constraint firstItem="kM0-fP-q5l" firstAttribute="top" secondItem="fhm-T7-k6L" secondAttribute="top" id="kaP-EM-cHe"/>
+                                        <constraint firstItem="kM0-fP-q5l" firstAttribute="leading" secondItem="fhm-T7-k6L" secondAttribute="leading" id="n5g-XR-MlO"/>
+                                        <constraint firstAttribute="trailing" secondItem="kM0-fP-q5l" secondAttribute="trailing" id="xrH-Zn-lfn"/>
+                                    </constraints>
+                                </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MUJER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMW-0U-fj8">
                                     <rect key="frame" x="0.0" y="154" width="174" height="16"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -69,13 +83,13 @@
                                 <constraint firstItem="8II-ev-GSf" firstAttribute="height" secondItem="uvv-NQ-GeR" secondAttribute="height" multiplier="0.9" constant="1" id="73y-VR-v4z"/>
                                 <constraint firstAttribute="trailing" secondItem="8II-ev-GSf" secondAttribute="trailing" id="9GD-qN-eHI"/>
                                 <constraint firstItem="8II-ev-GSf" firstAttribute="top" secondItem="uvv-NQ-GeR" secondAttribute="top" id="BeN-ZW-Zv4"/>
+                                <constraint firstItem="fhm-T7-k6L" firstAttribute="firstBaseline" secondItem="8II-ev-GSf" secondAttribute="firstBaseline" constant="1" id="Oaa-HL-dzN"/>
                                 <constraint firstItem="uMW-0U-fj8" firstAttribute="leading" secondItem="uvv-NQ-GeR" secondAttribute="leading" id="P3N-Qn-p5U"/>
+                                <constraint firstItem="fhm-T7-k6L" firstAttribute="leading" secondItem="8II-ev-GSf" secondAttribute="trailing" constant="-50" id="Tdj-fP-b3N"/>
                                 <constraint firstAttribute="width" secondItem="8II-ev-GSf" secondAttribute="height" multiplier="87:77" id="VTb-jD-rQS"/>
                                 <constraint firstItem="8II-ev-GSf" firstAttribute="leading" secondItem="uvv-NQ-GeR" secondAttribute="leading" id="YmX-pi-1nc"/>
                                 <constraint firstAttribute="bottom" secondItem="uMW-0U-fj8" secondAttribute="bottom" id="aKm-8D-wR1"/>
                                 <constraint firstItem="uMW-0U-fj8" firstAttribute="top" secondItem="8II-ev-GSf" secondAttribute="bottom" id="n8w-JO-Tr2"/>
-                                <constraint firstItem="kM0-fP-q5l" firstAttribute="firstBaseline" secondItem="8II-ev-GSf" secondAttribute="firstBaseline" constant="30" id="nRb-vU-xkO"/>
-                                <constraint firstItem="kM0-fP-q5l" firstAttribute="trailing" secondItem="8II-ev-GSf" secondAttribute="trailing" constant="-25" id="ryc-yg-nw2"/>
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaH-KJ-i0f" customClass="AButton" customModule="Aruba" customModuleProvider="target">
@@ -116,6 +130,6 @@
         </view>
     </objects>
     <resources>
-        <image name="selection_children" width="197" height="200"/>
+        <image name="selection_women" width="186" height="187"/>
     </resources>
 </document>
