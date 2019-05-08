@@ -92,6 +92,31 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddNewCell" rowHeight="63" id="xue-GT-Wm9">
+                                <rect key="frame" x="0.0" y="312" width="414" height="63"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xue-GT-Wm9" id="aV4-nO-Ymx">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="62.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UmY-v0-phS" customClass="AButton" customModule="Aruba" customModuleProvider="target">
+                                            <rect key="frame" x="36" y="15" width="342" height="33"/>
+                                            <state key="normal" title="Agregar Nueva"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                                    <color key="value" red="0.47161269189999999" green="0.86628204580000001" blue="0.80280357599999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="UmY-v0-phS" secondAttribute="trailing" constant="16" id="885-kU-kEF"/>
+                                        <constraint firstItem="UmY-v0-phS" firstAttribute="top" secondItem="aV4-nO-Ymx" secondAttribute="topMargin" constant="4" id="8o7-vI-Ggc"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="UmY-v0-phS" secondAttribute="bottom" constant="4" id="CLs-3J-EHd"/>
+                                        <constraint firstItem="UmY-v0-phS" firstAttribute="leading" secondItem="aV4-nO-Ymx" secondAttribute="leadingMargin" constant="16" id="R8j-9R-zTM"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="5q8-uT-xNE" id="h6W-G9-Faf"/>
@@ -99,10 +124,21 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="WM3-iB-cBe"/>
+                    <connections>
+                        <segue destination="FTV-Dy-RIb" kind="show" identifier="ShowAddAddressSegue" id="WEL-nM-52x"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bnO-95-NLD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2646" y="-1498"/>
+            <point key="canvasLocation" x="2644.9275362318845" y="-1498.6607142857142"/>
+        </scene>
+        <!--Addresses-->
+        <scene sceneID="JU3-UP-3aN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Addresses" id="FTV-Dy-RIb" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OpJ-j3-n8A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3321" y="-1586"/>
         </scene>
         <!--Side Menu Table View Controller-->
         <scene sceneID="xLD-m6-Eqt">

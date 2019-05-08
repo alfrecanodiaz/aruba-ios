@@ -17,6 +17,7 @@ class LandingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        AuthManager.logout()
         setupView()
     }
 
@@ -37,29 +38,14 @@ class LandingViewController: UIViewController {
     */
 
     @IBAction func facebookAction(_ sender: AButton) {
-        FBSDKLoginManager().logIn(withReadPermissions: ["public_profile","email"], from: self) { [weak self] (result, error) in
+        AuthManager.loginWithFacebook(from: self) { [weak self] error in
             if let error = error {
-                print(error.localizedDescription)
+                print("Failed facebook login: ", error.localizedDescription)
             } else {
-                if result?.isCancelled ?? true {
-                    print("Canceled")
-                }
-                guard let token = result?.token else { return }
-
-                let params = ["fields" : "id, name, first_name, last_name, picture.type(large), email "]
-                let graphRequest = FBSDKGraphRequest.init(graphPath: "/me", parameters: params)
-                let connection = FBSDKGraphRequestConnection()
-                connection.add(graphRequest) { (connection, result, error) in
-                    guard let info = result as? [String : AnyObject] else { return }
-                    let firstName = info["first_name"] as? String ?? ""
-                    let lastName = info["last_name"] as? String ?? ""
-                    let email = info["email"] as? String ?? ""
-
-                    AuthManager.registerFacebook(firstName: firstName, lastName: lastName, email: email, token: token.tokenString, completion: { (loginViewModel, error) in
-
-                    })
-                }
-                connection.start()
+                guard let self = self else { return }
+                let main = UIStoryboard(name: "Main", bundle: nil)
+                guard let dvc = main.instantiateViewController(withIdentifier: "BaseNavigationControllerID") as? BaseNavigationController else { return }
+                self.transition(to: dvc, completion: nil)
             }
         }
     }

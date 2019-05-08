@@ -16,6 +16,7 @@ target 'Aruba' do
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'FBSDKLoginKit'
+  pod 'GoogleMaps'
 
   post_install do |installer|
       installer.pods_project.build_configurations.each do |config|

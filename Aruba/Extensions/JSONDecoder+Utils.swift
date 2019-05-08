@@ -22,6 +22,7 @@ extension JSONDecoder {
         }
 
         do {
+            print(String(data: responseData, encoding: .utf8))
             let item = try decode(T.self, from: responseData)
             return .success(item)
         } catch {

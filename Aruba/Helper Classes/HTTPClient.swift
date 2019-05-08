@@ -34,11 +34,18 @@ class HTTPClient {
         case userModify = "users/modify"
     }
 
-    static let baseURL: String = "https://181.120.219.8:8443/aruba_war/"
+//    lazy var sessionManager: SessionManager = {
+//        let sessionManager = SessionManager()
+//        sessionManager.ada()
+//
+//        return sessionManager
+//    }()
 
-    static func request<T: Codable>(method: Mehtod, path: HTTPClient.Endpoint ,data: [String:String]? = nil, completion: @escaping (T?, Error?) -> Void) {
+    static let baseURL: String = "http://159.89.26.89:8080/aruba_war/"
+
+    static func request<T: Codable>(method: Mehtod, path: HTTPClient.Endpoint ,data: [String:Any?]? = nil, completion: @escaping (T?, Error?) -> Void) {
         let url = baseURL + path.rawValue
-        Alamofire.request(url, method: method.value, parameters: data)
+        Alamofire.request(url, method: method.value, parameters: data, encoding: JSONEncoding.default)
             .responseData { response in
                 switch response.result {
                 case .success(let data):

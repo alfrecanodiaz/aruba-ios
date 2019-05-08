@@ -13,12 +13,16 @@ class ProfileTableViewController: UITableViewController {
     struct Cells {
         static let Header = "profileHeaderCell"
         static let GenericData = "GenericDataCellTableViewCell"
+        static let AddNew = "AddNewCell"
     }
 
-    var addresses: [Address] = []
+    var addresses: [AAddress] = []
     var tax: Tax = Tax()
 
     let headerHeight: CGFloat = 80
+    struct Segues {
+        static let AddAddress = "ShowAddAddressSegue"
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +31,7 @@ class ProfileTableViewController: UITableViewController {
 
     func setupView() {
         tableView.register(UINib(nibName: Cells.GenericData, bundle: nil), forCellReuseIdentifier: Cells.GenericData)
-        addresses = [Address(), Address(), Address()]
+        addresses = [AAddress(), AAddress(), AAddress()]
         tableView.reloadData()
     }
 
@@ -44,7 +48,7 @@ class ProfileTableViewController: UITableViewController {
             return 1
         }
         if section == 1 {
-            return addresses.count
+            return addresses.count + 1
         }
         if section == 2 {
             return 2
@@ -57,10 +61,14 @@ class ProfileTableViewController: UITableViewController {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.Header, for: indexPath) as? ProfileHeaderTableViewCell else { return UITableViewCell() }
             return cell
         } else if indexPath.section == 1 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.GenericData, for: indexPath) as? GenericDataCellTableViewCell else { return UITableViewCell() }
-            cell.viewModel = GenericDataCellViewModel(address: addresses[indexPath.row])
-            return cell
-
+            if indexPath.row == addresses.count {
+                let cell = tableView.dequeueReusableCell(withIdentifier: Cells.AddNew, for: indexPath)
+                return cell
+            } else {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.GenericData, for: indexPath) as? GenericDataCellTableViewCell else { return UITableViewCell() }
+                cell.viewModel = GenericDataCellViewModel(address: addresses[indexPath.row])
+                return cell
+            }
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.GenericData, for: indexPath) as? GenericDataCellTableViewCell else { return UITableViewCell() }
             if indexPath.row == 0 {
@@ -121,6 +129,14 @@ class ProfileTableViewController: UITableViewController {
             return tableView.bounds.height*0.3
         }
         return UITableView.automaticDimension
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            if indexPath.row == addresses.count { // add new address
+                self.performSegue(withIdentifier: Segues.AddAddress, sender: self)
+            }
+        }
     }
 
 }

@@ -54,6 +54,8 @@
 		3B7EC0E1226404F400ED799D /* ProfesionalSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0E0226404F400ED799D /* ProfesionalSelectionViewController.swift */; };
 		3B7EC0E42264066C00ED799D /* ProfessionalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0E22264066C00ED799D /* ProfessionalTableViewCell.swift */; };
 		3B7EC0E52264066C00ED799D /* ProfessionalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B7EC0E32264066C00ED799D /* ProfessionalTableViewCell.xib */; };
+		3BAF83272282683C0056C0D5 /* AddAddressTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF83262282683C0056C0D5 /* AddAddressTableViewController.swift */; };
+		3BAF8329228268480056C0D5 /* Addresses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BAF8328228268480056C0D5 /* Addresses.storyboard */; };
 		3BD43CF1225856B900AC3411 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BD43CF0225856B900AC3411 /* Start.storyboard */; };
 		3BD43CF3225858B000AC3411 /* AButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CF2225858B000AC3411 /* AButton.swift */; };
 		3BD43CF62258594D00AC3411 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CF52258594D00AC3411 /* Colors.swift */; };
@@ -61,14 +63,14 @@
 		3BD43CFD22585B9200AC3411 /* RegisterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CFC22585B9200AC3411 /* RegisterTableViewController.swift */; };
 		3BD43CFF22585EF000AC3411 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CFE22585EF000AC3411 /* HTTPClient.swift */; };
 		3BD43D012258608700AC3411 /* JSONDecoder+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D002258608700AC3411 /* JSONDecoder+Utils.swift */; };
-		3BD43D05225861C300AC3411 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D04225861C300AC3411 /* User.swift */; };
+		3BD43D05225861C300AC3411 /* AUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D04225861C300AC3411 /* AUser.swift */; };
 		3BD43D092258FCC700AC3411 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D082258FCC700AC3411 /* HomeTableViewController.swift */; };
 		3BD43D0C2259122B00AC3411 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D0B2259122B00AC3411 /* SideMenuTableViewController.swift */; };
 		3BD43D0F2259156000AC3411 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D0E2259156000AC3411 /* ProfileTableViewController.swift */; };
 		3BD43D112259170C00AC3411 /* ProfileHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D102259170C00AC3411 /* ProfileHeaderTableViewCell.swift */; };
 		3BD43D1822591A7100AC3411 /* GenericDataCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D1622591A7100AC3411 /* GenericDataCellTableViewCell.swift */; };
 		3BD43D1922591A7100AC3411 /* GenericDataCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BD43D1722591A7100AC3411 /* GenericDataCellTableViewCell.xib */; };
-		3BD43D1B22591B2900AC3411 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D1A22591B2900AC3411 /* Address.swift */; };
+		3BD43D1B22591B2900AC3411 /* AAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D1A22591B2900AC3411 /* AAddress.swift */; };
 		3BD43D1D22591CB000AC3411 /* Tax.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D1C22591CB000AC3411 /* Tax.swift */; };
 		3BD43D2022591FC700AC3411 /* GenericDataCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D1F22591FC700AC3411 /* GenericDataCellViewModel.swift */; };
 		3BD43D2222592B4700AC3411 /* HomeCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D2122592B4700AC3411 /* HomeCategoryTableViewCell.swift */; };
@@ -150,6 +152,8 @@
 		3B7EC0E0226404F400ED799D /* ProfesionalSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfesionalSelectionViewController.swift; sourceTree = "<group>"; };
 		3B7EC0E22264066C00ED799D /* ProfessionalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalTableViewCell.swift; sourceTree = "<group>"; };
 		3B7EC0E32264066C00ED799D /* ProfessionalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfessionalTableViewCell.xib; sourceTree = "<group>"; };
+		3BAF83262282683C0056C0D5 /* AddAddressTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressTableViewController.swift; sourceTree = "<group>"; };
+		3BAF8328228268480056C0D5 /* Addresses.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Addresses.storyboard; sourceTree = "<group>"; };
 		3BD43CF0225856B900AC3411 /* Start.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
 		3BD43CF2225858B000AC3411 /* AButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AButton.swift; sourceTree = "<group>"; };
 		3BD43CF52258594D00AC3411 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -157,7 +161,7 @@
 		3BD43CFC22585B9200AC3411 /* RegisterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTableViewController.swift; sourceTree = "<group>"; };
 		3BD43CFE22585EF000AC3411 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		3BD43D002258608700AC3411 /* JSONDecoder+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+Utils.swift"; sourceTree = "<group>"; };
-		3BD43D04225861C300AC3411 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3BD43D04225861C300AC3411 /* AUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AUser.swift; sourceTree = "<group>"; };
 		3BD43D06225864CF00AC3411 /* Aruba.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Aruba.entitlements; sourceTree = "<group>"; };
 		3BD43D082258FCC700AC3411 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		3BD43D0B2259122B00AC3411 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
@@ -165,7 +169,7 @@
 		3BD43D102259170C00AC3411 /* ProfileHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		3BD43D1622591A7100AC3411 /* GenericDataCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDataCellTableViewCell.swift; sourceTree = "<group>"; };
 		3BD43D1722591A7100AC3411 /* GenericDataCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenericDataCellTableViewCell.xib; sourceTree = "<group>"; };
-		3BD43D1A22591B2900AC3411 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		3BD43D1A22591B2900AC3411 /* AAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAddress.swift; sourceTree = "<group>"; };
 		3BD43D1C22591CB000AC3411 /* Tax.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tax.swift; sourceTree = "<group>"; };
 		3BD43D1F22591FC700AC3411 /* GenericDataCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDataCellViewModel.swift; sourceTree = "<group>"; };
 		3BD43D2122592B4700AC3411 /* HomeCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -256,6 +260,7 @@
 		3B26A3B422584BD10063ECAA /* Aruba */ = {
 			isa = PBXGroup;
 			children = (
+				3BAF8324228268150056C0D5 /* Addresses */,
 				3B048F03227F191F00EBE6FD /* Managers */,
 				3BD43CF922585B6900AC3411 /* Landing */,
 				3B048EEC226CCA8500EBE6FD /* Protocols */,
@@ -401,6 +406,23 @@
 			path = "Profesional selection";
 			sourceTree = "<group>";
 		};
+		3BAF8324228268150056C0D5 /* Addresses */ = {
+			isa = PBXGroup;
+			children = (
+				3BAF8328228268480056C0D5 /* Addresses.storyboard */,
+				3BAF83252282681C0056C0D5 /* Add new address */,
+			);
+			path = Addresses;
+			sourceTree = "<group>";
+		};
+		3BAF83252282681C0056C0D5 /* Add new address */ = {
+			isa = PBXGroup;
+			children = (
+				3BAF83262282683C0056C0D5 /* AddAddressTableViewController.swift */,
+			);
+			path = "Add new address";
+			sourceTree = "<group>";
+		};
 		3BD43CF4225858B500AC3411 /* Helper Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,8 +472,8 @@
 		3BD43D03225861B700AC3411 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3BD43D04225861C300AC3411 /* User.swift */,
-				3BD43D1A22591B2900AC3411 /* Address.swift */,
+				3BD43D04225861C300AC3411 /* AUser.swift */,
+				3BD43D1A22591B2900AC3411 /* AAddress.swift */,
 				3BD43D1C22591CB000AC3411 /* Tax.swift */,
 				3B048EFC226D08AF00EBE6FD /* Person.swift */,
 				3B048EFE226D08BA00EBE6FD /* ScheduleData.swift */,
@@ -534,6 +556,7 @@
 				5F0F75822D6C078A00A3710C /* [CP] Embed Pods Frameworks */,
 				3BD43CF822585A9E00AC3411 /* SwiftLint Script */,
 				3B048EEF226CD27500EBE6FD /* Fabric */,
+				64768E4B36059D89AB0172E9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -598,6 +621,9 @@
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -649,6 +675,7 @@
 				3B28FFFC22595588004268CB /* Lato-Black.ttf in Resources */,
 				3B28FFFB22595588004268CB /* Lato-Regular.ttf in Resources */,
 				3BD43D1922591A7100AC3411 /* GenericDataCellTableViewCell.xib in Resources */,
+				3BAF8329228268480056C0D5 /* Addresses.storyboard in Resources */,
 				3B7EC0E52264066C00ED799D /* ProfessionalTableViewCell.xib in Resources */,
 				3B26A3BB22584BD10063ECAA /* Main.storyboard in Resources */,
 			);
@@ -754,6 +781,24 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Aruba/Pods-Aruba-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		64768E4B36059D89AB0172E9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Aruba/Pods-Aruba-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Aruba/Pods-Aruba-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		ACAB64AB17CDA4748F428E75 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -801,6 +846,7 @@
 				3BD43CF3225858B000AC3411 /* AButton.swift in Sources */,
 				3BD43CF62258594D00AC3411 /* Colors.swift in Sources */,
 				3B28FFF022594C6B004268CB /* UIViewController+Utils.swift in Sources */,
+				3BAF83272282683C0056C0D5 /* AddAddressTableViewController.swift in Sources */,
 				3B048EFA226D04D200EBE6FD /* String+Utils.swift in Sources */,
 				3B048F05227F192C00EBE6FD /* AuthManager.swift in Sources */,
 				3B28FFF522595178004268CB /* BaseViewController.swift in Sources */,
@@ -808,12 +854,12 @@
 				3BD43CFF22585EF000AC3411 /* HTTPClient.swift in Sources */,
 				3B7EC0D82263F1B200ED799D /* HourAssignmentViewController.swift in Sources */,
 				3BD43CFB22585B7F00AC3411 /* LandingViewController.swift in Sources */,
-				3BD43D05225861C300AC3411 /* User.swift in Sources */,
+				3BD43D05225861C300AC3411 /* AUser.swift in Sources */,
 				3B048EF3226CFC3600EBE6FD /* ABoxView.swift in Sources */,
 				3B7EC0D42263D4C700ED799D /* DateSelectionCollectionViewCell.swift in Sources */,
 				3B7EC0C8225D727500ED799D /* DateAssignmentTableViewCell.swift in Sources */,
 				3B7EC0B5225C2A5200ED799D /* UIView+Utils.swift in Sources */,
-				3BD43D1B22591B2900AC3411 /* Address.swift in Sources */,
+				3BD43D1B22591B2900AC3411 /* AAddress.swift in Sources */,
 				3B7EC0BE225D679700ED799D /* ARoundView.swift in Sources */,
 				3BD43CFD22585B9200AC3411 /* RegisterTableViewController.swift in Sources */,
 				3B7EC0C3225D6EE700ED799D /* TransparentPopupViewController.swift in Sources */,
@@ -1026,8 +1072,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Aruba/Aruba.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = Aruba/Info.plist;
@@ -1038,7 +1084,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = py.com.nextgen.Aruba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Aruba Development Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1051,8 +1097,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Aruba/Aruba.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = Aruba/Info.plist;
@@ -1063,7 +1109,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = py.com.nextgen.Aruba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Aruba Distribution Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

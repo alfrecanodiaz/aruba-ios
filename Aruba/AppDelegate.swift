@@ -14,6 +14,7 @@ import Crashlytics
 import UserNotifications
 import FirebaseMessaging
 import FBSDKLoginKit
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,10 +27,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configureNavBar()
         configureFirebase()
         configureFabric()
+        configureGoogleMaps()
         registerFirebaseNotifications(for: application)
+        checkUserLoggedIn()
         FBSDKApplicationDelegate.sharedInstance()?.application(application, didFinishLaunchingWithOptions: launchOptions)
-
         return true
+    }
+
+    private func checkUserLoggedIn() {
+        if  AuthManager.isLogged() {
+            let main = UIStoryboard(name: "Main", bundle: nil)
+            guard let dvc = main.instantiateViewController(withIdentifier: "BaseNavigationControllerID") as? BaseNavigationController else { return }
+            window?.rootViewController = dvc
+            window?.makeKeyAndVisible()
+        }
+    }
+
+    private func configureGoogleMaps() {
+        GMSServices.provideAPIKey("AIzaSyD_ySeU0gpiZY8M4qckaUajRMsXqRhMjA0")
     }
 
     private func registerFirebaseNotifications(for application: UIApplication) {
@@ -72,6 +87,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance()?.application(app, open: url, options: options) ?? false
     }
 
     private func configureSideMenu() {
