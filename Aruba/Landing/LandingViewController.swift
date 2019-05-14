@@ -11,8 +11,20 @@ import FBSDKLoginKit
 
 class LandingViewController: UIViewController {
 
-    @IBOutlet weak var facebookLoginBtn: AButton!
-    @IBOutlet weak var mailLoginBtn: AButton!
+    @IBOutlet weak var facebookLoginBtn: AButton! {
+        didSet {
+            facebookLoginBtn.buttonColor = Colors.ButtonGray
+            facebookLoginBtn.highlightColor = Colors.ButtonGray
+        }
+    }
+
+    @IBOutlet weak var mailLoginBtn: AButton! {
+        didSet {
+            mailLoginBtn.buttonColor = Colors.ButtonBrown
+            mailLoginBtn.highlightColor = Colors.ButtonBrown
+        }
+    }
+
     @IBOutlet weak var servicesBtn: AButton!
 
     override func viewDidLoad() {
@@ -22,9 +34,6 @@ class LandingViewController: UIViewController {
     }
 
     func setupView() {
-            servicesBtn.backgroundColor = Colors.ButtonGreen
-            mailLoginBtn.backgroundColor = Colors.ButtonBrown
-            facebookLoginBtn.backgroundColor = Colors.ButtonGray
     }
 
     /*

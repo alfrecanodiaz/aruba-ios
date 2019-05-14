@@ -39,11 +39,12 @@ class LoginError: AuthError {
 
 final class AuthManager {
 
-    static let fbLoginManager: FBSDKLoginManager = {
-        return FBSDKLoginManager()
+    static let fbLoginManager: LoginManager = {
+        return LoginManager()
     }()
 
     fileprivate static let UserLoggedKey = "UserLoggedKey"
+    fileprivate static let UserAccessTokenKey = "UserAccessTokenKey"
 
     static func isLogged() -> Bool {
         return UserDefaults.standard.bool(forKey: UserLoggedKey)
@@ -53,9 +54,16 @@ final class AuthManager {
         UserDefaults.standard.set(isLogged, forKey: UserLoggedKey)
     }
 
-    static func login(username: String, password: String, completion: @escaping (LoginViewModel?, LoginError?) -> Void) {
+    static func getCurrentAccessToken() -> String? {
+        return UserDefaults.standard.string(forKey: UserAccessTokenKey)
+    }
 
-        HTTPClient.request(method: .POST, path: .userLogin) { (user: AUser?, error) in
+    static func setCurrentAccessToken(token: String?) {
+        UserDefaults.standard.set(token, forKey: UserAccessTokenKey)
+    }
+
+    static func login(username: String, password: String, completion: @escaping (LoginViewModel?, LoginError?) -> Void) {
+        HTTPClient.shared.request(method: .POST, path: .userLogin) { (user: AUser?, error) in
             if let user = user {
                 print(user)
                 AuthManager.setUserLogged(isLogged: true)
@@ -69,21 +77,23 @@ final class AuthManager {
     static func logout() {
         fbLoginManager.logOut()
         AuthManager.setUserLogged(isLogged: false)
+        AuthManager.setCurrentAccessToken(token: nil)
     }
 
     static func registerFacebook(token: String,
                                  completion: @escaping (LoginViewModel?, LoginError?) -> Void) {
         let data = [
             "idPerfil": 3,
-            "facebookAccessToken": token] as [String: Any?
+            "facebookAccessToken": token] as [String: Any
         ]
-        HTTPClient.request(method: .POST, path: .userLogin, data: data) { (user: AUser?, error) in
+        HTTPClient.shared.request(method: .POST, path: .userLogin, data: data) { (user: AUser?, error) in
             if let user = user {
                 print(user)
                 let loginVM = LoginViewModel(firstName: user.userSession.usuario.nombres,
                                              lastName: user.userSession.usuario.apellidos,
                                              email: user.userSession.usuario.email)
                 setUserLogged(isLogged: true)
+                setCurrentAccessToken(token: user.userSession.token)
                 completion(loginVM, nil)
             } else {
                 print(error?.localizedDescription ?? "")
@@ -93,7 +103,7 @@ final class AuthManager {
     }
 
     static func loginWithFacebook(from viewController: UIViewController, completion: ((_: Error?) -> Void)? = nil) {
-        AuthManager.fbLoginManager.logIn(withReadPermissions: ["public_profile", "email"], from: viewController) { (result, error) in
+        AuthManager.fbLoginManager.logIn(permissions: ["public_profile", "email"], from: viewController) { (result, error) in
             if let error = error {
                 print(error.localizedDescription)
             } else {

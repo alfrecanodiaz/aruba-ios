@@ -38,10 +38,23 @@ class SideMenuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 1:
-            performSegue(withIdentifier: Segues.Profile, sender: self)
+            handleProfile()
+        case 7:
+            handleLogout()
         default:
             break
         }
+    }
+
+    private func handleProfile() {
+        performSegue(withIdentifier: Segues.Profile, sender: self)
+    }
+
+    private func handleLogout() {
+        AuthManager.logout()
+        let storyboard = UIStoryboard(name: "Start", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "LandingViewControllerID")
+        transition(to: vc, completion: nil)
     }
 
 }

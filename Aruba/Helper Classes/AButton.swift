@@ -65,10 +65,12 @@ class AButton: UIButton {
         }
     }
 
+    @IBInspectable var highlightColor: UIColor = Colors.ButtonHighlightedGreen
+
     override var isHighlighted: Bool {
         didSet {
             if isHighlighted {
-                self.backgroundColor = Colors.ButtonHighlightedGreen
+                self.backgroundColor = highlightColor
             } else {
                 self.backgroundColor = enabledColor
             }

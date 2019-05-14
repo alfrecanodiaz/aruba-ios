@@ -17,7 +17,8 @@ target 'Aruba' do
   pod 'Crashlytics'
   pod 'FBSDKLoginKit'
   pod 'GoogleMaps'
-
+  pod 'Windless'
+  
   post_install do |installer|
       installer.pods_project.build_configurations.each do |config|
           # Do not need debug information for pods

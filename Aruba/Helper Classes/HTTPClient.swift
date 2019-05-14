@@ -9,7 +9,23 @@
 import Foundation
 import Alamofire
 
-class HTTPClient {
+protocol Fetcher: class {
+    associatedtype Generic: Codable
+    func fetch(with completion: ((Generic?, Error?) -> Void)?)
+}
+
+class HTTPClient: Fetcher {
+    typealias T = AAddress
+    typealias P = Codable
+//    typealias T = Result<P>
+
+    func fetch(with completion: ((HTTPClient.T?, Error?) -> Void)?) {
+
+    }
+
+    static let shared = HTTPClient()
+
+    let baseURL: String = "http://159.89.26.89:8080/aruba_war/"
 
     enum ApiError: Error {
         case noInternet, api500, api401, noData
@@ -32,20 +48,29 @@ class HTTPClient {
         case userRegister = "users/add"
         case userLogin = "users/login"
         case userModify = "users/modify"
+        case userAddressAdd = "users/address/add"
     }
 
-//    lazy var sessionManager: SessionManager = {
-//        let sessionManager = SessionManager()
-//        sessionManager.ada()
-//
-//        return sessionManager
-//    }()
+    lazy var sessionManager: SessionManager = {
+        let configuration = URLSessionConfiguration.default
+        let sessionManager = SessionManager(configuration: configuration)
+        return sessionManager
+    }()
 
-    static let baseURL: String = "http://159.89.26.89:8080/aruba_war/"
-
-    static func request<T: Codable>(method: Mehtod, path: HTTPClient.Endpoint ,data: [String:Any?]? = nil, completion: @escaping (T?, Error?) -> Void) {
+    func request<T: Codable>(method: Mehtod, path: HTTPClient.Endpoint, data: [String: Any]? = nil, completion: @escaping (T?, Error?) -> Void) {
         let url = baseURL + path.rawValue
-        Alamofire.request(url, method: method.value, parameters: data, encoding: JSONEncoding.default)
+        var parameters = [String: Any]()
+        if let data = data {
+            parameters = data
+        }
+        if AuthManager.isLogged() {
+            guard let token = AuthManager.getCurrentAccessToken() else {
+                print("Tried to retrieve access token from Auth Manager but there is not one stored.")
+                return
+            }
+            parameters["token"] = token
+        }
+        sessionManager.request(url, method: method.value, parameters: parameters, encoding: JSONEncoding.default)
             .responseData { response in
                 switch response.result {
                 case .success(let data):

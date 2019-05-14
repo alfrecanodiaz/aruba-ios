@@ -30,12 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configureGoogleMaps()
         registerFirebaseNotifications(for: application)
         checkUserLoggedIn()
-        FBSDKApplicationDelegate.sharedInstance()?.application(application, didFinishLaunchingWithOptions: launchOptions)
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
     }
 
     private func checkUserLoggedIn() {
-        if  AuthManager.isLogged() {
+        if AuthManager.isLogged() {
             let main = UIStoryboard(name: "Main", bundle: nil)
             guard let dvc = main.instantiateViewController(withIdentifier: "BaseNavigationControllerID") as? BaseNavigationController else { return }
             window?.rootViewController = dvc
@@ -90,7 +90,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        return FBSDKApplicationDelegate.sharedInstance()?.application(app, open: url, options: options) ?? false
+        return ApplicationDelegate.shared.application(app, open: url, options: options)
     }
 
     private func configureSideMenu() {

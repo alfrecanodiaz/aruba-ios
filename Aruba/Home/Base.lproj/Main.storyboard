@@ -99,7 +99,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="62.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UmY-v0-phS" customClass="AButton" customModule="Aruba" customModuleProvider="target">
+                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UmY-v0-phS" customClass="AButton" customModule="Aruba" customModuleProvider="target">
                                             <rect key="frame" x="36" y="15" width="342" height="33"/>
                                             <state key="normal" title="Agregar Nueva"/>
                                             <userDefinedRuntimeAttributes>

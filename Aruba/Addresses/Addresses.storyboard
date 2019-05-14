@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection id="7Uy-HB-1wb">
+                            <tableViewSection headerTitle="Marca tu dirección en el mapa" id="7Uy-HB-1wb">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="429" id="0Nj-7K-BPJ">
-                                        <rect key="frame" x="0.0" y="35" width="414" height="429"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="429"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Nj-7K-BPJ" id="E86-Fm-8fZ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="428.5"/>
@@ -31,9 +31,18 @@
                                                     <rect key="frame" x="20" y="11" width="374" height="407"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crosshair" translatesAutoresizingMaskIntoConstraints="NO" id="4qX-XB-qJA">
+                                                    <rect key="frame" x="187" y="194.5" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="VTM-iE-E7m"/>
+                                                        <constraint firstAttribute="height" constant="40" id="kvr-L7-gcz"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="4qX-XB-qJA" firstAttribute="centerX" secondItem="V1w-OL-6fY" secondAttribute="centerX" id="50x-F0-JSQ"/>
                                                 <constraint firstItem="V1w-OL-6fY" firstAttribute="top" secondItem="E86-Fm-8fZ" secondAttribute="topMargin" id="6aG-zm-nCx"/>
+                                                <constraint firstItem="4qX-XB-qJA" firstAttribute="centerY" secondItem="V1w-OL-6fY" secondAttribute="centerY" id="7tJ-pJ-mv2"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="V1w-OL-6fY" secondAttribute="bottom" id="LSj-Om-2Yw"/>
                                                 <constraint firstItem="V1w-OL-6fY" firstAttribute="leading" secondItem="E86-Fm-8fZ" secondAttribute="leadingMargin" id="qtr-Ir-Oda"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="V1w-OL-6fY" secondAttribute="trailing" id="wU3-0I-Wl8"/>
@@ -42,16 +51,16 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="vCD-S8-lwl">
+                            <tableViewSection headerTitle="Completa los datos de tu dirección" id="vCD-S8-lwl">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="101" id="nd8-xm-I2y">
-                                        <rect key="frame" x="0.0" y="500" width="414" height="101"/>
+                                        <rect key="frame" x="0.0" y="540.5" width="414" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nd8-xm-I2y" id="BJp-nq-tzn">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MOr-3l-AMY" customClass="ATextField" customModule="Aruba" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Calle 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MOr-3l-AMY" customClass="ATextField" customModule="Aruba" customModuleProvider="target">
                                                     <rect key="frame" x="36" y="15" width="342" height="71"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -67,13 +76,13 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="101" id="Lfl-Bs-pGS">
-                                        <rect key="frame" x="0.0" y="601" width="414" height="101"/>
+                                        <rect key="frame" x="0.0" y="641.5" width="414" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lfl-Bs-pGS" id="A0U-4C-qFA">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UJH-oF-Jzn" customClass="ATextField" customModule="Aruba" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Calle 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UJH-oF-Jzn" customClass="ATextField" customModule="Aruba" customModuleProvider="target">
                                                     <rect key="frame" x="36" y="15" width="342" height="71"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -89,13 +98,13 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="101" id="did-ls-MFh">
-                                        <rect key="frame" x="0.0" y="702" width="414" height="101"/>
+                                        <rect key="frame" x="0.0" y="742.5" width="414" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="did-ls-MFh" id="QeB-MK-00W">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2jD-wp-VXf" customClass="ATextField" customModule="Aruba" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Numero de Casa o Departamento" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2jD-wp-VXf" customClass="ATextField" customModule="Aruba" customModuleProvider="target">
                                                     <rect key="frame" x="36" y="15" width="342" height="71"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -111,13 +120,13 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="101" id="ns3-Dw-8hA">
-                                        <rect key="frame" x="0.0" y="803" width="414" height="101"/>
+                                        <rect key="frame" x="0.0" y="843.5" width="414" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ns3-Dw-8hA" id="gTm-xb-nNs">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wyh-P9-rKY" customClass="ATextField" customModule="Aruba" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Referencias" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wyh-P9-rKY" customClass="ATextField" customModule="Aruba" customModuleProvider="target">
                                                     <rect key="frame" x="36" y="15" width="342" height="71"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -133,13 +142,13 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="101" id="1eY-Fa-5PL">
-                                        <rect key="frame" x="0.0" y="904" width="414" height="101"/>
+                                        <rect key="frame" x="0.0" y="944.5" width="414" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1eY-Fa-5PL" id="F3V-47-Peb">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="100.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P6B-K5-Qbe" customClass="ATextField" customModule="Aruba" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre ej: Casa, Oficina" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P6B-K5-Qbe" customClass="ATextField" customModule="Aruba" customModuleProvider="target">
                                                     <rect key="frame" x="24" y="12" width="366" height="76.5"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -155,7 +164,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="69" id="EcZ-cd-CqP">
-                                        <rect key="frame" x="0.0" y="1005" width="414" height="69"/>
+                                        <rect key="frame" x="0.0" y="1045.5" width="414" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EcZ-cd-CqP" id="8qf-0e-wep">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="68.5"/>
@@ -169,6 +178,9 @@
                                                             <color key="value" red="0.47161269189999999" green="0.86628204580000001" blue="0.80280357599999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="saveAction:" destination="VhW-72-0we" eventType="touchUpInside" id="fco-eT-OYp"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -196,4 +208,7 @@
             <point key="canvasLocation" x="155.07246376811597" y="176.78571428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="crosshair" width="512" height="512"/>
+    </resources>
 </document>

@@ -18,7 +18,7 @@
         <!--Landing View Controller-->
         <scene sceneID="IM2-jf-b5Q">
             <objects>
-                <viewController id="79G-XW-YBd" customClass="LandingViewController" customModule="Aruba" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LandingViewControllerID" id="79G-XW-YBd" customClass="LandingViewController" customModule="Aruba" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N40-bx-W0T">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

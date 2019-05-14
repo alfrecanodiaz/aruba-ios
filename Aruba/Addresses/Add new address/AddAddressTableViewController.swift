@@ -16,8 +16,10 @@ protocol AddAddressDelegate: class {
 class AddAddressTableViewController: UITableViewController {
 
     @IBOutlet weak var mapView: GMSMapView!
+
     var locationManager = CLLocationManager()
     weak var delegate: AddAddressDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMap()
@@ -27,6 +29,14 @@ class AddAddressTableViewController: UITableViewController {
     private func setupMap() {
         mapView.isMyLocationEnabled = true
         mapView.delegate = self
+        mapView.settings.myLocationButton = true
+    }
+
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 {
+            return UIScreen.main.bounds.height*0.5
+        }
+        return UITableView.automaticDimension
     }
 
     private func configureLocationManager() {
@@ -35,29 +45,25 @@ class AddAddressTableViewController: UITableViewController {
         case .notDetermined:
             // Request when-in-use authorization initially
             locationManager.requestWhenInUseAuthorization()
-            break
-
         case .restricted, .denied:
             // Disable location features
-
             break
-
         case .authorizedWhenInUse, .authorizedAlways:
             // Enable location features
             locationManager.startUpdatingLocation()
-            break
         }
     }
+
+    @IBAction func saveAction(_ sender: AButton) {
+        
+    }
+
 
 }
 
 extension AddAddressTableViewController: GMSMapViewDelegate {
 
-    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-
-    }
-
-    func mapView(_ mapView: GMSMapView, didLongPressAt coordinate: CLLocationCoordinate2D) {
+    func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
 
     }
 
@@ -69,13 +75,9 @@ extension AddAddressTableViewController: CLLocationManagerDelegate {
                          didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .restricted, .denied:
-
             break
-
         case .authorizedWhenInUse:
             locationManager.startUpdatingLocation()
-            break
-
         case .notDetermined, .authorizedAlways:
             break
         }
