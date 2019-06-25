@@ -13,6 +13,8 @@ struct LoginViewModel {
     let firstName: String
     let lastName: String
     let email: String
+    let addresses: [AddressViewModel]
+    let user: UserLoginResponse
 }
 
 class BaseError: Error {
@@ -62,38 +64,49 @@ final class AuthManager {
         UserDefaults.standard.set(token, forKey: UserAccessTokenKey)
     }
 
-    static func login(username: String, password: String, completion: @escaping (LoginViewModel?, LoginError?) -> Void) {
-        HTTPClient.shared.request(method: .POST, path: .userLogin) { (user: AUser?, error) in
-            if let user = user {
-                print(user)
-                AuthManager.setUserLogged(isLogged: true)
-            } else {
-                print(error?.localizedDescription ?? "")
-            }
-        }
-
-    }
-
     static func logout() {
         fbLoginManager.logOut()
         AuthManager.setUserLogged(isLogged: false)
         AuthManager.setCurrentAccessToken(token: nil)
     }
 
-    static func registerFacebook(token: String,
-                                 completion: @escaping (LoginViewModel?, LoginError?) -> Void) {
-        let data = [
-            "idPerfil": 3,
-            "facebookAccessToken": token] as [String: Any
-        ]
-        HTTPClient.shared.request(method: .POST, path: .userLogin, data: data) { (user: AUser?, error) in
+    static func login(username: String?, password: String?, facebookToken: String?, completion: @escaping (UserLoginResponse?, LoginError?) -> Void) {
+        let params: [String: Any] = ["usuario": username, "password": password, "facebookAccessToken": facebookToken]
+        HTTPClient.shared.request(method: .POST, path: .userLogin, data: params) { (user: UserLoginResponse?, error) in
             if let user = user {
                 print(user)
-                let loginVM = LoginViewModel(firstName: user.userSession.usuario.nombres,
-                                             lastName: user.userSession.usuario.apellidos,
-                                             email: user.userSession.usuario.email)
+                AuthManager.setUserLogged(isLogged: true)
+                AuthManager.setCurrentAccessToken(token: user.sesion.token)
+                completion(user, nil)
+            } else {
+                print(error?.localizedDescription ?? "")
+                completion(nil, error as? LoginError)
+            }
+        }
+    }
+
+    static func registerEmail(firstName: String,
+                              lastName: String,
+                              username: String,
+                              password: String,
+                              completion: @escaping (LoginViewModel?, LoginError?) -> Void) {
+        let params: [String: Any] = ["nombres": firstName,
+                                     "apellidos": lastName,
+                                     "emailUsuario": username,
+                                     "passUsuario": password,
+                                     "idPerfil": 3]
+        HTTPClient.shared.request(method: .POST, path: .userRegisterEmail, data: params) { (user: UserLoginResponse?, error) in
+            if let user = user {
+                print(user)
+                AuthManager.setUserLogged(isLogged: true)
+                AuthManager.setCurrentAccessToken(token: user.sesion.token)
+                let loginVM = LoginViewModel(firstName: user.sesion.usuario.nombres,
+                                             lastName: user.sesion.usuario.apellidos,
+                                             email: user.sesion.usuario.email,
+                                             addresses: user.sesion.usuario.ubicaciones.map({AddressViewModel(address: $0)}),
+                                             user: user)
                 setUserLogged(isLogged: true)
-                setCurrentAccessToken(token: user.userSession.token)
+                setCurrentAccessToken(token: user.sesion.token)
                 completion(loginVM, nil)
             } else {
                 print(error?.localizedDescription ?? "")
@@ -102,7 +115,28 @@ final class AuthManager {
         }
     }
 
-    static func loginWithFacebook(from viewController: UIViewController, completion: ((_: Error?) -> Void)? = nil) {
+    static func registerFacebook(isRegister: Bool, token: String,
+                                 completion: @escaping (LoginViewModel?, LoginError?) -> Void) {
+        let data: [String: Any] = ["facebook_token": token]
+        HTTPClient.shared.request(method: .POST, path: .userRegisterFacebook, data: data) { (user: UserLoginResponse?, error) in
+            if let user = user {
+                print(user)
+                let loginVM = LoginViewModel(firstName: user.sesion.usuario.nombres,
+                                             lastName: user.sesion.usuario.apellidos,
+                                             email: user.sesion.usuario.email,
+                                             addresses: user.sesion.usuario.ubicaciones.map({AddressViewModel(address: $0)}),
+                                             user: user)
+                setUserLogged(isLogged: true)
+                setCurrentAccessToken(token: user.sesion.token)
+                completion(loginVM, nil)
+            } else {
+                print(error?.localizedDescription ?? "")
+                completion(nil, error as? LoginError)
+            }
+        }
+    }
+
+    static func loginWithFacebook(from viewController: UIViewController, completion: ((_: LoginViewModel?, _: Error?) -> Void)? = nil) {
         AuthManager.fbLoginManager.logIn(permissions: ["public_profile", "email"], from: viewController) { (result, error) in
             if let error = error {
                 print(error.localizedDescription)
@@ -112,14 +146,15 @@ final class AuthManager {
                     print("Canceled")
                 } else {
                     guard let token = result.token else { return }
+                    print("fb token: ", token.tokenString)
 
-                    AuthManager.registerFacebook(token: token.tokenString,
-                                                 completion: { (_, error) in
+                    AuthManager.registerFacebook(isRegister: false, token: token.tokenString,
+                                                 completion: { (loginVM, error) in
                                                     if let error = error {
                                                         print(error.localizedDescription)
-                                                        completion?(error)
+                                                        completion?(nil, error)
                                                     } else {
-                                                        completion?(nil)
+                                                        completion?(loginVM, nil)
                                                     }
                     })
                 }

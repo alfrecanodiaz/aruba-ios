@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegisterTableViewController: UITableViewController {
+class RegisterTableViewController: BaseTableViewController {
 
     @IBOutlet weak var firstNameTxt: ATextField!
     @IBOutlet weak var lastNameTxt: ATextField!
@@ -21,14 +21,31 @@ class RegisterTableViewController: UITableViewController {
     }
 
     @IBAction func registerAction(_ sender: AButton) {
+        guard let firstName = firstNameTxt.text, let lastName = lastNameTxt.text, let email = emailTxt.text, let password = passwordTxt.text else {
 
-        let main = UIStoryboard(name: "Main", bundle: nil)
-        guard let dvc = main.instantiateViewController(withIdentifier: "BaseNavigationControllerID") as? BaseNavigationController else { return }
-        transition(to: dvc, completion: nil)
+            return
+        }
+        ALoader.show()
+        AuthManager.registerEmail(firstName: firstName,
+                                  lastName: lastName,
+                                  username: email,
+                                  password: password) { (loginVM, error) in
+                                    ALoader.hide()
+                                    if let error = error {
+                                        print(error.localizedDescription)
+                                    } else {
+                                        let main = UIStoryboard(name: "Main", bundle: nil)
+                                        guard let dvc = main.instantiateViewController(withIdentifier: "BaseNavigationControllerID") as? BaseNavigationController,
+                                            let rootVC = dvc.viewControllers.first as? HomeTableViewController,
+                                            let loginVM = loginVM else { return }
+                                        self.showSuccess()
+                                        rootVC.viewModel = HomeViewModel.buildFrom(user: loginVM)
+                                        self.transition(to: dvc, completion: nil)
+                                    }
+        }
     }
 
     @IBAction func backAction(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-
 }

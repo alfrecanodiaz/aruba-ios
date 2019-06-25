@@ -34,16 +34,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ILR-ee-A5t">
-                                <rect key="frame" x="342" y="7.5" width="30" height="30"/>
+                                <rect key="frame" x="357" y="15" width="15" height="15"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="MIO-pX-vcd"/>
-                                    <constraint firstAttribute="height" constant="30" id="Xxo-gZ-dE2"/>
+                                    <constraint firstAttribute="width" constant="15" id="MIO-pX-vcd"/>
+                                    <constraint firstAttribute="height" constant="15" id="Xxo-gZ-dE2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="19"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="10"/>
                                 <state key="normal" title="X">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="deleteAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Von-P5-sdO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94183081390000001" green="0.94254469870000002" blue="0.94194132090000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

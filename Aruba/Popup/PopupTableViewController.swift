@@ -10,6 +10,7 @@ import UIKit
 
 protocol PopupDelegate: class {
     func popupDidSelectAccept(selectedIndex: Int)
+    func popupDidDissmiss()
 }
 
 class PopupTableViewController: APopoverTableViewController {
@@ -23,7 +24,7 @@ class PopupTableViewController: APopoverTableViewController {
     weak var delegate: PopupDelegate?
 
     private let headerHeight: CGFloat = 50
-    private let footerHeight: CGFloat = 70
+    private let footerHeight: CGFloat = 40
 
     struct Cells {
         static let GenericData = "GenericDataCellTableViewCell"
@@ -49,7 +50,7 @@ class PopupTableViewController: APopoverTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.GenericData, for: indexPath) as? GenericDataCellTableViewCell else { return UITableViewCell() }
         cell.viewModel = options[indexPath.row]
-
+        cell.delegate = self
         return cell
     }
 
@@ -69,20 +70,22 @@ class PopupTableViewController: APopoverTableViewController {
         lbl.font = UIFont.boldSystemFont(ofSize: 14)
         lbl.textAlignment = .center
         lbl.text = titleString
+        lbl.font = AFont.with(size: 14, weight: .regular)
         return view
     }
 
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let cancelBtn = AButton()
-        cancelBtn.titleLabel?.textColor = .white
-        cancelBtn.setTitle("CANCELAR", for: .normal)
-        let frame = CGRect(x: 0, y: 0, width: tableView.bounds.width, height: headerHeight)
-        let stackView = UIStackView(frame: frame)
-        stackView.addArrangedSubview(cancelBtn)
-        cancelBtn.backgroundColor = Colors.ButtonGreen
-        stackView.alignment = .center
-
-        return stackView
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: footerHeight))
+        view.backgroundColor = Colors.ButtonGreen
+        let lbl = UILabel(frame: view.frame)
+        lbl.textColor = .white
+        lbl.text = "CANCELAR"
+        lbl.font = AFont.with(size: 18, weight: .regular)
+        lbl.textAlignment = .center
+        view.addSubview(lbl)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissPopup(sender:)))
+        view.addGestureRecognizer(tap)
+        return view
     }
 
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -95,5 +98,20 @@ class PopupTableViewController: APopoverTableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.popupDidSelectAccept(selectedIndex: indexPath.row)
+    }
+
+    // MARK: Methods
+
+    @objc private func dismissPopup(sender: UITapGestureRecognizer) {
+        delegate?.popupDidDissmiss()
+        dismiss(animated: true, completion: nil)
+    }
+
+}
+
+extension PopupTableViewController: GenericDataCellTableViewCellProtocol {
+
+    func didSelectDelete(for index: Int) {
+
     }
 }

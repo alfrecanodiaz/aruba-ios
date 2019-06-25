@@ -30,6 +30,10 @@ extension BaseViewController: UIPopoverPresentationControllerDelegate, PopupDele
         removeBlackBackgroundView()
     }
 
+    func popupDidDissmiss() {
+        removeBlackBackgroundView()
+    }
+
     func showPopup(title: String, options: [GenericDataCellViewModel], delegate: BaseViewController) -> PopupTableViewController? {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let popup = storyboard.instantiateViewController(withIdentifier: "PopupTableViewControllerID") as? PopupTableViewController else { return nil }

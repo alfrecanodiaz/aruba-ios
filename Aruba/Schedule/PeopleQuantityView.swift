@@ -58,7 +58,7 @@ class PeopleQuantityView: UIView, NibLoadable {
     }
 
     func configureForChildren() {
-        imageView.image = #imageLiteral(resourceName: "selection_children")
+        imageView.image = #imageLiteral(resourceName: "children")
         descriptionLbl.text = "NIÑOS"
     }
 
@@ -68,7 +68,7 @@ class PeopleQuantityView: UIView, NibLoadable {
     }
 
     func configureForMen() {
-        imageView.image = #imageLiteral(resourceName: "selection_men")
+        imageView.image = #imageLiteral(resourceName: "men")
         descriptionLbl.text = "HOMBRES"
     }
 

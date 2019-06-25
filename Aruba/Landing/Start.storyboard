@@ -23,25 +23,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N6T-bd-1cf">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ARUBA_desarrollo" translatesAutoresizingMaskIntoConstraints="NO" id="N6T-bd-1cf">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="SVc-dB-JrX">
-                                <rect key="frame" x="20" y="642" width="374" height="180"/>
+                                <rect key="frame" x="20" y="552" width="374" height="270"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiS-7f-rNd" customClass="AButton" customModule="Aruba" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsw-3z-SgJ" customClass="AButton" customModule="Aruba" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="56.5"/>
                                         <state key="normal" title="VER SERVICIOS"/>
+                                        <connections>
+                                            <action selector="servicesAction:" destination="79G-XW-YBd" eventType="touchUpInside" id="hFS-87-494"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiS-7f-rNd" customClass="AButton" customModule="Aruba" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="71.5" width="374" height="56"/>
+                                        <state key="normal" title="REGISTRARME"/>
+                                        <connections>
+                                            <segue destination="WzW-od-tg4" kind="show" id="qa0-Hb-tay"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fL6-yM-cnF" customClass="AButton" customModule="Aruba" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="65" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="142.5" width="374" height="56.5"/>
                                         <state key="normal" title="INICIAR SESIÓN CON TU EMAIL"/>
                                         <connections>
-                                            <segue destination="WzW-od-tg4" kind="show" id="ud0-O0-XH9"/>
+                                            <segue destination="aPJ-dX-J58" kind="show" id="E1p-zU-QTX"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcl-sl-88B" customClass="AButton" customModule="Aruba" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="130" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="214" width="374" height="56"/>
                                         <state key="normal" title="INICIAR SESIÓN CON FACEBOOK"/>
                                         <connections>
                                             <action selector="facebookAction:" destination="79G-XW-YBd" eventType="touchUpInside" id="jdb-PI-sjI"/>
@@ -52,7 +62,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="SVc-dB-JrX" firstAttribute="height" secondItem="N40-bx-W0T" secondAttribute="height" multiplier="0.2" constant="1" id="7II-Od-KLX"/>
+                            <constraint firstItem="SVc-dB-JrX" firstAttribute="height" secondItem="N40-bx-W0T" secondAttribute="height" multiplier="0.3" constant="1" id="7II-Od-KLX"/>
                             <constraint firstItem="VsN-VF-gSZ" firstAttribute="trailing" secondItem="SVc-dB-JrX" secondAttribute="trailing" constant="20" id="DzC-Vo-Sf1"/>
                             <constraint firstItem="N6T-bd-1cf" firstAttribute="leading" secondItem="N40-bx-W0T" secondAttribute="leading" id="VTS-da-PFl"/>
                             <constraint firstItem="N6T-bd-1cf" firstAttribute="top" secondItem="N40-bx-W0T" secondAttribute="top" id="ZH9-tf-KLZ"/>
@@ -66,7 +76,7 @@
                     <connections>
                         <outlet property="facebookLoginBtn" destination="zcl-sl-88B" id="p7q-HV-eaF"/>
                         <outlet property="mailLoginBtn" destination="fL6-yM-cnF" id="pPs-hV-Q4v"/>
-                        <outlet property="servicesBtn" destination="PiS-7f-rNd" id="CUy-s5-yhk"/>
+                        <outlet property="servicesBtn" destination="hsw-3z-SgJ" id="tNN-Ig-jei"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t7Z-6b-Cdu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -107,19 +117,19 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="200" id="fB1-99-34c">
-                                        <rect key="frame" x="0.0" y="44" width="414" height="200"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="150" id="fB1-99-34c">
+                                        <rect key="frame" x="0.0" y="44" width="414" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fB1-99-34c" id="wU7-sj-OQG">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l6x-9h-xay">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxy-Tn-dmb" customClass="ARoundView" customModule="Aruba" customModuleProvider="target">
-                                                    <rect key="frame" x="184.5" y="137.5" width="45" height="45"/>
-                                                    <color key="backgroundColor" red="0.47161269189999999" green="0.86628204580000001" blue="0.80280357599999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <rect key="frame" x="184.5" y="87.5" width="45" height="45"/>
+                                                    <color key="backgroundColor" red="0.47450980392156861" green="0.8666666666666667" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="45" id="ISl-Zo-Ztw"/>
                                                         <constraint firstAttribute="height" constant="45" id="XeM-Gq-dUz"/>
@@ -137,7 +147,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="56" id="eGJ-Yk-5VN">
-                                        <rect key="frame" x="0.0" y="244" width="414" height="56"/>
+                                        <rect key="frame" x="0.0" y="194" width="414" height="56"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eGJ-Yk-5VN" id="fwM-3U-yZe">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -169,7 +179,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="67" id="wR6-cv-A8B">
-                                        <rect key="frame" x="0.0" y="300" width="414" height="67"/>
+                                        <rect key="frame" x="0.0" y="250" width="414" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wR6-cv-A8B" id="1rr-zg-QqO">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
@@ -191,7 +201,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="67" id="Ige-NH-NlA">
-                                        <rect key="frame" x="0.0" y="367" width="414" height="67"/>
+                                        <rect key="frame" x="0.0" y="317" width="414" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ige-NH-NlA" id="hGA-zI-MHq">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
@@ -213,7 +223,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="67" id="j3P-eX-cHh">
-                                        <rect key="frame" x="0.0" y="434" width="414" height="67"/>
+                                        <rect key="frame" x="0.0" y="384" width="414" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j3P-eX-cHh" id="DzT-3S-Qbd">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
@@ -235,7 +245,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="67" id="MML-8D-b8u">
-                                        <rect key="frame" x="0.0" y="501" width="414" height="67"/>
+                                        <rect key="frame" x="0.0" y="451" width="414" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MML-8D-b8u" id="whm-aQ-mIl">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
@@ -257,7 +267,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="102" id="9y0-oA-j7f">
-                                        <rect key="frame" x="0.0" y="568" width="414" height="102"/>
+                                        <rect key="frame" x="0.0" y="518" width="414" height="102"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9y0-oA-j7f" id="9dD-RX-55t">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
@@ -265,7 +275,7 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fj1-Cn-xip" customClass="AButton" customModule="Aruba" customModuleProvider="target">
                                                     <rect key="frame" x="40" y="37" width="334" height="45"/>
-                                                    <color key="backgroundColor" red="0.47161269189999999" green="0.86628204580000001" blue="0.80280357599999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.47450980392156861" green="0.8666666666666667" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="45" id="50g-Em-lqN"/>
                                                     </constraints>
@@ -300,7 +310,194 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jl5-2v-w5C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="211.59420289855075" y="113.83928571428571"/>
+            <point key="canvasLocation" x="212" y="114"/>
+        </scene>
+        <!--Login Table View Controller-->
+        <scene sceneID="Crf-8d-PgG">
+            <objects>
+                <tableViewController id="aPJ-dX-J58" customClass="LoginTableViewController" customModule="Aruba" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9hT-1o-MZp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <sections>
+                            <tableViewSection id="AHt-qR-wAE">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="eYU-eS-Vqq">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eYU-eS-Vqq" id="ibq-ee-G1S">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQP-Sl-p1x">
+                                                    <rect key="frame" x="362" y="7" width="36" height="30"/>
+                                                    <state key="normal" title="Atras">
+                                                        <color key="titleColor" red="0.47161269189999999" green="0.86628204580000001" blue="0.80280357599999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="backAction:" destination="aPJ-dX-J58" eventType="touchUpInside" id="2cV-ru-mVy"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="EQP-Sl-p1x" firstAttribute="centerY" secondItem="ibq-ee-G1S" secondAttribute="centerY" id="S4x-AD-CIc"/>
+                                                <constraint firstAttribute="trailing" secondItem="EQP-Sl-p1x" secondAttribute="trailing" constant="16" id="Wty-UU-COK"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="150" id="ZRW-ju-Wmw">
+                                        <rect key="frame" x="0.0" y="44" width="414" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZRW-ju-Wmw" id="Zc2-sq-SLf">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Gpx-Qu-wjW">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="109.5"/>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uay-ve-XbY" customClass="ARoundView" customModule="Aruba" customModuleProvider="target">
+                                                    <rect key="frame" x="184.5" y="87" width="45" height="45"/>
+                                                    <color key="backgroundColor" red="0.47161269189999999" green="0.86628204580000001" blue="0.80280357599999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="2FH-J4-Iu0"/>
+                                                        <constraint firstAttribute="width" constant="45" id="w8Y-5v-qji"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Gpx-Qu-wjW" firstAttribute="leading" secondItem="Zc2-sq-SLf" secondAttribute="leading" id="8xF-vK-fx0"/>
+                                                <constraint firstAttribute="bottom" secondItem="Gpx-Qu-wjW" secondAttribute="bottom" constant="40" id="Mxj-Op-LJY"/>
+                                                <constraint firstAttribute="trailing" secondItem="Gpx-Qu-wjW" secondAttribute="trailing" id="SiF-bP-5ou"/>
+                                                <constraint firstItem="Uay-ve-XbY" firstAttribute="bottom" secondItem="Gpx-Qu-wjW" secondAttribute="bottom" constant="22.5" id="vLb-th-fet"/>
+                                                <constraint firstItem="Gpx-Qu-wjW" firstAttribute="top" secondItem="Zc2-sq-SLf" secondAttribute="top" id="vg9-LZ-3xb"/>
+                                                <constraint firstItem="Uay-ve-XbY" firstAttribute="centerX" secondItem="Zc2-sq-SLf" secondAttribute="centerX" id="vz4-Uq-cj1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="56" id="pDe-aY-Jw9">
+                                        <rect key="frame" x="0.0" y="194" width="414" height="56"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pDe-aY-Jw9" id="8Kk-lO-uN0">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Iniciar sesión  con mi Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A70-Dd-DyT">
+                                                    <rect key="frame" x="20" y="8" width="374" height="30.5"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lde-HO-7p5">
+                                                    <rect key="frame" x="40" y="46.5" width="334" height="1"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="3r3-QS-ovr"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Lde-HO-7p5" secondAttribute="bottom" constant="8" id="3AY-17-Rzg"/>
+                                                <constraint firstItem="A70-Dd-DyT" firstAttribute="leading" secondItem="8Kk-lO-uN0" secondAttribute="leading" constant="20" id="JwG-DK-X1Y"/>
+                                                <constraint firstItem="Lde-HO-7p5" firstAttribute="top" secondItem="A70-Dd-DyT" secondAttribute="bottom" constant="8" id="LiR-dk-3AP"/>
+                                                <constraint firstAttribute="trailing" secondItem="Lde-HO-7p5" secondAttribute="trailing" constant="40" id="Ncr-Xh-1xm"/>
+                                                <constraint firstItem="Lde-HO-7p5" firstAttribute="leading" secondItem="8Kk-lO-uN0" secondAttribute="leading" constant="40" id="ZFM-wc-bPu"/>
+                                                <constraint firstAttribute="trailing" secondItem="A70-Dd-DyT" secondAttribute="trailing" constant="20" id="lbh-9y-yAz"/>
+                                                <constraint firstItem="A70-Dd-DyT" firstAttribute="top" secondItem="8Kk-lO-uN0" secondAttribute="top" constant="8" id="oGV-rq-a1x"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="67" id="Suh-f1-QSn">
+                                        <rect key="frame" x="0.0" y="250" width="414" height="67"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Suh-f1-QSn" id="LtP-rp-Ghd">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ljn-UZ-lcU" customClass="ATextField" customModule="Aruba" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="8" width="382" height="50.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="ljn-UZ-lcU" secondAttribute="bottom" constant="8" id="4Tq-0s-QLb"/>
+                                                <constraint firstItem="ljn-UZ-lcU" firstAttribute="top" secondItem="LtP-rp-Ghd" secondAttribute="top" constant="8" id="Byf-Pg-aMA"/>
+                                                <constraint firstAttribute="trailing" secondItem="ljn-UZ-lcU" secondAttribute="trailing" constant="16" id="SK4-h7-Uc0"/>
+                                                <constraint firstItem="ljn-UZ-lcU" firstAttribute="leading" secondItem="LtP-rp-Ghd" secondAttribute="leading" constant="16" id="wev-w9-ziV"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="67" id="tE9-vg-QAP">
+                                        <rect key="frame" x="0.0" y="317" width="414" height="67"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tE9-vg-QAP" id="l1l-Na-kDn">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h76-2e-DOa" customClass="ATextField" customModule="Aruba" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="8" width="382" height="50.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="h76-2e-DOa" secondAttribute="bottom" constant="8" id="3P8-E5-6UD"/>
+                                                <constraint firstItem="h76-2e-DOa" firstAttribute="leading" secondItem="l1l-Na-kDn" secondAttribute="leading" constant="16" id="Qs4-8Q-C8h"/>
+                                                <constraint firstItem="h76-2e-DOa" firstAttribute="top" secondItem="l1l-Na-kDn" secondAttribute="top" constant="8" id="VMq-DT-yjS"/>
+                                                <constraint firstAttribute="trailing" secondItem="h76-2e-DOa" secondAttribute="trailing" constant="16" id="lhh-Bz-Vkh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="102" id="EuN-cY-ceN">
+                                        <rect key="frame" x="0.0" y="384" width="414" height="102"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EuN-cY-ceN" id="j6M-hS-gLd">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPb-x9-0s4" customClass="AButton" customModule="Aruba" customModuleProvider="target">
+                                                    <rect key="frame" x="40" y="36.5" width="334" height="45"/>
+                                                    <color key="backgroundColor" red="0.47161269189999999" green="0.86628204580000001" blue="0.80280357599999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="45" id="myf-Zs-GAs"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
+                                                    <state key="normal" title="INICIAR SESIÓN"/>
+                                                    <connections>
+                                                        <action selector="loginAction:" destination="aPJ-dX-J58" eventType="touchUpInside" id="b5w-HF-FGx"/>
+                                                        <action selector="registerAction:" destination="WzW-od-tg4" eventType="touchUpInside" id="VzT-yb-4IG"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="jPb-x9-0s4" secondAttribute="bottom" constant="20" id="FZh-zM-a7N"/>
+                                                <constraint firstItem="jPb-x9-0s4" firstAttribute="leading" secondItem="j6M-hS-gLd" secondAttribute="leading" constant="40" id="GOO-Nn-Hqe"/>
+                                                <constraint firstAttribute="trailing" secondItem="jPb-x9-0s4" secondAttribute="trailing" constant="40" id="csN-ef-bMd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="aPJ-dX-J58" id="9KA-aJ-CEy"/>
+                            <outlet property="delegate" destination="aPJ-dX-J58" id="dcH-ZT-0wf"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="emailTxt" destination="ljn-UZ-lcU" id="3r6-tx-Djr"/>
+                        <outlet property="passwordTxt" destination="h76-2e-DOa" id="PR0-6v-MKN"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sXM-W5-2aR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="212" y="-605"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ARUBA_desarrollo" width="640" height="1136"/>
+    </resources>
 </document>

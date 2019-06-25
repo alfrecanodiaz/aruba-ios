@@ -25,7 +25,7 @@ class HTTPClient: Fetcher {
 
     static let shared = HTTPClient()
 
-    let baseURL: String = "http://159.89.26.89:8080/aruba_war/"
+    let baseURL: String = "http://167.99.5.194"
 
     enum ApiError: Error {
         case noInternet, api500, api401, noData
@@ -45,10 +45,16 @@ class HTTPClient: Fetcher {
     }
 
     enum Endpoint: String {
-        case userRegister = "users/add"
-        case userLogin = "users/login"
-        case userModify = "users/modify"
-        case userAddressAdd = "users/address/add"
+        case userRegisterEmail = "user/register/email"
+        case userRegisterFacebook = "user/register/facebook"
+        case userLogin = "user/login"
+        case userModify = "user/modify"
+        case userAddressAdd = "user/address/create"
+        case userAddressList = "user/address/list"
+        case userAddressRemove = "user/address/delete"
+        case userAddressUpdate = "user/address/update"
+
+        case servicesList = "service/list"
     }
 
     lazy var sessionManager: SessionManager = {
@@ -70,6 +76,7 @@ class HTTPClient: Fetcher {
             }
             parameters["token"] = token
         }
+        print("Calling endopint: \(path.rawValue) with params: \(parameters)")
         sessionManager.request(url, method: method.value, parameters: parameters, encoding: JSONEncoding.default)
             .responseData { response in
                 switch response.result {

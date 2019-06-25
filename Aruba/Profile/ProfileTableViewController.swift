@@ -16,10 +16,11 @@ class ProfileTableViewController: UITableViewController {
         static let AddNew = "AddNewCell"
     }
 
-    var addresses: [AAddress] = []
+    var addresses: [AddressViewModel] = []
     var tax: Tax = Tax()
 
     let headerHeight: CGFloat = 80
+    let userManager: UserManagerProtocol = UserManager()
     struct Segues {
         static let AddAddress = "ShowAddAddressSegue"
     }
@@ -27,12 +28,23 @@ class ProfileTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        loadAddresses()
+    }
+
+    func loadAddresses() {
+        userManager.getAddresses { [weak self] (addresses, error) in
+            if let addresses = addresses {
+                self?.addresses = addresses.map({ AddressViewModel(address: $0)})
+                self?.tableView.reloadData()
+            } else {
+
+            }
+
+        }
     }
 
     func setupView() {
         tableView.register(UINib(nibName: Cells.GenericData, bundle: nil), forCellReuseIdentifier: Cells.GenericData)
-        addresses = [AAddress(), AAddress(), AAddress()]
-        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -67,6 +79,7 @@ class ProfileTableViewController: UITableViewController {
             } else {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.GenericData, for: indexPath) as? GenericDataCellTableViewCell else { return UITableViewCell() }
                 cell.viewModel = GenericDataCellViewModel(address: addresses[indexPath.row])
+                cell.index = indexPath.row
                 return cell
             }
         } else {
@@ -101,7 +114,7 @@ class ProfileTableViewController: UITableViewController {
         let lbl = UILabel()
         if section == 1 {
             lbl.text = "DIRECCIÓNES"
-            imgView.image = UIImage(named: "pin")
+            imgView.image = UIImage(named: "pin_direccion")
 
         } else {
             lbl.text = "FACTURA"
@@ -112,7 +125,7 @@ class ProfileTableViewController: UITableViewController {
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.leadingAnchor.constraint(equalTo: imgView.trailingAnchor, constant: 8).isActive = true
         lbl.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        lbl.font = UIFont.boldSystemFont(ofSize: 14)
+        lbl.font = AFont.with(size: 14, weight: .bold)
         return view
     }
 

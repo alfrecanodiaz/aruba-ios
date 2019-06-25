@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 class BaseTableViewController: UITableViewController {
 
@@ -41,9 +42,23 @@ class BaseTableViewController: UITableViewController {
         }
     }
 
+    func showSuccess() {
+        let lottie = AnimationView(name: "success")
+        lottie.frame = self.view.bounds
+        lottie.contentMode = .scaleAspectFit
+        self.view.addSubview(lottie)
+        lottie.play { (_) in
+            lottie.removeFromSuperview()
+        }
+    }
+
 }
 
 extension BaseTableViewController: UIPopoverPresentationControllerDelegate, PopupDelegate {
+
+    func popupDidDissmiss() {
+        removeBlackBackgroundView()
+    }
 
     @objc func popupDidSelectAccept(selectedIndex: Int) {
         removeBlackBackgroundView()
@@ -51,7 +66,7 @@ extension BaseTableViewController: UIPopoverPresentationControllerDelegate, Popu
 
     func showOptionPopup(title: String, options: [GenericDataCellViewModel], delegate: BaseTableViewController) -> PopupTableViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let popup = storyboard.instantiateViewController(withIdentifier: "PopupTableViewControllerID") as! PopupTableViewController
+        guard let popup = storyboard.instantiateViewController(withIdentifier: "PopupTableViewControllerID") as? PopupTableViewController else { return PopupTableViewController() }
         popup.delegate = delegate
         popup.titleString = title
         popup.options = options
@@ -77,7 +92,7 @@ extension BaseTableViewController: UIPopoverPresentationControllerDelegate, Popu
     func removeBlackBackgroundView() {
         UIView.animate(withDuration: 0.34, animations: {
             self.backgroundBlackView.alpha = 0
-        }) { (_) in
+        }) { (_ ) in
             self.backgroundBlackView.removeFromSuperview()
         }
     }
@@ -90,4 +105,14 @@ extension BaseTableViewController: UIPopoverPresentationControllerDelegate, Popu
         }
     }
 
+}
+
+// MARK : Show Alerts
+extension BaseTableViewController {
+    func showError(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Aceptar", style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+    }
 }

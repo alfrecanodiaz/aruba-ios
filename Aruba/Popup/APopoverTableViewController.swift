@@ -8,7 +8,7 @@
 
 import UIKit
 
-class APopoverTableViewController: UITableViewController {
+class APopoverTableViewController: BaseTableViewController {
 
     private var kvoContext = 0
 

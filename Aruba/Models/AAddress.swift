@@ -8,22 +8,35 @@
 
 import Foundation
 
-struct AAddress: Codable {
-    let name: String
-    let lat: Double
-    let lng: Double
-    let street1: String
-    let street2: String
-    let houseNumber: String
-    let reference: String
+struct AddressViewModel {
 
-    init () {
-        name = "Casa"
-        lat = 0
-        lng = 0
-        street1 = "Street 1"
-        street2 = "Street 2"
-        houseNumber = "324"
-        reference = "Al lado del Estacionamiento"
+    private let address: AAddress
+
+    var name: String {
+        return address.nombre ?? ""
+    }
+
+    var street1: String {
+        return address.calle1 
+    }
+
+    var street2: String {
+        return address.calle2
+    }
+
+    var houseNumber: String {
+        return address.numero
+    }
+
+    var reference: String {
+        return address.referencias
+    }
+
+    var addressFormatted: String {
+        return name + ": " + street1 + ", " + street2 + " " + houseNumber + "\n" + reference
+    }
+
+    init (address: AAddress) {
+        self.address = address
     }
 }

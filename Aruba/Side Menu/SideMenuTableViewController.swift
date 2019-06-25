@@ -19,10 +19,15 @@ class SideMenuTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setupTableView()
     }
 
     func setupView() {
         profileImageView.clipsToBounds = true
+    }
+
+    private func setupTableView() {
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
 
     override func viewDidLayoutSubviews() {

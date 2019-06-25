@@ -20,9 +20,46 @@ struct Category {
     }
 }
 
+struct HomeViewModel {
+    var userAddresses: [AddressViewModel] = []
+    var user: Usuario?
+    let categories = [Category(imageName: "peluqueria_blanco",
+                               title: "PELUQUERIA",
+                               color: Colors.Peluqueria),
+                      Category(imageName: "manicura_blanco",
+                               title: "MANICURA/PEDICURA",
+                               color: Colors.Manicura),
+                      Category(imageName: "estetica_blanco",
+                               title: "ESTETICA",
+                               color: Colors.Estetica),
+                      Category(imageName: "aruba1",
+                               title: "MASAJES",
+                               color: Colors.Masajes),
+                      Category(imageName: "nutricion_blanco",
+                               title: "NUTRICIÓN",
+                               color: Colors.Nutricion),
+                      Category(imageName: "barberia_blanco",
+                               title: "BARBERIA",
+                               color: Colors.Peluqueria)]
+
+    static func buildFrom(user: UserLoginResponse) -> HomeViewModel {
+        let viewModel = HomeViewModel(userAddresses: user.sesion.usuario.ubicaciones.map({AddressViewModel(address: $0)}),
+                                      user: user.sesion.usuario)
+        return viewModel
+    }
+
+    static func buildFrom(user: LoginViewModel) -> HomeViewModel {
+        let viewModel = HomeViewModel(userAddresses: user.addresses,
+                                      user: user.user.sesion.usuario)
+        return viewModel
+    }
+}
+
 class HomeTableViewController: BaseTableViewController {
 
     var popup: PopupTableViewController!
+    var viewModel: HomeViewModel?
+
     struct Cells {
         static let Category = "homeCategoryCell"
     }
@@ -31,15 +68,48 @@ class HomeTableViewController: BaseTableViewController {
         static let ScheduleService = "scheduleServiceSegue"
     }
 
-    var categories: [Category] = [] {
+    var services: [Servicio] = [] {
         didSet {
+            tableView.beginUpdates()
             tableView.reloadSections(IndexSet(integer: 0), with: .fade)
+            tableView.endUpdates()
         }
     }
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        categories = [Category(imageName: "peluqueria_blanco", title: "PELUQUERIA", color: Colors.Peluqueria), Category(imageName: "manicura_blanco", title: "MANICURA/PEDICURA", color: Colors.Manicura), Category(imageName: "estetica_blanco", title: "ESTETICA", color: Colors.Estetica), Category(imageName: "aruba1", title: "MASAJES", color: Colors.Masajes), Category(imageName: "nutricion_blanco", title: "NUTRICIÓN", color: Colors.Nutricion), Category(imageName: "barberia_blanco", title: "BARBERIA", color: Colors.Peluqueria)]
+        fetchServices()
+//        categories = [Category(imageName: "peluqueria_blanco",
+//                               title: "PELUQUERIA",
+//                               color: Colors.Peluqueria),
+//                      Category(imageName: "manicura_blanco",
+//                               title: "MANICURA/PEDICURA",
+//                               color: Colors.Manicura),
+//                      Category(imageName: "estetica_blanco",
+//                               title: "ESTETICA",
+//                               color: Colors.Estetica),
+//                      Category(imageName: "aruba1",
+//                               title: "MASAJES",
+//                               color: Colors.Masajes),
+//                      Category(imageName: "nutricion_blanco",
+//                               title: "NUTRICIÓN",
+//                               color: Colors.Nutricion),
+//                      Category(imageName: "barberia_blanco",
+//                               title: "BARBERIA",
+//                               color: Colors.Peluqueria)]
+    }
+
+    private func fetchServices() {
+        ALoader.show()
+        HTTPClient.shared.request(method: .POST, path: .servicesList) { (serviceList: ServicesListResponse?, _) in
+            ALoader.hide()
+            if let serviceList = serviceList {
+                self.services = serviceList.servicios
+            } else {
+
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -50,7 +120,7 @@ class HomeTableViewController: BaseTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+        return services.count
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -60,19 +130,40 @@ class HomeTableViewController: BaseTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.Category, for: indexPath) as? HomeCategoryTableViewCell else { return UITableViewCell() }
-        cell.configure(category: categories[indexPath.row])
+        cell.configure(service: services[indexPath.row])
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        popup = showOptionPopup(title: "Dirección del servicio", options: [GenericDataCellViewModel(address: AAddress()), GenericDataCellViewModel(address: AAddress())], delegate: self)
+        let service = services[indexPath.row]
+        guard service.active else {
+            let alert = UIAlertController(title: "Lo sentimos", message: "Este servicio aún no se encuentra disponible.", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Aceptar", style: .cancel, handler: nil)
+            alert.addAction(cancel)
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        guard let _ = viewModel?.user, let viewModel = viewModel else {
+            let alert = UIAlertController(title: "Lo sentimos", message: "Debes registrarte para poder acceder a este servicio.", preferredStyle: .alert)
+            let register = UIAlertAction(title: "Registrarme", style: .default) { (action) in
+
+            }
+            alert.addAction(register)
+            let cancel = UIAlertAction(title: "Aceptar", style: .cancel, handler: nil)
+            alert.addAction(cancel)
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        popup = showOptionPopup(title: "Dirección del servicio",
+                                options: viewModel.userAddresses.map({GenericDataCellViewModel(address: $0)}),
+                                delegate: self)
     }
 
     override func popupDidSelectAccept(selectedIndex: Int) {
         super.popupDidSelectAccept(selectedIndex: selectedIndex)
-        popup.dismiss(animated: true, completion: nil)
-        self.performSegue(withIdentifier: Segues.ScheduleService, sender: self)
-        print("Selected index: \(selectedIndex)")
+        popup.dismiss(animated: true) {
+            self.performSegue(withIdentifier: Segues.ScheduleService, sender: self)
+        }
     }
 
 //        guard let cell = cell as? HomeCategoryTableViewCell else { return }

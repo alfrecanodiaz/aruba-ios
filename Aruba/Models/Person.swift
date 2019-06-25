@@ -23,11 +23,11 @@ struct Person {
         var image: UIImage {
             switch self {
             case .women:
-                return #imageLiteral(resourceName: "women")
+                return #imageLiteral(resourceName: "selection_women")
             case .children:
-                return #imageLiteral(resourceName: "women")
+                return #imageLiteral(resourceName: "children")
             case .man:
-                return #imageLiteral(resourceName: "women")
+                return #imageLiteral(resourceName: "men")
             }
         }
     }

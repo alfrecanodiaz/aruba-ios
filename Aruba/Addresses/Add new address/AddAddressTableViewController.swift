@@ -13,12 +13,18 @@ protocol AddAddressDelegate: class {
     func didSaveAddress(address: AAddress)
 }
 
-class AddAddressTableViewController: UITableViewController {
+class AddAddressTableViewController: BaseTableViewController {
+    @IBOutlet weak var street1Txt: ATextField!
+    @IBOutlet weak var street2Txt: ATextField!
+    @IBOutlet weak var houseNumberTxt: ATextField!
+    @IBOutlet weak var referencesTxt: ATextField!
+    @IBOutlet weak var nameTxt: ATextField!
 
     @IBOutlet weak var mapView: GMSMapView!
 
     var locationManager = CLLocationManager()
     weak var delegate: AddAddressDelegate?
+    let userManager: UserManagerProtocol = UserManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,10 +61,29 @@ class AddAddressTableViewController: UITableViewController {
     }
 
     @IBAction func saveAction(_ sender: AButton) {
-        
+        guard let name = nameTxt.text, let street1 = street1Txt.text, let street2 = street2Txt.text, let houseNumber = houseNumberTxt.text, let references = referencesTxt.text else {
+
+            return
+        }
+        let location = mapView.projection.coordinate(for: mapView.center)
+        ALoader.show()
+        userManager.saveAddress(name: name,
+                                street1: street1,
+                                street2: street2,
+                                houseNumber: houseNumber,
+                                references: references,
+                                lat: location.latitude,
+                                lng: location.longitude) { (_, error) in
+            ALoader.hide()
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                self.showSuccess()
+            }
+
+        }
+
     }
-
-
 }
 
 extension AddAddressTableViewController: GMSMapViewDelegate {

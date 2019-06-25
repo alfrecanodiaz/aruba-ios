@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configureFabric()
         configureGoogleMaps()
         registerFirebaseNotifications(for: application)
-        checkUserLoggedIn()
+//        checkUserLoggedIn()
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
     }
@@ -89,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
         return ApplicationDelegate.shared.application(app, open: url, options: options)
     }
 

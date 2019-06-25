@@ -25,10 +25,10 @@ class HomeCategoryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func configure(category: Category) {
-        contentView.backgroundColor = category.color
-        iconImage.image = category.image
-        titleLbl.text = category.title
+    func configure(service: Servicio) {
+        contentView.backgroundColor = service.color
+        iconImage.image = service.icon
+        titleLbl.text = service.titleText
     }
 
     override func draw(_ rect: CGRect) {
