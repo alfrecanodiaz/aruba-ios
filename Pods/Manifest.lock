@@ -78,7 +78,9 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
+  - Nimble (8.0.1)
   - Protobuf (3.6.1)
+  - Quick (2.1.0)
   - SideMenu (5.0.2)
   - SVProgressHUD (2.2.5)
   - SwiftLint (0.27.0)
@@ -94,6 +96,8 @@ DEPENDENCIES:
   - GoogleMaps
   - lottie-ios
   - MaterialTextField
+  - Nimble
+  - Quick
   - SideMenu
   - SVProgressHUD
   - SwiftLint
@@ -118,7 +122,9 @@ SPEC REPOS:
     - lottie-ios
     - MaterialTextField
     - nanopb
+    - Nimble
     - Protobuf
+    - Quick
     - SideMenu
     - SVProgressHUD
     - SwiftLint
@@ -142,12 +148,14 @@ SPEC CHECKSUMS:
   lottie-ios: 55a2de40418f8de2b155efaba4d4d1a025a5c570
   MaterialTextField: f1a0786588e4d3610cb9bb62d2adbe9777cebbf9
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
+  Quick: 4be43f6634acfa727dd106bdf3929ce125ffa79d
   SideMenu: e5094f0b2e7d9609e100a90ae69025abd994f882
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   Windless: c6b7d63ac3a0c7e6b241e316650d4605abf71894
 
-PODFILE CHECKSUM: 2efc677a22bd63b49d799d4d38ce934a3ce8d4ad
+PODFILE CHECKSUM: 1c9dd243335a7702a48ce240b4d8e4c0aef77ccc
 
 COCOAPODS: 1.5.3

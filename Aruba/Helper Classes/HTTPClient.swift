@@ -74,7 +74,7 @@ class HTTPClient: Fetcher {
                 print("Tried to retrieve access token from Auth Manager but there is not one stored.")
                 return
             }
-            parameters["token"] = token
+            parameters["accesstoken"] = token
         }
         print("Calling endopint: \(path.rawValue) with params: \(parameters)")
         sessionManager.request(url, method: method.value, parameters: parameters, encoding: JSONEncoding.default)

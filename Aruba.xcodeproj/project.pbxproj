@@ -596,6 +596,7 @@
 				3B26A3C222584BD30063ECAA /* Sources */,
 				3B26A3C322584BD30063ECAA /* Frameworks */,
 				3B26A3C422584BD30063ECAA /* Resources */,
+				06F17186D6F5DE36E8AE917D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -720,6 +721,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		06F17186D6F5DE36E8AE917D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ArubaTests/Pods-ArubaTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArubaTests/Pods-ArubaTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2C1A62C781F37F24846BD1B1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1151,9 +1172,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7F3C20A30C6A99E339F6600B /* Pods-ArubaTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = ArubaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1163,6 +1184,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = py.com.nextgen.ArubaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aruba.app/Aruba";
@@ -1173,9 +1195,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8EA4AA119F1E8F11172D2267 /* Pods-ArubaTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = ArubaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1185,6 +1206,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = py.com.nextgen.ArubaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Aruba.app/Aruba";
