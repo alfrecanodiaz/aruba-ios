@@ -32,14 +32,13 @@ class RegisterTableViewController: BaseTableViewController {
                                   password: password) { (loginVM, error) in
                                     ALoader.hide()
                                     if let error = error {
-                                        print(error.localizedDescription)
+                                        AlertManager.showNotice(in: self, title: "Lo sentimos", description: error.message)
                                     } else {
                                         let main = UIStoryboard(name: "Main", bundle: nil)
                                         guard let dvc = main.instantiateViewController(withIdentifier: "BaseNavigationControllerID") as? BaseNavigationController,
                                             let rootVC = dvc.viewControllers.first as? HomeTableViewController,
                                             let loginVM = loginVM else { return }
                                         self.showSuccess()
-                                        rootVC.viewModel = HomeViewModel.buildFrom(user: loginVM)
                                         self.transition(to: dvc, completion: nil)
                                     }
         }

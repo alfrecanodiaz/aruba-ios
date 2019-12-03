@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "63C971EDB4110A23793BD04B3F5CF981"
+               BlueprintIdentifier = "6D4D28FDC0D365E38ECA3741AF256A67"
+               BuildableName = "MaterialTextField.framework"
                BlueprintName = "MaterialTextField"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "MaterialTextField.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

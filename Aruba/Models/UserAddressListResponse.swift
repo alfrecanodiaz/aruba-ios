@@ -9,18 +9,21 @@
 import Foundation
 
 struct UserAddressListResponse: Codable {
-    let codRetorno: Int
-    let message: JSONNull?
-    let requestStatus: String
-    let items: [AAddress]
+    let success: Bool
+    let data: [AAddress]
 }
 
-struct Item: Codable {
+struct AAddress: Codable {
     let id: Int
-    let nombre, calle1, calle2, numero: String
-    let referencias: String
-    let latitud, longitud: Double
-    let active: Bool
+    let name: String
+    let lat, lng: Double
+    let street1, street2, references, number: String
+    let isDefault: Bool
+
+    enum CodingKeys: String, CodingKey {
+        case id, name, lat, lng, street1, street2, references, number
+        case isDefault = "is_default"
+    }
 }
 
 // MARK: Convenience initializers
@@ -52,9 +55,9 @@ extension UserAddressListResponse {
     }
 }
 
-extension Item {
+extension AAddress {
     init?(data: Data) {
-        guard let me = try? JSONDecoder().decode(Item.self, from: data) else { return nil }
+        guard let me = try? JSONDecoder().decode(AAddress.self, from: data) else { return nil }
         self = me
     }
 

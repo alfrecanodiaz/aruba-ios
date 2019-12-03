@@ -19,7 +19,8 @@ target 'Aruba' do
   pod 'GoogleMaps'
   pod 'Windless'
   pod 'lottie-ios'
-
+  pod 'HanekeSwift', :git => 'https://github.com/Haneke/HanekeSwift.git', :tag => 'v0.11.1'
+  
   post_install do |installer|
       installer.pods_project.build_configurations.each do |config|
           # Do not need debug information for pods

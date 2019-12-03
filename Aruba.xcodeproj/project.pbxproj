@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,8 @@
 		3B048EFF226D08BA00EBE6FD /* ScheduleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B048EFE226D08BA00EBE6FD /* ScheduleData.swift */; };
 		3B048F02227F170A00EBE6FD /* ATextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B048F01227F170A00EBE6FD /* ATextField.swift */; };
 		3B048F05227F192C00EBE6FD /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B048F04227F192C00EBE6FD /* AuthManager.swift */; };
+		3B069B7A2396E7C9003B5479 /* SplashLoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B069B792396E7C9003B5479 /* SplashLoaderViewController.swift */; };
+		3B069B7C2396EBBD003B5479 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B069B7B2396EBBD003B5479 /* AlertManager.swift */; };
 		3B26A3B622584BD10063ECAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26A3B522584BD10063ECAA /* AppDelegate.swift */; };
 		3B26A3BB22584BD10063ECAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B26A3B922584BD10063ECAA /* Main.storyboard */; };
 		3B26A3BD22584BD30063ECAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B26A3BC22584BD30063ECAA /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 		3B28FFFA22595588004268CB /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B28FFF722595588004268CB /* Lato-Bold.ttf */; };
 		3B28FFFB22595588004268CB /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B28FFF822595588004268CB /* Lato-Regular.ttf */; };
 		3B28FFFC22595588004268CB /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B28FFF922595588004268CB /* Lato-Black.ttf */; };
+		3B39509623954B3A004FD9B8 /* ServiceCategoryListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B39509523954B3A004FD9B8 /* ServiceCategoryListResponse.swift */; };
+		3B395098239561C1004FD9B8 /* UserMeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B395097239561C1004FD9B8 /* UserMeResponse.swift */; };
 		3B67BA4022690FC500871F77 /* ProductDescriptionPopupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B67BA3F22690FC500871F77 /* ProductDescriptionPopupTableViewController.swift */; };
 		3B6CE45122961F6500FB19AC /* ServicesListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CE45022961F6500FB19AC /* ServicesListResponse.swift */; };
 		3B6CE453229AAD4300FB19AC /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CE452229AAD4300FB19AC /* LoginTableViewController.swift */; };
@@ -119,6 +123,8 @@
 		3B048EFE226D08BA00EBE6FD /* ScheduleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleData.swift; sourceTree = "<group>"; };
 		3B048F01227F170A00EBE6FD /* ATextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATextField.swift; sourceTree = "<group>"; };
 		3B048F04227F192C00EBE6FD /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		3B069B792396E7C9003B5479 /* SplashLoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashLoaderViewController.swift; sourceTree = "<group>"; };
+		3B069B7B2396EBBD003B5479 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		3B26A3B222584BD10063ECAA /* Aruba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aruba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B26A3B522584BD10063ECAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B26A3BA22584BD10063ECAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -139,6 +145,8 @@
 		3B28FFF722595588004268CB /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
 		3B28FFF822595588004268CB /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
 		3B28FFF922595588004268CB /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		3B39509523954B3A004FD9B8 /* ServiceCategoryListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryListResponse.swift; sourceTree = "<group>"; };
+		3B395097239561C1004FD9B8 /* UserMeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMeResponse.swift; sourceTree = "<group>"; };
 		3B67BA3F22690FC500871F77 /* ProductDescriptionPopupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionPopupTableViewController.swift; sourceTree = "<group>"; };
 		3B6CE45022961F6500FB19AC /* ServicesListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesListResponse.swift; sourceTree = "<group>"; };
 		3B6CE452229AAD4300FB19AC /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +254,7 @@
 			children = (
 				3B048F04227F192C00EBE6FD /* AuthManager.swift */,
 				3B02964A228A4C1300D08789 /* UserManager.swift */,
+				3B069B7B2396EBBD003B5479 /* AlertManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -297,6 +306,7 @@
 				3BD43CF72258595100AC3411 /* Constants */,
 				3BD43D022258608B00AC3411 /* Extensions */,
 				3B28FFF32259516A004268CB /* Base */,
+				3B069B792396E7C9003B5479 /* SplashLoaderViewController.swift */,
 			);
 			path = Aruba;
 			sourceTree = "<group>";
@@ -498,6 +508,8 @@
 				3B02964E228EF6E600D08789 /* DefaultResponse.swift */,
 				3B6CE45022961F6500FB19AC /* ServicesListResponse.swift */,
 				3B6CE456229B660D00FB19AC /* UserAddressListResponse.swift */,
+				3B39509523954B3A004FD9B8 /* ServiceCategoryListResponse.swift */,
+				3B395097239561C1004FD9B8 /* UserMeResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -726,19 +738,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-ArubaTests/Pods-ArubaTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ArubaTests/Pods-ArubaTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ArubaTests/Pods-ArubaTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ArubaTests/Pods-ArubaTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ArubaTests/Pods-ArubaTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2C1A62C781F37F24846BD1B1 /* [CP] Check Pods Manifest.lock */ = {
@@ -793,37 +802,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Aruba/Pods-Aruba-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
-				"${BUILT_PRODUCTS_DIR}/Windless/Windless.framework",
-				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Aruba/Pods-Aruba-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Windless.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Aruba/Pods-Aruba-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Aruba/Pods-Aruba-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Aruba/Pods-Aruba-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		64768E4B36059D89AB0172E9 /* [CP] Copy Pods Resources */ = {
@@ -831,17 +819,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Aruba/Pods-Aruba-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Aruba/Pods-Aruba-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Aruba/Pods-Aruba-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Aruba/Pods-Aruba-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Aruba/Pods-Aruba-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		ACAB64AB17CDA4748F428E75 /* [CP] Check Pods Manifest.lock */ = {
@@ -899,18 +886,21 @@
 				3BD43D1822591A7100AC3411 /* GenericDataCellTableViewCell.swift in Sources */,
 				3BD43CFF22585EF000AC3411 /* HTTPClient.swift in Sources */,
 				3B7EC0D82263F1B200ED799D /* HourAssignmentViewController.swift in Sources */,
+				3B39509623954B3A004FD9B8 /* ServiceCategoryListResponse.swift in Sources */,
 				3BD43CFB22585B7F00AC3411 /* LandingViewController.swift in Sources */,
 				3BD43D05225861C300AC3411 /* UserLoginResponse.swift in Sources */,
 				3B048EF3226CFC3600EBE6FD /* ABoxView.swift in Sources */,
 				3B7EC0D42263D4C700ED799D /* DateSelectionCollectionViewCell.swift in Sources */,
 				3B7EC0C8225D727500ED799D /* DateAssignmentTableViewCell.swift in Sources */,
 				3B7EC0B5225C2A5200ED799D /* UIView+Utils.swift in Sources */,
+				3B395098239561C1004FD9B8 /* UserMeResponse.swift in Sources */,
 				3B6CE455229AB87600FB19AC /* AFont.swift in Sources */,
 				3BD43D1B22591B2900AC3411 /* AAddress.swift in Sources */,
 				3B7EC0BE225D679700ED799D /* ARoundView.swift in Sources */,
 				3BD43CFD22585B9200AC3411 /* RegisterTableViewController.swift in Sources */,
 				3B7EC0C3225D6EE700ED799D /* TransparentPopupViewController.swift in Sources */,
 				3B67BA4022690FC500871F77 /* ProductDescriptionPopupTableViewController.swift in Sources */,
+				3B069B7A2396E7C9003B5479 /* SplashLoaderViewController.swift in Sources */,
 				3B02964F228EF6E600D08789 /* DefaultResponse.swift in Sources */,
 				3B7EC0DA2263F24800ED799D /* ProgressView.swift in Sources */,
 				3B28FFEC22594809004268CB /* PopupTableViewController.swift in Sources */,
@@ -940,6 +930,7 @@
 				3B048EF8226D00FA00EBE6FD /* SuccessScheduleViewController.swift in Sources */,
 				3BD43D1D22591CB000AC3411 /* Tax.swift in Sources */,
 				3B02964B228A4C1300D08789 /* UserManager.swift in Sources */,
+				3B069B7C2396EBBD003B5479 /* AlertManager.swift in Sources */,
 				3BD43D0F2259156000AC3411 /* ProfileTableViewController.swift in Sources */,
 				3B7EC0D62263E95300ED799D /* DateSelectionViewController.swift in Sources */,
 				3B28FFF222595165004268CB /* BaseTableViewController.swift in Sources */,

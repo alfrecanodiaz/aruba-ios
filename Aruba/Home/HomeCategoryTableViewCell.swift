@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Haneke
 
 class HomeCategoryTableViewCell: UITableViewCell {
 
@@ -25,10 +26,17 @@ class HomeCategoryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func configure(service: Servicio) {
-        contentView.backgroundColor = service.color
-        iconImage.image = service.icon
-        titleLbl.text = service.titleText
+    func configure(category: CategoryViewModel) {
+        contentView.backgroundColor = category.color
+        iconImage.image = category.image
+        titleLbl.text = category.title
+        if let url = URL(string: category.imageURL ?? "") {
+            iconImage.hnk_setImageFromURL(url)
+        }
+    }
+    
+    override func prepareForReuse() {
+        iconImage.image = nil
     }
 
     override func draw(_ rect: CGRect) {

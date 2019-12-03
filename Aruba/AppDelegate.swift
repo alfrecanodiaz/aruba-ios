@@ -29,18 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configureFabric()
         configureGoogleMaps()
         registerFirebaseNotifications(for: application)
-//        checkUserLoggedIn()
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         return true
-    }
-
-    private func checkUserLoggedIn() {
-        if AuthManager.isLogged() {
-            let main = UIStoryboard(name: "Main", bundle: nil)
-            guard let dvc = main.instantiateViewController(withIdentifier: "BaseNavigationControllerID") as? BaseNavigationController else { return }
-            window?.rootViewController = dvc
-            window?.makeKeyAndVisible()
-        }
     }
 
     private func configureGoogleMaps() {

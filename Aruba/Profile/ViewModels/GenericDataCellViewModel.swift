@@ -15,10 +15,11 @@ class GenericDataCellViewModel {
 
     init(address: AddressViewModel) {
         let attr = NSMutableAttributedString()
-        let name = NSAttributedString(string: address.name + ": ", attributes: [.font: UIFont(name: "Lato-Bold", size: 12)!])
-        let addr = NSAttributedString(string: address.street1 + ", " + address.houseNumber + ", " + address.street2, attributes: [.font: UIFont(name: "Lato-Regular", size: 12)!])
-        attr.append(name)
-        attr.append(addr)
+        // TODO: Uncomment
+//        let name = NSAttributedString(string: address.name + ": ", attributes: [.font: UIFont(name: "Lato-Bold", size: 12)!])
+//        let addr = NSAttributedString(string: address.street1 + ", " + address.houseNumber + ", " + address.street2, attributes: [.font: UIFont(name: "Lato-Regular", size: 12)!])
+//        attr.append(name)
+//        attr.append(addr)
         attributedDataString = attr
     }
 

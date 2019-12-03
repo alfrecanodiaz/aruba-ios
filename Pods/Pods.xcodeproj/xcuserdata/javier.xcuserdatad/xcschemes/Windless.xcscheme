@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DAE29E3EDB63DE9D4CFB2D07931C4ABA"
+               BlueprintIdentifier = "463FDF7470C2DA48B007EC29BC2739EB"
+               BuildableName = "Windless.framework"
                BlueprintName = "Windless"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Windless.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

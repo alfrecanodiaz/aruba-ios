@@ -16,7 +16,8 @@ protocol UserManagerProtocol {
                      references: String,
                      lat: Double,
                      lng: Double,
-                     completion: @escaping (AddressViewModel?, Error?) -> Void)
+                     is_default: Bool,
+                     completion: @escaping (HTTPClientError?) -> Void)
     func getAddresses(completion: @escaping ([AAddress]?, Error?) -> Void)
     func deleteAddress(id: String, completion: @escaping (Error?) -> Void)
 }
@@ -25,16 +26,16 @@ class UserManager: UserManagerProtocol {
 
     static let shared = UserManager()
 
-    var loggedUser: UserLoginResponse?
+    var loggedUser: User?
 
     func deleteAddress(id: String, completion: @escaping (Error?) -> Void) {
         
     }
 
     func getAddresses(completion: @escaping ([AAddress]?, Error?) -> Void) {
-        HTTPClient.shared.request(method: .POST, path: .userAddressList) { (response: UserAddressListResponse?, error) in
-            completion(response?.items, error)
-        }
+//        HTTPClient.shared.request(method: .POST, path: .userAddressList) { (response: UserAddressListResponse?, error) in
+//            completion(response?.items, error)
+//        }
     }
 
     func saveAddress(name: String,
@@ -44,30 +45,18 @@ class UserManager: UserManagerProtocol {
                      references: String,
                      lat: Double,
                      lng: Double,
-                     completion: @escaping (AddressViewModel?, Error?) -> Void) {
-        let addressData: [String: Any] = ["nombre": name,
-                                          "calle1": street1,
-                                          "calle2": street2,
-                                          "numero": houseNumber,
-                                          "referencias": references,
-                                          "latitud": lat,
-                                          "longitud": lng]
-        let params = ["datosUbicacion": addressData]
-        HTTPClient.shared.request(method: .POST, path: .userAddressAdd, data: params) { (response: DefaultResponse?, error) in
-            if let error = error {
-                print("Error while trying to save an address: ", error.localizedDescription)
-            } else {
-
-            }
-//            let address = AAddress(name: name,
-//                                   lat: lat,
-//                                   lng: lng,
-//                                   street1: street1,
-//                                   street2: street2,
-//                                   houseNumber: houseNumber,
-//                                   reference: references)
-//            let addressVM = AddressViewModel(address: address)
-            completion(nil, error)
+                     is_default: Bool,
+                     completion: @escaping (HTTPClientError?) -> Void) {
+        let addressData: [String: Any] = ["name": name,
+                                          "street1": street1,
+                                          "street2": street2,
+                                          "number": houseNumber,
+                                          "references": references,
+                                          "lat": lat,
+                                          "lng": lng,
+                                          "is_default": is_default]
+        HTTPClient.shared.request(method: .POST, path: .userAddressAdd, data: addressData) { (response: DefaultResponse?, error) in
+            completion(error)
         }
     }
 }

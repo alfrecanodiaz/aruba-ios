@@ -13,23 +13,23 @@ struct AddressViewModel {
     private let address: AAddress
 
     var name: String {
-        return address.nombre ?? ""
+        return address.name
     }
 
     var street1: String {
-        return address.calle1 
+        return address.street1
     }
 
     var street2: String {
-        return address.calle2
+        return address.street2
     }
 
     var houseNumber: String {
-        return address.numero
+        return address.number
     }
 
     var reference: String {
-        return address.referencias
+        return address.references
     }
 
     var addressFormatted: String {
@@ -39,4 +39,5 @@ struct AddressViewModel {
     init (address: AAddress) {
         self.address = address
     }
+    
 }

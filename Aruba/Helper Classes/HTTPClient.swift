@@ -14,19 +14,13 @@ protocol Fetcher: class {
     func fetch(with completion: ((Generic?, Error?) -> Void)?)
 }
 
-class HTTPClient: Fetcher {
-    typealias T = AAddress
-    typealias P = Codable
-//    typealias T = Result<P>
-
-    func fetch(with completion: ((HTTPClient.T?, Error?) -> Void)?) {
-
-    }
+class HTTPClient {
 
     static let shared = HTTPClient()
 
-    let baseURL: String = "http://167.99.5.194"
-
+//    let baseURL: String = "https://aruba.com.py/api/client/mobile/"
+    let baseURL: String = "https://develop.aruba.com.py/api/client/mobile/"
+    
     enum ApiError: Error {
         case noInternet, api500, api401, noData
     }
@@ -48,22 +42,27 @@ class HTTPClient: Fetcher {
         case userRegisterEmail = "user/register/email"
         case userRegisterFacebook = "user/register/facebook"
         case userLogin = "user/login"
-        case userModify = "user/modify"
+        case userModify = "user/update"
         case userAddressAdd = "user/address/create"
         case userAddressList = "user/address/list"
         case userAddressRemove = "user/address/delete"
         case userAddressUpdate = "user/address/update"
-
+        case user = "user/me"
+        case serviceCategoryList = "serviceCategory/list"
         case servicesList = "service/list"
     }
 
     lazy var sessionManager: SessionManager = {
         let configuration = URLSessionConfiguration.default
+        configuration.httpAdditionalHeaders = ["Content-Type": "application/json", "Accept": "application/json"]
+        if AuthManager.isLogged() {
+            configuration.httpAdditionalHeaders = ["Authorization": "Bearer \(AuthManager.getCurrentAccessToken() ?? "")"]
+        }
         let sessionManager = SessionManager(configuration: configuration)
         return sessionManager
     }()
 
-    func request<T: Codable>(method: Mehtod, path: HTTPClient.Endpoint, data: [String: Any]? = nil, completion: @escaping (T?, Error?) -> Void) {
+    func request<T: Codable>(method: Mehtod, path: HTTPClient.Endpoint, data: [String: Any]? = nil, completion: @escaping (T?, HTTPClientError?) -> Void) {
         let url = baseURL + path.rawValue
         var parameters = [String: Any]()
         if let data = data {
@@ -74,7 +73,7 @@ class HTTPClient: Fetcher {
                 print("Tried to retrieve access token from Auth Manager but there is not one stored.")
                 return
             }
-            parameters["accesstoken"] = token
+            parameters["access_token"] = token
         }
         print("Calling endopint: \(path.rawValue) with params: \(parameters)")
         sessionManager.request(url, method: method.value, parameters: parameters, encoding: JSONEncoding.default)
@@ -83,14 +82,33 @@ class HTTPClient: Fetcher {
                 case .success(let data):
                     print("Success with data: \(data)")
                     let decoder = JSONDecoder()
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
+                        if (json?["success"] as? Int == 0) {
+                            let error = HTTPClientError(message: json?["data"] as? String ?? "Error desconocido.")
+                            completion(nil, error)
+                            return
+                        }
+                    } catch(_) {
+                        completion(nil, HTTPClientError(message: "Error con el servidor."));
+                        return
+                    }
+
                     let result: Result<T> = decoder.decodeResponse(from: response)
-                    completion(result.value, result.error)
+                    completion(result.value, nil)
                 case .failure(let error):
+                    print("error with \(error)")
                     if error._code == NSURLErrorTimedOut {
                         print("Request timeout!")
+                        completion(nil, HTTPClientError(message: error.localizedDescription))
+                        return
                     }
-                    print("error with \(error)")
+                    completion(nil, HTTPClientError(message: error.localizedDescription))
                 }
         }
     }
+}
+
+struct HTTPClientError: Error {
+    let message: String
 }

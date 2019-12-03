@@ -9,9 +9,8 @@
 import Foundation
 
 struct DefaultResponse: Codable {
-    let codRetorno: Int
-    let message: JSONNull?
-    let requestStatus: String
+    let success: Bool
+    let data: JSONAny
 }
 
 // MARK: Convenience initializers

@@ -54,7 +54,6 @@ class LandingViewController: UIViewController {
                 guard let self = self, let loginVM = loginVM else { return }
                 let main = UIStoryboard(name: "Main", bundle: nil)
                 guard let dvc = main.instantiateViewController(withIdentifier: "BaseNavigationControllerID") as? BaseNavigationController, let rootVC = dvc.viewControllers.first as? HomeTableViewController else { return }
-                rootVC.viewModel = HomeViewModel(userAddresses: loginVM.addresses, user: loginVM.user.sesion.usuario)
                 self.transition(to: dvc, completion: nil)
             }
         }

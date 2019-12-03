@@ -71,6 +71,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (5.3.4):
     - GoogleUtilities/Logger
+  - HanekeSwift (1.1)
   - lottie-ios (3.0.4)
   - MaterialTextField (1.0.1)
   - nanopb (0.3.901):
@@ -94,6 +95,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Messaging
   - GoogleMaps
+  - HanekeSwift (from `https://github.com/Haneke/HanekeSwift.git`, tag `v0.11.1`)
   - lottie-ios
   - MaterialTextField
   - Nimble
@@ -104,7 +106,7 @@ DEPENDENCIES:
   - Windless
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
     - Crashlytics
     - Fabric
@@ -130,6 +132,16 @@ SPEC REPOS:
     - SwiftLint
     - Windless
 
+EXTERNAL SOURCES:
+  HanekeSwift:
+    :git: https://github.com/Haneke/HanekeSwift.git
+    :tag: v0.11.1
+
+CHECKOUT OPTIONS:
+  HanekeSwift:
+    :git: https://github.com/Haneke/HanekeSwift.git
+    :tag: v0.11.1
+
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   Crashlytics: 1448070c1d2731ab71ea7c3faf84ac0f69657287
@@ -145,6 +157,7 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
   GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
   GoogleUtilities: abb092d2c12e817fa3e0e7b274987dd72fb86ec3
+  HanekeSwift: cb662a1f22b10ff3ff1d7b5030ae451da5d93831
   lottie-ios: 55a2de40418f8de2b155efaba4d4d1a025a5c570
   MaterialTextField: f1a0786588e4d3610cb9bb62d2adbe9777cebbf9
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
@@ -156,6 +169,6 @@ SPEC CHECKSUMS:
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   Windless: c6b7d63ac3a0c7e6b241e316650d4605abf71894
 
-PODFILE CHECKSUM: 1c9dd243335a7702a48ce240b4d8e4c0aef77ccc
+PODFILE CHECKSUM: 44af7f062b869388e68785642f411cd174fe3c26
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.0

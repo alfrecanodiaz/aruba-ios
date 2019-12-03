@@ -25,7 +25,7 @@ class LoginTableViewController: BaseTableViewController {
     @IBAction func loginAction(_ sender: AButton) {
         guard let email = emailTxt.text, let password = passwordTxt.text else { return }
         ALoader.show()
-        AuthManager.login(username: email, password: password, facebookToken: nil) { [weak self] (loginVM, error) in
+        AuthManager.login(username: email, password: password) { [weak self] (loginVM, error) in
             ALoader.hide()
             if let error = error {
                 print(error.localizedDescription)
@@ -36,7 +36,6 @@ class LoginTableViewController: BaseTableViewController {
                     let rootVC = dvc.viewControllers.first as? HomeTableViewController,
                     let loginVM = loginVM,
                     let self = self else { return }
-                rootVC.viewModel = HomeViewModel.buildFrom(user: loginVM)
                 self.transition(to: dvc, completion: nil)
             }
         }
