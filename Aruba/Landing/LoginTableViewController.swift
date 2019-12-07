@@ -33,8 +33,6 @@ class LoginTableViewController: BaseTableViewController {
             } else {
                 let main = UIStoryboard(name: "Main", bundle: nil)
                 guard let dvc = main.instantiateViewController(withIdentifier: "BaseNavigationControllerID") as? BaseNavigationController,
-                    let rootVC = dvc.viewControllers.first as? HomeTableViewController,
-                    let loginVM = loginVM,
                     let self = self else { return }
                 self.transition(to: dvc, completion: nil)
             }

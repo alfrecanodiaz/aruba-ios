@@ -25,6 +25,9 @@ class AddAddressTableViewController: BaseTableViewController {
     var locationManager = CLLocationManager()
     weak var delegate: AddAddressDelegate?
     let userManager: UserManagerProtocol = UserManager()
+    private var lastLocation: CLLocation?
+    
+    private var shouldUpdateCameraAutomatically: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +41,16 @@ class AddAddressTableViewController: BaseTableViewController {
         mapView.settings.myLocationButton = true
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return UIScreen.main.bounds.height*0.5
-        }
-        return UITableView.automaticDimension
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        locationManager.startUpdatingLocation()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        locationManager.stopUpdatingLocation()
+    }
+    
     
     private func configureLocationManager() {
         locationManager.delegate = self
@@ -53,6 +60,9 @@ class AddAddressTableViewController: BaseTableViewController {
             locationManager.requestWhenInUseAuthorization()
         case .restricted, .denied:
             // Disable location features
+            AlertManager.showNotice(in: self, title: "Necesitamos un permiso", description: "Habilita los servicios de localización para que podamos utilizar tu GPS para tu dirección.") {
+                self.locationManager.requestWhenInUseAuthorization()
+            }
             break
         case .authorizedWhenInUse, .authorizedAlways:
             // Enable location features
@@ -61,6 +71,7 @@ class AddAddressTableViewController: BaseTableViewController {
     }
     
     @IBAction func saveAction(_ sender: AButton) {
+        view.endEditing(true)
         guard let name = nameTxt.text, let street1 = street1Txt.text, let street2 = street2Txt.text, let houseNumber = houseNumberTxt.text, let references = referencesTxt.text else {
             
             return
@@ -74,14 +85,22 @@ class AddAddressTableViewController: BaseTableViewController {
                                 references: references,
                                 lat: location.latitude,
                                 lng: location.longitude,
-                                is_default: true) { (error) in
+                                is_default: true) { (address, error) in
                                     ALoader.hide()
                                     
                                     if let error = error {
                                         AlertManager.showNotice(in: self, title: "Lo sentimos", description: error.message)
-                                    } else {
+                                    } else if let address = address {
+                                        self.delegate?.didSaveAddress(address: address)
+                                        UserManager.shared.loggedUser?.addresses.append(address)
                                         self.showSuccess()
-                                        self.dismiss(animated: true, completion: nil)
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                            if let navigationController = self.navigationController {
+                                                navigationController.popViewController(animated: true)
+                                            } else {
+                                                self.dismiss(animated: true, completion: nil)
+                                            }
+                                        }
                                     }
                                     
         }
@@ -93,6 +112,14 @@ extension AddAddressTableViewController: GMSMapViewDelegate {
     
     func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
         
+    }
+    
+    func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {
+        shouldUpdateCameraAutomatically = false
+        guard let myLocation = lastLocation else { return true }
+        let camera = GMSCameraPosition.camera(withLatitude: myLocation.coordinate.latitude, longitude: myLocation.coordinate.longitude, zoom: 17.0)
+        self.mapView.animate(to: camera)
+        return false
     }
     
 }
@@ -107,14 +134,17 @@ extension AddAddressTableViewController: CLLocationManagerDelegate {
         case .authorizedWhenInUse:
             locationManager.startUpdatingLocation()
         case .notDetermined, .authorizedAlways:
+            locationManager.startUpdatingLocation()
             break
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
-        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 17.0)
-        self.mapView.animate(to: camera)
-        self.locationManager.stopUpdatingLocation()
+        lastLocation = location
+        if shouldUpdateCameraAutomatically {
+            let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude, longitude: location.coordinate.longitude, zoom: 17.0)
+            self.mapView.animate(to: camera)
+        }
     }
 }

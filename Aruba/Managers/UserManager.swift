@@ -17,7 +17,7 @@ protocol UserManagerProtocol {
                      lat: Double,
                      lng: Double,
                      is_default: Bool,
-                     completion: @escaping (HTTPClientError?) -> Void)
+                     completion: @escaping (AAddress?, HTTPClientError?) -> Void)
     func getAddresses(completion: @escaping ([AAddress]?, Error?) -> Void)
     func deleteAddress(id: String, completion: @escaping (Error?) -> Void)
 }
@@ -27,6 +27,27 @@ class UserManager: UserManagerProtocol {
     static let shared = UserManager()
 
     var loggedUser: User?
+    
+    var defaultAddressString: String {
+        guard let defaultAddress = UserManager.shared.loggedUser?.addresses.filter({$0.isDefault}).first else {
+            return "No existen direcciónes"
+        }
+        let vm = AddressViewModel(address: defaultAddress)
+        return vm.addressFormatted
+    }
+    
+    var defaultAddressId: Int? {
+        guard let defaultAddress = UserManager.shared.loggedUser?.addresses.filter({$0.isDefault}).first else {
+            return nil
+        }
+        return defaultAddress.id
+    }
+    
+    var clientName: String {
+        guard let loggedUser = loggedUser else { return "" }
+        return loggedUser.firstName + " " + loggedUser.lastName
+    }
+    
 
     func deleteAddress(id: String, completion: @escaping (Error?) -> Void) {
         
@@ -46,7 +67,7 @@ class UserManager: UserManagerProtocol {
                      lat: Double,
                      lng: Double,
                      is_default: Bool,
-                     completion: @escaping (HTTPClientError?) -> Void) {
+                     completion: @escaping (AAddress?, HTTPClientError?) -> Void) {
         let addressData: [String: Any] = ["name": name,
                                           "street1": street1,
                                           "street2": street2,
@@ -55,8 +76,8 @@ class UserManager: UserManagerProtocol {
                                           "lat": lat,
                                           "lng": lng,
                                           "is_default": is_default]
-        HTTPClient.shared.request(method: .POST, path: .userAddressAdd, data: addressData) { (response: DefaultResponse?, error) in
-            completion(error)
+        HTTPClient.shared.request(method: .POST, path: .userAddressAdd, data: addressData) { (response: UserAddressStoreSuccessResponse?, error) in
+            completion(response?.data, error)
         }
     }
 }

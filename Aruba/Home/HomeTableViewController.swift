@@ -14,14 +14,7 @@ struct CategoryViewModel {
     let title: String
     let color: UIColor
     let enabled: Bool
-    
-    init(imageName: String, title: String, color: UIColor) {
-        image = UIImage(named: imageName)
-        self.title = title
-        self.color = color
-        self.imageURL = nil
-        self.enabled = true
-    }
+    let inactiveText: String?
     
     init (category: ServiceCategory) {
         self.image = nil
@@ -29,6 +22,7 @@ struct CategoryViewModel {
         self.title = category.name
         self.color = UIColor(hexRGB: category.color ?? "") ?? .green
         self.enabled = category.enabled
+        self.inactiveText = category.inactiveText
     }
 }
 
@@ -74,7 +68,6 @@ class HomeTableViewController: BaseTableViewController {
         ALoader.show()
         loadedAddresses = false
         HTTPClient.shared.request(method: .POST, path: .userAddressList) { (addressList: UserAddressListResponse?, error) in
-            ALoader.hide()
             if let addressList = addressList {
                 self.userAddressesViewModel = addressList.data.map({AddressViewModel(address: $0)})
                 self.loadedAddresses = true
@@ -87,7 +80,6 @@ class HomeTableViewController: BaseTableViewController {
         ALoader.show()
         loadedServiceCategories = false
         HTTPClient.shared.request(method: .POST, path: .serviceCategoryList) { (categoryList: ServiceCategoryListResponse?, _) in
-            ALoader.hide()
             if let categories = categoryList {
                 self.categoriesViewModel = categories.data.map({CategoryViewModel(category: $0)})
                 self.loadedServiceCategories = true
@@ -133,8 +125,11 @@ class HomeTableViewController: BaseTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return (tableView.bounds.height - (UIApplication.shared.statusBarFrame.size.height +
-            (self.navigationController?.navigationBar.frame.height ?? 0.0)))/6
+        if categoriesViewModel.count > 0 {
+            return (tableView.bounds.height - (UIApplication.shared.statusBarFrame.size.height +
+                (self.navigationController?.navigationBar.frame.height ?? 0.0)))/CGFloat(categoriesViewModel.count)
+        }
+        return 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -146,7 +141,7 @@ class HomeTableViewController: BaseTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let serviceCategory = categoriesViewModel[indexPath.row]
         guard serviceCategory.enabled else {
-            let alert = UIAlertController(title: "Lo sentimos", message: "Este servicio aún no se encuentra disponible.", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Lo sentimos", message: serviceCategory.inactiveText ?? "", preferredStyle: .alert)
             let cancel = UIAlertAction(title: "Aceptar", style: .cancel, handler: nil)
             alert.addAction(cancel)
             present(alert, animated: true, completion: nil)
@@ -163,10 +158,34 @@ class HomeTableViewController: BaseTableViewController {
             present(alert, animated: true, completion: nil)
             return
         }
+        
+        guard userAddressesViewModel.count != 0 else {
+            let addressesStoryboard = UIStoryboard(name: "Addresses", bundle: nil)
+            let addAddressVC =  addressesStoryboard.instantiateViewController(withIdentifier: "AddAddressTableViewControllerID") as! AddAddressTableViewController
+            addAddressVC.delegate = self
+            present(addAddressVC, animated: true, completion: nil)
+            return
+        }
 
-        popup = showOptionPopup(title: "Dirección del servicio",
-                                options: userAddressesViewModel.map({GenericDataCellViewModel(address: $0)}),
-                                delegate: self)
+       showServiceCategoryPopup()
+    }
+    
+    
+    private func showServiceCategoryPopup() {
+        guard let defaultAddress = userAddressesViewModel.filter({$0.isDefault}).first else { return }
+        let data = ServiceCategorySelectionData(address: defaultAddress.addressFormatted, addressId: defaultAddress.id, clientName: UserManager.shared.clientName, clientType: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let popup = storyboard.instantiateViewController(withIdentifier: "ServiceCategorySelectionPopupTableViewControllerID") as? ServiceCategorySelectionPopupTableViewController else { return }
+        popup.delegate = self
+        popup.data = data
+        popup.modalPresentationStyle = .popover
+        addBlackBackgroundView()
+        let popover = popup.popoverPresentationController
+        popover?.delegate = self
+        popover?.permittedArrowDirections = .init(rawValue: 0)
+        popover?.sourceView = view
+        popover?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+        present(popup, animated: true, completion: nil)
     }
     
     override func popupDidSelectAccept(selectedIndex: Int) {
@@ -174,6 +193,25 @@ class HomeTableViewController: BaseTableViewController {
         popup.dismiss(animated: true) {
             self.performSegue(withIdentifier: Segues.ScheduleService, sender: self)
         }
+    }
+    
+}
+
+// MARK: AddAddressDelegate
+extension HomeTableViewController: AddAddressDelegate {
+    func didSaveAddress(address: AAddress) {
+        userAddressesViewModel.append(AddressViewModel(address: address))
+    }
+}
+
+// MARK: ServiceCategorySelectionDelegate
+extension HomeTableViewController: ServiceCategorySelectionDelegate {
+    func didPressContinue() {
+        removeBlackBackgroundView()
+    }
+    
+    func didPressCancel() {
+        removeBlackBackgroundView()
     }
     
 }

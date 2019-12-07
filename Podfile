@@ -21,18 +21,18 @@ target 'Aruba' do
   pod 'lottie-ios'
   pod 'HanekeSwift', :git => 'https://github.com/Haneke/HanekeSwift.git', :tag => 'v0.11.1'
   
-  post_install do |installer|
-      installer.pods_project.build_configurations.each do |config|
-          # Do not need debug information for pods
-          config.build_settings['DEBUG_INFORMATION_FORMAT'] = 'dwarf'
-          
-          # Disable Code Coverage for Pods projects - only exclude ObjC pods
-          config.build_settings['CLANG_ENABLE_CODE_COVERAGE'] = 'NO'
-          config.build_settings['LD_RUNPATH_SEARCH_PATHS'] = ['$(FRAMEWORK_SEARCH_PATHS)']
-          
-          config.build_settings['SWIFT_VERSION'] = '4.2'
-      end
-  end
+#  post_install do |installer|
+#      installer.pods_project.build_configurations.each do |config|
+#          # Do not need debug information for pods
+#          config.build_settings['DEBUG_INFORMATION_FORMAT'] = 'dwarf'
+#
+#          # Disable Code Coverage for Pods projects - only exclude ObjC pods
+#          config.build_settings['CLANG_ENABLE_CODE_COVERAGE'] = 'NO'
+#          config.build_settings['LD_RUNPATH_SEARCH_PATHS'] = ['$(FRAMEWORK_SEARCH_PATHS)']
+#
+#          config.build_settings['SWIFT_VERSION'] = '4.2'
+#      end
+#  end
 
   target 'ArubaTests' do
     inherit! :search_paths

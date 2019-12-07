@@ -35,9 +35,7 @@ class RegisterTableViewController: BaseTableViewController {
                                         AlertManager.showNotice(in: self, title: "Lo sentimos", description: error.message)
                                     } else {
                                         let main = UIStoryboard(name: "Main", bundle: nil)
-                                        guard let dvc = main.instantiateViewController(withIdentifier: "BaseNavigationControllerID") as? BaseNavigationController,
-                                            let rootVC = dvc.viewControllers.first as? HomeTableViewController,
-                                            let loginVM = loginVM else { return }
+                                        guard let dvc = main.instantiateViewController(withIdentifier: "BaseNavigationControllerID") as? BaseNavigationController else { return }
                                         self.showSuccess()
                                         self.transition(to: dvc, completion: nil)
                                     }

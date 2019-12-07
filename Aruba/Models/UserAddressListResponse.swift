@@ -13,6 +13,11 @@ struct UserAddressListResponse: Codable {
     let data: [AAddress]
 }
 
+struct UserAddressStoreSuccessResponse: Codable {
+    let success: Bool
+    let data: AAddress
+}
+
 struct AAddress: Codable {
     let id: Int
     let name: String

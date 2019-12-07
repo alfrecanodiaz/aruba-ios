@@ -8,13 +8,11 @@
 
 import Foundation
 
-// MARK: - Welcome
 struct UserLoginResponse: Codable {
     let success: Bool
     let data: UserLoginDataClass
 }
 
-// MARK: - DataClass
 struct UserLoginDataClass: Codable {
     let user: User
     let accessToken: String
@@ -27,16 +25,18 @@ struct UserLoginDataClass: Codable {
 
 // MARK: - User
 struct User: Codable {
-    let firstName, lastName, email, updatedAt: String
+    var firstName, lastName, email, updatedAt, facebook_id: String
     let createdAt: String
     let id: Int
-    let canMakeAppointment: Bool
+    var canMakeAppointment: Bool
     let avatarURL: String
-    let addresses, appointments: [JSONAny]
+    var addresses: [AAddress]
+    var appointments: [JSONAny]
 
     enum CodingKeys: String, CodingKey {
         case firstName = "first_name"
         case lastName = "last_name"
+        case facebook_id
         case email
         case updatedAt = "updated_at"
         case createdAt = "created_at"

@@ -18,8 +18,8 @@ class HTTPClient {
 
     static let shared = HTTPClient()
 
-//    let baseURL: String = "https://aruba.com.py/api/client/mobile/"
-    let baseURL: String = "https://develop.aruba.com.py/api/client/mobile/"
+    let baseURL: String = "https://aruba.com.py/api/client/mobile/"
+//    let baseURL: String = "https://develop.aruba.com.py/api/client/mobile/"
     
     enum ApiError: Error {
         case noInternet, api500, api401, noData
@@ -61,6 +61,14 @@ class HTTPClient {
         let sessionManager = SessionManager(configuration: configuration)
         return sessionManager
     }()
+    
+    func setAccessToken(token: String?) {
+        let configuration = URLSessionConfiguration.default
+        configuration.httpAdditionalHeaders = ["Content-Type": "application/json", "Accept": "application/json"]
+        configuration.httpAdditionalHeaders = ["Authorization": "Bearer \(token ?? "")"]
+        let sessionManager = SessionManager(configuration: configuration)
+        HTTPClient.shared.sessionManager = sessionManager
+    }
 
     func request<T: Codable>(method: Mehtod, path: HTTPClient.Endpoint, data: [String: Any]? = nil, completion: @escaping (T?, HTTPClientError?) -> Void) {
         let url = baseURL + path.rawValue
@@ -93,7 +101,7 @@ class HTTPClient {
                         completion(nil, HTTPClientError(message: "Error con el servidor."));
                         return
                     }
-
+                    
                     let result: Result<T> = decoder.decodeResponse(from: response)
                     completion(result.value, nil)
                 case .failure(let error):

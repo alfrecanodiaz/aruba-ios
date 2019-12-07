@@ -38,6 +38,7 @@
 		3B28FFFC22595588004268CB /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B28FFF922595588004268CB /* Lato-Black.ttf */; };
 		3B39509623954B3A004FD9B8 /* ServiceCategoryListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B39509523954B3A004FD9B8 /* ServiceCategoryListResponse.swift */; };
 		3B395098239561C1004FD9B8 /* UserMeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B395097239561C1004FD9B8 /* UserMeResponse.swift */; };
+		3B456CA2239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B456CA1239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift */; };
 		3B67BA4022690FC500871F77 /* ProductDescriptionPopupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B67BA3F22690FC500871F77 /* ProductDescriptionPopupTableViewController.swift */; };
 		3B6CE45122961F6500FB19AC /* ServicesListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CE45022961F6500FB19AC /* ServicesListResponse.swift */; };
 		3B6CE453229AAD4300FB19AC /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CE452229AAD4300FB19AC /* LoginTableViewController.swift */; };
@@ -147,6 +148,7 @@
 		3B28FFF922595588004268CB /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		3B39509523954B3A004FD9B8 /* ServiceCategoryListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryListResponse.swift; sourceTree = "<group>"; };
 		3B395097239561C1004FD9B8 /* UserMeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMeResponse.swift; sourceTree = "<group>"; };
+		3B456CA1239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategorySelectionPopupTableViewController.swift; sourceTree = "<group>"; };
 		3B67BA3F22690FC500871F77 /* ProductDescriptionPopupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionPopupTableViewController.swift; sourceTree = "<group>"; };
 		3B6CE45022961F6500FB19AC /* ServicesListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesListResponse.swift; sourceTree = "<group>"; };
 		3B6CE452229AAD4300FB19AC /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
@@ -518,6 +520,7 @@
 			isa = PBXGroup;
 			children = (
 				3B26A3B922584BD10063ECAA /* Main.storyboard */,
+				3B456CA1239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift */,
 				3BD43D082258FCC700AC3411 /* HomeTableViewController.swift */,
 				3BD43D2122592B4700AC3411 /* HomeCategoryTableViewCell.swift */,
 			);
@@ -928,6 +931,7 @@
 				3B7EC0CA225D773A00ED799D /* DateAssignmentViewController.swift in Sources */,
 				3B7EC0E1226404F400ED799D /* ProfesionalSelectionViewController.swift in Sources */,
 				3B048EF8226D00FA00EBE6FD /* SuccessScheduleViewController.swift in Sources */,
+				3B456CA2239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift in Sources */,
 				3BD43D1D22591CB000AC3411 /* Tax.swift in Sources */,
 				3B02964B228A4C1300D08789 /* UserManager.swift in Sources */,
 				3B069B7C2396EBBD003B5479 /* AlertManager.swift in Sources */,

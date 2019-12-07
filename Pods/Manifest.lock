@@ -1,90 +1,108 @@
 PODS:
-  - Alamofire (4.7.3)
-  - Crashlytics (3.11.0):
-    - Fabric (~> 1.8.0)
-  - Fabric (1.8.0)
-  - FBSDKCoreKit (5.0.0):
-    - FBSDKCoreKit/Basics (= 5.0.0)
-    - FBSDKCoreKit/Core (= 5.0.0)
-  - FBSDKCoreKit/Basics (5.0.0)
-  - FBSDKCoreKit/Core (5.0.0):
+  - Alamofire (4.9.1)
+  - Crashlytics (3.14.0):
+    - Fabric (~> 1.10.2)
+  - Fabric (1.10.2)
+  - FBSDKCoreKit (5.12.0):
+    - FBSDKCoreKit/Basics (= 5.12.0)
+    - FBSDKCoreKit/Core (= 5.12.0)
+  - FBSDKCoreKit/Basics (5.12.0)
+  - FBSDKCoreKit/Core (5.12.0):
     - FBSDKCoreKit/Basics
-  - FBSDKLoginKit (5.0.0):
-    - FBSDKCoreKit (= 5.0.0)
-  - Firebase/Core (5.11.0):
+  - FBSDKLoginKit (5.11.1):
+    - FBSDKLoginKit/Login (= 5.11.1)
+  - FBSDKLoginKit/Login (5.11.1):
+    - FBSDKCoreKit (~> 5.0)
+  - Firebase/Core (6.13.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 5.3.0)
-  - Firebase/CoreOnly (5.11.0):
-    - FirebaseCore (= 5.1.6)
-  - Firebase/Messaging (5.11.0):
+    - FirebaseAnalytics (= 6.1.6)
+  - Firebase/CoreOnly (6.13.0):
+    - FirebaseCore (= 6.4.0)
+  - Firebase/Messaging (6.13.0):
     - Firebase/CoreOnly
-    - FirebaseMessaging (= 3.2.1)
-  - FirebaseAnalytics (5.3.0):
-    - FirebaseCore (~> 5.1)
-    - FirebaseInstanceID (~> 3.3)
-    - GoogleAppMeasurement (~> 5.3)
-    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
-    - GoogleUtilities/MethodSwizzler (~> 5.2)
-    - GoogleUtilities/Network (~> 5.2)
-    - "GoogleUtilities/NSData+zlib (~> 5.2)"
-    - nanopb (~> 0.3)
-  - FirebaseAnalyticsInterop (1.1.0)
-  - FirebaseCore (5.1.6):
-    - GoogleUtilities/Logger (~> 5.2)
-  - FirebaseInstanceID (3.3.0):
-    - FirebaseCore (~> 5.1)
-    - GoogleUtilities/Environment (~> 5.3)
-    - GoogleUtilities/UserDefaults (~> 5.3)
-  - FirebaseMessaging (3.2.1):
-    - FirebaseAnalyticsInterop (~> 1.1)
-    - FirebaseCore (~> 5.1)
-    - FirebaseInstanceID (~> 3.0)
-    - GoogleUtilities/Environment (~> 5.2)
-    - GoogleUtilities/Reachability (~> 5.2)
-    - Protobuf (~> 3.1)
-  - GoogleAppMeasurement (5.3.0):
-    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
-    - GoogleUtilities/MethodSwizzler (~> 5.2)
-    - GoogleUtilities/Network (~> 5.2)
-    - "GoogleUtilities/NSData+zlib (~> 5.2)"
-    - nanopb (~> 0.3)
-  - GoogleMaps (2.7.0):
-    - GoogleMaps/Maps (= 2.7.0)
-  - GoogleMaps/Base (2.7.0)
-  - GoogleMaps/Maps (2.7.0):
+    - FirebaseMessaging (~> 4.1.9)
+  - FirebaseAnalytics (6.1.6):
+    - FirebaseCore (~> 6.4)
+    - FirebaseInstanceID (~> 4.2)
+    - GoogleAppMeasurement (= 6.1.6)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
+    - nanopb (= 0.3.9011)
+  - FirebaseAnalyticsInterop (1.4.0)
+  - FirebaseCore (6.4.0):
+    - FirebaseCoreDiagnostics (~> 1.0)
+    - FirebaseCoreDiagnosticsInterop (~> 1.0)
+    - GoogleUtilities/Environment (~> 6.2)
+    - GoogleUtilities/Logger (~> 6.2)
+  - FirebaseCoreDiagnostics (1.1.2):
+    - FirebaseCoreDiagnosticsInterop (~> 1.0)
+    - GoogleDataTransportCCTSupport (~> 1.0)
+    - GoogleUtilities/Environment (~> 6.2)
+    - GoogleUtilities/Logger (~> 6.2)
+    - nanopb (~> 0.3.901)
+  - FirebaseCoreDiagnosticsInterop (1.1.0)
+  - FirebaseInstanceID (4.2.7):
+    - FirebaseCore (~> 6.0)
+    - GoogleUtilities/Environment (~> 6.0)
+    - GoogleUtilities/UserDefaults (~> 6.0)
+  - FirebaseMessaging (4.1.9):
+    - FirebaseAnalyticsInterop (~> 1.3)
+    - FirebaseCore (~> 6.2)
+    - FirebaseInstanceID (~> 4.1)
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.2)
+    - GoogleUtilities/Environment (~> 6.2)
+    - GoogleUtilities/Reachability (~> 6.2)
+    - GoogleUtilities/UserDefaults (~> 6.2)
+    - Protobuf (>= 3.9.2, ~> 3.9)
+  - GoogleAppMeasurement (6.1.6):
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
+    - nanopb (= 0.3.9011)
+  - GoogleDataTransport (3.2.0)
+  - GoogleDataTransportCCTSupport (1.2.2):
+    - GoogleDataTransport (~> 3.2)
+    - nanopb (~> 0.3.901)
+  - GoogleMaps (3.6.0):
+    - GoogleMaps/Maps (= 3.6.0)
+  - GoogleMaps/Base (3.6.0)
+  - GoogleMaps/Maps (3.6.0):
     - GoogleMaps/Base
-  - GoogleUtilities/AppDelegateSwizzler (5.3.4):
+  - GoogleUtilities/AppDelegateSwizzler (6.3.2):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (5.3.4)
-  - GoogleUtilities/Logger (5.3.4):
+  - GoogleUtilities/Environment (6.3.2)
+  - GoogleUtilities/Logger (6.3.2):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (5.3.4):
+  - GoogleUtilities/MethodSwizzler (6.3.2):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (5.3.4):
+  - GoogleUtilities/Network (6.3.2):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (5.3.4)"
-  - GoogleUtilities/Reachability (5.3.4):
+  - "GoogleUtilities/NSData+zlib (6.3.2)"
+  - GoogleUtilities/Reachability (6.3.2):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (5.3.4):
+  - GoogleUtilities/UserDefaults (6.3.2):
     - GoogleUtilities/Logger
   - HanekeSwift (1.1)
-  - lottie-ios (3.0.4)
+  - lottie-ios (3.1.5)
   - MaterialTextField (1.0.1)
-  - nanopb (0.3.901):
-    - nanopb/decode (= 0.3.901)
-    - nanopb/encode (= 0.3.901)
-  - nanopb/decode (0.3.901)
-  - nanopb/encode (0.3.901)
-  - Nimble (8.0.1)
-  - Protobuf (3.6.1)
-  - Quick (2.1.0)
-  - SideMenu (5.0.2)
+  - nanopb (0.3.9011):
+    - nanopb/decode (= 0.3.9011)
+    - nanopb/encode (= 0.3.9011)
+  - nanopb/decode (0.3.9011)
+  - nanopb/encode (0.3.9011)
+  - Nimble (8.0.4)
+  - Protobuf (3.11.1)
+  - Quick (2.2.0)
+  - SideMenu (6.4.7)
   - SVProgressHUD (2.2.5)
-  - SwiftLint (0.27.0)
+  - SwiftLint (0.38.0)
   - Windless (0.1.5)
 
 DEPENDENCIES:
@@ -116,9 +134,13 @@ SPEC REPOS:
     - FirebaseAnalytics
     - FirebaseAnalyticsInterop
     - FirebaseCore
+    - FirebaseCoreDiagnostics
+    - FirebaseCoreDiagnosticsInterop
     - FirebaseInstanceID
     - FirebaseMessaging
     - GoogleAppMeasurement
+    - GoogleDataTransport
+    - GoogleDataTransportCCTSupport
     - GoogleMaps
     - GoogleUtilities
     - lottie-ios
@@ -143,32 +165,36 @@ CHECKOUT OPTIONS:
     :tag: v0.11.1
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  Crashlytics: 1448070c1d2731ab71ea7c3faf84ac0f69657287
-  Fabric: 4ac1cdfef3004ccd83ce0959b91eda8a6e37df72
-  FBSDKCoreKit: ba361d4a9d4dc29ff218822b849b22d4f869c7bb
-  FBSDKLoginKit: c6d0dc187bd076e370dffa10f7fc8a3562a6892c
-  Firebase: b48f9e653da971ecce5b8c749684bc8bb2d26bd3
-  FirebaseAnalytics: 63202d2665de4e6adcbdce189135255d8b5962ba
-  FirebaseAnalyticsInterop: e5f21be9af6548372e2f0815834ff909bff395a2
-  FirebaseCore: d16552f06821489ce1affe2e5e3e5593402ddfe3
-  FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
-  FirebaseMessaging: 0f14a264b0d7f867e8eff5d3556bc5d0d4e57888
-  GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
-  GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
-  GoogleUtilities: abb092d2c12e817fa3e0e7b274987dd72fb86ec3
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
+  FBSDKCoreKit: fa3ac4dc9b1afc9ae70b3de4dd704d1b6aeeed0d
+  FBSDKLoginKit: 0e4572e0279e477103b57978e3ea05fac1dd673d
+  Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
+  FirebaseAnalytics: 45f36d9c429fc91d206283900ab75390cd05ee8a
+  FirebaseAnalyticsInterop: d48b6ab67bcf016a05e55b71fc39c61c0cb6b7f3
+  FirebaseCore: 307ea2508df730c5865334e41965bd9ea344b0e5
+  FirebaseCoreDiagnostics: 511f4f3ed7d440bb69127e8b97c2bc8befae639e
+  FirebaseCoreDiagnosticsInterop: e9b1b023157e3a2fc6418b5cb601e79b9af7b3a0
+  FirebaseInstanceID: ebd2ea79ee38db0cb5f5167b17a0d387e1cc7b6e
+  FirebaseMessaging: e8d71368a5c579083da02203146c953f3386d503
+  GoogleAppMeasurement: dfe55efa543e899d906309eaaac6ca26d249862f
+  GoogleDataTransport: 8e9b210c97d55fbff306cc5468ff91b9cb32dcf5
+  GoogleDataTransportCCTSupport: ef79a4728b864946a8aafdbab770d5294faf3b5f
+  GoogleMaps: 82f8fe307193bb4de6ef6bf9e88f1d624b718f9d
+  GoogleUtilities: 547a86735c6f0ee30ad17e94df4fc21f616b71cb
   HanekeSwift: cb662a1f22b10ff3ff1d7b5030ae451da5d93831
-  lottie-ios: 55a2de40418f8de2b155efaba4d4d1a025a5c570
+  lottie-ios: 32bf84389337d86fbc8b12266e88452e0abf1dee
   MaterialTextField: f1a0786588e4d3610cb9bb62d2adbe9777cebbf9
-  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
-  Nimble: 45f786ae66faa9a709624227fae502db55a8bdd0
-  Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
-  Quick: 4be43f6634acfa727dd106bdf3929ce125ffa79d
-  SideMenu: e5094f0b2e7d9609e100a90ae69025abd994f882
+  nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  Nimble: 18d5360282923225d62b09d781f63abc1a0111fc
+  Protobuf: 20d79da7f20b5928b80043b05080b816e802659e
+  Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
+  SideMenu: 928a015669c3afc201e1fe3a87f1b0bc8993a664
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
+  SwiftLint: 4105f061f9812b214568b736dab580ab2c73a582
   Windless: c6b7d63ac3a0c7e6b241e316650d4605abf71894
 
-PODFILE CHECKSUM: 44af7f062b869388e68785642f411cd174fe3c26
+PODFILE CHECKSUM: a5e019c451dcdf0d22da1ea7504e3a9548c73ca0
 
 COCOAPODS: 1.8.0

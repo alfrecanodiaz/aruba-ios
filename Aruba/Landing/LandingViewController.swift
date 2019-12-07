@@ -47,13 +47,15 @@ class LandingViewController: UIViewController {
     */
 
     @IBAction func facebookAction(_ sender: AButton) {
-        AuthManager.loginWithFacebook(from: self) { [weak self] loginVM, error in
-            if let error = error {
-                print("Failed facebook login: ", error.localizedDescription)
+        ALoader.show()
+        AuthManager.loginWithFacebook(from: self) { [weak self] loginVM, errorString in
+            guard let self = self else { return }
+            ALoader.hide()
+            if let errorString = errorString {
+                AlertManager.showNotice(in: self, title: "Lo sentimos", description: errorString)
             } else {
-                guard let self = self, let loginVM = loginVM else { return }
                 let main = UIStoryboard(name: "Main", bundle: nil)
-                guard let dvc = main.instantiateViewController(withIdentifier: "BaseNavigationControllerID") as? BaseNavigationController, let rootVC = dvc.viewControllers.first as? HomeTableViewController else { return }
+                guard let dvc = main.instantiateViewController(withIdentifier: "BaseNavigationControllerID") as? BaseNavigationController else { return }
                 self.transition(to: dvc, completion: nil)
             }
         }

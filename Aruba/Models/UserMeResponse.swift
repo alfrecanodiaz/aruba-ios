@@ -16,9 +16,9 @@ struct UserMeResponse: Codable {
 struct UserMeData: Codable {
     let id: Int
     let firstName, lastName, email: String
-    let emailVerifiedAt, facebookID: JSONNull?
+    let emailVerifiedAt, facebookID: String?
     let enabled: Bool
-    let deletedAt: JSONNull?
+    let deletedAt: String?
     let createdAt, updatedAt: String
     let canMakeAppointment: Bool
     let avatarURL: String

@@ -23,7 +23,11 @@ class CompositionLayer: CALayer, KeypathSearchable {
   
   let matteType: MatteType?
   
-  var renderScale: CGFloat = 1
+  var renderScale: CGFloat = 1 {
+    didSet {
+      self.updateRenderScale()
+    }
+  }
   
   var matteLayer: CompositionLayer? {
     didSet {
@@ -108,10 +112,13 @@ class CompositionLayer: CALayer, KeypathSearchable {
   
   final func displayWithFrame(frame: CGFloat, forceUpdates: Bool) {
     transformNode.updateTree(frame, forceUpdates: forceUpdates)
-    displayContentsWithFrame(frame: frame, forceUpdates: forceUpdates)
-    maskLayer?.updateWithFrame(frame: frame, forceUpdates: forceUpdates)
-    contentsLayer.transform = transformNode.globalTransform
     let layerVisible = frame.isInRangeOrEqual(inFrame, outFrame)
+    /// Only update contents if current time is within the layers time bounds.
+    if layerVisible {
+      displayContentsWithFrame(frame: frame, forceUpdates: forceUpdates)
+      maskLayer?.updateWithFrame(frame: frame, forceUpdates: forceUpdates)
+    }
+    contentsLayer.transform = transformNode.globalTransform
     contentsLayer.opacity = transformNode.opacity
     contentsLayer.isHidden = !layerVisible
     layerDelegate?.frameUpdated(frame: frame)
@@ -133,6 +140,10 @@ class CompositionLayer: CALayer, KeypathSearchable {
   
   var keypathLayer: CALayer? {
     return contentsLayer
+  }
+  
+  func updateRenderScale() {
+    self.contentsScale = self.renderScale
   }
 }
 

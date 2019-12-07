@@ -24,6 +24,8 @@ class SideMenuTableViewController: UITableViewController {
 
     func setupView() {
         profileImageView.clipsToBounds = true
+        guard let url = URL(string: UserManager.shared.loggedUser?.avatarURL ?? "") else { return }
+        profileImageView.hnk_setImageFromURL(url)
     }
 
     private func setupTableView() {

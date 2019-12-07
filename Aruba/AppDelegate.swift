@@ -84,7 +84,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func configureSideMenu() {
-        SideMenuManager.default.menuAnimationBackgroundColor = .clear
+//        SideMenuManager.default.menuAnimationBackgroundColor = .clear
+//        SideMenuManager.default.
     }
 
     private func configureNavBar() {

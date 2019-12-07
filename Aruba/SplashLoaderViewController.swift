@@ -12,6 +12,11 @@ class SplashLoaderViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         checkUserLoggedIn()
     }
     
@@ -34,8 +39,8 @@ class SplashLoaderViewController: UIViewController {
             }
         } else {
             let window = UIApplication.shared.keyWindow
-            let main = UIStoryboard(name: "Start", bundle: nil)
-            guard let dvc = main.instantiateViewController(withIdentifier: "LandingViewControllerID") as? LandingViewController else { return }
+            let storyboard = UIStoryboard(name: "Start", bundle: nil)
+            guard let dvc = storyboard.instantiateViewController(withIdentifier: "LandingViewControllerID") as? LandingViewController else { return }
             window?.rootViewController = dvc
             window?.makeKeyAndVisible()
         }

@@ -49,6 +49,7 @@ struct ClientType: Codable {
 enum Name: String, Codable {
     case hombre = "Hombre"
     case mujer = "Mujer"
+    case niño = "Niño"
 }
 
 // MARK: Convenience initializers
@@ -133,3 +134,4 @@ extension ClientType {
         return String(data: data, encoding: .utf8)
     }
 }
+

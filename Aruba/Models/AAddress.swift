@@ -35,6 +35,14 @@ struct AddressViewModel {
     var addressFormatted: String {
         return name + ": " + street1 + ", " + street2 + " " + houseNumber + "\n" + reference
     }
+    
+    var isDefault: Bool {
+        return address.isDefault
+    }
+    
+    var id: Int {
+        return address.id
+    }
 
     init (address: AAddress) {
         self.address = address

@@ -13,6 +13,7 @@ class AlertManager {
     
     class func showNotice(in viewController: UIViewController, title: String, description: String, completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
+        alert.view.tintColor = Colors.ButtonHighlightedGreen
         let aceptar = UIAlertAction(title: "Entendido.", style: .cancel, handler: { _ in
             completion?()
         })

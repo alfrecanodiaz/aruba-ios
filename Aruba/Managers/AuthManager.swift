@@ -13,28 +13,6 @@ struct LoginViewModel {
     let user: User
 }
 
-class BaseError: Error {
-    
-}
-
-class AuthError: BaseError {
-    
-}
-
-class LoginError: AuthError {
-    
-    enum Cause {
-        case wrongCredentials
-        
-        var description: String {
-            switch self {
-            case .wrongCredentials:
-                return "Credenciales invalidas"
-            }
-        }
-    }
-}
-
 final class AuthManager {
     
     static let fbLoginManager: LoginManager = {
@@ -57,6 +35,7 @@ final class AuthManager {
     }
     
     static func setCurrentAccessToken(token: String?) {
+        HTTPClient.shared.setAccessToken(token: token)
         UserDefaults.standard.set(token, forKey: UserAccessTokenKey)
     }
     
@@ -105,41 +84,40 @@ final class AuthManager {
         }
     }
     
-    static func registerFacebook(isRegister: Bool, token: String,
-                                 completion: @escaping (LoginViewModel?, LoginError?) -> Void) {
+    static func registerFacebook(token: String,
+                                 completion: @escaping (LoginViewModel?, HTTPClientError?) -> Void) {
         let data: [String: Any] = ["facebook_token": token]
         HTTPClient.shared.request(method: .POST, path: .userRegisterFacebook, data: data) { (loginResponse: UserLoginResponse?, error) in
             if let response = loginResponse {
-                print(response)
                 let loginVM = LoginViewModel(user: response.data.user)
                 AuthManager.setUserLogged(isLogged: true)
                 AuthManager.setCurrentAccessToken(token: response.data.accessToken)
                 UserManager.shared.loggedUser = response.data.user
                 completion(loginVM, nil)
             } else {
-                print(error?.localizedDescription ?? "")
-                completion(nil, error as? LoginError)
+                completion(nil, error)
             }
         }
     }
     
-    static func loginWithFacebook(from viewController: UIViewController, completion: ((_: LoginViewModel?, _: Error?) -> Void)? = nil) {
+    static func loginWithFacebook(from viewController: UIViewController, completion: ((_: LoginViewModel?, _: String?) -> Void)? = nil) {
+        AuthManager.fbLoginManager.logOut()
         AuthManager.fbLoginManager.logIn(permissions: ["public_profile", "email"], from: viewController) { (result, error) in
             if let error = error {
-                print(error.localizedDescription)
+                completion?(nil, error.localizedDescription)
             } else {
                 guard let result = result else { return }
                 if result.isCancelled {
-                    print("Canceled")
+                    completion?(nil, "Cancelado por el usuario.")
                 } else {
                     guard let token = result.token else { return }
                     print("fb token: ", token.tokenString)
                     
-                    AuthManager.registerFacebook(isRegister: false, token: token.tokenString,
-                                                 completion: { (loginVM, error) in
+                    AuthManager.registerFacebook(token: token.tokenString,
+                                                 completion: { (loginVM: LoginViewModel?, error) in
                                                     if let error = error {
                                                         print(error.localizedDescription)
-                                                        completion?(nil, error)
+                                                        completion?(nil, error.message)
                                                     } else {
                                                         completion?(loginVM, nil)
                                                     }
@@ -152,8 +130,6 @@ final class AuthManager {
     
     static func fetchUser(completion: @escaping (UserMeResponse?, HTTPClientError?) -> Void) {
         HTTPClient.shared.request(method: .POST, path: .user) { (response: UserMeResponse?, error) in
-            print(response, error)
-            
             completion(response, error)
         }
     }

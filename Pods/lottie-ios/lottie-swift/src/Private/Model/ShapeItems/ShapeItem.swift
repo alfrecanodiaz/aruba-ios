@@ -61,6 +61,11 @@ enum ShapeType: String, Codable {
   case stroke = "st"
   case trim = "tm"
   case transform = "tr"
+  case unknown
+  
+  public init(from decoder: Decoder) throws {
+    self = try ShapeType(rawValue: decoder.singleValueContainer().decode(RawValue.self)) ?? .unknown
+  }
 }
 
 /// An item belonging to a Shape Layer
@@ -72,15 +77,19 @@ class ShapeItem: Codable {
   /// The type of shape
   let type: ShapeType
   
+  let hidden: Bool
+  
   private enum CodingKeys : String, CodingKey {
     case name = "nm"
     case type = "ty"
+    case hidden = "hd"
   }
   
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: ShapeItem.CodingKeys.self)
     self.name = try container.decodeIfPresent(String.self, forKey: .name) ?? "Layer"
     self.type = try container.decode(ShapeType.self, forKey: .type)
+    self.hidden = try container.decodeIfPresent(Bool.self, forKey: .hidden) ?? false
   }
 
 }
