@@ -10,9 +10,8 @@ import UIKit
 
 class ServiceSelectionViewController: UIViewController {
 
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var countLbl: UILabel!
-    @IBOutlet weak var genderLbl: UILabel!
+    @IBOutlet weak var clientLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var totalLbl: UILabel!
     @IBOutlet weak var subCategorySegmentedControl: UISegmentedControl!
@@ -23,24 +22,18 @@ class ServiceSelectionViewController: UIViewController {
     }
 
     struct Segues {
-        static let DateAssignments = "pushDateAssignmentSegue"
+        static let DateSelection = "showDateSelectionSegue"
         static let Popup = "presentPopup"
         static let ProductPopup = "showProductPopover"
     }
-
-
-    private var selectedIndexPaths: [IndexPath] = []
-    private var currentPerson: Person!
-    private var remainingPersons: [Person] = []
-    var persons: [Person]!
     
     var category: CategoryViewModel!
-
-    var schedulePersons: [Person] = []
     var services: [[Service]] = []
-    
+    var clientName: String = ""
     var servicesDisplaying: [Service] = []
-    var selectedServices: [[IndexPath]] = []
+    var addressId: Int!
+    
+    private var selectedServices: [[IndexPath]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,11 +47,16 @@ class ServiceSelectionViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         subCategorySegmentedControl.removeAllSegments()
+        
         for cat in category.subCategories.reversed() where cat.enabled {
             subCategorySegmentedControl.insertSegment(withTitle: cat.title.uppercased(), at: 0, animated: false)
             services.insert([], at: 0)
             selectedServices.insert([], at: 0)
         }
+        
+        clientLabel.text = "¡Hola \(clientName)!"
+        categoryLabel.text = "Estas en la categoria \(category.title.uppercased())"
+        
         continueBtn.setEnabled(false)
     }
     
@@ -96,10 +94,17 @@ class ServiceSelectionViewController: UIViewController {
 
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Segues.DateAssignments {
+        if segue.identifier == Segues.DateSelection {
             let dvc = segue.destination as! DateAssignmentViewController
-            dvc.scheduleData = ScheduleData(persons: schedulePersons)
-
+            dvc.addressId = addressId
+            
+            var servicesIds:[Int] = []
+            for (index, selectedService) in selectedServices.enumerated() {
+                servicesIds += selectedService.map({services[index][$0.row].id})
+            }
+            dvc.servicesIds = servicesIds
+            dvc.category = category
+            dvc.clientName = clientName
         }
         if segue.identifier == Segues.Popup {
 
@@ -107,15 +112,7 @@ class ServiceSelectionViewController: UIViewController {
     }
 
     private func setupView(for person: Person) {
-        imageView.image = person.gender.image
-        genderLbl.text = person.gender.rawValue
-        let currentGender = person.gender
-        let sameGenderCount = persons.filter({$0.gender == currentGender}).count
-        let remainingSameGenderCount = remainingPersons.filter({$0.gender == currentGender }).count
-        let currentCount = (remainingSameGenderCount - sameGenderCount)*(-1)
-        selectedIndexPaths = []
         tableView.reloadData()
-        countLbl.text = "\(currentCount)"
         continueBtn.setEnabled(false)
         calculateTotal()
     }
@@ -181,6 +178,18 @@ extension ServiceSelectionViewController: UITableViewDataSource, UITableViewDele
         formatter.locale = Locale(identifier: "es_PY")
         totalLbl.text = formatter.string(from: NSNumber(value: total))
     }
+    
+    private func updateScreenForServiceUpdate() {
+        var hasSelection: Bool = false
+        for service in selectedServices {
+            if hasSelection {
+                break
+            }
+            hasSelection = !service.isEmpty
+        }
+        continueBtn.setEnabled(hasSelection)
+        calculateTotal()
+    }
 
 }
 
@@ -200,15 +209,7 @@ extension ServiceSelectionViewController: ServiceSelectionTableViewCellDelegate 
             selectedServices[selectedSegment].remove(at: index)
         }
 
-        var hasSelection: Bool = false
-        for service in selectedServices{
-            if hasSelection {
-                break
-            }
-            hasSelection = !service.isEmpty
-        }
-        continueBtn.setEnabled(hasSelection)
-        calculateTotal()
+        updateScreenForServiceUpdate()
     }
 }
 
@@ -218,8 +219,8 @@ extension ServiceSelectionViewController: ProductPopupDelegate {
         if !selectedServices[segmentedIndex].contains(indexPath) {
             selectedServices[segmentedIndex].append(indexPath)
         }
-        calculateTotal()
         tableView.reloadRows(at: [indexPath], with: .automatic)
+        updateScreenForServiceUpdate()
     }
 
 }

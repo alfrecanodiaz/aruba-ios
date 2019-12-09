@@ -21,7 +21,7 @@ struct ServiceCategory: Codable {
     let color, inactiveText: String?
     let order: Int?
     let imageURL: String
-    let clientTypes: [ClientType]
+    let clientTypes: [ClientType]?
     let subCategories: [ServiceCategory]?
 
     enum CodingKeys: String, CodingKey {

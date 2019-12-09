@@ -12,7 +12,7 @@ protocol ProductPopupDelegate: class {
     func didSelectService(service: Service, segmentedIndex: Int, indexPath: IndexPath)
 }
 
-class ProductDescriptionPopupTableViewController: BaseTableViewController {
+class ProductDescriptionPopupTableViewController: APopoverTableViewController {
 
     @IBOutlet weak var productNameLbl: UILabel!
     @IBOutlet weak var productImageView: UIImageView!
@@ -45,7 +45,7 @@ class ProductDescriptionPopupTableViewController: BaseTableViewController {
         guard let url = URL(string: service.imageURL) else {
             return
         }
-        productImageView.hnk_setImageFromURL(url)
+        productImageView.hnk_setImageFromURL(url, placeholder: Constants.imagePlaceholder)
     }
 
     @IBAction func selectAction(_ sender: UIButton) {

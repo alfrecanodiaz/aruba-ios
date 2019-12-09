@@ -20,9 +20,20 @@ class ProfessionalTableViewCell: UITableViewCell {
     @IBOutlet weak var plusButton: UIButton!
     @IBOutlet weak var profileImageView: ARoundImage!
     
+    func configure(professional: Professional) {
+        nameLbl.text = professional.firstName + " " + professional.lastName
+        guard let url = URL(string: professional.avatarURL) else { return }
+        profileImageView.hnk_setImageFromURL(url, placeholder: Constants.userPlaceholder)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        profileImageView.image = nil
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

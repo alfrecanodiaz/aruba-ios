@@ -20,14 +20,22 @@ struct UserAddressStoreSuccessResponse: Codable {
 
 struct AAddress: Codable {
     let id: Int
-    let name: String
-    let lat, lng: Double
-    let street1, street2, references, number: String
-    let isDefault: Bool
+    var name: String
+    var lat, lng: Double
+    var street1, street2, references, number: String
+    var isDefault: Bool
 
     enum CodingKeys: String, CodingKey {
         case id, name, lat, lng, street1, street2, references, number
         case isDefault = "is_default"
+    }
+    
+    mutating func setNonDefault() {
+        isDefault = false
+    }
+    
+    mutating func setDefault() {
+        isDefault = true
     }
 }
 

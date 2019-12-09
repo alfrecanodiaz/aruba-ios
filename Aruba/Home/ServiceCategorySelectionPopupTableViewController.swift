@@ -27,12 +27,7 @@ struct ServiceCategorySelectionData {
 class ServiceCategorySelectionPopupTableViewController: APopoverTableViewController {
     
     @IBOutlet weak var serviceCategoryTitleLabel: UILabel!
-    @IBOutlet weak var closeView: UIView! {
-        didSet {
-            closeView.clipsToBounds = true
-            closeView.layer.cornerRadius = 12.5
-        }
-    }
+    @IBOutlet weak var closeView: UIView!
     
     @IBOutlet weak var addressTextField: ATextField! {
         didSet {

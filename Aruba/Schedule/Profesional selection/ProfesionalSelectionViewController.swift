@@ -8,10 +8,6 @@
 
 import UIKit
 
-struct Professional {
-
-}
-
 class ProfesionalSelectionViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView! {
@@ -32,8 +28,6 @@ class ProfesionalSelectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        professionals = [Professional(), Professional(), Professional(), Professional(), Professional(), Professional(), Professional(), Professional()]
         totalLbl.text = scheduleData.totalPriceString()
         personLbl.text = person.gender.rawValue + " " + String(describing: person.index)
 

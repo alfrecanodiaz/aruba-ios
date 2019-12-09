@@ -39,6 +39,8 @@
 		3B39509623954B3A004FD9B8 /* ServiceCategoryListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B39509523954B3A004FD9B8 /* ServiceCategoryListResponse.swift */; };
 		3B395098239561C1004FD9B8 /* UserMeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B395097239561C1004FD9B8 /* UserMeResponse.swift */; };
 		3B456CA2239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B456CA1239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift */; };
+		3B639522239EB376005E0CB4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B639521239EB376005E0CB4 /* Constants.swift */; };
+		3B639524239ED243005E0CB4 /* FilterProfessionalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B639523239ED243005E0CB4 /* FilterProfessionalResponse.swift */; };
 		3B67BA4022690FC500871F77 /* ProductDescriptionPopupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B67BA3F22690FC500871F77 /* ProductDescriptionPopupTableViewController.swift */; };
 		3B6CE45122961F6500FB19AC /* ServicesListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CE45022961F6500FB19AC /* ServicesListResponse.swift */; };
 		3B6CE453229AAD4300FB19AC /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CE452229AAD4300FB19AC /* LoginTableViewController.swift */; };
@@ -149,6 +151,8 @@
 		3B39509523954B3A004FD9B8 /* ServiceCategoryListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryListResponse.swift; sourceTree = "<group>"; };
 		3B395097239561C1004FD9B8 /* UserMeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMeResponse.swift; sourceTree = "<group>"; };
 		3B456CA1239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategorySelectionPopupTableViewController.swift; sourceTree = "<group>"; };
+		3B639521239EB376005E0CB4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3B639523239ED243005E0CB4 /* FilterProfessionalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterProfessionalResponse.swift; sourceTree = "<group>"; };
 		3B67BA3F22690FC500871F77 /* ProductDescriptionPopupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionPopupTableViewController.swift; sourceTree = "<group>"; };
 		3B6CE45022961F6500FB19AC /* ServicesListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesListResponse.swift; sourceTree = "<group>"; };
 		3B6CE452229AAD4300FB19AC /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
@@ -309,6 +313,7 @@
 				3BD43D022258608B00AC3411 /* Extensions */,
 				3B28FFF32259516A004268CB /* Base */,
 				3B069B792396E7C9003B5479 /* SplashLoaderViewController.swift */,
+				3B639521239EB376005E0CB4 /* Constants.swift */,
 			);
 			path = Aruba;
 			sourceTree = "<group>";
@@ -512,6 +517,7 @@
 				3B6CE456229B660D00FB19AC /* UserAddressListResponse.swift */,
 				3B39509523954B3A004FD9B8 /* ServiceCategoryListResponse.swift */,
 				3B395097239561C1004FD9B8 /* UserMeResponse.swift */,
+				3B639523239ED243005E0CB4 /* FilterProfessionalResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -902,6 +908,7 @@
 				3B7EC0BE225D679700ED799D /* ARoundView.swift in Sources */,
 				3BD43CFD22585B9200AC3411 /* RegisterTableViewController.swift in Sources */,
 				3B7EC0C3225D6EE700ED799D /* TransparentPopupViewController.swift in Sources */,
+				3B639524239ED243005E0CB4 /* FilterProfessionalResponse.swift in Sources */,
 				3B67BA4022690FC500871F77 /* ProductDescriptionPopupTableViewController.swift in Sources */,
 				3B069B7A2396E7C9003B5479 /* SplashLoaderViewController.swift in Sources */,
 				3B02964F228EF6E600D08789 /* DefaultResponse.swift in Sources */,
@@ -916,6 +923,7 @@
 				3B7EC0B1225C21D500ED799D /* PeopleQuantityView.swift in Sources */,
 				3B7EC0BC225C352300ED799D /* ServiceSelectionViewController.swift in Sources */,
 				3B28FFEE22594892004268CB /* APopoverTableViewController.swift in Sources */,
+				3B639522239EB376005E0CB4 /* Constants.swift in Sources */,
 				3B048EFD226D08AF00EBE6FD /* Person.swift in Sources */,
 				3B048EFF226D08BA00EBE6FD /* ScheduleData.swift in Sources */,
 				3B6CE45122961F6500FB19AC /* ServicesListResponse.swift in Sources */,
@@ -1120,7 +1128,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aruba/Aruba.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5.0;
+				CURRENT_PROJECT_VERSION = 6.0;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = Aruba/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1145,7 +1153,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aruba/Aruba.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5.0;
+				CURRENT_PROJECT_VERSION = 6.0;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = Aruba/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

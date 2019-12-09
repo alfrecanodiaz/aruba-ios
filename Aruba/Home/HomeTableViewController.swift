@@ -31,7 +31,7 @@ struct CategoryViewModel {
         } else {
             subCategories = []
         }
-        self.clientTypes = category.clientTypes
+        self.clientTypes = category.clientTypes ?? []
         self.id = category.id
     }
 }
@@ -54,7 +54,9 @@ class HomeTableViewController: BaseTableViewController {
     var loadedAddresses: Bool = false
     var loadedServiceCategories: Bool = false
     var selectedCategory: CategoryViewModel?
-
+    var selectedClientName: String = ""
+    var selectedAddressId: Int?
+    
     struct Cells {
         static let Category = "homeCategoryCell"
     }
@@ -68,6 +70,11 @@ class HomeTableViewController: BaseTableViewController {
         fetchData()
     }
     
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        fetchData()
+//    }
+//    
     private func fetchData() {
         fetchServiceCategories()
         if AuthManager.isLogged() {
@@ -204,7 +211,7 @@ class HomeTableViewController: BaseTableViewController {
     
     
     private func showServiceCategoryPopup(serviceCategory: CategoryViewModel) {
-        guard let defaultAddress = userAddressesViewModel.filter({$0.isDefault}).first else { return }
+        guard let defaultAddress = UserManager.shared.loggedUser?.addresses.filter({$0.isDefault}).first else { return }
         
         var clientTypes: [ClientType] = []
         
@@ -243,7 +250,7 @@ class HomeTableViewController: BaseTableViewController {
         }
 
         
-        let data = ServiceCategorySelectionData(address: defaultAddress.addressFormatted,
+        let data = ServiceCategorySelectionData(address: AddressViewModel(address: defaultAddress).addressFormatted,
                                                 addressId: defaultAddress.id,
                                                 clientName: UserManager.shared.clientName,
                                                 clientType: nil,
@@ -274,6 +281,8 @@ class HomeTableViewController: BaseTableViewController {
         if segue.identifier == Segues.ScheduleService,
             let dvc = segue.destination as? ServiceSelectionViewController {
             dvc.category = selectedCategory
+            dvc.clientName = selectedClientName
+            dvc.addressId = selectedAddressId
         }
     }
     
@@ -296,6 +305,8 @@ extension HomeTableViewController: ServiceCategorySelectionDelegate {
             }
         }
         selectedCategory = data.category
+        selectedClientName = data.clientName
+        selectedAddressId = data.addressId
         selectedCategory?.subCategories = subCategoriesForSelectedClient
         removeBlackBackgroundView()
         performSegue(withIdentifier: Segues.ScheduleService, sender: self)

@@ -50,6 +50,7 @@ class HTTPClient {
         case user = "user/me"
         case serviceCategoryList = "serviceCategory/list"
         case servicesList = "service/list"
+        case professionalsFilter = "user/professional/list"
     }
 
     lazy var sessionManager: SessionManager = {

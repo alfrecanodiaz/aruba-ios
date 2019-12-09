@@ -39,24 +39,7 @@ class PeopleQuantiySelectionViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.ServiceSelection, let dvc = segue.destination as? ServiceSelectionViewController {
-            var persons: [Person] = []
-            var count = 0
-            while count < womenView.currentCount {
-                persons.append(Person(gender: .women, index: count + 1))
-                count += 1
-            }
-            count = 0
-            while count < menView.currentCount {
-                persons.append(Person(gender: .man, index: count + 1))
-                count += 1
-            }
-            count = 0
-            while count < childrenView.currentCount {
-                persons.append(Person(gender: .children, index: count + 1))
-                count += 1
-            }
 
-            dvc.persons = persons
         }
     }
 
