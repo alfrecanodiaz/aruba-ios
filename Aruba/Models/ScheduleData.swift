@@ -11,7 +11,7 @@ struct ScheduleData {
     let persons: [Person]
 
     func totalPriceString() -> String? {
-        var total: Double = 0
+        var total: Int = 0
 
         for person in self.persons {
             for product in person.scheduleProducts {

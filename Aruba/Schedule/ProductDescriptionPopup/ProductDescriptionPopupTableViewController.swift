@@ -8,15 +8,8 @@
 
 import UIKit
 
-struct Product {
-    let name: String
-    let description: String
-    let image: UIImage
-    let price: Double
-}
-
 protocol ProductPopupDelegate: class {
-    func didSelectProduct(product: Product)
+    func didSelectService(service: Service, segmentedIndex: Int, indexPath: IndexPath)
 }
 
 class ProductDescriptionPopupTableViewController: BaseTableViewController {
@@ -27,8 +20,10 @@ class ProductDescriptionPopupTableViewController: BaseTableViewController {
 
     weak var delegate: ProductPopupDelegate?
 
-    var product: Product!
-
+    var service: Service!
+    var segmentedIndex: Int!
+    var indexPath: IndexPath!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -39,15 +34,23 @@ class ProductDescriptionPopupTableViewController: BaseTableViewController {
         //tableView Setup
         tableView.tableFooterView = UIView(frame: CGRect.zero)
 
-        //Product Setup
-        productNameLbl.text = product.name
-        productImageView.image = product.image
-        productDescriptionTextView.text = product.description
+        //Service Setup
+        productNameLbl.text = service.displayName
+        
+        let htmlData = NSString(string: service.description).data(using: String.Encoding.unicode.rawValue)
+        let options = [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html]
+        let attributedString = try! NSAttributedString(data: htmlData!, options: options, documentAttributes: nil)
+        
+        productDescriptionTextView.attributedText = attributedString
+        guard let url = URL(string: service.imageURL) else {
+            return
+        }
+        productImageView.hnk_setImageFromURL(url)
     }
 
     @IBAction func selectAction(_ sender: UIButton) {
         self.dismiss(animated: true) {
-            self.delegate?.didSelectProduct(product: self.product)
+            self.delegate?.didSelectService(service: self.service, segmentedIndex: self.segmentedIndex, indexPath: self.indexPath)
         }
     }
 }

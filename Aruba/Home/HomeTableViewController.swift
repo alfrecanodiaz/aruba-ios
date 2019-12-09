@@ -15,14 +15,24 @@ struct CategoryViewModel {
     let color: UIColor
     let enabled: Bool
     let inactiveText: String?
+    var subCategories: [CategoryViewModel]
+    let clientTypes: [ClientType]
+    let id: Int
     
     init (category: ServiceCategory) {
         self.image = nil
         self.imageURL = category.imageURL
-        self.title = category.name
+        self.title = category.displayName
         self.color = UIColor(hexRGB: category.color ?? "") ?? .green
         self.enabled = category.enabled
         self.inactiveText = category.inactiveText
+        if let subCategories = category.subCategories {
+            self.subCategories = subCategories.map({CategoryViewModel(category: $0)})
+        } else {
+            subCategories = []
+        }
+        self.clientTypes = category.clientTypes
+        self.id = category.id
     }
 }
 
@@ -43,7 +53,8 @@ class HomeTableViewController: BaseTableViewController {
     
     var loadedAddresses: Bool = false
     var loadedServiceCategories: Bool = false
-    
+    var selectedCategory: CategoryViewModel?
+
     struct Cells {
         static let Category = "homeCategoryCell"
     }
@@ -71,6 +82,7 @@ class HomeTableViewController: BaseTableViewController {
             if let addressList = addressList {
                 self.userAddressesViewModel = addressList.data.map({AddressViewModel(address: $0)})
                 self.loadedAddresses = true
+                UserManager.shared.loggedUser?.addresses = addressList.data
             }
             self.handleFetchCompletion()
         }
@@ -150,9 +162,11 @@ class HomeTableViewController: BaseTableViewController {
         guard AuthManager.isLogged() else {
             let alert = UIAlertController(title: "Lo sentimos", message: "Debes registrarte para poder acceder a este servicio.", preferredStyle: .alert)
             let register = UIAlertAction(title: "Registrarme", style: .default) { (action) in
-                
+                let loginVC = UIStoryboard(name: "Start", bundle: nil).instantiateViewController(withIdentifier: "LandingViewControllerID") as! LandingViewController
+                self.transition(to: loginVC, completion: nil)
             }
             alert.addAction(register)
+            alert.view.tintColor = Colors.ButtonGreen
             let cancel = UIAlertAction(title: "Aceptar", style: .cancel, handler: nil)
             alert.addAction(cancel)
             present(alert, animated: true, completion: nil)
@@ -166,14 +180,75 @@ class HomeTableViewController: BaseTableViewController {
             present(addAddressVC, animated: true, completion: nil)
             return
         }
+        
+        // TODO: Move to next screen
+//        guard serviceCategory.subCategories.isEmpty else {
+//            let alert = UIAlertController(title: "Elige la sub-categoria", message: nil, preferredStyle: .actionSheet)
+//            for cat in serviceCategory.subCategories {
+//                if cat.enabled {
+//                    alert.addAction(UIAlertAction(title: cat.title, style: .default, handler: { (_) in
+//                        self.showServiceCategoryPopup(serviceCategory: cat)
+//                    }))
+//                } else {
+//                    alert.addAction(UIAlertAction(title: cat.title + " (\(cat.inactiveText ?? ""))" , style: .cancel, handler: nil))
+//                }
+//            }
+//            alert.view.tintColor = Colors.ButtonGreen
+//            alert.addAction(UIAlertAction(title: "Atras", style: .cancel, handler: nil))
+//            present(alert, animated: true, completion: nil)
+//            return
+//        }
 
-       showServiceCategoryPopup()
+        showServiceCategoryPopup(serviceCategory: serviceCategory)
     }
     
     
-    private func showServiceCategoryPopup() {
+    private func showServiceCategoryPopup(serviceCategory: CategoryViewModel) {
         guard let defaultAddress = userAddressesViewModel.filter({$0.isDefault}).first else { return }
-        let data = ServiceCategorySelectionData(address: defaultAddress.addressFormatted, addressId: defaultAddress.id, clientName: UserManager.shared.clientName, clientType: nil)
+        
+        var clientTypes: [ClientType] = []
+        
+        if serviceCategory.subCategories.isEmpty {
+            clientTypes = serviceCategory.clientTypes
+        } else {
+            for subC in serviceCategory.subCategories {
+                if subC.clientTypes.contains(where: { (ct) -> Bool in
+                    ct.name == .mujer
+                }) {
+                    if !clientTypes.contains(where: { (ct) -> Bool in
+                        return ct.name == .mujer
+                    }) {
+                        clientTypes.append(ClientType(id: 1, name: Name.mujer, displayName: Name.mujer))
+                    }
+                }
+                if subC.clientTypes.contains(where: { (ct) -> Bool in
+                    ct.name == .hombre
+                }) {
+                    if !clientTypes.contains(where: { (ct) -> Bool in
+                        return ct.name == .hombre
+                    }) {
+                        clientTypes.append(ClientType(id: 2, name: Name.hombre, displayName: Name.hombre))
+                    }
+                }
+                if subC.clientTypes.contains(where: { (ct) -> Bool in
+                    ct.name == .niño
+                }) {
+                    if !clientTypes.contains(where: { (ct) -> Bool in
+                        return ct.name == .niño
+                    }) {
+                        clientTypes.append(ClientType(id: 3, name: Name.niño, displayName: Name.niño))
+                    }
+                }
+            }
+        }
+
+        
+        let data = ServiceCategorySelectionData(address: defaultAddress.addressFormatted,
+                                                addressId: defaultAddress.id,
+                                                clientName: UserManager.shared.clientName,
+                                                clientType: nil,
+                                                category: serviceCategory,
+                                                availableClientTypes: clientTypes)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let popup = storyboard.instantiateViewController(withIdentifier: "ServiceCategorySelectionPopupTableViewControllerID") as? ServiceCategorySelectionPopupTableViewController else { return }
         popup.delegate = self
@@ -195,6 +270,13 @@ class HomeTableViewController: BaseTableViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.ScheduleService,
+            let dvc = segue.destination as? ServiceSelectionViewController {
+            dvc.category = selectedCategory
+        }
+    }
+    
 }
 
 // MARK: AddAddressDelegate
@@ -206,8 +288,17 @@ extension HomeTableViewController: AddAddressDelegate {
 
 // MARK: ServiceCategorySelectionDelegate
 extension HomeTableViewController: ServiceCategorySelectionDelegate {
-    func didPressContinue() {
+    func didPressContinue(data: ServiceCategorySelectionData) {
+        let selectedClientType = data.clientType
+        let subCategoriesForSelectedClient = data.category.subCategories.filter { (cat) -> Bool in
+            return cat.clientTypes.contains { (ct) -> Bool in
+                return selectedClientType?.name == ct.name
+            }
+        }
+        selectedCategory = data.category
+        selectedCategory?.subCategories = subCategoriesForSelectedClient
         removeBlackBackgroundView()
+        performSegue(withIdentifier: Segues.ScheduleService, sender: self)
     }
     
     func didPressCancel() {

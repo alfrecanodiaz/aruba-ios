@@ -25,6 +25,7 @@ extension UIViewController {
 
         UIView.transition(with: window, duration: 0.3, options: .transitionCrossDissolve, animations: {
             window.rootViewController = viewController
+            window.makeKeyAndVisible()
         }, completion: { _ in
             completion?()
         })

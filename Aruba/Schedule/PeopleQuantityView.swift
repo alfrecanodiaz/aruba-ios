@@ -46,16 +46,16 @@ class PeopleQuantityView: UIView, NibLoadable {
         minusBtn.backgroundColor = Colors.ButtonGray
     }
 
-    func configure(for selectionType: Person.Gender) {
-        switch selectionType {
-        case .children:
-            configureForChildren()
-        case .man:
-            configureForMen()
-        case .women:
-            configureForWoman()
-        }
-    }
+//    func configure(for selectionType: Person.Gender) {
+//        switch selectionType {
+//        case .children:
+//            configureForChildren()
+//        case .man:
+//            configureForMen()
+//        case .women:
+//            configureForWoman()
+//        }
+//    }
 
     func configureForChildren() {
         imageView.image = #imageLiteral(resourceName: "children")

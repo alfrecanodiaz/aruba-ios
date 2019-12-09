@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Lato-Bold.ttf">
-            <string>Lato-Bold</string>
-        </array>
         <array key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
         </array>
@@ -24,28 +19,32 @@
             <rect key="frame" x="0.0" y="0.0" width="417" height="97"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="417" height="96.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="417" height="97"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jO3-WF-zTK">
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jO3-WF-zTK">
                         <rect key="frame" x="14" y="33" width="51" height="31"/>
                         <color key="onTintColor" red="0.47058823529999999" green="0.86666666670000003" blue="0.80392156859999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <connections>
                             <action selector="switchAction:" destination="KGk-i7-Jjw" eventType="valueChanged" id="tvP-4h-1Xi"/>
                         </connections>
                     </switch>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lavado Normal" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0j-UN-xTI">
-                        <rect key="frame" x="73" y="25" width="93" height="46.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lavado Normal" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0j-UN-xTI">
+                        <rect key="frame" x="73" y="25" width="93" height="47"/>
                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a96-BM-F68">
-                        <rect key="frame" x="334" y="43" width="63" height="11"/>
-                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="9"/>
+                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a96-BM-F68">
+                        <rect key="frame" x="387" y="36" width="30" height="25"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="H0W-iQ-t8Y"/>
+                            <constraint firstAttribute="width" constant="30" id="unW-xi-aYb"/>
+                        </constraints>
                         <inset key="contentEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
                         <inset key="titleEdgeInsets" minX="2" minY="0.0" maxX="2" maxY="0.0"/>
-                        <state key="normal" title="QUE INCLUYE">
+                        <state key="normal" image="ic_info_outline">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                         <connections>
@@ -62,7 +61,7 @@
                     <constraint firstItem="l0j-UN-xTI" firstAttribute="leading" secondItem="jO3-WF-zTK" secondAttribute="trailing" constant="10" id="eps-d5-fiC"/>
                     <constraint firstItem="l0j-UN-xTI" firstAttribute="centerY" secondItem="jO3-WF-zTK" secondAttribute="centerY" id="lcR-lB-COl"/>
                     <constraint firstAttribute="bottom" secondItem="l0j-UN-xTI" secondAttribute="bottom" constant="25" id="lkP-0i-qu6"/>
-                    <constraint firstAttribute="trailing" secondItem="a96-BM-F68" secondAttribute="trailing" constant="20" id="vLI-CI-vSi"/>
+                    <constraint firstAttribute="trailing" secondItem="a96-BM-F68" secondAttribute="trailing" id="vLI-CI-vSi"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -74,4 +73,7 @@
             <point key="canvasLocation" x="202.17391304347828" y="168.41517857142856"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ic_info_outline" width="96" height="96"/>
+    </resources>
 </document>

@@ -54,9 +54,14 @@ class HTTPClient {
 
     lazy var sessionManager: SessionManager = {
         let configuration = URLSessionConfiguration.default
-        configuration.httpAdditionalHeaders = ["Content-Type": "application/json", "Accept": "application/json"]
+
         if AuthManager.isLogged() {
-            configuration.httpAdditionalHeaders = ["Authorization": "Bearer \(AuthManager.getCurrentAccessToken() ?? "")"]
+            configuration.httpAdditionalHeaders = ["Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": "Bearer \(AuthManager.getCurrentAccessToken() ?? "")"]
+        } else {
+            configuration.httpAdditionalHeaders = ["Content-Type": "application/json",
+                                                   "Accept": "application/json"]
         }
         let sessionManager = SessionManager(configuration: configuration)
         return sessionManager
@@ -64,8 +69,14 @@ class HTTPClient {
     
     func setAccessToken(token: String?) {
         let configuration = URLSessionConfiguration.default
-        configuration.httpAdditionalHeaders = ["Content-Type": "application/json", "Accept": "application/json"]
-        configuration.httpAdditionalHeaders = ["Authorization": "Bearer \(token ?? "")"]
+        if let token = token {
+            configuration.httpAdditionalHeaders = ["Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": "Bearer \(token)"]
+        } else {
+            configuration.httpAdditionalHeaders = ["Content-Type": "application/json",
+                                                   "Accept": "application/json"]
+        }
         let sessionManager = SessionManager(configuration: configuration)
         HTTPClient.shared.sessionManager = sessionManager
     }

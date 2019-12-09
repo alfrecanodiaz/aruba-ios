@@ -24,14 +24,14 @@ class PeopleQuantiySelectionViewController: UIViewController {
     }
 
     func configureView() {
-        title = "Cantidad De Personas"
-        womenView.configure(for: .women)
-        womenView.delegate = self
-        menView.configure(for: .man)
-        menView.delegate = self
-        childrenView.configure(for: .children)
-        childrenView.delegate = self
-        nextBtn.setEnabled(false)
+//        title = "Cantidad De Personas"
+//        womenView.configure(for: .women)
+//        womenView.delegate = self
+//        menView.configure(for: .man)
+//        menView.delegate = self
+//        childrenView.configure(for: .children)
+//        childrenView.delegate = self
+//        nextBtn.setEnabled(false)
     }
 
     // MARK: - Navigation

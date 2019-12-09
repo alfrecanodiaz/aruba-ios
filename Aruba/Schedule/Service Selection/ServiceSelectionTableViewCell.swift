@@ -19,21 +19,18 @@ class ServiceSelectionTableViewCell: UITableViewCell {
     @IBOutlet weak var productSwitch: UISwitch!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var detailBtn: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        detailBtn.backgroundColor = Colors.ButtonGray
-        detailBtn.layer.cornerRadius = 6
-        detailBtn.clipsToBounds = true
-        detailBtn.titleLabel?.adjustsFontSizeToFitWidth = true
     }
 
     var indexPath: IndexPath!
 
     weak var delegate: ServiceSelectionTableViewCellDelegate?
 
-    func configure(product: Product, isSelected: Bool, indexPath: IndexPath) {
+    func configure(service: Service, isSelected: Bool, indexPath: IndexPath) {
         productSwitch.setOn(isSelected, animated: false)
-        productName.text = product.name
+        productName.text = service.displayName
         self.indexPath = indexPath
     }
 

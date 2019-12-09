@@ -130,6 +130,19 @@ final class AuthManager {
     
     static func fetchUser(completion: @escaping (UserMeResponse?, HTTPClientError?) -> Void) {
         HTTPClient.shared.request(method: .POST, path: .user) { (response: UserMeResponse?, error) in
+            if let user = response?.data {
+                UserManager.shared.loggedUser = User(firstName: user.firstName,
+                                                     lastName: user.lastName,
+                                                     email: user.email,
+                                                     updatedAt: user.updatedAt,
+                                                     facebook_id: user.facebookID ?? "",
+                                                     createdAt: user.createdAt,
+                                                     id: user.id,
+                                                     canMakeAppointment: user.canMakeAppointment,
+                                                     avatarURL: user.avatarURL,
+                                                     addresses: [],
+                                                     appointments: [])
+            }
             completion(response, error)
         }
     }

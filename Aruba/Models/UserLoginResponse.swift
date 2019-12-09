@@ -25,7 +25,8 @@ struct UserLoginDataClass: Codable {
 
 // MARK: - User
 struct User: Codable {
-    var firstName, lastName, email, updatedAt, facebook_id: String
+    var firstName, lastName, email, updatedAt: String
+    var facebook_id: String?
     let createdAt: String
     let id: Int
     var canMakeAppointment: Bool

@@ -9,8 +9,8 @@
 import UIKit
 
 protocol ServiceCategorySelectionDelegate: class {
-        func didPressContinue()
-        func didPressCancel()
+    func didPressContinue(data: ServiceCategorySelectionData)
+    func didPressCancel()
 }
 
 
@@ -19,10 +19,13 @@ struct ServiceCategorySelectionData {
     var addressId: Int
     var clientName: String
     var clientType: ClientType?
+    var category: CategoryViewModel
+    let availableClientTypes: [ClientType]
+    
 }
 
 class ServiceCategorySelectionPopupTableViewController: APopoverTableViewController {
-
+    
     @IBOutlet weak var serviceCategoryTitleLabel: UILabel!
     @IBOutlet weak var closeView: UIView! {
         didSet {
@@ -31,7 +34,11 @@ class ServiceCategorySelectionPopupTableViewController: APopoverTableViewControl
         }
     }
     
-    @IBOutlet weak var addressTextField: ATextField!
+    @IBOutlet weak var addressTextField: ATextField! {
+        didSet {
+            addressTextField.delegate = self
+        }
+    }
     @IBOutlet weak var clientNameTextField: ATextField!
     
     @IBOutlet weak var childImageView: UIImageView!
@@ -47,70 +54,97 @@ class ServiceCategorySelectionPopupTableViewController: APopoverTableViewControl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+    }
+    
+    private func setupView() {
         addressTextField.text = data?.address
         clientNameTextField.text = data?.clientName
-        
+        serviceCategoryTitleLabel.text = data?.category.title.uppercased()
+        guard let data = data else { return }
+        if !data.availableClientTypes.contains(where: { (ct) -> Bool in
+            return ct.name == .mujer
+        }) {
+            womanView.isHidden = true
+        }
+        if !data.availableClientTypes.contains(where: { (ct) -> Bool in
+            return ct.name == .hombre
+        }) {
+            manView.isHidden = true
+        }
+        if !data.availableClientTypes.contains(where: { (ct) -> Bool in
+            return ct.name == .niño
+        }) {
+            childView.isHidden = true
+        }
+        setClientType()
     }
-
+    
     @IBAction func closeAction(_ sender: UIButton) {
         delegate?.didPressCancel()
         self.dismiss(animated: true, completion: nil)
     }
     
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    @IBAction func womanAction(_ sender: UIButton) {
+        data?.clientType = ClientType(id: 1, name: Name.mujer, displayName: Name.mujer)
+        setClientType()
     }
-    */
+    @IBAction func manAction(_ sender: UIButton) {
+        data?.clientType = ClientType(id: 2, name: Name.hombre, displayName: Name.hombre)
+        setClientType()
+    }
+    @IBAction func kidAction(_ sender: UIButton) {
+        data?.clientType = ClientType(id: 3, name: Name.niño, displayName: Name.niño)
+        setClientType()
+    }
+    
+    private func setClientType() {
+        view.endEditing(true)
+        womanImageView.image = data?.clientType?.name == .mujer ? #imageLiteral(resourceName: "selection_women") : #imageLiteral(resourceName: "icon_profile_woman_inactive")
+        manImageView.image = data?.clientType?.name == .hombre ? #imageLiteral(resourceName: "iconos_usuario (arrastrado) 42") : #imageLiteral(resourceName: "icon_profile_man_inactive")
+        childImageView.image = data?.clientType?.name == .niño ? #imageLiteral(resourceName: "icon_profile_kid_active") : #imageLiteral(resourceName: "children")
+    }
+    
+    @IBAction func continueAction(_ sender: AButton) {
+        if data?.clientType == nil {
+            AlertManager.showNotice(in: self, title: "Atención", description: "Elige el tipo de cliente para el servicio.")
+            return
+        }
+        if clientNameTextField.text == nil ||
+            clientNameTextField.text == ""  {
+            AlertManager.showNotice(in: self, title: "Atención", description: "El nombre del cliente no puede quedar en blanco.")
+            return
+        }
+        guard let data = data else {
+            return
+        }
+        dismiss(animated: true) {
+            self.delegate?.didPressContinue(data: data)
+        }
+    }
+    
+    
+}
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
+
+extension ServiceCategorySelectionPopupTableViewController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == addressTextField {
+            let alert = UIAlertController(title: "Seleccióna tu dirección", message: nil, preferredStyle: .alert)
+            let addresses = UserManager.shared.loggedUser?.addresses ?? []
+            
+            for addr in addresses {
+                alert.addAction(UIAlertAction(title: addr.name + ": \(addr.street1)", style: .default, handler: { (_) in
+                    self.addressTextField.text = AddressViewModel(address: addr).addressFormatted
+                    self.data?.address = self.addressTextField.text ?? ""
+                    self.data?.addressId = addr.id
+                }))
+            }
+            alert.addAction(UIAlertAction(title: "Atras", style: .cancel, handler: nil))
+            alert.view.tintColor = Colors.ButtonHighlightedGreen
+            present(alert, animated: true, completion: nil)
+            return false
+        }
         return true
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

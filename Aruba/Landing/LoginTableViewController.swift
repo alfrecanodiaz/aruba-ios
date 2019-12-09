@@ -28,8 +28,7 @@ class LoginTableViewController: BaseTableViewController {
         AuthManager.login(username: email, password: password) { [weak self] (loginVM, error) in
             ALoader.hide()
             if let error = error {
-                print(error.localizedDescription)
-                self?.showError(title: "Lo sentimos!", message: error.localizedDescription)
+                self?.showError(title: "Lo sentimos!", message: error.message)
             } else {
                 let main = UIStoryboard(name: "Main", bundle: nil)
                 guard let dvc = main.instantiateViewController(withIdentifier: "BaseNavigationControllerID") as? BaseNavigationController,

@@ -32,8 +32,8 @@
             timestampString = "583599514.941103"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "AuthManager"
             landmarkType = "3">
          </BreakpointContent>
@@ -48,8 +48,8 @@
             filePath = "Aruba/Home/HomeTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "fetchServiceCategories()"
             landmarkType = "7">
          </BreakpointContent>
@@ -64,8 +64,8 @@
             filePath = "Aruba/Home/HomeTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "fetchServiceCategories()"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,7 +90,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "E29A50B8-EBF1-4C4C-B2EE-54210F645DF0"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Aruba/SplashLoaderViewController.swift"
@@ -99,6 +99,118 @@
             startingLineNumber = "44"
             endingLineNumber = "44"
             landmarkName = "checkUserLoggedIn()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8ADB8B05-9140-4F8B-94D1-CF3DBE7D6F01"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aruba/Helper Classes/HTTPClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "request(method:path:data:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "43C1EC1D-0FAB-489F-9F35-CDA05D25D789"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aruba/Helper Classes/HTTPClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "request(method:path:data:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "43C1EC1D-0FAB-489F-9F35-CDA05D25D789 - 5b23997e9831ae3d"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Aruba.HTTPClient.request&lt;A where A: Swift.Decodable, A: Swift.Encodable&gt;(method: Aruba.HTTPClient.Mehtod, path: Aruba.HTTPClient.Endpoint, data: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, completion: (Swift.Optional&lt;A&gt;, Swift.Optional&lt;Aruba.HTTPClientError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Aruba"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/javier/Aruba-iOS/Aruba/Helper%20Classes/HTTPClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "1960">
+               </Location>
+               <Location
+                  uuid = "43C1EC1D-0FAB-489F-9F35-CDA05D25D789 - c9c661c925e6ca9a"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data&gt;) -&gt; () in Aruba.HTTPClient.request&lt;A where A: Swift.Decodable, A: Swift.Encodable&gt;(method: Aruba.HTTPClient.Mehtod, path: Aruba.HTTPClient.Endpoint, data: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, completion: (Swift.Optional&lt;A&gt;, Swift.Optional&lt;Aruba.HTTPClientError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Aruba"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/javier/Aruba-iOS/Aruba/Helper%20Classes/HTTPClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "272">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CEEB9943-910F-490D-B13F-AF5A9089EB32"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aruba/Home/HomeTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
+            landmarkName = "showServiceCategoryPopup(serviceCategory:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AE61E79D-424F-4156-A392-A84BC70EA534"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aruba/Home/ServiceCategorySelectionPopupTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "setClientType()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1E5492DE-E4F1-4AA7-AAAD-56E32FFEE318"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aruba/Schedule/Service Selection/ServiceSelectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "setupView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

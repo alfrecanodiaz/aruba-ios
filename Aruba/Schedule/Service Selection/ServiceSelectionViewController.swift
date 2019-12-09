@@ -14,8 +14,8 @@ class ServiceSelectionViewController: UIViewController {
     @IBOutlet weak var countLbl: UILabel!
     @IBOutlet weak var genderLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var serviceTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var totalLbl: UILabel!
+    @IBOutlet weak var subCategorySegmentedControl: UISegmentedControl!
     @IBOutlet weak var continueBtn: AButton!
 
     struct Cells {
@@ -28,27 +28,70 @@ class ServiceSelectionViewController: UIViewController {
         static let ProductPopup = "showProductPopover"
     }
 
-    var products: [Product] = [Product(name: "Shampoo", description: "Una descripcion larga de un producto", image: #imageLiteral(resourceName: "profile"), price: 10000), Product(name: "Maquillaje", description: "Una descripcion larga de un producto", image: #imageLiteral(resourceName: "profile"), price: 23000), Product(name: "Shampoo", description: "Una descripcion larga de un producto", image: #imageLiteral(resourceName: "profile"), price: 10000), Product(name: "Shampoo", description: "Una descripcion larga de un producto", image: #imageLiteral(resourceName: "profile"), price: 10000), Product(name: "Shampoo", description: "Una descripcion larga de un producto", image: #imageLiteral(resourceName: "profile"), price: 10000), Product(name: "Shampoo", description: "Una descripcion larga de un producto", image: #imageLiteral(resourceName: "profile"), price: 10000)]
 
     private var selectedIndexPaths: [IndexPath] = []
     private var currentPerson: Person!
     private var remainingPersons: [Person] = []
     var persons: [Person]!
+    
+    var category: CategoryViewModel!
 
     var schedulePersons: [Person] = []
-
+    var services: [[Service]] = []
+    
+    var servicesDisplaying: [Service] = []
+    var selectedServices: [[IndexPath]] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        fetchServices()
     }
 
     func setupView() {
         tableView.register(UINib(nibName: "ServiceSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: Cells.ServiceSelection)
+        tableView.tableFooterView = nil
         tableView.dataSource = self
         tableView.delegate = self
-        remainingPersons = persons
-        currentPerson = remainingPersons.remove(at: 0)
-        setupView(for: currentPerson)
+        subCategorySegmentedControl.removeAllSegments()
+        for cat in category.subCategories.reversed() where cat.enabled {
+            subCategorySegmentedControl.insertSegment(withTitle: cat.title.uppercased(), at: 0, animated: false)
+            services.insert([], at: 0)
+            selectedServices.insert([], at: 0)
+        }
+        continueBtn.setEnabled(false)
+    }
+    
+    private func fetchServices() {
+        ALoader.show()
+        var params: [String: Any] = [:]
+        if category.subCategories.isEmpty {
+            params = ["categories":[category.id]]
+        } else {
+            params = ["categories":category.subCategories.map({$0.id})]
+        }
+        HTTPClient.shared.request(method: .POST, path: .servicesList, data: params) { (response: ServicesListResponse?, error) in
+            ALoader.hide()
+            if let error = error {
+                AlertManager.showNotice(in: self, title: "Lo sentimos", description: error.message) {
+                    self.fetchServices()
+                }
+            } else if let response = response {
+                for service in response.data {
+                    for cat in service.categories {
+                        for (index, cat2) in self.category.subCategories.enumerated() {
+                            if cat.id == cat2.id {
+                                self.services[index].insert(service, at: 0)
+                            }
+                        }
+                    }
+                }
+                self.subCategorySegmentedControl.selectedSegmentIndex = 0
+                self.servicesDisplaying = self.services[0]
+                self.tableView.reloadData()
+            }
+        }
+
     }
 
     // MARK: - Navigation
@@ -61,20 +104,6 @@ class ServiceSelectionViewController: UIViewController {
         if segue.identifier == Segues.Popup {
 
         }
-    }
-
-    @IBAction func unwindToServiceSelection(segue: UIStoryboardSegue) {
-        currentPerson.scheduleProducts = selectedIndexPaths.map({products[$0.row]})
-        schedulePersons.append(currentPerson)
-        if remainingPersons.isEmpty {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.performSegue(withIdentifier: Segues.DateAssignments, sender: self)
-            }
-        } else {
-            currentPerson = remainingPersons.remove(at: 0)
-            setupView(for: currentPerson)
-        }
-
     }
 
     private func setupView(for person: Person) {
@@ -91,9 +120,12 @@ class ServiceSelectionViewController: UIViewController {
         calculateTotal()
     }
 
-    public func showProductDescriptionPopup(product: Product) {
+    public func showServiceDescriptionPopup(indexPath: IndexPath, segmentedIndex: Int) {
         let popup = self.storyboard?.instantiateViewController(withIdentifier: "ProductDescriptionPopupTableViewControllerID") as! ProductDescriptionPopupTableViewController
-        popup.product = product
+        let service = servicesDisplaying[indexPath.row]
+        popup.service = service
+        popup.segmentedIndex = segmentedIndex
+        popup.indexPath = indexPath
         popup.modalPresentationStyle = .popover
         let popover = popup.popoverPresentationController
         popover?.delegate = self
@@ -104,13 +136,19 @@ class ServiceSelectionViewController: UIViewController {
         popup.delegate = self
         present(popup, animated: true, completion: nil)
     }
-
+    
+    
+    @IBAction func subCategorySegmentedControlChanged(_ sender: UISegmentedControl) {
+        servicesDisplaying = services[sender.selectedSegmentIndex]
+        tableView.reloadData()
+    }
+    
 }
 
 extension ServiceSelectionViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return products.count
+        return servicesDisplaying.count
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -120,17 +158,23 @@ extension ServiceSelectionViewController: UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.ServiceSelection, for: indexPath) as? ServiceSelectionTableViewCell else { return UITableViewCell() }
 
-        cell.configure(product: products[indexPath.row], isSelected: selectedIndexPaths.contains(indexPath), indexPath: indexPath)
+        let index = subCategorySegmentedControl.selectedSegmentIndex
+        let service = servicesDisplaying[indexPath.row]
+        let selectedIndexes = selectedServices[index]
+        cell.configure(service: service,
+                       isSelected: selectedIndexes.contains(indexPath),
+                       indexPath: indexPath)
 
         cell.delegate = self
         return cell
     }
 
     private func calculateTotal() {
-        var total: Double = 0
-
-        for indexPath in selectedIndexPaths {
-            total = products[indexPath.row].price + total
+        var total: Int = 0
+        for (index, service) in selectedServices.enumerated() {
+            for indexPath in service {
+                total = services[index][indexPath.row].price + total
+            }
         }
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -141,32 +185,41 @@ extension ServiceSelectionViewController: UITableViewDataSource, UITableViewDele
 }
 
 extension ServiceSelectionViewController: ServiceSelectionTableViewCellDelegate {
+    
     func didSelectViewProductDescription(at indexPath: IndexPath) {
-        showProductDescriptionPopup(product: products[indexPath.row])
+        let segmentedIndex = subCategorySegmentedControl.selectedSegmentIndex
+        showServiceDescriptionPopup(indexPath: indexPath, segmentedIndex: segmentedIndex)
     }
 
     func didSelectProduct(selected: Bool, at indexPath: IndexPath) {
+        let selectedSegment = subCategorySegmentedControl.selectedSegmentIndex
         if selected {
-            selectedIndexPaths.append(indexPath)
+            selectedServices[selectedSegment].append(indexPath)
         } else {
-            guard let index =  selectedIndexPaths.firstIndex(of: indexPath) else { return }
-            selectedIndexPaths.remove(at: index)
+            guard let index =  selectedServices[selectedSegment].firstIndex(of: indexPath) else { return }
+            selectedServices[selectedSegment].remove(at: index)
         }
-        continueBtn.setEnabled(!selectedIndexPaths.isEmpty)
+
+        var hasSelection: Bool = false
+        for service in selectedServices{
+            if hasSelection {
+                break
+            }
+            hasSelection = !service.isEmpty
+        }
+        continueBtn.setEnabled(hasSelection)
         calculateTotal()
     }
 }
 
 extension ServiceSelectionViewController: ProductPopupDelegate {
-
-    func didSelectProduct(product: Product) {
-        //TODO, create real comparison
-        guard let index = products.firstIndex(where: {$0.name == product.name}) else { return }
-        let indexPath = IndexPath(row: index, section: 0)
-        if !selectedIndexPaths.contains(indexPath) {
-            selectedIndexPaths.append(indexPath)
+    
+    func didSelectService(service: Service, segmentedIndex: Int, indexPath: IndexPath) {
+        if !selectedServices[segmentedIndex].contains(indexPath) {
+            selectedServices[segmentedIndex].append(indexPath)
         }
-        tableView.reloadData()
+        calculateTotal()
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 
 }
