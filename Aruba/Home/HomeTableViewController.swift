@@ -56,6 +56,8 @@ class HomeTableViewController: BaseTableViewController {
     var selectedCategory: CategoryViewModel?
     var selectedClientName: String = ""
     var selectedAddressId: Int?
+    var addressName: String?
+    var addressDetails: String?
     
     struct Cells {
         static let Category = "homeCategoryCell"
@@ -252,6 +254,7 @@ class HomeTableViewController: BaseTableViewController {
         
         let data = ServiceCategorySelectionData(address: AddressViewModel(address: defaultAddress).addressFormatted,
                                                 addressId: defaultAddress.id,
+                                                addressName: defaultAddress.name,
                                                 clientName: UserManager.shared.clientName,
                                                 clientType: nil,
                                                 category: serviceCategory,
@@ -283,6 +286,8 @@ class HomeTableViewController: BaseTableViewController {
             dvc.category = selectedCategory
             dvc.clientName = selectedClientName
             dvc.addressId = selectedAddressId
+            dvc.addressName = addressName
+            dvc.addressDetails = addressDetails
         }
     }
     
@@ -307,6 +312,8 @@ extension HomeTableViewController: ServiceCategorySelectionDelegate {
         selectedCategory = data.category
         selectedClientName = data.clientName
         selectedAddressId = data.addressId
+        addressName = data.addressName
+        addressDetails = data.address
         selectedCategory?.subCategories = subCategoriesForSelectedClient
         removeBlackBackgroundView()
         performSegue(withIdentifier: Segues.ScheduleService, sender: self)

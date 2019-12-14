@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="389" height="108"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="389" height="107.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="389" height="108"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oro-Ye-a7k" customClass="ARoundImage" customModule="Aruba" customModuleProvider="target">
@@ -38,30 +36,12 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xy4-sB-WvL">
-                        <rect key="frame" x="321.5" y="8" width="59.5" height="91.5"/>
+                        <rect key="frame" x="321.5" y="25" width="59.5" height="58"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evA-x9-Ngz">
-                                <rect key="frame" x="0.0" y="0.0" width="59.5" height="46"/>
-                                <state key="normal" title="+"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evA-x9-Ngz">
+                                <rect key="frame" x="0.0" y="0.0" width="59.5" height="58"/>
+                                <state key="normal" image="add_button_green"/>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L5g-gO-v7Q">
-                                <rect key="frame" x="0.0" y="46" width="59.5" height="45.5"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mXY-KC-C0K">
-                                        <rect key="frame" x="5" y="0.0" width="49.5" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="g9R-P1-VO8"/>
-                                        </constraints>
-                                        <state key="normal" image="corazon"/>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="mXY-KC-C0K" secondAttribute="trailing" constant="5" id="7dD-oO-Ju4"/>
-                                    <constraint firstItem="mXY-KC-C0K" firstAttribute="leading" secondItem="L5g-gO-v7Q" secondAttribute="leading" constant="5" id="Acr-Ee-AnY"/>
-                                    <constraint firstItem="mXY-KC-C0K" firstAttribute="top" secondItem="L5g-gO-v7Q" secondAttribute="top" id="lqS-Zx-NBW"/>
-                                </constraints>
-                            </view>
                         </subviews>
                     </stackView>
                 </subviews>
@@ -69,9 +49,9 @@
                     <constraint firstItem="5oA-qf-03C" firstAttribute="height" secondItem="Oro-Ye-a7k" secondAttribute="height" id="2Bq-zO-2oY"/>
                     <constraint firstItem="xy4-sB-WvL" firstAttribute="leading" secondItem="5oA-qf-03C" secondAttribute="trailing" constant="8" id="6vS-es-Npo"/>
                     <constraint firstItem="Oro-Ye-a7k" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="8O7-bJ-8hw"/>
-                    <constraint firstAttribute="bottom" secondItem="xy4-sB-WvL" secondAttribute="bottom" constant="8" id="E1F-MS-Qdk"/>
+                    <constraint firstAttribute="bottom" secondItem="xy4-sB-WvL" secondAttribute="bottom" constant="25" id="E1F-MS-Qdk"/>
                     <constraint firstItem="5oA-qf-03C" firstAttribute="leading" secondItem="Oro-Ye-a7k" secondAttribute="trailing" constant="20" id="RQc-Ul-akB"/>
-                    <constraint firstItem="xy4-sB-WvL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Ukg-cm-vuU"/>
+                    <constraint firstItem="xy4-sB-WvL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="Ukg-cm-vuU"/>
                     <constraint firstItem="Oro-Ye-a7k" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eII-tF-fUa"/>
                     <constraint firstItem="xy4-sB-WvL" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.15" constant="1" id="fb3-OU-Q2T"/>
                     <constraint firstItem="5oA-qf-03C" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rAq-F9-GCG"/>
@@ -80,7 +60,6 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="likeBtn" destination="mXY-KC-C0K" id="uPT-w1-AMN"/>
                 <outlet property="nameLbl" destination="5oA-qf-03C" id="WA6-Of-qrz"/>
                 <outlet property="plusButton" destination="evA-x9-Ngz" id="z2L-Mw-cX8"/>
                 <outlet property="profileImageView" destination="Oro-Ye-a7k" id="57m-EI-zZq"/>
@@ -89,6 +68,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="corazon" width="55" height="51"/>
+        <image name="add_button_green" width="50" height="50"/>
     </resources>
 </document>

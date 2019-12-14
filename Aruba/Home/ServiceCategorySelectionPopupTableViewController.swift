@@ -17,6 +17,7 @@ protocol ServiceCategorySelectionDelegate: class {
 struct ServiceCategorySelectionData {
     var address: String
     var addressId: Int
+    var addressName: String
     var clientName: String
     var clientType: ClientType?
     var category: CategoryViewModel
@@ -133,6 +134,7 @@ extension ServiceCategorySelectionPopupTableViewController: UITextFieldDelegate 
                     self.addressTextField.text = AddressViewModel(address: addr).addressFormatted
                     self.data?.address = self.addressTextField.text ?? ""
                     self.data?.addressId = addr.id
+                    self.data?.addressName = addr.name
                 }))
             }
             alert.addAction(UIAlertAction(title: "Atras", style: .cancel, handler: nil))

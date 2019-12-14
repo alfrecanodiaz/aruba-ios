@@ -12,13 +12,13 @@ struct ScheduleDate {
     
 }
 
-class DateAssignmentViewController: UIViewController {
+class DateAssignmentViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.tableFooterView = nil
             tableView.register(UINib(nibName: "ProfessionalTableViewCell", bundle: nil), forCellReuseIdentifier: Cells.Professional)
-
+            
         }
     }
     
@@ -26,7 +26,7 @@ class DateAssignmentViewController: UIViewController {
         didSet {
             let datePicker = UIDatePicker()
             datePicker.datePickerMode = .date
-        
+            
             datePicker.addTarget(self, action: #selector(datePickerChanged(sender:)), for: .valueChanged)
             dateTextField.aDelegate = self
             dateTextField.inputView = datePicker
@@ -50,17 +50,23 @@ class DateAssignmentViewController: UIViewController {
     
     var professionals: [Professional] = []
     var addressId: Int!
+    var addressName: String!
+    var addressDetails: String!
     var servicesIds: [Int] = []
+    var services: [Service] = []
     var clientName: String = ""
     var category: CategoryViewModel!
+    var selectedProfessional: Professional?
+    var cartData: CartData?
     
     struct Cells {
         static let Professional = "ProfessionalCell"
     }
-
+    
     
     struct Segues {
         static let DateAssignment = "DateAssignmentSegue"
+        static let Confirmation = "showConfirmation"
     }
     
     override func viewDidLoad() {
@@ -80,11 +86,11 @@ class DateAssignmentViewController: UIViewController {
         
         guard let addressId = addressId, let dateText = dateTextField.text,
             let timeText = timeTextField.text, let timeDate = dateFormatter.date(from: timeText) else {
-            return
+                return
         }
         
         let calendar = Calendar.current
-
+        
         let hour = calendar.component(.hour, from: timeDate)
         let minutes = calendar.component(.minute, from: timeDate)
         let hourStart: Int = hour*60*60 + minutes*60
@@ -120,7 +126,24 @@ class DateAssignmentViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.DateAssignment, let dvc = segue.destination as? DateSelectionViewController {
             dvc.scheduleData = scheduleData
-            
+        }
+        
+        if segue.identifier == Segues.Confirmation, let dvc = segue.destination as? ConfirmViewController, let professional = selectedProfessional {
+            dvc.category = category
+            dvc.cartData = CartData(addressId: addressId,
+                                    addressName: addressName,
+                                    addressDetail: addressDetails,
+                                    categoryName: category.title,
+                                    services: services.map({$0.displayName}).joined(separator: ", "),
+                                    clientName: clientName,
+                                    fullDate: dateTextField.text! + " " + timeTextField.text!,
+                                    servicesIds: servicesIds,
+                                    socialReason: "",
+                                    ruc: "",
+                                    total: services.reduce(0, { (sum, service) in
+                                        return sum + service.price
+                                    }),
+                                    professional: professional)
         }
     }
     
@@ -142,14 +165,32 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       let cell = tableView.dequeueReusableCell(withIdentifier: Cells.Professional, for: indexPath) as! ProfessionalTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.Professional, for: indexPath) as! ProfessionalTableViewCell
         cell.configure(professional: professionals[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let selectedProfessional = professionals[indexPath.row]
+        showProfessionalPopup(professional: selectedProfessional)
+    }
+    
+    private func showProfessionalPopup(professional: Professional) {
+        let popup = self.storyboard?.instantiateViewController(withIdentifier: "ProfessionalDetailsPopupTableViewControllerID") as! ProfessionalDetailsPopupTableViewController
         
+        popup.modalPresentationStyle = .popover
+        popup.delegate = self
+        popup.professional = professional
+        popup.date = dateTextField.text
+        popup.time = timeTextField.text
+        let popover = popup.popoverPresentationController
+        popover?.delegate = self
+        popover?.sourceView = view
+        popover?.sourceRect = view.bounds
+        popover?.permittedArrowDirections = .init(rawValue: 0)
+        addBlackBackgroundView()
+        present(popup, animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -177,4 +218,18 @@ extension DateAssignmentViewController: ATextFieldDelegate {
     func didPressDone(textField: ATextField) {
         fetchProfessionals()
     }
+}
+
+extension DateAssignmentViewController: ProfessionalDetailsPopupTableViewControllerDelegate {
+    func didSelectProfessional(professional: Professional) {
+        removeBlackBackgroundView()
+        selectedProfessional = professional
+        performSegue(withIdentifier: Segues.Confirmation, sender: self)
+    }
+    
+    func didCancelPopupForProfessional(professional: Professional) {
+        removeBlackBackgroundView()
+    }
+    
+    
 }

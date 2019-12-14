@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ServiceSelectionViewController: UIViewController {
+class ServiceSelectionViewController: BaseViewController {
 
     @IBOutlet weak var clientLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
@@ -31,6 +31,8 @@ class ServiceSelectionViewController: UIViewController {
     var services: [[Service]] = []
     var clientName: String = ""
     var servicesDisplaying: [Service] = []
+    var addressName: String!
+    var addressDetails: String!
     var addressId: Int!
     
     private var selectedServices: [[IndexPath]] = []
@@ -99,12 +101,19 @@ class ServiceSelectionViewController: UIViewController {
             dvc.addressId = addressId
             
             var servicesIds:[Int] = []
+            var servicesSelected:[Service] = []
+
             for (index, selectedService) in selectedServices.enumerated() {
+                servicesSelected += selectedService.map({services[index][$0.row]})
                 servicesIds += selectedService.map({services[index][$0.row].id})
             }
+            dvc.services = servicesSelected
             dvc.servicesIds = servicesIds
             dvc.category = category
             dvc.clientName = clientName
+            dvc.addressName = addressName
+            dvc.addressDetails = addressDetails
+            dvc.category = category
         }
         if segue.identifier == Segues.Popup {
 
@@ -131,6 +140,7 @@ class ServiceSelectionViewController: UIViewController {
         popover?.permittedArrowDirections = .init(rawValue: 0)
 
         popup.delegate = self
+        addBlackBackgroundView()
         present(popup, animated: true, completion: nil)
     }
     
@@ -173,10 +183,7 @@ extension ServiceSelectionViewController: UITableViewDataSource, UITableViewDele
                 total = services[index][indexPath.row].price + total
             }
         }
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.locale = Locale(identifier: "es_PY")
-        totalLbl.text = formatter.string(from: NSNumber(value: total))
+        totalLbl.text = total.asGs()
     }
     
     private func updateScreenForServiceUpdate() {
@@ -221,12 +228,7 @@ extension ServiceSelectionViewController: ProductPopupDelegate {
         }
         tableView.reloadRows(at: [indexPath], with: .automatic)
         updateScreenForServiceUpdate()
+        removeBlackBackgroundView()
     }
 
-}
-
-extension ServiceSelectionViewController: UIPopoverPresentationControllerDelegate {
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
-    }
 }

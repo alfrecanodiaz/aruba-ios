@@ -19,7 +19,7 @@ class ATextField: MFTextField {
     
     lazy var accessory: UIView = {
         let accessoryView = UIView(frame: .zero)
-        accessoryView.backgroundColor = .lightGray
+        accessoryView.backgroundColor = #colorLiteral(red: 0.8013493419, green: 0.8014847636, blue: 0.8013314605, alpha: 0.853515625)
         return accessoryView
     }()
     
