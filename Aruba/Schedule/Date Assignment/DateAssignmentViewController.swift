@@ -59,6 +59,9 @@ class DateAssignmentViewController: BaseViewController {
     var selectedProfessional: Professional?
     var cartData: CartData?
     
+    var dateSelected: Date?
+    var timeSelected: Date?
+    
     struct Cells {
         static let Professional = "ProfessionalCell"
     }
@@ -114,12 +117,14 @@ class DateAssignmentViewController: BaseViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .none
         dateFormatter.dateFormat = "dd-MM-yyyy"
+        dateSelected = sender.date
         dateTextField.text = dateFormatter.string(from: sender.date)
     }
     
     @objc private func timePickerChanged(sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm a"
+        timeSelected = sender.date
         timeTextField.text = dateFormatter.string(from: sender.date)
     }
     
@@ -129,6 +134,14 @@ class DateAssignmentViewController: BaseViewController {
         }
         
         if segue.identifier == Segues.Confirmation, let dvc = segue.destination as? ConfirmViewController, let professional = selectedProfessional {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm:ss"
+            guard let timeSelected = timeSelected else {
+                return
+            }
+            let hourStartAsSeconds = dateFormatter.string(from: timeSelected).secondFromString
+            
+            
             dvc.category = category
             dvc.cartData = CartData(addressId: addressId,
                                     addressName: addressName,
@@ -143,7 +156,9 @@ class DateAssignmentViewController: BaseViewController {
                                     total: services.reduce(0, { (sum, service) in
                                         return sum + service.price
                                     }),
-                                    professional: professional)
+                                    professional: professional,
+                                    hourStartAsSeconds: hourStartAsSeconds,
+                                    date: dateTextField.text!)
         }
     }
     
@@ -232,4 +247,18 @@ extension DateAssignmentViewController: ProfessionalDetailsPopupTableViewControl
     }
     
     
+}
+extension String{
+
+    var integer: Int {
+        return Int(self) ?? 0
+    }
+
+    var secondFromString : Int{
+        let components: Array = self.components(separatedBy: ":")
+        let hours = components[0].integer
+        let minutes = components[1].integer
+        let seconds = components[2].integer
+        return Int((hours * 60 * 60) + (minutes * 60) + seconds)
+    }
 }

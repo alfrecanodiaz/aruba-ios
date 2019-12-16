@@ -13,6 +13,11 @@ struct DefaultResponse: Codable {
     let data: JSONAny
 }
 
+struct DefaultResponseAsString: Codable {
+    let success: Bool
+    let data: String
+}
+
 // MARK: Convenience initializers
 
 extension DefaultResponse {

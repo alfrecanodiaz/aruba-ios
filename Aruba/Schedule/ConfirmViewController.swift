@@ -54,11 +54,18 @@ class ConfirmViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Segues.Cart, let dvc = segue.destination as? CartTableViewController {
+        if segue.identifier == Segues.Cart, let dvc = segue.destination as? CartViewController {
             dvc.cartData = cartData
+            dvc.delegate = self
         }
     }
     
+}
+
+extension ConfirmViewController: CartDelegate {
+    func didCreateAppointment(appointment: Appointment) {
+        self.navigationController?.popToRootViewController(animated: false)
+    }
 }
 
 extension Int {

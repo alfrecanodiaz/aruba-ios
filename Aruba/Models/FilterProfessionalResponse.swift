@@ -124,7 +124,7 @@ struct CurrentState: Codable {
     let id: Int
     let name, displayName: String
     let deletedAt: String?
-    let createdAt, updatedAt: String
+    let createdAt, updatedAt: String?
     let pivot: CurrentStatePivot
 
     enum CodingKeys: String, CodingKey {

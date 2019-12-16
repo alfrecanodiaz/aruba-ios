@@ -73,6 +73,10 @@
 		3BC30F6E23A5479E00BD9700 /* ProfessionalDetailsPopupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC30F6D23A5479E00BD9700 /* ProfessionalDetailsPopupTableViewController.swift */; };
 		3BC30F7023A54E2B00BD9700 /* CartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC30F6F23A54E2B00BD9700 /* CartTableViewController.swift */; };
 		3BC30F7223A55BE400BD9700 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC30F7123A55BE400BD9700 /* ConfirmViewController.swift */; };
+		3BC30F7423A7FB7100BD9700 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC30F7323A7FB7000BD9700 /* CartViewController.swift */; };
+		3BC30F7623A800C000BD9700 /* CardPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC30F7523A800C000BD9700 /* CardPaymentViewController.swift */; };
+		3BC30F7823A81A2700BD9700 /* CreateAppointmentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC30F7723A81A2700BD9700 /* CreateAppointmentResponse.swift */; };
+		3BC30F7A23A8200900BD9700 /* SuccessPopoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC30F7923A8200900BD9700 /* SuccessPopoverTableViewController.swift */; };
 		3BD43CF1225856B900AC3411 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BD43CF0225856B900AC3411 /* Start.storyboard */; };
 		3BD43CF3225858B000AC3411 /* AButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CF2225858B000AC3411 /* AButton.swift */; };
 		3BD43CF62258594D00AC3411 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CF52258594D00AC3411 /* Colors.swift */; };
@@ -188,6 +192,10 @@
 		3BC30F6D23A5479E00BD9700 /* ProfessionalDetailsPopupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalDetailsPopupTableViewController.swift; sourceTree = "<group>"; };
 		3BC30F6F23A54E2B00BD9700 /* CartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewController.swift; sourceTree = "<group>"; };
 		3BC30F7123A55BE400BD9700 /* ConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
+		3BC30F7323A7FB7000BD9700 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		3BC30F7523A800C000BD9700 /* CardPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaymentViewController.swift; sourceTree = "<group>"; };
+		3BC30F7723A81A2700BD9700 /* CreateAppointmentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAppointmentResponse.swift; sourceTree = "<group>"; };
+		3BC30F7923A8200900BD9700 /* SuccessPopoverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPopoverTableViewController.swift; sourceTree = "<group>"; };
 		3BD43CF0225856B900AC3411 /* Start.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
 		3BD43CF2225858B000AC3411 /* AButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AButton.swift; sourceTree = "<group>"; };
 		3BD43CF52258594D00AC3411 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -396,6 +404,9 @@
 				3BC30F6D23A5479E00BD9700 /* ProfessionalDetailsPopupTableViewController.swift */,
 				3BC30F6F23A54E2B00BD9700 /* CartTableViewController.swift */,
 				3BC30F7123A55BE400BD9700 /* ConfirmViewController.swift */,
+				3BC30F7323A7FB7000BD9700 /* CartViewController.swift */,
+				3BC30F7523A800C000BD9700 /* CardPaymentViewController.swift */,
+				3BC30F7923A8200900BD9700 /* SuccessPopoverTableViewController.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -527,6 +538,7 @@
 				3B39509523954B3A004FD9B8 /* ServiceCategoryListResponse.swift */,
 				3B395097239561C1004FD9B8 /* UserMeResponse.swift */,
 				3B639523239ED243005E0CB4 /* FilterProfessionalResponse.swift */,
+				3BC30F7723A81A2700BD9700 /* CreateAppointmentResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -919,6 +931,7 @@
 				3BD43CFD22585B9200AC3411 /* RegisterTableViewController.swift in Sources */,
 				3B7EC0C3225D6EE700ED799D /* TransparentPopupViewController.swift in Sources */,
 				3B639524239ED243005E0CB4 /* FilterProfessionalResponse.swift in Sources */,
+				3BC30F7823A81A2700BD9700 /* CreateAppointmentResponse.swift in Sources */,
 				3B67BA4022690FC500871F77 /* ProductDescriptionPopupTableViewController.swift in Sources */,
 				3B069B7A2396E7C9003B5479 /* SplashLoaderViewController.swift in Sources */,
 				3B02964F228EF6E600D08789 /* DefaultResponse.swift in Sources */,
@@ -929,6 +942,7 @@
 				3BD43D2422592DE200AC3411 /* UIColor+Utils.swift in Sources */,
 				3B048EF5226D001100EBE6FD /* ALoader.swift in Sources */,
 				3BD43D012258608700AC3411 /* JSONDecoder+Utils.swift in Sources */,
+				3BC30F7423A7FB7100BD9700 /* CartViewController.swift in Sources */,
 				3BD43D112259170C00AC3411 /* ProfileHeaderTableViewCell.swift in Sources */,
 				3B7EC0B1225C21D500ED799D /* PeopleQuantityView.swift in Sources */,
 				3B7EC0BC225C352300ED799D /* ServiceSelectionViewController.swift in Sources */,
@@ -943,11 +957,13 @@
 				3B7EC0B9225C347F00ED799D /* ServiceSelectionTableViewCell.swift in Sources */,
 				3B6CE453229AAD4300FB19AC /* LoginTableViewController.swift in Sources */,
 				3BD43D2022591FC700AC3411 /* GenericDataCellViewModel.swift in Sources */,
+				3BC30F7A23A8200900BD9700 /* SuccessPopoverTableViewController.swift in Sources */,
 				3B7EC0AF225C219200ED799D /* PeopleQuantiySelectionViewController.swift in Sources */,
 				3B048EF1226CF8B400EBE6FD /* ARoundImage.swift in Sources */,
 				3BD43D2222592B4700AC3411 /* HomeCategoryTableViewCell.swift in Sources */,
 				3B7EC0CA225D773A00ED799D /* DateAssignmentViewController.swift in Sources */,
 				3BC30F7223A55BE400BD9700 /* ConfirmViewController.swift in Sources */,
+				3BC30F7623A800C000BD9700 /* CardPaymentViewController.swift in Sources */,
 				3B7EC0E1226404F400ED799D /* ProfesionalSelectionViewController.swift in Sources */,
 				3B048EF8226D00FA00EBE6FD /* SuccessScheduleViewController.swift in Sources */,
 				3B456CA2239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift in Sources */,
@@ -1140,7 +1156,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aruba/Aruba.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6.0;
+				CURRENT_PROJECT_VERSION = 7.0;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = Aruba/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1165,7 +1181,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aruba/Aruba.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6.0;
+				CURRENT_PROJECT_VERSION = 7.0;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = Aruba/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
