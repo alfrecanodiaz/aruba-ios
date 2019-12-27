@@ -70,7 +70,7 @@ class HistoryDetailsViewController: UIViewController {
         addressLabel.text = "Dirección: \(viewModel.address)"
         paymentMethodLabel.text = "Método de pago: \(viewModel.paymentMethod)"
         totalLabel.text = "Total: \(viewModel.total)"
-        cancelButtonHeightConstraint.constant = viewModel.canCancelAppointment ? 80 : 0
+        cancelButtonHeightConstraint.constant = viewModel.canCancelAppointment ? 40 : 0
         
     }
     
@@ -81,7 +81,7 @@ class HistoryDetailsViewController: UIViewController {
     }
     
     private func cancelAppointment(reason: String) {
-        let params: [String: Any] = ["appointment_id": viewModel.appointmentId,
+        let params: [String: Any] = ["id": viewModel.appointmentId,
                                      "cancel_reason": reason]
         ALoader.show()
         HTTPClient.shared.request(method: .POST, path: .cancelAppointment, data: params) { (response: DefaultResponseAsString?, error) in

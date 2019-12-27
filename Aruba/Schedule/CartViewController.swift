@@ -46,12 +46,9 @@ class CartViewController: BaseViewController {
     
     @IBAction func continueAction(_ sender: AButton) {
         if cartTVC?.segmentedControl.selectedSegmentIndex == 0 {
-            finishAppointment(paymentType: 1, clientAmount: cartTVC?.changeAmountTextField.text)
-        }
-        if cartTVC?.segmentedControl.selectedSegmentIndex == 1 {
             finishAppointment(paymentType: 3, clientAmount: nil)
         }
-        if cartTVC?.segmentedControl.selectedSegmentIndex == 2 {
+        if cartTVC?.segmentedControl.selectedSegmentIndex == 1 {
             performSegue(withIdentifier: Segues.CardPayment, sender: nil)
         }
     }

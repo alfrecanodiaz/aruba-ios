@@ -24,7 +24,7 @@ class AlertManager {
     class func showNotice(in viewController: UIViewController, title: String, description: String, acceptButtonTitle: String = "Aceptar", completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
         alert.view.tintColor = Colors.ButtonGreen
-        let aceptar = UIAlertAction(title: acceptButtonTitle, style: .cancel, handler: { _ in
+        let aceptar = UIAlertAction(title: acceptButtonTitle, style: .default, handler: { _ in
             completion?()
         })
         alert.addAction(aceptar)
@@ -35,7 +35,7 @@ class AlertManager {
     class func showNotice(in viewController: UIViewController, title: String, description: String, textFieldPlaceholder: String, acceptButtonTitle: String = "Aceptar", completion: ((_ text: String) -> Void)? = nil) {
            let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
            alert.view.tintColor = Colors.ButtonGreen
-           let aceptar = UIAlertAction(title: acceptButtonTitle, style: .cancel, handler: { _ in
+           let aceptar = UIAlertAction(title: acceptButtonTitle, style: .default, handler: { _ in
                 completion?(alert.textFields?.first?.text ?? "")
            })
            alert.addTextField(configurationHandler: { (textField) in
