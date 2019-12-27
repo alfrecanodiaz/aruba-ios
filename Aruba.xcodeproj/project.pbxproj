@@ -22,6 +22,9 @@
 		3B048F05227F192C00EBE6FD /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B048F04227F192C00EBE6FD /* AuthManager.swift */; };
 		3B069B7A2396E7C9003B5479 /* SplashLoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B069B792396E7C9003B5479 /* SplashLoaderViewController.swift */; };
 		3B069B7C2396EBBD003B5479 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B069B7B2396EBBD003B5479 /* AlertManager.swift */; };
+		3B1D90B223B5373D003D01D1 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1D90B123B5373D003D01D1 /* HistoryViewController.swift */; };
+		3B1D90B623B5384C003D01D1 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1D90B423B5384C003D01D1 /* HistoryTableViewCell.swift */; };
+		3B1D90B723B5384C003D01D1 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B1D90B523B5384C003D01D1 /* HistoryTableViewCell.xib */; };
 		3B26A3B622584BD10063ECAA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B26A3B522584BD10063ECAA /* AppDelegate.swift */; };
 		3B26A3BB22584BD10063ECAA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B26A3B922584BD10063ECAA /* Main.storyboard */; };
 		3B26A3BD22584BD30063ECAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B26A3BC22584BD30063ECAA /* Assets.xcassets */; };
@@ -38,6 +41,7 @@
 		3B28FFFC22595588004268CB /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3B28FFF922595588004268CB /* Lato-Black.ttf */; };
 		3B39509623954B3A004FD9B8 /* ServiceCategoryListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B39509523954B3A004FD9B8 /* ServiceCategoryListResponse.swift */; };
 		3B395098239561C1004FD9B8 /* UserMeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B395097239561C1004FD9B8 /* UserMeResponse.swift */; };
+		3B3BDBFF23B53FEE00BBB7B3 /* UserAppointmentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3BDBFE23B53FEE00BBB7B3 /* UserAppointmentList.swift */; };
 		3B456CA2239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B456CA1239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift */; };
 		3B639522239EB376005E0CB4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B639521239EB376005E0CB4 /* Constants.swift */; };
 		3B639524239ED243005E0CB4 /* FilterProfessionalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B639523239ED243005E0CB4 /* FilterProfessionalResponse.swift */; };
@@ -96,6 +100,7 @@
 		3BD43D2022591FC700AC3411 /* GenericDataCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D1F22591FC700AC3411 /* GenericDataCellViewModel.swift */; };
 		3BD43D2222592B4700AC3411 /* HomeCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D2122592B4700AC3411 /* HomeCategoryTableViewCell.swift */; };
 		3BD43D2422592DE200AC3411 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43D2322592DE200AC3411 /* UIColor+Utils.swift */; };
+		3BEEE93923B6729B007570DA /* HistoryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BEEE93823B6729B007570DA /* HistoryDetailsViewController.swift */; };
 		4CFB3436FF898A02A3CB1B16 /* Pods_ArubaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB5DFA16BEBD9049A9C88C0 /* Pods_ArubaTests.framework */; };
 		504779E3E806BD1CC210E25F /* Pods_ArubaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496D39961CE2E05473FF0CBC /* Pods_ArubaUITests.framework */; };
 		C48160F9BD5D0AD5944F0195 /* Pods_Aruba.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D51EC17E35B0F4B48A69CF8 /* Pods_Aruba.framework */; };
@@ -135,6 +140,9 @@
 		3B048F04227F192C00EBE6FD /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		3B069B792396E7C9003B5479 /* SplashLoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashLoaderViewController.swift; sourceTree = "<group>"; };
 		3B069B7B2396EBBD003B5479 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		3B1D90B123B5373D003D01D1 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		3B1D90B423B5384C003D01D1 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		3B1D90B523B5384C003D01D1 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		3B26A3B222584BD10063ECAA /* Aruba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aruba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B26A3B522584BD10063ECAA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B26A3BA22584BD10063ECAA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -157,6 +165,7 @@
 		3B28FFF922595588004268CB /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		3B39509523954B3A004FD9B8 /* ServiceCategoryListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategoryListResponse.swift; sourceTree = "<group>"; };
 		3B395097239561C1004FD9B8 /* UserMeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMeResponse.swift; sourceTree = "<group>"; };
+		3B3BDBFE23B53FEE00BBB7B3 /* UserAppointmentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAppointmentList.swift; sourceTree = "<group>"; };
 		3B456CA1239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategorySelectionPopupTableViewController.swift; sourceTree = "<group>"; };
 		3B639521239EB376005E0CB4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3B639523239ED243005E0CB4 /* FilterProfessionalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterProfessionalResponse.swift; sourceTree = "<group>"; };
@@ -216,6 +225,7 @@
 		3BD43D1F22591FC700AC3411 /* GenericDataCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericDataCellViewModel.swift; sourceTree = "<group>"; };
 		3BD43D2122592B4700AC3411 /* HomeCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		3BD43D2322592DE200AC3411 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
+		3BEEE93823B6729B007570DA /* HistoryDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDetailsViewController.swift; sourceTree = "<group>"; };
 		496D39961CE2E05473FF0CBC /* Pods_ArubaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ArubaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D51EC17E35B0F4B48A69CF8 /* Pods_Aruba.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aruba.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F3C20A30C6A99E339F6600B /* Pods-ArubaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ArubaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ArubaTests/Pods-ArubaTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -279,6 +289,17 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		3B1D90B323B53806003D01D1 /* HIstory */ = {
+			isa = PBXGroup;
+			children = (
+				3BEEE93723B67283007570DA /* Details */,
+				3B1D90B123B5373D003D01D1 /* HistoryViewController.swift */,
+				3B1D90B423B5384C003D01D1 /* HistoryTableViewCell.swift */,
+				3B1D90B523B5384C003D01D1 /* HistoryTableViewCell.xib */,
+			);
+			path = HIstory;
+			sourceTree = "<group>";
+		};
 		3B26A3A922584BD10063ECAA = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +326,7 @@
 		3B26A3B422584BD10063ECAA /* Aruba */ = {
 			isa = PBXGroup;
 			children = (
+				3B1D90B323B53806003D01D1 /* HIstory */,
 				3BAF8324228268150056C0D5 /* Addresses */,
 				3B048F03227F191F00EBE6FD /* Managers */,
 				3BD43CF922585B6900AC3411 /* Landing */,
@@ -539,6 +561,7 @@
 				3B395097239561C1004FD9B8 /* UserMeResponse.swift */,
 				3B639523239ED243005E0CB4 /* FilterProfessionalResponse.swift */,
 				3BC30F7723A81A2700BD9700 /* CreateAppointmentResponse.swift */,
+				3B3BDBFE23B53FEE00BBB7B3 /* UserAppointmentList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -580,6 +603,14 @@
 				3BD43D1F22591FC700AC3411 /* GenericDataCellViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3BEEE93723B67283007570DA /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				3BEEE93823B6729B007570DA /* HistoryDetailsViewController.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		9173B25B04E066D00D761154 /* Pods */ = {
@@ -742,6 +773,7 @@
 				3BD43D1922591A7100AC3411 /* GenericDataCellTableViewCell.xib in Resources */,
 				3BAF8329228268480056C0D5 /* Addresses.storyboard in Resources */,
 				3B7EC0E52264066C00ED799D /* ProfessionalTableViewCell.xib in Resources */,
+				3B1D90B723B5384C003D01D1 /* HistoryTableViewCell.xib in Resources */,
 				3B26A3BB22584BD10063ECAA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -928,6 +960,7 @@
 				3B6CE455229AB87600FB19AC /* AFont.swift in Sources */,
 				3BD43D1B22591B2900AC3411 /* AAddress.swift in Sources */,
 				3B7EC0BE225D679700ED799D /* ARoundView.swift in Sources */,
+				3B1D90B623B5384C003D01D1 /* HistoryTableViewCell.swift in Sources */,
 				3BD43CFD22585B9200AC3411 /* RegisterTableViewController.swift in Sources */,
 				3B7EC0C3225D6EE700ED799D /* TransparentPopupViewController.swift in Sources */,
 				3B639524239ED243005E0CB4 /* FilterProfessionalResponse.swift in Sources */,
@@ -947,12 +980,14 @@
 				3B7EC0B1225C21D500ED799D /* PeopleQuantityView.swift in Sources */,
 				3B7EC0BC225C352300ED799D /* ServiceSelectionViewController.swift in Sources */,
 				3B28FFEE22594892004268CB /* APopoverTableViewController.swift in Sources */,
+				3BEEE93923B6729B007570DA /* HistoryDetailsViewController.swift in Sources */,
 				3B639522239EB376005E0CB4 /* Constants.swift in Sources */,
 				3B048EFD226D08AF00EBE6FD /* Person.swift in Sources */,
 				3B048EFF226D08BA00EBE6FD /* ScheduleData.swift in Sources */,
 				3B6CE45122961F6500FB19AC /* ServicesListResponse.swift in Sources */,
 				3B7EC0DE2263FFF100ED799D /* BaseNavigationController.swift in Sources */,
 				3B7EC0DC2263FADC00ED799D /* HourCollectionViewCell.swift in Sources */,
+				3B3BDBFF23B53FEE00BBB7B3 /* UserAppointmentList.swift in Sources */,
 				3B26A3B622584BD10063ECAA /* AppDelegate.swift in Sources */,
 				3B7EC0B9225C347F00ED799D /* ServiceSelectionTableViewCell.swift in Sources */,
 				3B6CE453229AAD4300FB19AC /* LoginTableViewController.swift in Sources */,
@@ -964,6 +999,7 @@
 				3B7EC0CA225D773A00ED799D /* DateAssignmentViewController.swift in Sources */,
 				3BC30F7223A55BE400BD9700 /* ConfirmViewController.swift in Sources */,
 				3BC30F7623A800C000BD9700 /* CardPaymentViewController.swift in Sources */,
+				3B1D90B223B5373D003D01D1 /* HistoryViewController.swift in Sources */,
 				3B7EC0E1226404F400ED799D /* ProfesionalSelectionViewController.swift in Sources */,
 				3B048EF8226D00FA00EBE6FD /* SuccessScheduleViewController.swift in Sources */,
 				3B456CA2239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift in Sources */,

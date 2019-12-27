@@ -14,6 +14,7 @@ class SideMenuTableViewController: UITableViewController {
 
     struct Segues {
         static let Profile = "profileSegue"
+        static let History = "HistorySegue"
     }
 
     override func viewDidLoad() {
@@ -26,6 +27,10 @@ class SideMenuTableViewController: UITableViewController {
         profileImageView.clipsToBounds = true
         guard let url = URL(string: UserManager.shared.loggedUser?.avatarURL ?? "") else { return }
         profileImageView.hnk_setImageFromURL(url, placeholder: Constants.userPlaceholder)
+    }
+    
+    @IBAction func closeAction(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
     }
 
     private func setupTableView() {
@@ -46,6 +51,8 @@ class SideMenuTableViewController: UITableViewController {
         switch indexPath.row {
         case 1:
             handleProfile()
+        case 2:
+            handleAppointments()
         case 7:
             handleLogout()
         default:
@@ -55,6 +62,10 @@ class SideMenuTableViewController: UITableViewController {
 
     private func handleProfile() {
         performSegue(withIdentifier: Segues.Profile, sender: self)
+    }
+    
+    private func handleAppointments() {
+        performSegue(withIdentifier: Segues.History, sender: self)
     }
 
     private func handleLogout() {

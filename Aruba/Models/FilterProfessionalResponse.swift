@@ -27,7 +27,7 @@ struct Professional: Codable {
     let arubaSalesThisMonth: Int
     let categories: [ServiceCategory]
     let appointments: [Appointment]
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case firstName = "first_name"
@@ -65,9 +65,10 @@ struct Appointment: Codable {
     let paymentMethod: String
     let professionalEarnings: Int
     let clientPhoneNumber: String?
+    let services: [Service]?
     let transaction: Transaction
     let client: Client
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case userAppointerID = "user_appointer_id"
@@ -88,7 +89,7 @@ struct Appointment: Codable {
         case paymentMethod = "payment_method"
         case professionalEarnings = "professional_earnings"
         case clientPhoneNumber = "client_phone_number"
-        case transaction, client
+        case services, transaction, client
     }
 }
 
@@ -102,7 +103,7 @@ struct Client: Codable {
     let canMakeAppointment: Bool
     let birthdate, document: String?
     let avatarURL: String
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case firstName = "first_name"
@@ -126,7 +127,7 @@ struct CurrentState: Codable {
     let deletedAt: String?
     let createdAt, updatedAt: String?
     let pivot: CurrentStatePivot
-
+    
     enum CodingKeys: String, CodingKey {
         case id, name
         case displayName = "display_name"
@@ -142,7 +143,7 @@ struct CurrentStatePivot: Codable {
     let createdAt: String
     let reason: String?
     let updatedAt: String
-
+    
     enum CodingKeys: String, CodingKey {
         case appointmentID = "appointment_id"
         case appointmentStateID = "appointment_state_id"
@@ -155,7 +156,7 @@ struct CurrentStatePivot: Codable {
 struct Transaction: Codable {
     let id, appointmentID, transactionableID: Int
     let transactionableType, createdAt, updatedAt: String
-
+    
     enum CodingKeys: String, CodingKey {
         case id
         case appointmentID = "appointment_id"
@@ -169,7 +170,7 @@ struct Transaction: Codable {
 
 struct CategoryPivot: Codable {
     let userID, serviceCategoryID: Int
-
+    
     enum CodingKeys: String, CodingKey {
         case userID = "user_id"
         case serviceCategoryID = "service_category_id"
@@ -183,22 +184,22 @@ extension FilterProfessionalResponse {
         guard let me = try? JSONDecoder().decode(FilterProfessionalResponse.self, from: data) else { return nil }
         self = me
     }
-
+    
     init?(_ json: String, using encoding: String.Encoding = .utf8) {
         guard let data = json.data(using: encoding) else { return nil }
         self.init(data: data)
     }
-
+    
     init?(fromURL url: String) {
         guard let url = URL(string: url) else { return nil }
         guard let data = try? Data(contentsOf: url) else { return nil }
         self.init(data: data)
     }
-
+    
     var jsonData: Data? {
         return try? JSONEncoder().encode(self)
     }
-
+    
     var json: String? {
         guard let data = self.jsonData else { return nil }
         return String(data: data, encoding: .utf8)
@@ -210,22 +211,22 @@ extension Professional {
         guard let me = try? JSONDecoder().decode(Professional.self, from: data) else { return nil }
         self = me
     }
-
+    
     init?(_ json: String, using encoding: String.Encoding = .utf8) {
         guard let data = json.data(using: encoding) else { return nil }
         self.init(data: data)
     }
-
+    
     init?(fromURL url: String) {
         guard let url = URL(string: url) else { return nil }
         guard let data = try? Data(contentsOf: url) else { return nil }
         self.init(data: data)
     }
-
+    
     var jsonData: Data? {
         return try? JSONEncoder().encode(self)
     }
-
+    
     var json: String? {
         guard let data = self.jsonData else { return nil }
         return String(data: data, encoding: .utf8)
@@ -237,22 +238,22 @@ extension Appointment {
         guard let me = try? JSONDecoder().decode(Appointment.self, from: data) else { return nil }
         self = me
     }
-
+    
     init?(_ json: String, using encoding: String.Encoding = .utf8) {
         guard let data = json.data(using: encoding) else { return nil }
         self.init(data: data)
     }
-
+    
     init?(fromURL url: String) {
         guard let url = URL(string: url) else { return nil }
         guard let data = try? Data(contentsOf: url) else { return nil }
         self.init(data: data)
     }
-
+    
     var jsonData: Data? {
         return try? JSONEncoder().encode(self)
     }
-
+    
     var json: String? {
         guard let data = self.jsonData else { return nil }
         return String(data: data, encoding: .utf8)
@@ -264,22 +265,22 @@ extension Client {
         guard let me = try? JSONDecoder().decode(Client.self, from: data) else { return nil }
         self = me
     }
-
+    
     init?(_ json: String, using encoding: String.Encoding = .utf8) {
         guard let data = json.data(using: encoding) else { return nil }
         self.init(data: data)
     }
-
+    
     init?(fromURL url: String) {
         guard let url = URL(string: url) else { return nil }
         guard let data = try? Data(contentsOf: url) else { return nil }
         self.init(data: data)
     }
-
+    
     var jsonData: Data? {
         return try? JSONEncoder().encode(self)
     }
-
+    
     var json: String? {
         guard let data = self.jsonData else { return nil }
         return String(data: data, encoding: .utf8)
@@ -291,22 +292,22 @@ extension CurrentState {
         guard let me = try? JSONDecoder().decode(CurrentState.self, from: data) else { return nil }
         self = me
     }
-
+    
     init?(_ json: String, using encoding: String.Encoding = .utf8) {
         guard let data = json.data(using: encoding) else { return nil }
         self.init(data: data)
     }
-
+    
     init?(fromURL url: String) {
         guard let url = URL(string: url) else { return nil }
         guard let data = try? Data(contentsOf: url) else { return nil }
         self.init(data: data)
     }
-
+    
     var jsonData: Data? {
         return try? JSONEncoder().encode(self)
     }
-
+    
     var json: String? {
         guard let data = self.jsonData else { return nil }
         return String(data: data, encoding: .utf8)
@@ -318,22 +319,22 @@ extension CurrentStatePivot {
         guard let me = try? JSONDecoder().decode(CurrentStatePivot.self, from: data) else { return nil }
         self = me
     }
-
+    
     init?(_ json: String, using encoding: String.Encoding = .utf8) {
         guard let data = json.data(using: encoding) else { return nil }
         self.init(data: data)
     }
-
+    
     init?(fromURL url: String) {
         guard let url = URL(string: url) else { return nil }
         guard let data = try? Data(contentsOf: url) else { return nil }
         self.init(data: data)
     }
-
+    
     var jsonData: Data? {
         return try? JSONEncoder().encode(self)
     }
-
+    
     var json: String? {
         guard let data = self.jsonData else { return nil }
         return String(data: data, encoding: .utf8)
@@ -345,22 +346,22 @@ extension Transaction {
         guard let me = try? JSONDecoder().decode(Transaction.self, from: data) else { return nil }
         self = me
     }
-
+    
     init?(_ json: String, using encoding: String.Encoding = .utf8) {
         guard let data = json.data(using: encoding) else { return nil }
         self.init(data: data)
     }
-
+    
     init?(fromURL url: String) {
         guard let url = URL(string: url) else { return nil }
         guard let data = try? Data(contentsOf: url) else { return nil }
         self.init(data: data)
     }
-
+    
     var jsonData: Data? {
         return try? JSONEncoder().encode(self)
     }
-
+    
     var json: String? {
         guard let data = self.jsonData else { return nil }
         return String(data: data, encoding: .utf8)
@@ -373,22 +374,22 @@ extension CategoryPivot {
         guard let me = try? JSONDecoder().decode(CategoryPivot.self, from: data) else { return nil }
         self = me
     }
-
+    
     init?(_ json: String, using encoding: String.Encoding = .utf8) {
         guard let data = json.data(using: encoding) else { return nil }
         self.init(data: data)
     }
-
+    
     init?(fromURL url: String) {
         guard let url = URL(string: url) else { return nil }
         guard let data = try? Data(contentsOf: url) else { return nil }
         self.init(data: data)
     }
-
+    
     var jsonData: Data? {
         return try? JSONEncoder().encode(self)
     }
-
+    
     var json: String? {
         guard let data = self.jsonData else { return nil }
         return String(data: data, encoding: .utf8)

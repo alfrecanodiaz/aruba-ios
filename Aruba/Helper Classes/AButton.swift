@@ -34,7 +34,7 @@ class AButton: UIButton {
     private func applyStyles() {
         backgroundColor = buttonColor
         titleLabel?.textColor = .white
-        titleLabel?.font = UIFont(name: "Lato-Bold", size: 14)
+        titleLabel?.font = AFont.with(size: 14, weight: .regular)
         layer.masksToBounds = false
         layer.cornerRadius = cornerRadius
         layer.shadowColor = UIColor.black.cgColor

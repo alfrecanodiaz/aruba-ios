@@ -61,10 +61,6 @@ class CartTableViewController: UITableViewController {
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
         tableView.scrollToRow(at: IndexPath(row: 1, section: 2), at: .top, animated: true)
         if sender.selectedSegmentIndex == 0 {
-            changeAmountTextField.isHidden = false
-            paymentInfoLabel.isHidden = true
-        }
-        if sender.selectedSegmentIndex == 1 {
             changeAmountTextField.isHidden = true
             paymentInfoLabel.isHidden = false
             let transferDataString = NSMutableAttributedString()
@@ -79,9 +75,8 @@ class CartTableViewController: UITableViewController {
             transferDataString.append(NSAttributedString(string: "3.399.394", attributes: [.font: regularFont]))
             transferDataString.append(NSAttributedString(string: "\nMaria Martha Cabello", attributes: [.font: regularFont]))
             paymentInfoLabel.attributedText = transferDataString
-            
         }
-        if sender.selectedSegmentIndex == 2 {
+        if sender.selectedSegmentIndex == 1 {
             changeAmountTextField.isHidden = true
             paymentInfoLabel.isHidden = false
             paymentInfoLabel.text = "Al presionar continuar se procedera a solicitar la información de su tarjeta de credito."

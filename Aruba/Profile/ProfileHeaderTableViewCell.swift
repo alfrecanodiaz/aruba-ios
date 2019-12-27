@@ -16,6 +16,10 @@ class ProfileHeaderTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        guard let loggedUser = UserManager.shared.loggedUser else { return }
+        greetingLbl.text = "¡Hola \(loggedUser.firstName)!"
+        guard let url = URL(string: UserManager.shared.loggedUser?.avatarURL ?? "") else { return }
+        profileImageView.hnk_setImageFromURL(url, placeholder: Constants.userPlaceholder)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

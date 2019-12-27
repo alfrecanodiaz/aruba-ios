@@ -78,7 +78,8 @@ class ServiceSelectionViewController: BaseViewController {
                 }
             } else if let response = response {
                 for service in response.data {
-                    for cat in service.categories {
+                    guard let serviceCategories = service.categories else { return }
+                    for cat in serviceCategories {
                         for (index, cat2) in self.category.subCategories.enumerated() {
                             if cat.id == cat2.id {
                                 self.services[index].insert(service, at: 0)

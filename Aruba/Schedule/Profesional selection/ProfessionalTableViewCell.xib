@@ -30,30 +30,33 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monica" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oA-qf-03C">
-                        <rect key="frame" x="90" y="24" width="223.5" height="60"/>
+                        <rect key="frame" x="90" y="24" width="253" height="60"/>
                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xy4-sB-WvL">
-                        <rect key="frame" x="321.5" y="25" width="59.5" height="58"/>
+                        <rect key="frame" x="351" y="39" width="30" height="30"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evA-x9-Ngz">
-                                <rect key="frame" x="0.0" y="0.0" width="59.5" height="58"/>
+                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                 <state key="normal" image="add_button_green"/>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="eIk-nU-P8Y"/>
+                            <constraint firstAttribute="height" constant="30" id="ffk-3D-vqR"/>
+                        </constraints>
                     </stackView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="5oA-qf-03C" firstAttribute="height" secondItem="Oro-Ye-a7k" secondAttribute="height" id="2Bq-zO-2oY"/>
                     <constraint firstItem="xy4-sB-WvL" firstAttribute="leading" secondItem="5oA-qf-03C" secondAttribute="trailing" constant="8" id="6vS-es-Npo"/>
+                    <constraint firstItem="Oro-Ye-a7k" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="73u-s5-FLj"/>
                     <constraint firstItem="Oro-Ye-a7k" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="8O7-bJ-8hw"/>
-                    <constraint firstAttribute="bottom" secondItem="xy4-sB-WvL" secondAttribute="bottom" constant="25" id="E1F-MS-Qdk"/>
+                    <constraint firstAttribute="bottom" secondItem="Oro-Ye-a7k" secondAttribute="bottom" constant="24" id="QjI-l1-86K"/>
                     <constraint firstItem="5oA-qf-03C" firstAttribute="leading" secondItem="Oro-Ye-a7k" secondAttribute="trailing" constant="20" id="RQc-Ul-akB"/>
-                    <constraint firstItem="xy4-sB-WvL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="Ukg-cm-vuU"/>
-                    <constraint firstItem="Oro-Ye-a7k" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eII-tF-fUa"/>
-                    <constraint firstItem="xy4-sB-WvL" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.15" constant="1" id="fb3-OU-Q2T"/>
+                    <constraint firstItem="xy4-sB-WvL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="WcV-A5-pS5"/>
                     <constraint firstItem="5oA-qf-03C" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rAq-F9-GCG"/>
                     <constraint firstAttribute="trailing" secondItem="xy4-sB-WvL" secondAttribute="trailing" constant="8" id="tRC-GE-xyU"/>
                 </constraints>

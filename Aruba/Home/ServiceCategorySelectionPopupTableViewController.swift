@@ -119,6 +119,22 @@ class ServiceCategorySelectionPopupTableViewController: APopoverTableViewControl
         }
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return UITableView.automaticDimension
+        }
+        if indexPath.row == 1 || indexPath.row == 2 {
+            return 100
+        }
+        if indexPath.row == 3 {
+            return 160
+        }
+        if indexPath.row == 4 {
+            return 109
+        }
+        return 0
+    }
+    
     
 }
 

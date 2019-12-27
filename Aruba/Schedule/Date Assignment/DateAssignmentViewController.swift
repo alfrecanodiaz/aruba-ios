@@ -77,6 +77,11 @@ class DateAssignmentViewController: BaseViewController {
         setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dateTextField.becomeFirstResponder()
+    }
+    
     private func setupView() {
         clientLabel.text = "¡Hola \(clientName)!"
         categoryLabel.text = "Estas en la categoria \(category.title.uppercased())"
@@ -105,7 +110,9 @@ class DateAssignmentViewController: BaseViewController {
             ALoader.hide()
             if let error = error {
                 self.professionals = []
-                AlertManager.showNotice(in: self, title: "Lo sentimos", description: error.message)
+                AlertManager.showNotice(in: self, title: "Lo sentimos", description: error.message) {
+                    self.timeTextField.becomeFirstResponder()
+                }
             } else if let response = response {
                 self.professionals = response.data
             }
@@ -231,6 +238,10 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
 extension DateAssignmentViewController: ATextFieldDelegate {
     
     func didPressDone(textField: ATextField) {
+        if timeTextField.text == nil || timeTextField.text == "" {
+            timeTextField.becomeFirstResponder()
+            return
+        }
         fetchProfessionals()
     }
 }

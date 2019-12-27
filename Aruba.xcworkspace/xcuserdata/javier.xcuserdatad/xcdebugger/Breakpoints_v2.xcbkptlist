@@ -112,58 +112,10 @@
             filePath = "Aruba/Helper Classes/HTTPClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "request(method:path:data:completion:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "43C1EC1D-0FAB-489F-9F35-CDA05D25D789"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Aruba/Helper Classes/HTTPClient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "request(method:path:data:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "43C1EC1D-0FAB-489F-9F35-CDA05D25D789 - 5b23997e9831ae3d"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Aruba.HTTPClient.request&lt;A where A: Swift.Decodable, A: Swift.Encodable&gt;(method: Aruba.HTTPClient.Mehtod, path: Aruba.HTTPClient.Endpoint, data: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, completion: (Swift.Optional&lt;A&gt;, Swift.Optional&lt;Aruba.HTTPClientError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Aruba"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/javier/Aruba-iOS/Aruba/Helper%20Classes/HTTPClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "1960">
-               </Location>
-               <Location
-                  uuid = "43C1EC1D-0FAB-489F-9F35-CDA05D25D789 - c9c661c925e6ca9a"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data&gt;) -&gt; () in Aruba.HTTPClient.request&lt;A where A: Swift.Decodable, A: Swift.Encodable&gt;(method: Aruba.HTTPClient.Mehtod, path: Aruba.HTTPClient.Endpoint, data: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, completion: (Swift.Optional&lt;A&gt;, Swift.Optional&lt;Aruba.HTTPClientError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "Aruba"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/javier/Aruba-iOS/Aruba/Helper%20Classes/HTTPClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "89"
-                  endingLineNumber = "89"
-                  offsetFromSymbolStart = "272">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -176,8 +128,8 @@
             filePath = "Aruba/Home/HomeTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
             landmarkName = "showServiceCategoryPopup(serviceCategory:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -226,8 +178,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
             endingLineNumber = "57"
-            landmarkName = "addCustomAccessories()"
-            landmarkType = "7">
+            landmarkName = "ATextField"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -274,7 +226,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
             endingLineNumber = "66"
-            landmarkName = "cancelAction(_:)"
+            landmarkName = "cancelPayment()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

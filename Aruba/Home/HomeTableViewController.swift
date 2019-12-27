@@ -165,6 +165,7 @@ class HomeTableViewController: BaseTableViewController {
             let alert = UIAlertController(title: "Lo sentimos", message: serviceCategory.inactiveText ?? "", preferredStyle: .alert)
             let cancel = UIAlertAction(title: "Aceptar", style: .cancel, handler: nil)
             alert.addAction(cancel)
+            alert.view.tintColor = Colors.ButtonGreen
             present(alert, animated: true, completion: nil)
             return
         }
@@ -189,24 +190,6 @@ class HomeTableViewController: BaseTableViewController {
             present(addAddressVC, animated: true, completion: nil)
             return
         }
-        
-        // TODO: Move to next screen
-//        guard serviceCategory.subCategories.isEmpty else {
-//            let alert = UIAlertController(title: "Elige la sub-categoria", message: nil, preferredStyle: .actionSheet)
-//            for cat in serviceCategory.subCategories {
-//                if cat.enabled {
-//                    alert.addAction(UIAlertAction(title: cat.title, style: .default, handler: { (_) in
-//                        self.showServiceCategoryPopup(serviceCategory: cat)
-//                    }))
-//                } else {
-//                    alert.addAction(UIAlertAction(title: cat.title + " (\(cat.inactiveText ?? ""))" , style: .cancel, handler: nil))
-//                }
-//            }
-//            alert.view.tintColor = Colors.ButtonGreen
-//            alert.addAction(UIAlertAction(title: "Atras", style: .cancel, handler: nil))
-//            present(alert, animated: true, completion: nil)
-//            return
-//        }
 
         showServiceCategoryPopup(serviceCategory: serviceCategory)
     }

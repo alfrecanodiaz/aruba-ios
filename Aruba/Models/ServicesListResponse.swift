@@ -21,7 +21,7 @@ struct Service: Codable {
     let price, duration: Int
     let isPromotion: Bool
     let imageURL: String
-    let categories: [ServiceCategory]
+    let categories: [ServiceCategory]?
 
     enum CodingKeys: String, CodingKey {
         case id, name

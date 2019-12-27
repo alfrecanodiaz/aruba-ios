@@ -54,6 +54,8 @@ class HTTPClient {
         case bancardPayment = "user/appointment/bancard"
         case cancelBancardPayment = "user/appointment/bancard/cancel"
         case createAppointment = "user/appointment/create"
+        case appointments = "user/appointment/list"
+        case cancelAppointment = "user/appointment/cancel"
     }
 
     lazy var sessionManager: SessionManager = {

@@ -19,13 +19,15 @@ class ATextField: MFTextField {
     
     lazy var accessory: UIView = {
         let accessoryView = UIView(frame: .zero)
-        accessoryView.backgroundColor = #colorLiteral(red: 0.8013493419, green: 0.8014847636, blue: 0.8013314605, alpha: 0.853515625)
+        accessoryView.backgroundColor = Colors.ButtonGreen
         return accessoryView
     }()
     
     let doneButton: UIButton! = {
         let doneButton = UIButton(type: .custom)
-        doneButton.setTitleColor(Colors.ButtonGreen, for: .normal)
+        doneButton.setTitleColor(.white, for: .normal)
+        doneButton.setTitleColor(.white, for: .highlighted)
+        doneButton.setTitleColor(.white, for: .selected)
         doneButton.setTitle("Listo", for: .normal)
         doneButton.translatesAutoresizingMaskIntoConstraints = false
         doneButton.setTitleColor(.white, for: .disabled)

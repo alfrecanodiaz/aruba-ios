@@ -45,6 +45,7 @@ class ProfileTableViewController: UITableViewController {
 
     func setupView() {
         tableView.register(UINib(nibName: Cells.GenericData, bundle: nil), forCellReuseIdentifier: Cells.GenericData)
+        
     }
 
     // MARK: - Table view data source
