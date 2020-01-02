@@ -20,6 +20,7 @@ target 'Aruba' do
   pod 'Windless'
   pod 'lottie-ios'
   pod 'HanekeSwift', :git => 'https://github.com/Haneke/HanekeSwift.git', :tag => 'v0.11.1'
+  pod 'PageMenu', :git => 'https://github.com/1986webdeveloper/PageMenu'
   
 #  post_install do |installer|
 #      installer.pods_project.build_configurations.each do |config|

@@ -98,6 +98,7 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - Nimble (8.0.4)
+  - PageMenu (2.0.0)
   - Protobuf (3.11.1)
   - Quick (2.2.0)
   - SideMenu (6.4.7)
@@ -117,6 +118,7 @@ DEPENDENCIES:
   - lottie-ios
   - MaterialTextField
   - Nimble
+  - PageMenu (from `https://github.com/1986webdeveloper/PageMenu`)
   - Quick
   - SideMenu
   - SVProgressHUD
@@ -158,11 +160,16 @@ EXTERNAL SOURCES:
   HanekeSwift:
     :git: https://github.com/Haneke/HanekeSwift.git
     :tag: v0.11.1
+  PageMenu:
+    :git: https://github.com/1986webdeveloper/PageMenu
 
 CHECKOUT OPTIONS:
   HanekeSwift:
     :git: https://github.com/Haneke/HanekeSwift.git
     :tag: v0.11.1
+  PageMenu:
+    :commit: 30606ae924cfe52bdc9905a8b3284a75017c52ef
+    :git: https://github.com/1986webdeveloper/PageMenu
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -188,6 +195,7 @@ SPEC CHECKSUMS:
   MaterialTextField: f1a0786588e4d3610cb9bb62d2adbe9777cebbf9
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Nimble: 18d5360282923225d62b09d781f63abc1a0111fc
+  PageMenu: 50134deb498b120cfcd086fee1bce35a4b2f9c81
   Protobuf: 20d79da7f20b5928b80043b05080b816e802659e
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
   SideMenu: 928a015669c3afc201e1fe3a87f1b0bc8993a664
@@ -195,6 +203,6 @@ SPEC CHECKSUMS:
   SwiftLint: 4105f061f9812b214568b736dab580ab2c73a582
   Windless: c6b7d63ac3a0c7e6b241e316650d4605abf71894
 
-PODFILE CHECKSUM: a5e019c451dcdf0d22da1ea7504e3a9548c73ca0
+PODFILE CHECKSUM: 3f905a33fd171f43597634fb27fd42e1f5aa12f9
 
 COCOAPODS: 1.8.0

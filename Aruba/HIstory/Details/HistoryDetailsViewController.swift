@@ -55,11 +55,9 @@ class HistoryDetailsViewController: UIViewController {
     // Inject on prepareForSegue
     var viewModel: HistoryDetailsViewModel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        
     }
     
     private func setupView() {
@@ -99,6 +97,7 @@ class HistoryDetailsViewController: UIViewController {
     
 }
 
+// MARK: UITableViewDataSource
 extension HistoryDetailsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

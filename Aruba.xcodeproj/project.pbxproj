@@ -50,6 +50,11 @@
 		3B6CE453229AAD4300FB19AC /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CE452229AAD4300FB19AC /* LoginTableViewController.swift */; };
 		3B6CE455229AB87600FB19AC /* AFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CE454229AB87600FB19AC /* AFont.swift */; };
 		3B6CE457229B660D00FB19AC /* UserAddressListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CE456229B660D00FB19AC /* UserAddressListResponse.swift */; };
+		3B6EC9F823BE542600F94A89 /* Professionals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B6EC9F723BE542600F94A89 /* Professionals.storyboard */; };
+		3B6EC9FB23BE56A700F94A89 /* ProfessionalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6EC9FA23BE56A700F94A89 /* ProfessionalsViewController.swift */; };
+		3B6EC9FD23BE57CF00F94A89 /* ProfessionalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6EC9FC23BE57CF00F94A89 /* ProfessionalsTableViewController.swift */; };
+		3B6ECA0023BE634800F94A89 /* ProfessionalListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6EC9FE23BE634800F94A89 /* ProfessionalListTableViewCell.swift */; };
+		3B6ECA0123BE634800F94A89 /* ProfessionalListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6EC9FF23BE634800F94A89 /* ProfessionalListTableViewCell.xib */; };
 		3B7EC0AD225C20A300ED799D /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7EC0AC225C20A300ED799D /* Schedule.storyboard */; };
 		3B7EC0AF225C219200ED799D /* PeopleQuantiySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0AE225C219200ED799D /* PeopleQuantiySelectionViewController.swift */; };
 		3B7EC0B1225C21D500ED799D /* PeopleQuantityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0B0225C21D500ED799D /* PeopleQuantityView.swift */; };
@@ -174,6 +179,11 @@
 		3B6CE452229AAD4300FB19AC /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
 		3B6CE454229AB87600FB19AC /* AFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFont.swift; sourceTree = "<group>"; };
 		3B6CE456229B660D00FB19AC /* UserAddressListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAddressListResponse.swift; sourceTree = "<group>"; };
+		3B6EC9F723BE542600F94A89 /* Professionals.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Professionals.storyboard; sourceTree = "<group>"; };
+		3B6EC9FA23BE56A700F94A89 /* ProfessionalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalsViewController.swift; sourceTree = "<group>"; };
+		3B6EC9FC23BE57CF00F94A89 /* ProfessionalsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalsTableViewController.swift; sourceTree = "<group>"; };
+		3B6EC9FE23BE634800F94A89 /* ProfessionalListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalListTableViewCell.swift; sourceTree = "<group>"; };
+		3B6EC9FF23BE634800F94A89 /* ProfessionalListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfessionalListTableViewCell.xib; sourceTree = "<group>"; };
 		3B7EC0AC225C20A300ED799D /* Schedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
 		3B7EC0AE225C219200ED799D /* PeopleQuantiySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleQuantiySelectionViewController.swift; sourceTree = "<group>"; };
 		3B7EC0B0225C21D500ED799D /* PeopleQuantityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleQuantityView.swift; sourceTree = "<group>"; };
@@ -350,6 +360,7 @@
 				3B28FFF32259516A004268CB /* Base */,
 				3B069B792396E7C9003B5479 /* SplashLoaderViewController.swift */,
 				3B639521239EB376005E0CB4 /* Constants.swift */,
+				3B6EC9F923BE542B00F94A89 /* Professionals */,
 			);
 			path = Aruba;
 			sourceTree = "<group>";
@@ -407,6 +418,18 @@
 				3B67BA3F22690FC500871F77 /* ProductDescriptionPopupTableViewController.swift */,
 			);
 			path = ProductDescriptionPopup;
+			sourceTree = "<group>";
+		};
+		3B6EC9F923BE542B00F94A89 /* Professionals */ = {
+			isa = PBXGroup;
+			children = (
+				3B6EC9F723BE542600F94A89 /* Professionals.storyboard */,
+				3B6EC9FA23BE56A700F94A89 /* ProfessionalsViewController.swift */,
+				3B6EC9FC23BE57CF00F94A89 /* ProfessionalsTableViewController.swift */,
+				3B6EC9FE23BE634800F94A89 /* ProfessionalListTableViewCell.swift */,
+				3B6EC9FF23BE634800F94A89 /* ProfessionalListTableViewCell.xib */,
+			);
+			path = Professionals;
 			sourceTree = "<group>";
 		};
 		3B7EC0AB225C206F00ED799D /* Schedule */ = {
@@ -765,9 +788,11 @@
 				3B26A3C022584BD30063ECAA /* LaunchScreen.storyboard in Resources */,
 				3B28FFFA22595588004268CB /* Lato-Bold.ttf in Resources */,
 				3B02964D228E070000D08789 /* success.json in Resources */,
+				3B6ECA0123BE634800F94A89 /* ProfessionalListTableViewCell.xib in Resources */,
 				3B7EC0AD225C20A300ED799D /* Schedule.storyboard in Resources */,
 				3BD43CF1225856B900AC3411 /* Start.storyboard in Resources */,
 				3B26A3BD22584BD30063ECAA /* Assets.xcassets in Resources */,
+				3B6EC9F823BE542600F94A89 /* Professionals.storyboard in Resources */,
 				3B28FFFC22595588004268CB /* Lato-Black.ttf in Resources */,
 				3B28FFFB22595588004268CB /* Lato-Regular.ttf in Resources */,
 				3BD43D1922591A7100AC3411 /* GenericDataCellTableViewCell.xib in Resources */,
@@ -950,6 +975,8 @@
 				3BD43CFF22585EF000AC3411 /* HTTPClient.swift in Sources */,
 				3B7EC0D82263F1B200ED799D /* HourAssignmentViewController.swift in Sources */,
 				3B39509623954B3A004FD9B8 /* ServiceCategoryListResponse.swift in Sources */,
+				3B6ECA0023BE634800F94A89 /* ProfessionalListTableViewCell.swift in Sources */,
+				3B6EC9FB23BE56A700F94A89 /* ProfessionalsViewController.swift in Sources */,
 				3BD43CFB22585B7F00AC3411 /* LandingViewController.swift in Sources */,
 				3BD43D05225861C300AC3411 /* UserLoginResponse.swift in Sources */,
 				3B048EF3226CFC3600EBE6FD /* ABoxView.swift in Sources */,
@@ -1011,6 +1038,7 @@
 				3B7EC0D62263E95300ED799D /* DateSelectionViewController.swift in Sources */,
 				3B28FFF222595165004268CB /* BaseTableViewController.swift in Sources */,
 				3BD43D0C2259122B00AC3411 /* SideMenuTableViewController.swift in Sources */,
+				3B6EC9FD23BE57CF00F94A89 /* ProfessionalsTableViewController.swift in Sources */,
 				3B7EC0E42264066C00ED799D /* ProfessionalTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1192,7 +1220,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aruba/Aruba.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7.0;
+				CURRENT_PROJECT_VERSION = 8.0;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = Aruba/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1217,7 +1245,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aruba/Aruba.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7.0;
+				CURRENT_PROJECT_VERSION = 8.0;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = Aruba/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
