@@ -17,16 +17,17 @@ struct Professional: Codable {
     let id: Int
     let firstName, lastName, email, emailVerifiedAt: String
     let facebookID: String?
-    let enabled: Bool
+    let enabled: Bool?
     let deletedAt: String?
     let createdAt, updatedAt: String
     let canMakeAppointment: Bool?
     let birthdate, document: String?
-    let avatarURL: String
-    let averageReviews, servicesCount, likes, salesThisMonth: Int
-    let arubaSalesThisMonth: Int
-    let categories: [ServiceCategory]
-    let appointments: [Appointment]
+    let avatarURL: String?
+    let averageReviews: Double?
+    let servicesCount, likes, salesThisMonth: Int?
+    let arubaSalesThisMonth: Int?
+    let categories: [ServiceCategory]?
+    let appointments: [Appointment]?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -52,6 +53,7 @@ struct Professional: Codable {
 }
 
 struct Appointment: Codable {
+    
     let id, userAppointerID, userAppointeeID: Int
     let clientName: String
     let addressID: Int
@@ -68,6 +70,7 @@ struct Appointment: Codable {
     let services: [Service]?
     let transaction: Transaction
     let client: Client
+    let professional: Professional?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -89,7 +92,7 @@ struct Appointment: Codable {
         case paymentMethod = "payment_method"
         case professionalEarnings = "professional_earnings"
         case clientPhoneNumber = "client_phone_number"
-        case services, transaction, client
+        case services, transaction, client, professional
     }
 }
 

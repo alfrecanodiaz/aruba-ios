@@ -56,6 +56,10 @@ class HTTPClient {
         case createAppointment = "user/appointment/create"
         case appointments = "user/appointment/list"
         case cancelAppointment = "user/appointment/cancel"
+        case rateProfessional = "user/review/create"
+        case userRegisterDevice = "user/device/create"
+        case userDeviceList = "user/device/list"
+        case userDeviceUpdate = "user/device/update"
     }
 
     lazy var sessionManager: SessionManager = {
@@ -93,13 +97,13 @@ class HTTPClient {
         if let data = data {
             parameters = data
         }
-        if AuthManager.isLogged() {
-            guard let token = AuthManager.getCurrentAccessToken() else {
-                print("Tried to retrieve access token from Auth Manager but there is not one stored.")
-                return
-            }
-            parameters["access_token"] = token
-        }
+//        if AuthManager.isLogged() {
+//            guard let token = AuthManager.getCurrentAccessToken() else {
+//                print("Tried to retrieve access token from Auth Manager but there is not one stored.")
+//                return
+//            }
+//            parameters["access_token"] = token
+//        }
         print("Calling endopint: \(path.rawValue) with params: \(parameters)")
         sessionManager.request(url, method: method.value, parameters: parameters, encoding: JSONEncoding.default)
             .responseData { response in

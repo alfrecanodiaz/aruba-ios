@@ -49,12 +49,12 @@ class ProfessionalDetailsPopupTableViewController: APopoverTableViewController {
         super.viewDidLoad()
         dateLabel.text = date
         timeLabel.text = time
-        likesLabel.text = "\(professional.likes)"
-        appointmentCountLabel.text = "\(professional.servicesCount)"
-        commentsLabel.text = "\(1)"
-        averageLabel.text = "\(professional.averageReviews)"
+        likesLabel.text = "\(professional.likes ?? 0)"
+        appointmentCountLabel.text = "\(professional.servicesCount ?? 0)"
+        commentsLabel.text = "\(professional.averageReviews ?? 0)"
+        averageLabel.text = "\(professional.averageReviews ?? 0)"
         professionalNameLabel.text = professional.firstName + " " + professional.lastName
-        guard let url = URL(string: professional.avatarURL) else {
+        guard let url = URL(string: professional.avatarURL ?? "") else {
             return
         }
         userAvatarImageView.hnk_setImageFromURL(url, placeholder: Constants.userPlaceholder)

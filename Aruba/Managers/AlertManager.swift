@@ -11,7 +11,10 @@ import UIKit
 
 class AlertManager {
     
-    class func showNotice(in viewController: UIViewController, title: String, description: String, completion: (() -> Void)? = nil) {
+    class func showNotice(in viewController: UIViewController,
+                          title: String,
+                          description: String,
+                          completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
         alert.view.tintColor = Colors.ButtonGreen
         let aceptar = UIAlertAction(title: "Entendido", style: .cancel, handler: { _ in
@@ -21,7 +24,11 @@ class AlertManager {
         viewController.present(alert, animated: true, completion: nil)
     }
     
-    class func showNotice(in viewController: UIViewController, title: String, description: String, acceptButtonTitle: String = "Aceptar", completion: (() -> Void)? = nil) {
+    class func showNotice(in viewController: UIViewController,
+                          title: String,
+                          description: String,
+                          acceptButtonTitle: String = "Aceptar",
+                          completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
         alert.view.tintColor = Colors.ButtonGreen
         let aceptar = UIAlertAction(title: acceptButtonTitle, style: .default, handler: { _ in
@@ -32,7 +39,12 @@ class AlertManager {
         viewController.present(alert, animated: true, completion: nil)
     }
     
-    class func showNotice(in viewController: UIViewController, title: String, description: String, textFieldPlaceholder: String, acceptButtonTitle: String = "Aceptar", completion: ((_ text: String) -> Void)? = nil) {
+    class func showNotice(in viewController: UIViewController,
+                          title: String,
+                          description: String,
+                          textFieldPlaceholder: String,
+                          acceptButtonTitle: String = "Aceptar",
+                          completion: ((_ text: String) -> Void)? = nil) {
            let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
            alert.view.tintColor = Colors.ButtonGreen
            let aceptar = UIAlertAction(title: acceptButtonTitle, style: .default, handler: { _ in
@@ -46,4 +58,20 @@ class AlertManager {
            alert.addAction(UIAlertAction(title: "Atras", style: .cancel, handler: nil))
            viewController.present(alert, animated: true, completion: nil)
        }
+    
+    class func showErrorNotice(in viewController: UIViewController,
+                       error: HTTPClientError,
+                       completion: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: "Lo sentimos",
+                                      message: error.message,
+                                      preferredStyle: .alert)
+        alert.view.tintColor = Colors.ButtonGreen
+        let aceptar = UIAlertAction(title: "Aceptar",
+                                    style: .default,
+                                    handler: { _ in
+            completion?()
+        })
+        alert.addAction(aceptar)
+        viewController.present(alert, animated: true, completion: nil)
+    }
 }

@@ -21,10 +21,15 @@ class GenericDataCellTableViewCell: UITableViewCell {
     var index: Int?
 
     weak var delegate: GenericDataCellTableViewCellProtocol?
+    
+    enum Constants {
+        static let height: CGFloat = 80
+    }
 
     var viewModel: GenericDataCellViewModel? {
         didSet {
             dataLbl.attributedText = viewModel?.attributedDataString
+            index = viewModel?.index
         }
     }
 

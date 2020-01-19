@@ -19,23 +19,39 @@ struct HistoryDetailsViewModel {
     let total: String
     let canCancelAppointment: Bool
     let appointmentId: Int
+    let canRateAppointment: Bool
+    let professionalAvatarURL: String
+    let professionalId: Int
     
     init (appointment: Appointment) {
         services = appointment.services ?? []
-        professionalName = ""
+        if let professional = appointment.professional {
+            professionalName = professional.firstName + " " + professional.lastName
+            professionalAvatarURL = professional.avatarURL ?? ""
+            professionalId = professional.id
+        } else {
+            professionalName = ""
+            professionalAvatarURL = ""
+            professionalId = 0
+        }
         date = appointment.date
         time = appointment.hourStartPretty
-        duration = "\(appointment.duration)"
+        duration = "\(appointment.duration/60) minutos"
         address = appointment.fullAddress
         paymentMethod = appointment.transaction.transactionableType
-        total = "\(appointment.price)"
+        total =  Int(appointment.price).asGs() ?? ""
         canCancelAppointment = appointment.currentStateID == 1
         appointmentId = appointment.id
+        canRateAppointment = appointment.currentStateID == 4
+
     }
 }
 
-class HistoryDetailsViewController: UIViewController {
+class HistoryDetailsViewController: BaseViewController {
     
+    @IBOutlet weak var professionalAvatarImageView: ARoundImage!
+    @IBOutlet weak var cancelButton: AButton!
+    @IBOutlet weak var rateButton: AButton!
     @IBOutlet weak var cancelButtonHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var professionalLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -68,12 +84,18 @@ class HistoryDetailsViewController: UIViewController {
         addressLabel.text = "Dirección: \(viewModel.address)"
         paymentMethodLabel.text = "Método de pago: \(viewModel.paymentMethod)"
         totalLabel.text = "Total: \(viewModel.total)"
-        cancelButtonHeightConstraint.constant = viewModel.canCancelAppointment ? 40 : 0
-        
+        cancelButton.isHidden = !viewModel.canCancelAppointment
+        rateButton.isHidden = !viewModel.canRateAppointment
+        guard let url = URL(string: viewModel.professionalAvatarURL) else { return }
+        professionalAvatarImageView.hnk_setImageFromURL(url, placeholder: Constants.userPlaceholder)
+
     }
     
     @IBAction func cancelAction(_ sender: AButton) {
-        AlertManager.showNotice(in: self, title: "Atención", description: "¿Estas seguro que quieres cancelar esta reserva?", textFieldPlaceholder: "Motivo de cancelación", acceptButtonTitle: "Cancelar Reserva") { motive in
+        AlertManager.showNotice(in: self, title: "Atención",
+                                description: "¿Estas seguro que quieres cancelar esta reserva?",
+                                textFieldPlaceholder: "Motivo de cancelación",
+                                acceptButtonTitle: "Cancelar Reserva") { motive in
             self.cancelAppointment(reason: motive)
         }
     }
@@ -95,6 +117,21 @@ class HistoryDetailsViewController: UIViewController {
         
     }
     
+    @IBAction func rateAction(_ sender: AButton) {
+        guard let popup = storyboard?.instantiateViewController(withIdentifier: "RateProfessionalTableViewControllerID") as? RateProfessionalTableViewController else { return }
+        popup.viewModel = RateProfessionalViewModel(professionalName: viewModel.professionalName,
+                                                    professionalAvatarURL: viewModel.professionalAvatarURL,
+                                                    professionalId: viewModel.professionalId)
+        popup.modalPresentationStyle = .popover
+        addBlackBackgroundView()
+        let popover = popup.popoverPresentationController
+        popover?.delegate = self
+        popover?.permittedArrowDirections = .init(rawValue: 0)
+        popover?.sourceView = view
+        popover?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+        popup.delegate = self
+        present(popup, animated: true, completion: nil)
+    }
 }
 
 // MARK: UITableViewDataSource
@@ -118,7 +155,7 @@ extension HistoryDetailsViewController: UITableViewDataSource {
         cell.detailTextLabel?.font = AFont.with(size: 13, weight: .regular)
         cell.imageView?.image = Constants.imagePlaceholder
         cell.selectionStyle = .none
-        guard let url = URL(string: service.imageURL) else { return cell}
+        guard let url = URL(string: service.imageURL) else { return cell }
         cell.imageView?.hnk_setImageFromURL(url, placeholder: Constants.imagePlaceholder)
         return cell
     }
@@ -135,6 +172,21 @@ extension HistoryDetailsViewController: UITableViewDataSource {
         return "Servicios Solicitados"
     }
     
+}
+
+extension HistoryDetailsViewController: RateProfessionalPopupDelegate {
+    func didClosePopup() {
+        removeBlackBackgroundView()
+    }
     
-    
+    func didRateProfessional() {
+        removeBlackBackgroundView()
+    }
+}
+
+extension String {
+    func asMinutes() -> String? {
+        let asInt = Int(self) ?? 0
+        return String(asInt/60)
+    }
 }

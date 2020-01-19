@@ -34,40 +34,40 @@ class ProfessionalListTableViewCell: UITableViewCell {
     
     func configure(professional: Professional) {
         professionalNameLabel.text = professional.firstName + " " + professional.lastName
-        serviceCountLabel.text = "\(professional.servicesCount)"
-        likeCountLabel.text = "\(professional.likes)"
-        
-        if professional.averageReviews == 0 {
+        serviceCountLabel.text = "\(professional.servicesCount ?? 0)"
+        likeCountLabel.text = "\(professional.likes ?? 0)"
+        let averageReviewsAsInt = Int(floor(professional.averageReviews ?? 0))
+        if averageReviewsAsInt == 0 {
             rating1.image = #imageLiteral(resourceName: "star")
             rating2.image = #imageLiteral(resourceName: "star")
             rating3.image = #imageLiteral(resourceName: "star")
             rating4.image = #imageLiteral(resourceName: "star")
             rating5.image = #imageLiteral(resourceName: "star")
-        } else if professional.averageReviews == 1 {
+        } else if averageReviewsAsInt == 1 {
             rating1.image = #imageLiteral(resourceName: "star_filled")
             rating2.image = #imageLiteral(resourceName: "star")
             rating3.image = #imageLiteral(resourceName: "star")
             rating4.image = #imageLiteral(resourceName: "star")
             rating5.image = #imageLiteral(resourceName: "star")
-        } else if professional.averageReviews == 2 {
+        } else if averageReviewsAsInt == 2 {
             rating1.image = #imageLiteral(resourceName: "star_filled")
             rating2.image = #imageLiteral(resourceName: "star_filled")
             rating3.image = #imageLiteral(resourceName: "star")
             rating4.image = #imageLiteral(resourceName: "star")
             rating5.image = #imageLiteral(resourceName: "star")
-        } else if professional.averageReviews == 3 {
+        } else if averageReviewsAsInt == 3 {
             rating1.image = #imageLiteral(resourceName: "star_filled")
             rating2.image = #imageLiteral(resourceName: "star_filled")
             rating3.image = #imageLiteral(resourceName: "star_filled")
             rating4.image = #imageLiteral(resourceName: "star")
             rating5.image = #imageLiteral(resourceName: "star")
-        } else if professional.averageReviews == 4 {
+        } else if averageReviewsAsInt == 4 {
             rating1.image = #imageLiteral(resourceName: "star_filled")
             rating2.image = #imageLiteral(resourceName: "star_filled")
             rating3.image = #imageLiteral(resourceName: "star_filled")
             rating4.image = #imageLiteral(resourceName: "star_filled")
             rating5.image = #imageLiteral(resourceName: "star")
-        } else if professional.averageReviews == 5 {
+        } else if averageReviewsAsInt == 5 {
             rating1.image = #imageLiteral(resourceName: "star_filled")
             rating2.image = #imageLiteral(resourceName: "star_filled")
             rating3.image = #imageLiteral(resourceName: "star_filled")
@@ -75,7 +75,7 @@ class ProfessionalListTableViewCell: UITableViewCell {
             rating5.image = #imageLiteral(resourceName: "star_filled")
         }
         
-        guard let url = URL(string: professional.avatarURL) else { return }
+        guard let url = URL(string: professional.avatarURL ?? "") else { return }
         professionalImageView.hnk_setImageFromURL(url, placeholder: Constants.userPlaceholder)
     }
 }

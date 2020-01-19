@@ -12,7 +12,7 @@ class ProfileHeaderTableViewCell: UITableViewCell {
 
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var greetingLbl: UILabel!
-    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var profileImageView: ARoundImage!
 
     override func awakeFromNib() {
         super.awakeFromNib()

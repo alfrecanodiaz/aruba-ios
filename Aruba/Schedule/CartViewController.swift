@@ -44,7 +44,32 @@ class CartViewController: BaseViewController {
         }
     }
     
+    private func storePhoneNumber() {
+        AlertManager.showNotice(in: self,
+                                title: "Atención",
+                                description: "Necesitamos tu número teléfonico para asegurar que el profesional llegue a tu destino correctamente.",
+                                textFieldPlaceholder: "Número de teléfono") { value in
+                                    ALoader.show()
+                                    UserManager.shared.saveDevice(phoneNumber: value) { error in
+                                        ALoader.hide()
+                                        if let error = error {
+                                            AlertManager.showErrorNotice(in: self, error: error) {
+                                                self.storePhoneNumber()
+                                            }
+                                        } else {
+                                            self.continueAction(self.contitnueButton)
+                                        }
+                                    }
+        }
+    }
+    
     @IBAction func continueAction(_ sender: AButton) {
+        
+        if UserManager.shared.currentPhoneNumber == nil {
+            storePhoneNumber()
+            return
+        }
+        
         if cartTVC?.segmentedControl.selectedSegmentIndex == 0 {
             finishAppointment(paymentType: 3, clientAmount: nil)
         }

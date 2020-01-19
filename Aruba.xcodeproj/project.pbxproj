@@ -22,6 +22,7 @@
 		3B048F05227F192C00EBE6FD /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B048F04227F192C00EBE6FD /* AuthManager.swift */; };
 		3B069B7A2396E7C9003B5479 /* SplashLoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B069B792396E7C9003B5479 /* SplashLoaderViewController.swift */; };
 		3B069B7C2396EBBD003B5479 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B069B7B2396EBBD003B5479 /* AlertManager.swift */; };
+		3B1D252023C64FC300EBA30C /* RateProfessionalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1D251F23C64FC300EBA30C /* RateProfessionalResponse.swift */; };
 		3B1D90B223B5373D003D01D1 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1D90B123B5373D003D01D1 /* HistoryViewController.swift */; };
 		3B1D90B623B5384C003D01D1 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1D90B423B5384C003D01D1 /* HistoryTableViewCell.swift */; };
 		3B1D90B723B5384C003D01D1 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B1D90B523B5384C003D01D1 /* HistoryTableViewCell.xib */; };
@@ -43,6 +44,10 @@
 		3B395098239561C1004FD9B8 /* UserMeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B395097239561C1004FD9B8 /* UserMeResponse.swift */; };
 		3B3BDBFF23B53FEE00BBB7B3 /* UserAppointmentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3BDBFE23B53FEE00BBB7B3 /* UserAppointmentList.swift */; };
 		3B456CA2239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B456CA1239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift */; };
+		3B4F5FDE23D36D8800C38C31 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F5FDD23D36D8800C38C31 /* ProfileViewController.swift */; };
+		3B4F5FE023D374D700C38C31 /* AddressesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F5FDF23D374D700C38C31 /* AddressesTableViewController.swift */; };
+		3B4F5FE223D4B1B500C38C31 /* UserRegisterDeviceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F5FE123D4B1B500C38C31 /* UserRegisterDeviceResponse.swift */; };
+		3B4F5FE423D4B47000C38C31 /* UserDeviceListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F5FE323D4B47000C38C31 /* UserDeviceListResponse.swift */; };
 		3B639522239EB376005E0CB4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B639521239EB376005E0CB4 /* Constants.swift */; };
 		3B639524239ED243005E0CB4 /* FilterProfessionalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B639523239ED243005E0CB4 /* FilterProfessionalResponse.swift */; };
 		3B67BA4022690FC500871F77 /* ProductDescriptionPopupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B67BA3F22690FC500871F77 /* ProductDescriptionPopupTableViewController.swift */; };
@@ -55,6 +60,7 @@
 		3B6EC9FD23BE57CF00F94A89 /* ProfessionalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6EC9FC23BE57CF00F94A89 /* ProfessionalsTableViewController.swift */; };
 		3B6ECA0023BE634800F94A89 /* ProfessionalListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6EC9FE23BE634800F94A89 /* ProfessionalListTableViewCell.swift */; };
 		3B6ECA0123BE634800F94A89 /* ProfessionalListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6EC9FF23BE634800F94A89 /* ProfessionalListTableViewCell.xib */; };
+		3B72058523BFF1D2001FBCA4 /* RateProfessionalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B72058423BFF1D2001FBCA4 /* RateProfessionalTableViewController.swift */; };
 		3B7EC0AD225C20A300ED799D /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7EC0AC225C20A300ED799D /* Schedule.storyboard */; };
 		3B7EC0AF225C219200ED799D /* PeopleQuantiySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0AE225C219200ED799D /* PeopleQuantiySelectionViewController.swift */; };
 		3B7EC0B1225C21D500ED799D /* PeopleQuantityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0B0225C21D500ED799D /* PeopleQuantityView.swift */; };
@@ -145,6 +151,7 @@
 		3B048F04227F192C00EBE6FD /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		3B069B792396E7C9003B5479 /* SplashLoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashLoaderViewController.swift; sourceTree = "<group>"; };
 		3B069B7B2396EBBD003B5479 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		3B1D251F23C64FC300EBA30C /* RateProfessionalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateProfessionalResponse.swift; sourceTree = "<group>"; };
 		3B1D90B123B5373D003D01D1 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		3B1D90B423B5384C003D01D1 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		3B1D90B523B5384C003D01D1 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -172,6 +179,10 @@
 		3B395097239561C1004FD9B8 /* UserMeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMeResponse.swift; sourceTree = "<group>"; };
 		3B3BDBFE23B53FEE00BBB7B3 /* UserAppointmentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAppointmentList.swift; sourceTree = "<group>"; };
 		3B456CA1239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategorySelectionPopupTableViewController.swift; sourceTree = "<group>"; };
+		3B4F5FDD23D36D8800C38C31 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3B4F5FDF23D374D700C38C31 /* AddressesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesTableViewController.swift; sourceTree = "<group>"; };
+		3B4F5FE123D4B1B500C38C31 /* UserRegisterDeviceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterDeviceResponse.swift; sourceTree = "<group>"; };
+		3B4F5FE323D4B47000C38C31 /* UserDeviceListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDeviceListResponse.swift; sourceTree = "<group>"; };
 		3B639521239EB376005E0CB4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3B639523239ED243005E0CB4 /* FilterProfessionalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterProfessionalResponse.swift; sourceTree = "<group>"; };
 		3B67BA3F22690FC500871F77 /* ProductDescriptionPopupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionPopupTableViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +195,7 @@
 		3B6EC9FC23BE57CF00F94A89 /* ProfessionalsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalsTableViewController.swift; sourceTree = "<group>"; };
 		3B6EC9FE23BE634800F94A89 /* ProfessionalListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalListTableViewCell.swift; sourceTree = "<group>"; };
 		3B6EC9FF23BE634800F94A89 /* ProfessionalListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfessionalListTableViewCell.xib; sourceTree = "<group>"; };
+		3B72058423BFF1D2001FBCA4 /* RateProfessionalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateProfessionalTableViewController.swift; sourceTree = "<group>"; };
 		3B7EC0AC225C20A300ED799D /* Schedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
 		3B7EC0AE225C219200ED799D /* PeopleQuantiySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleQuantiySelectionViewController.swift; sourceTree = "<group>"; };
 		3B7EC0B0225C21D500ED799D /* PeopleQuantityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleQuantityView.swift; sourceTree = "<group>"; };
@@ -336,6 +348,7 @@
 		3B26A3B422584BD10063ECAA /* Aruba */ = {
 			isa = PBXGroup;
 			children = (
+				3B72058323BFF1B0001FBCA4 /* Rate Professional */,
 				3B1D90B323B53806003D01D1 /* HIstory */,
 				3BAF8324228268150056C0D5 /* Addresses */,
 				3B048F03227F191F00EBE6FD /* Managers */,
@@ -430,6 +443,14 @@
 				3B6EC9FF23BE634800F94A89 /* ProfessionalListTableViewCell.xib */,
 			);
 			path = Professionals;
+			sourceTree = "<group>";
+		};
+		3B72058323BFF1B0001FBCA4 /* Rate Professional */ = {
+			isa = PBXGroup;
+			children = (
+				3B72058423BFF1D2001FBCA4 /* RateProfessionalTableViewController.swift */,
+			);
+			path = "Rate Professional";
 			sourceTree = "<group>";
 		};
 		3B7EC0AB225C206F00ED799D /* Schedule */ = {
@@ -585,6 +606,9 @@
 				3B639523239ED243005E0CB4 /* FilterProfessionalResponse.swift */,
 				3BC30F7723A81A2700BD9700 /* CreateAppointmentResponse.swift */,
 				3B3BDBFE23B53FEE00BBB7B3 /* UserAppointmentList.swift */,
+				3B1D251F23C64FC300EBA30C /* RateProfessionalResponse.swift */,
+				3B4F5FE123D4B1B500C38C31 /* UserRegisterDeviceResponse.swift */,
+				3B4F5FE323D4B47000C38C31 /* UserDeviceListResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -616,6 +640,8 @@
 				3BD43D102259170C00AC3411 /* ProfileHeaderTableViewCell.swift */,
 				3BD43D1622591A7100AC3411 /* GenericDataCellTableViewCell.swift */,
 				3BD43D1722591A7100AC3411 /* GenericDataCellTableViewCell.xib */,
+				3B4F5FDD23D36D8800C38C31 /* ProfileViewController.swift */,
+				3B4F5FDF23D374D700C38C31 /* AddressesTableViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -976,6 +1002,7 @@
 				3B7EC0D82263F1B200ED799D /* HourAssignmentViewController.swift in Sources */,
 				3B39509623954B3A004FD9B8 /* ServiceCategoryListResponse.swift in Sources */,
 				3B6ECA0023BE634800F94A89 /* ProfessionalListTableViewCell.swift in Sources */,
+				3B4F5FE023D374D700C38C31 /* AddressesTableViewController.swift in Sources */,
 				3B6EC9FB23BE56A700F94A89 /* ProfessionalsViewController.swift in Sources */,
 				3BD43CFB22585B7F00AC3411 /* LandingViewController.swift in Sources */,
 				3BD43D05225861C300AC3411 /* UserLoginResponse.swift in Sources */,
@@ -989,6 +1016,7 @@
 				3B7EC0BE225D679700ED799D /* ARoundView.swift in Sources */,
 				3B1D90B623B5384C003D01D1 /* HistoryTableViewCell.swift in Sources */,
 				3BD43CFD22585B9200AC3411 /* RegisterTableViewController.swift in Sources */,
+				3B72058523BFF1D2001FBCA4 /* RateProfessionalTableViewController.swift in Sources */,
 				3B7EC0C3225D6EE700ED799D /* TransparentPopupViewController.swift in Sources */,
 				3B639524239ED243005E0CB4 /* FilterProfessionalResponse.swift in Sources */,
 				3BC30F7823A81A2700BD9700 /* CreateAppointmentResponse.swift in Sources */,
@@ -996,10 +1024,12 @@
 				3B069B7A2396E7C9003B5479 /* SplashLoaderViewController.swift in Sources */,
 				3B02964F228EF6E600D08789 /* DefaultResponse.swift in Sources */,
 				3B7EC0DA2263F24800ED799D /* ProgressView.swift in Sources */,
+				3B4F5FDE23D36D8800C38C31 /* ProfileViewController.swift in Sources */,
 				3B28FFEC22594809004268CB /* PopupTableViewController.swift in Sources */,
 				3BD43D092258FCC700AC3411 /* HomeTableViewController.swift in Sources */,
 				3B048F02227F170A00EBE6FD /* ATextField.swift in Sources */,
 				3BD43D2422592DE200AC3411 /* UIColor+Utils.swift in Sources */,
+				3B4F5FE423D4B47000C38C31 /* UserDeviceListResponse.swift in Sources */,
 				3B048EF5226D001100EBE6FD /* ALoader.swift in Sources */,
 				3BD43D012258608700AC3411 /* JSONDecoder+Utils.swift in Sources */,
 				3BC30F7423A7FB7100BD9700 /* CartViewController.swift in Sources */,
@@ -1013,6 +1043,7 @@
 				3B048EFF226D08BA00EBE6FD /* ScheduleData.swift in Sources */,
 				3B6CE45122961F6500FB19AC /* ServicesListResponse.swift in Sources */,
 				3B7EC0DE2263FFF100ED799D /* BaseNavigationController.swift in Sources */,
+				3B1D252023C64FC300EBA30C /* RateProfessionalResponse.swift in Sources */,
 				3B7EC0DC2263FADC00ED799D /* HourCollectionViewCell.swift in Sources */,
 				3B3BDBFF23B53FEE00BBB7B3 /* UserAppointmentList.swift in Sources */,
 				3B26A3B622584BD10063ECAA /* AppDelegate.swift in Sources */,
@@ -1021,6 +1052,7 @@
 				3BD43D2022591FC700AC3411 /* GenericDataCellViewModel.swift in Sources */,
 				3BC30F7A23A8200900BD9700 /* SuccessPopoverTableViewController.swift in Sources */,
 				3B7EC0AF225C219200ED799D /* PeopleQuantiySelectionViewController.swift in Sources */,
+				3B4F5FE223D4B1B500C38C31 /* UserRegisterDeviceResponse.swift in Sources */,
 				3B048EF1226CF8B400EBE6FD /* ARoundImage.swift in Sources */,
 				3BD43D2222592B4700AC3411 /* HomeCategoryTableViewCell.swift in Sources */,
 				3B7EC0CA225D773A00ED799D /* DateAssignmentViewController.swift in Sources */,
@@ -1220,7 +1252,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aruba/Aruba.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8.0;
+				CURRENT_PROJECT_VERSION = 10.0;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = Aruba/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1245,7 +1277,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aruba/Aruba.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8.0;
+				CURRENT_PROJECT_VERSION = 10.0;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = Aruba/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

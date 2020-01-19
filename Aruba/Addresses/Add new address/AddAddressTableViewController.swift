@@ -87,12 +87,12 @@ class AddAddressTableViewController: BaseTableViewController {
                                 lng: location.longitude,
                                 is_default: true) { (address, error) in
                                     ALoader.hide()
-                                    
                                     if let error = error {
                                         AlertManager.showNotice(in: self, title: "Lo sentimos", description: error.message)
                                     } else if let address = address {
                                         self.delegate?.didSaveAddress(address: address)
-                                        guard let loggedUser = UserManager.shared.loggedUser, let index = loggedUser.addresses.firstIndex(where: {$0.isDefault}) else {
+                                        guard let loggedUser = UserManager.shared.loggedUser,
+                                            let index = loggedUser.addresses.firstIndex(where: {$0.isDefault}) else {
                                             return
                                         }
                                         UserManager.shared.loggedUser?.addresses[index].setNonDefault()
@@ -114,8 +114,10 @@ class AddAddressTableViewController: BaseTableViewController {
 
 extension AddAddressTableViewController: GMSMapViewDelegate {
     
-    func mapView(_ mapView: GMSMapView, didEndDragging marker: GMSMarker) {
-        
+    func mapView(_ mapView: GMSMapView, willMove gesture: Bool) {
+        if gesture {
+            shouldUpdateCameraAutomatically = false
+        }
     }
     
     func didTapMyLocationButton(for mapView: GMSMapView) -> Bool {

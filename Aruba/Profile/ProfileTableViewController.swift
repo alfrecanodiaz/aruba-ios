@@ -9,148 +9,173 @@
 import UIKit
 
 class ProfileTableViewController: UITableViewController {
-
-    struct Cells {
-        static let Header = "profileHeaderCell"
-        static let GenericData = "GenericDataCellTableViewCell"
-        static let AddNew = "AddNewCell"
+    
+    @IBOutlet weak var greetingLabel: UILabel!
+    @IBOutlet weak var profileImageView: ARoundImage!
+    @IBOutlet weak var firstNameTextField: ATextField!
+    @IBOutlet weak var lastNameTextField: ATextField!
+    @IBOutlet weak var emailTextField: ATextField! {
+        didSet {
+            emailTextField.isUserInteractionEnabled = false
+        }
     }
-
-    var addresses: [AddressViewModel] = []
-    var tax: Tax = Tax()
-
-    let headerHeight: CGFloat = 80
+    @IBOutlet weak var phoneTextField: ATextField! {
+        didSet {
+            phoneTextField.keyboardType = .phonePad
+        }
+    }
+    @IBOutlet weak var socialReasonTextField: ATextField!
+    @IBOutlet weak var rucTextField: ATextField!
+    
+    
     let userManager: UserManagerProtocol = UserManager()
-    struct Segues {
-        static let AddAddress = "ShowAddAddressSegue"
+    
+    var addressesTVC: AddressesTableViewController?
+    
+    var currentDevice: Device?
+    
+    enum Segues {
+        static let ShowAddress = "ShowAddressSegue"
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
         loadAddresses()
+        loadDevices()
+        setupView()
     }
-
-    func loadAddresses() {
-        userManager.getAddresses { [weak self] (addresses, error) in
+    
+    private func setupView() {
+        guard let user = UserManager.shared.loggedUser else { return }
+        firstNameTextField.text = user.firstName
+        lastNameTextField.text = user.lastName
+        emailTextField.text = user.email
+        socialReasonTextField.text = "TODO"
+        rucTextField.text = "TODO"
+        greetingLabel.text = "¡Hola \(user.firstName)!"
+        guard let url = URL(string: user.avatarURL) else { return }
+        profileImageView.hnk_setImageFromURL(url, placeholder: Constants.userPlaceholder)
+    }
+    
+    private func loadDevices() {
+        UserManager.shared.listDevices(completion: { (devices, error) in
+            if let device = devices?.first(where: {$0.phoneNumber != nil}) {
+                self.currentDevice = device
+                self.phoneTextField.text = device.phoneNumber
+            } else if let error = error {
+                print(error.message)
+            }
+        })
+    }
+    
+    private func loadAddresses() {
+        UserManager.shared.getAddresses { [weak self] (addresses, error) in
             if let addresses = addresses {
-                self?.addresses = addresses.map({ AddressViewModel(address: $0)})
-                self?.tableView.reloadData()
+                self?.addressesTVC?.addresses = addresses.map({ AddressViewModel(address: $0)})
+                    .sorted(by: { (addr1, addr2) -> Bool in
+                        return addr1.isDefault
+                    })
+                self?.tableView.reloadSections(IndexSet(arrayLiteral: 1), with: .automatic)
             } else {
-
+                
             }
-
+            
         }
     }
-
-    func setupView() {
-        tableView.register(UINib(nibName: Cells.GenericData, bundle: nil), forCellReuseIdentifier: Cells.GenericData)
-        
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 3
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        if section == 0 {
-            return 1
-        }
-        if section == 1 {
-            return addresses.count + 1
-        }
-        if section == 2 {
-            return 2
-        }
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.Header, for: indexPath) as? ProfileHeaderTableViewCell else { return UITableViewCell() }
-            return cell
-        } else if indexPath.section == 1 {
-            if indexPath.row == addresses.count {
-                let cell = tableView.dequeueReusableCell(withIdentifier: Cells.AddNew, for: indexPath)
-                return cell
-            } else {
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.GenericData, for: indexPath) as? GenericDataCellTableViewCell else { return UITableViewCell() }
-                cell.viewModel = GenericDataCellViewModel(address: addresses[indexPath.row])
-                cell.index = indexPath.row
-                return cell
-            }
-        } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.GenericData, for: indexPath) as? GenericDataCellTableViewCell else { return UITableViewCell() }
-            if indexPath.row == 0 {
-                cell.viewModel = GenericDataCellViewModel(title: "NOMBRE: ", content: tax.socialReason)
-            } else {
-                cell.viewModel = GenericDataCellViewModel(title: "RUC: ", content: tax.socialReason)
-            }
-            return cell
-        }
-    }
-
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return headerViewForSection(section: section)
-    }
-
-    func headerViewForSection(section: Int) -> UIView? {
-        if section == 0 {
-            return nil
-        }
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: headerHeight))
-        let imgView = UIImageView(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-        imgView.contentMode = .scaleAspectFit
-        view.addSubview(imgView)
-        imgView.translatesAutoresizingMaskIntoConstraints = false
-        imgView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16).isActive = true
-        imgView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        imgView.heightAnchor.constraint(equalToConstant: headerHeight/2).isActive = true
-        imgView.widthAnchor.constraint(equalToConstant: headerHeight/2).isActive = true
-
-        let lbl = UILabel()
-        if section == 1 {
-            lbl.text = "DIRECCIÓNES"
-            imgView.image = UIImage(named: "pin_direccion")
-
-        } else {
-            lbl.text = "FACTURA"
-            imgView.image = UIImage(named: "factura")
-
-        }
-        view.addSubview(lbl)
-        lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.leadingAnchor.constraint(equalTo: imgView.trailingAnchor, constant: 8).isActive = true
-        lbl.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        lbl.font = AFont.with(size: 14, weight: .bold)
-        return view
-    }
-
+    
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return 0
-        } else {
-            return headerHeight
         }
+        return 50
     }
-
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0 {
+            return nil
+        }
+        
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(#imageLiteral(resourceName: "add_button_round"), for: .normal)
+        button.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        button.contentMode = .scaleAspectFit
+        let titleLabel = UILabel()
+        titleLabel.font = AFont.with(size: 16, weight: .regular)
+        titleLabel.text = "Direcciónes"
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        let containerView = UIView()
+        containerView.addSubview(titleLabel)
+        containerView.addSubview(button)
+        NSLayoutConstraint.activate([
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            titleLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            button.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            button.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 10)
+        ])
+        button.addTarget(self, action: #selector(addNewAddressAction(sender:)), for: .touchUpInside)
+        return containerView
+    }
+    
+    @objc func addNewAddressAction(sender: UIButton) {
+        self.performSegue(withIdentifier: Segues.ShowAddress, sender: self)
+    }
+    
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return tableView.bounds.height*0.3
-        }
-        return UITableView.automaticDimension
-    }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
-            if indexPath.row == addresses.count { // add new address
-                self.performSegue(withIdentifier: Segues.AddAddress, sender: self)
+            if indexPath.row == 0 {
+                return 180
             }
+            return 80
+        }
+        guard let count = self.addressesTVC?.addresses.count else { return 0 }
+        return CGFloat(count)*GenericDataCellTableViewCell.Constants.height
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "embededAddressesSegue",
+            let destination = segue.destination as? AddressesTableViewController {
+            addressesTVC = destination
+        }
+        
+        if segue.identifier == Segues.ShowAddress,
+            let destination = segue.destination as? AddAddressTableViewController {
+            destination.delegate = self
         }
     }
+    
+    func isPhoneDirty() -> Bool {
+        guard let currentDevicePhone = currentDevice?.phoneNumber else { return false }
+        if phoneTextField.text != currentDevicePhone {
+            return true
+        }
+        return false
+    }
+    
+    func isProfileDirty() -> Bool {
+        guard let user = UserManager.shared.loggedUser else { return false }
+        
+        if firstNameTextField.text != user.firstName ||
+            lastNameTextField.text != user.lastName {
+            return true
+        }
+        return false
+    }
+    
+    func isTaxDataDirty() -> Bool {
+        return false
+    }
+    
+}
 
+extension ProfileTableViewController: AddAddressDelegate {
+    
+    func didSaveAddress(address: AAddress) {
+        self.addressesTVC?.addresses.append(AddressViewModel(address: address))
+        self.tableView.reloadData()
+    }
+    
 }

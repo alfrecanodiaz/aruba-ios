@@ -82,15 +82,21 @@ class ServiceCategorySelectionPopupTableViewController: APopoverTableViewControl
     }
     
     @IBAction func womanAction(_ sender: UIButton) {
-        data?.clientType = ClientType(id: 1, name: Name.mujer, displayName: Name.mujer)
+        data?.clientType = ClientType(id: 1,
+                                      name: Name.mujer,
+                                      displayName: Name.mujer)
         setClientType()
     }
     @IBAction func manAction(_ sender: UIButton) {
-        data?.clientType = ClientType(id: 2, name: Name.hombre, displayName: Name.hombre)
+        data?.clientType = ClientType(id: 2,
+                                      name: Name.hombre,
+                                      displayName: Name.hombre)
         setClientType()
     }
     @IBAction func kidAction(_ sender: UIButton) {
-        data?.clientType = ClientType(id: 3, name: Name.niño, displayName: Name.niño)
+        data?.clientType = ClientType(id: 3,
+                                      name: Name.niño,
+                                      displayName: Name.niño)
         setClientType()
     }
     
@@ -103,12 +109,16 @@ class ServiceCategorySelectionPopupTableViewController: APopoverTableViewControl
     
     @IBAction func continueAction(_ sender: AButton) {
         if data?.clientType == nil {
-            AlertManager.showNotice(in: self, title: "Atención", description: "Elige el tipo de cliente para el servicio.")
+            AlertManager.showNotice(in: self,
+                                    title: "Atención",
+                                    description: "Elige el tipo de cliente para el servicio.")
             return
         }
         if clientNameTextField.text == nil ||
             clientNameTextField.text == ""  {
-            AlertManager.showNotice(in: self, title: "Atención", description: "El nombre del cliente no puede quedar en blanco.")
+            AlertManager.showNotice(in: self,
+                                    title: "Atención",
+                                    description: "El nombre del cliente no puede quedar en blanco.")
             return
         }
         guard let data = data else {
@@ -143,7 +153,9 @@ extension ServiceCategorySelectionPopupTableViewController: UITextFieldDelegate 
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == addressTextField {
             let alert = UIAlertController(title: "Seleccióna tu dirección", message: nil, preferredStyle: .alert)
-            let addresses = UserManager.shared.loggedUser?.addresses ?? []
+            let addresses = UserManager.shared.loggedUser?.addresses.sorted(by: { (addr1, addr2) -> Bool in
+                return addr1.isDefault
+            }) ?? []
             
             for addr in addresses {
                 alert.addAction(UIAlertAction(title: addr.name + ": \(addr.street1)", style: .default, handler: { (_) in

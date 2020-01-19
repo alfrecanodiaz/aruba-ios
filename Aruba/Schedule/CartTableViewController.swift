@@ -75,8 +75,7 @@ class CartTableViewController: UITableViewController {
             transferDataString.append(NSAttributedString(string: "3.399.394", attributes: [.font: regularFont]))
             transferDataString.append(NSAttributedString(string: "\nMaria Martha Cabello", attributes: [.font: regularFont]))
             paymentInfoLabel.attributedText = transferDataString
-        }
-        if sender.selectedSegmentIndex == 1 {
+        } else if sender.selectedSegmentIndex == 1 {
             changeAmountTextField.isHidden = true
             paymentInfoLabel.isHidden = false
             paymentInfoLabel.text = "Al presionar continuar se procedera a solicitar la información de su tarjeta de credito."

@@ -21,7 +21,16 @@ target 'Aruba' do
   pod 'lottie-ios'
   pod 'HanekeSwift', :git => 'https://github.com/Haneke/HanekeSwift.git', :tag => 'v0.11.1'
   pod 'PageMenu', :git => 'https://github.com/1986webdeveloper/PageMenu'
+  pod 'Cosmos'
   
+#  pre_install do |installer|
+#      installer.analysis_result.specifications.each do |s|
+#          if s.name == '<insert name of your pod here>'
+#              s.swift_version = '4.2'
+#          end
+#      end
+#  end
+  # set haneke swift to swift version 4.0
 #  post_install do |installer|
 #      installer.pods_project.build_configurations.each do |config|
 #          # Do not need debug information for pods
