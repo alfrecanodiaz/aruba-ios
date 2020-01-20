@@ -19,12 +19,35 @@ class RegisterTableViewController: BaseTableViewController {
         super.viewDidLoad()
 
     }
+    
+    var acceptedTerms: Bool = false
 
     @IBAction func registerAction(_ sender: AButton) {
         guard let firstName = firstNameTxt.text, let lastName = lastNameTxt.text, let email = emailTxt.text, let password = passwordTxt.text else {
 
             return
         }
+        
+        guard acceptedTerms else {
+            let alert = UIAlertController(title: "Atención",
+                                          message: "Debes aceptar los términos y condiciones",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ver Términos", style: .default, handler: { (action) in
+                if let url = URL(string: "https://aruba.com.py/terminos.php"),
+                           UIApplication.shared.canOpenURL(url) {
+                           UIApplication.shared.open(url, options: [:])
+                       }
+            }))
+            alert.addAction(UIAlertAction(title: "Acepto los Términos", style: .default, handler: { (action) in
+                self.acceptedTerms = true
+                self.registerAction(AButton())
+            }))
+            alert.view.tintColor = Colors.AlertTintColor
+            alert.addAction(UIAlertAction(title: "Atras", style: .cancel, handler: nil))
+            present(alert, animated: true)
+            return
+        }
+        
         ALoader.show()
         AuthManager.registerEmail(firstName: firstName,
                                   lastName: lastName,

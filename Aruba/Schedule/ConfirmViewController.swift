@@ -14,7 +14,7 @@ class ConfirmViewController: UIViewController {
     
     @IBOutlet weak var serviceImageView: UIImageView! {
         didSet {
-            serviceImageView.layer.cornerRadius = 30
+            serviceImageView.layer.cornerRadius = 25
             serviceImageView.clipsToBounds = true
         }
     }

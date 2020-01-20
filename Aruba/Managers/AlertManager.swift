@@ -16,7 +16,7 @@ class AlertManager {
                           description: String,
                           completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
-        alert.view.tintColor = Colors.ButtonGreen
+        alert.view.tintColor = Colors.AlertTintColor
         let aceptar = UIAlertAction(title: "Entendido", style: .cancel, handler: { _ in
             completion?()
         })
@@ -30,7 +30,7 @@ class AlertManager {
                           acceptButtonTitle: String = "Aceptar",
                           completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
-        alert.view.tintColor = Colors.ButtonGreen
+        alert.view.tintColor = Colors.AlertTintColor
         let aceptar = UIAlertAction(title: acceptButtonTitle, style: .default, handler: { _ in
             completion?()
         })
@@ -46,7 +46,7 @@ class AlertManager {
                           acceptButtonTitle: String = "Aceptar",
                           completion: ((_ text: String) -> Void)? = nil) {
            let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
-           alert.view.tintColor = Colors.ButtonGreen
+           alert.view.tintColor = Colors.AlertTintColor
            let aceptar = UIAlertAction(title: acceptButtonTitle, style: .default, handler: { _ in
                 completion?(alert.textFields?.first?.text ?? "")
            })
@@ -65,7 +65,7 @@ class AlertManager {
         let alert = UIAlertController(title: "Lo sentimos",
                                       message: error.message,
                                       preferredStyle: .alert)
-        alert.view.tintColor = Colors.ButtonGreen
+        alert.view.tintColor = Colors.AlertTintColor
         let aceptar = UIAlertAction(title: "Aceptar",
                                     style: .default,
                                     handler: { _ in

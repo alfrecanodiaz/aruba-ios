@@ -16,6 +16,8 @@ class SideMenuTableViewController: UITableViewController {
         static let Profile = "profileSegue"
         static let History = "HistorySegue"
         static let Professionals = "ProfessionalsSegue"
+        static let ContactInfo = "showContactInfo"
+        static let Privacy = "ShowPrivacy"
     }
     
     override func viewDidLoad() {
@@ -56,11 +58,29 @@ class SideMenuTableViewController: UITableViewController {
             handleAppointments()
         case 3:
             handleProfessionals()
+        case 4:
+            handlePromotions()
+        case 5:
+            handleContactInfo()
+        case 6:
+            handleAbout()
         case 7:
             handleLogout()
         default:
             break
         }
+    }
+    
+    private func handlePromotions() {
+        AlertManager.showNotice(in: self, title: "Proximamente", description: "Esta sección estara disponible proximamente!")
+    }
+    
+    private func handleAbout() {
+        performSegue(withIdentifier: Segues.Privacy, sender: self)
+    }
+    
+    private func handleContactInfo() {
+        performSegue(withIdentifier: Segues.ContactInfo, sender: self)
     }
     
     private func handleProfile() {

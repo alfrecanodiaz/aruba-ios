@@ -8,8 +8,9 @@
 
 import UIKit
 
-struct Colors {
+enum Colors {
     static let ButtonGreen = UIColor(hexRGB: "79DDCD")!
+    static let AlertTintColor = #colorLiteral(red: 0.3562040925, green: 0.5703510642, blue: 0.5372487307, alpha: 1)
     static let ButtonHighlightedGreen = #colorLiteral(red: 0.2903032208, green: 0.5338145648, blue: 0.4986980302, alpha: 1)
     static let ButtonGray = UIColor(hexRGB: "A8A8A8")!
     static let ButtonBrown = UIColor(hexRGB: "C7AF99")!

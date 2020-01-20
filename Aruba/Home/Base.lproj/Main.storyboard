@@ -94,7 +94,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Wl-80-kus">
-                                                            <rect key="frame" x="235" y="109.5" width="48" height="33"/>
+                                                            <rect key="frame" x="235" y="110.5" width="45" height="32"/>
                                                             <fontDescription key="fontDescription" name="Lato-Black" family="Lato" pointSize="17"/>
                                                             <state key="normal" title="Editar">
                                                                 <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -302,6 +302,179 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bkA-3b-KLo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3227.536231884058" y="-1388.1696428571429"/>
+        </scene>
+        <!--Privacy View Controller-->
+        <scene sceneID="cNA-vD-xTv">
+            <objects>
+                <viewController id="xta-4R-MqR" customClass="PrivacyViewController" customModule="Aruba" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KzU-Ui-OMj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rdI-BX-swF">
+                                <rect key="frame" x="16" y="66" width="382" height="32"/>
+                                <segments>
+                                    <segment title="Terminos"/>
+                                    <segment title="Politicas"/>
+                                    <segment title="FAQ"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedValueChanged:" destination="xta-4R-MqR" eventType="valueChanged" id="Jvl-3F-jva"/>
+                                </connections>
+                            </segmentedControl>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yBZ-Bp-9yr">
+                                <rect key="frame" x="0.0" y="105" width="414" height="703"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fyN-MG-nzP" firstAttribute="trailing" secondItem="yBZ-Bp-9yr" secondAttribute="trailing" id="6Vo-s2-dS1"/>
+                            <constraint firstItem="fyN-MG-nzP" firstAttribute="trailing" secondItem="rdI-BX-swF" secondAttribute="trailing" constant="16" id="Lkh-6K-OcX"/>
+                            <constraint firstItem="yBZ-Bp-9yr" firstAttribute="top" secondItem="rdI-BX-swF" secondAttribute="bottom" constant="8" id="MXc-x3-LDL"/>
+                            <constraint firstItem="rdI-BX-swF" firstAttribute="leading" secondItem="fyN-MG-nzP" secondAttribute="leading" constant="16" id="Tyb-L2-aqY"/>
+                            <constraint firstItem="rdI-BX-swF" firstAttribute="top" secondItem="fyN-MG-nzP" secondAttribute="top" constant="10" id="Z77-Qg-vjR"/>
+                            <constraint firstItem="yBZ-Bp-9yr" firstAttribute="leading" secondItem="fyN-MG-nzP" secondAttribute="leading" id="kOq-N1-nQz"/>
+                            <constraint firstItem="fyN-MG-nzP" firstAttribute="bottom" secondItem="yBZ-Bp-9yr" secondAttribute="bottom" id="zpR-aN-X6m"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fyN-MG-nzP"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iNq-8r-S3W"/>
+                    <connections>
+                        <outlet property="webView" destination="yBZ-Bp-9yr" id="VLN-Se-VHX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z5N-KX-tre" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1376.8115942028987" y="-2160.2678571428569"/>
+        </scene>
+        <!--Contact Info Table View Controller-->
+        <scene sceneID="uj0-Rg-jAP">
+            <objects>
+                <tableViewController storyboardIdentifier="ContactInfoTableViewControllerID" id="7c4-Rb-J8d" customClass="ContactInfoTableViewController" customModule="Aruba" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="rR9-9k-whE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <sections>
+                            <tableViewSection id="C3J-7l-bfy">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="04U-Se-75E">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="04U-Se-75E" id="xfa-lL-HxL">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CONTÁCTENOS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDi-QY-Zf0">
+                                                    <rect key="frame" x="16" y="8" width="382" height="54"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="XDi-QY-Zf0" firstAttribute="top" secondItem="xfa-lL-HxL" secondAttribute="top" constant="8" id="FTr-Pi-OjJ"/>
+                                                <constraint firstItem="XDi-QY-Zf0" firstAttribute="leading" secondItem="xfa-lL-HxL" secondAttribute="leading" constant="16" id="O0g-7p-Uc6"/>
+                                                <constraint firstAttribute="bottom" secondItem="XDi-QY-Zf0" secondAttribute="bottom" constant="8" id="U1t-Wl-x6A"/>
+                                                <constraint firstAttribute="trailing" secondItem="XDi-QY-Zf0" secondAttribute="trailing" constant="16" id="h7K-C8-lpc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="66" id="Sfw-da-bkM">
+                                        <rect key="frame" x="0.0" y="98" width="414" height="66"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sfw-da-bkM" id="wd4-hp-6ZW">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzX-tQ-FGc" customClass="AButton" customModule="Aruba" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="8" width="382" height="50"/>
+                                                    <state key="normal" title="+595 984 44 50 04">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="phoneAction:" destination="7c4-Rb-J8d" eventType="touchUpInside" id="b6R-Ho-fdh"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="zzX-tQ-FGc" secondAttribute="bottom" constant="8" id="6LI-WB-S8J"/>
+                                                <constraint firstAttribute="trailing" secondItem="zzX-tQ-FGc" secondAttribute="trailing" constant="16" id="Z62-WO-tPq"/>
+                                                <constraint firstItem="zzX-tQ-FGc" firstAttribute="leading" secondItem="wd4-hp-6ZW" secondAttribute="leading" constant="16" id="thI-Uu-txP"/>
+                                                <constraint firstItem="zzX-tQ-FGc" firstAttribute="top" secondItem="wd4-hp-6ZW" secondAttribute="top" constant="8" id="xYr-sG-7vG"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="66" id="ftF-Md-kRP">
+                                        <rect key="frame" x="0.0" y="164" width="414" height="66"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ftF-Md-kRP" id="KAk-zW-6no">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uci-dH-Le4" customClass="AButton" customModule="Aruba" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="8" width="382" height="50"/>
+                                                    <color key="backgroundColor" red="0.73741823429999998" green="0.66735482219999998" blue="0.61175447699999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <state key="normal" title="www.aruba.com.py">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="webAction:" destination="7c4-Rb-J8d" eventType="touchUpInside" id="hbY-qe-DFT"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Uci-dH-Le4" secondAttribute="bottom" constant="8" id="8vQ-u5-xz0"/>
+                                                <constraint firstItem="Uci-dH-Le4" firstAttribute="leading" secondItem="KAk-zW-6no" secondAttribute="leading" constant="16" id="LwV-2D-BcV"/>
+                                                <constraint firstItem="Uci-dH-Le4" firstAttribute="top" secondItem="KAk-zW-6no" secondAttribute="top" constant="8" id="YOZ-zN-SE7"/>
+                                                <constraint firstAttribute="trailing" secondItem="Uci-dH-Le4" secondAttribute="trailing" constant="16" id="xD3-NL-869"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="66" id="JLD-BH-TTJ">
+                                        <rect key="frame" x="0.0" y="230" width="414" height="66"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JLD-BH-TTJ" id="ur2-nf-rGS">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKg-qR-LKO" customClass="AButton" customModule="Aruba" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="8" width="382" height="50"/>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="hola@aruba.com.py">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="mailAction:" destination="7c4-Rb-J8d" eventType="touchUpInside" id="iWm-cK-jhh"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="uKg-qR-LKO" secondAttribute="trailing" constant="16" id="9be-E5-nht"/>
+                                                <constraint firstItem="uKg-qR-LKO" firstAttribute="leading" secondItem="ur2-nf-rGS" secondAttribute="leading" constant="16" id="G72-BD-Anh"/>
+                                                <constraint firstItem="uKg-qR-LKO" firstAttribute="top" secondItem="ur2-nf-rGS" secondAttribute="top" constant="8" id="Ob3-67-AHx"/>
+                                                <constraint firstAttribute="bottom" secondItem="uKg-qR-LKO" secondAttribute="bottom" constant="8" id="bhY-83-pEs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="7c4-Rb-J8d" id="NN2-mo-qiW"/>
+                            <outlet property="delegate" destination="7c4-Rb-J8d" id="ytT-6z-S2P"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="FVO-m7-HgC"/>
+                    <connections>
+                        <outlet property="mailButton" destination="uKg-qR-LKO" id="adj-r8-9hk"/>
+                        <outlet property="webButton" destination="Uci-dH-Le4" id="rYA-Fk-2s2"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bB2-kf-Ogy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1378" y="-1212"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="Bdz-fo-4ch">
@@ -578,6 +751,8 @@
                         <segue destination="lBj-2F-QvR" kind="show" identifier="HistorySegue" id="mlx-UY-POj"/>
                         <segue destination="FFb-Hx-pkp" kind="show" identifier="ProfessionalsSegue" id="1jg-Gd-wB2"/>
                         <segue destination="vBb-fV-Nok" kind="show" identifier="profileSegue" id="3Yx-YA-gjd"/>
+                        <segue destination="7c4-Rb-J8d" kind="show" identifier="showContactInfo" id="Jjc-SH-C3K"/>
+                        <segue destination="xta-4R-MqR" kind="show" identifier="ShowPrivacy" id="VMf-Cs-Rw4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="40Y-Gc-cqq" userLabel="First Responder" sceneMemberID="firstResponder"/>
