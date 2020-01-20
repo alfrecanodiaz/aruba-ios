@@ -41,6 +41,7 @@ class ProfileTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadAddresses()
+        loadTaxInfo()
         loadDevices()
         setupView()
     }
@@ -50,8 +51,8 @@ class ProfileTableViewController: UITableViewController {
         firstNameTextField.text = user.firstName
         lastNameTextField.text = user.lastName
         emailTextField.text = user.email
-        socialReasonTextField.text = "TODO"
-        rucTextField.text = "TODO"
+        socialReasonTextField.text = UserManager.shared.userTax.first?.socialReason
+        rucTextField.text = UserManager.shared.userTax.first?.rucNumber
         greetingLabel.text = "¡Hola \(user.firstName)!"
         guard let url = URL(string: user.avatarURL) else { return }
         profileImageView.hnk_setImageFromURL(url, placeholder: Constants.userPlaceholder)
@@ -59,7 +60,7 @@ class ProfileTableViewController: UITableViewController {
     
     private func loadDevices() {
         UserManager.shared.listDevices(completion: { (devices, error) in
-            if let device = devices?.first(where: {$0.phoneNumber != nil}) {
+            if let device = UserManager.shared.currentDevice {
                 self.currentDevice = device
                 self.phoneTextField.text = device.phoneNumber
             } else if let error = error {
@@ -80,6 +81,16 @@ class ProfileTableViewController: UITableViewController {
                 
             }
             
+        }
+    }
+    
+    private func loadTaxInfo() {
+        UserManager.shared.getTaxInfo { error in
+                    if error == nil {
+                self.socialReasonTextField.text = UserManager.shared.userTax.first?.socialReason
+                self.rucTextField.text = UserManager.shared.userTax.first?.rucNumber
+            }
+
         }
     }
     
@@ -109,10 +120,12 @@ class ProfileTableViewController: UITableViewController {
         containerView.addSubview(titleLabel)
         containerView.addSubview(button)
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
+            titleLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor,
+                                                constant: 16),
             titleLabel.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             button.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            button.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 10)
+            button.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor,
+                                            constant: 10)
         ])
         button.addTarget(self, action: #selector(addNewAddressAction(sender:)), for: .touchUpInside)
         return containerView
@@ -148,8 +161,11 @@ class ProfileTableViewController: UITableViewController {
     }
     
     func isPhoneDirty() -> Bool {
-        guard let currentDevicePhone = currentDevice?.phoneNumber else { return false }
-        if phoneTextField.text != currentDevicePhone {
+        guard let currentDevicePhone = currentDevice else { return true }
+        if currentDevice?.phoneNumber == nil {
+            return true
+        }
+        if phoneTextField.text != currentDevicePhone.phoneNumber {
             return true
         }
         return false
@@ -166,6 +182,12 @@ class ProfileTableViewController: UITableViewController {
     }
     
     func isTaxDataDirty() -> Bool {
+        guard let taxInfo = UserManager.shared.userTax.first else { return true }
+        
+        if rucTextField.text != taxInfo.rucNumber ||
+            socialReasonTextField.text != taxInfo.socialReason {
+            return true
+        }
         return false
     }
     

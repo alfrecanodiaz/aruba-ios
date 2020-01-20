@@ -53,8 +53,8 @@ class CartTableViewController: UITableViewController {
         servicesLabel.text = cartData.services
         clientNameLabel.text = cartData.professional.firstName + " " + cartData.professional.lastName
         fullDateLabel.text = cartData.fullDate
-        socialReasonTextField.text = cartData.socialReason
-        rucTextField.text = cartData.ruc
+        socialReasonTextField.text = UserManager.shared.userTax.first?.socialReason
+        rucTextField.text = UserManager.shared.userTax.first?.rucNumber
         segmentedControl.sendActions(for: .valueChanged)
     }
     

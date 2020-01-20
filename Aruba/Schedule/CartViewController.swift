@@ -50,7 +50,7 @@ class CartViewController: BaseViewController {
                                 description: "Necesitamos tu número teléfonico para asegurar que el profesional llegue a tu destino correctamente.",
                                 textFieldPlaceholder: "Número de teléfono") { value in
                                     ALoader.show()
-                                    UserManager.shared.saveDevice(phoneNumber: value) { error in
+                                    UserManager.shared.saveDevice(phoneNumber: value) { device, error in
                                         ALoader.hide()
                                         if let error = error {
                                             AlertManager.showErrorNotice(in: self, error: error) {

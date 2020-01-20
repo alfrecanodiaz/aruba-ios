@@ -91,12 +91,6 @@ class AddAddressTableViewController: BaseTableViewController {
                                         AlertManager.showNotice(in: self, title: "Lo sentimos", description: error.message)
                                     } else if let address = address {
                                         self.delegate?.didSaveAddress(address: address)
-                                        guard let loggedUser = UserManager.shared.loggedUser,
-                                            let index = loggedUser.addresses.firstIndex(where: {$0.isDefault}) else {
-                                            return
-                                        }
-                                        UserManager.shared.loggedUser?.addresses[index].setNonDefault()
-                                        UserManager.shared.loggedUser?.addresses.append(address)
                                         self.showSuccess()
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                                             if let navigationController = self.navigationController {

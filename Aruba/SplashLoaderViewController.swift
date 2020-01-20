@@ -24,6 +24,8 @@ class SplashLoaderViewController: UIViewController {
         if AuthManager.isLogged() {
             ALoader.show()
             AuthManager.fetchUser { (user, error) in
+                UserManager.shared.getTaxInfo { (error) in }
+                UserManager.shared.listDevices { devices, error in }
                 ALoader.hide()
                 if error == nil {
                     let window = UIApplication.shared.keyWindow

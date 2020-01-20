@@ -168,6 +168,15 @@ struct Transaction: Codable {
         case createdAt = "created_at"
         case updatedAt = "updated_at"
     }
+    
+    func readableTransactionType() -> String {
+        if transactionableType == "App\\BankTransferPaymentGateway" {
+            return "Transferencia Bancaria"
+        } else if transactionableType == "App\\CardPaymentGateway" {
+            return "Tarjeta"
+        }
+        return ""
+    }
 }
 
 

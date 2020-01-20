@@ -40,10 +40,10 @@ class ProfileViewController: UIViewController {
             let lastName = profileTVC.lastNameTextField.text,
             !lastName.isEmpty
             else {
-                AlertManager.showNotice(in: self, title: "Atención", description: "Debes completar todos los datos.")
+                AlertManager.showNotice(in: self, title: "Atención",
+                                        description: "Debes completar todos los datos.")
                 return
         }
-        ALoader.show()
         if profileTVC.isPhoneDirty() {
             savePhoneData()
         }
@@ -58,35 +58,57 @@ class ProfileViewController: UIViewController {
     }
     
     private func savePhoneData() {
-        guard let profileTVC = profileTVC, let device = profileTVC.currentDevice,
-            let phoneNumber = profileTVC.phoneTextField.text else { return }
-        savingPhoneData = true
-        UserManager.shared.updateDevice(phoneNumber: phoneNumber,
-                                        device: device) { (error) in
-                                            if let error = error {
-                                                AlertManager.showErrorNotice(in: self, error: error) {
-                                                    self.savePhoneData()
+        if UserManager.shared.devices.count == 0,
+            let phoneNumber = profileTVC?.phoneTextField.text, !phoneNumber.isEmpty {
+            ALoader.show()
+            savingPhoneData = true
+            UserManager.shared.saveDevice(phoneNumber: phoneNumber){ (device, error) in
+                if let error = error {
+                    AlertManager.showErrorNotice(in: self, error: error) {
+                        self.savePhoneData()
+                    }
+                } else if let device = device {
+                    self.savingPhoneData = false
+                    self.profileTVC?.currentDevice = device
+                    self.successHandler()
+                }
+            }
+        } else {
+            guard let profileTVC = profileTVC, let device = profileTVC.currentDevice,
+                let phoneNumber = profileTVC.phoneTextField.text, !phoneNumber.isEmpty else { return }
+            ALoader.show()
+            savingPhoneData = true
+            UserManager.shared.updateDevice(phoneNumber: phoneNumber,
+                                            device: device) { (error) in
+                                                if let error = error {
+                                                    AlertManager.showErrorNotice(in: self, error: error) {
+                                                        self.savePhoneData()
+                                                    }
+                                                } else {
+                                                    self.savingPhoneData = false
+                                                    profileTVC.currentDevice = Device(version: profileTVC.currentDevice?.version,
+                                                                                      phoneNumber: phoneNumber,
+                                                                                      pushToken: profileTVC.currentDevice?.pushToken,
+                                                                                      os: profileTVC.currentDevice?.os,
+                                                                                      model: profileTVC.currentDevice?.model,
+                                                                                      id: profileTVC.currentDevice?.id ?? 0)
+                                                    self.successHandler()
                                                 }
-                                            } else {
-                                                self.savingPhoneData = false
-                                                profileTVC.currentDevice = Device(version: profileTVC.currentDevice?.version,
-                                                                                  phoneNumber: phoneNumber,
-                                                                                  pushToken: profileTVC.currentDevice?.pushToken,
-                                                                                  os: profileTVC.currentDevice?.os,
-                                                                                  model: profileTVC.currentDevice?.model,
-                                                                                  id: profileTVC.currentDevice?.id ?? 0)
-                                                self.successHandler()
-                                            }
+            }
         }
+        
     }
     
     private func saveProfileData() {
         guard let profileTVC = profileTVC,
             let firstName = profileTVC.firstNameTextField.text,
-            let lastName = profileTVC.lastNameTextField.text else { return }
+            let lastName = profileTVC.lastNameTextField.text,
+            !firstName.isEmpty,
+            !lastName.isEmpty else { return }
         
         savingProfileData = true
-        
+        ALoader.show()
+
         UserManager.shared.updateProfile(firstName: firstName,
                                          lastName: lastName) { (error) in
                                             if let error = error {
@@ -103,7 +125,40 @@ class ProfileViewController: UIViewController {
     }
     
     private func saveTaxData() {
+        guard let profileTVC = profileTVC,
+            let ruc = profileTVC.rucTextField.text,
+            let socialReason = profileTVC.socialReasonTextField.text,
+            !ruc.isEmpty,
+            !socialReason.isEmpty else { return }
         savingTaxData = true
+        if let taxInfo = UserManager.shared.userTax.first {
+            ALoader.show()
+            UserManager.shared.updateTaxInfo(id: taxInfo.id, ruc: ruc, socialReason: socialReason) { (error) in
+                if let error = error {
+                    AlertManager.showErrorNotice(in: self, error: error) {
+                        self.saveTaxData()
+                    }
+                } else {
+                    self.savingTaxData = false
+                    self.successHandler()
+                }
+                
+            }
+        } else {
+            ALoader.show()
+            UserManager.shared.saveTaxInfo(ruc: ruc, socialReason: socialReason) { (error) in
+                if let error = error {
+                    AlertManager.showErrorNotice(in: self, error: error) {
+                        self.saveTaxData()
+                    }
+                } else {
+                    self.savingTaxData = false
+                    self.successHandler()
+                }
+                
+            }
+        }
+        
     }
     
     private func successHandler() {

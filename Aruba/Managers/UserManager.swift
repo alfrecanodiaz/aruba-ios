@@ -42,10 +42,7 @@ class UserManager: UserManagerProtocol {
     }
     
     var defaultAddressId: Int? {
-        guard let defaultAddress = UserManager.shared.loggedUser?.addresses.filter({$0.isDefault}).first else {
-            return nil
-        }
-        return defaultAddress.id
+        UserManager.shared.loggedUser?.addresses.filter({$0.isDefault}).first?.id
     }
     
     var clientName: String {
@@ -54,7 +51,22 @@ class UserManager: UserManagerProtocol {
     }
     
     var currentPhoneNumber: String? {
-        return nil
+        return devices.first(where: {$0.phoneNumber != nil })?.phoneNumber
+    }
+    
+    var devices: [Device] = []
+    var userTax: [UserTax] = []
+    
+    var currentDevice: Device? {
+        if devices.count == 0 {
+            return nil
+        }
+        if let deviceWithPhone = devices.first(where: { (device) -> Bool in
+            return device.phoneNumber != nil
+        }) {
+            return deviceWithPhone
+        }
+        return devices.first
     }
     
     func updateProfile(firstName: String, lastName: String, completion: @escaping (HTTPClientError?) -> Void) {
@@ -101,20 +113,31 @@ class UserManager: UserManagerProtocol {
                                           "lng": lng,
                                           "is_default": is_default]
         HTTPClient.shared.request(method: .POST, path: .userAddressAdd, data: addressData) { (response: UserAddressStoreSuccessResponse?, error) in
+            if let address = response?.data {
+                guard let loggedUser = UserManager.shared.loggedUser else {
+                    return
+                }
+                if loggedUser.addresses.count != 0, let index = loggedUser.addresses.firstIndex(where: {$0.isDefault}) {
+                    UserManager.shared.loggedUser?.addresses[index].setNonDefault()
+                    UserManager.shared.loggedUser?.addresses.append(address)
+                } else {
+                    UserManager.shared.loggedUser?.addresses = [address]
+                }
+            }
             completion(response?.data, error)
         }
     }
     
     func updateAddress(name: String,
-                     street1: String,
-                     street2: String,
-                     houseNumber: String,
-                     references: String,
-                     lat: Double,
-                     lng: Double,
-                     is_default: Bool,
-                     id: Int,
-                     completion: @escaping (AAddress?, HTTPClientError?) -> Void) {
+                       street1: String,
+                       street2: String,
+                       houseNumber: String,
+                       references: String,
+                       lat: Double,
+                       lng: Double,
+                       is_default: Bool,
+                       id: Int,
+                       completion: @escaping (AAddress?, HTTPClientError?) -> Void) {
         let addressData: [String: Any] = ["name": name,
                                           "street1": street1,
                                           "street2": street2,
@@ -130,12 +153,12 @@ class UserManager: UserManagerProtocol {
     }
     
     func setAddressIsDefault(
-                     is_default: Bool,
-                     id: Int,
-                     completion: @escaping (AAddress?, HTTPClientError?) -> Void) {
+        is_default: Bool,
+        id: Int,
+        completion: @escaping (AAddress?, HTTPClientError?) -> Void) {
         let addressData: [String: Any] = [
-                                          "is_default": is_default,
-                                          "id": id
+            "is_default": is_default,
+            "id": id
         ]
         HTTPClient.shared.request(method: .POST, path: .userAddressUpdate, data: addressData) { (response: UserAddressStoreSuccessResponse?, error) in
             completion(response?.data, error)
@@ -145,11 +168,11 @@ class UserManager: UserManagerProtocol {
     /// Devices
     
     func saveDevice(phoneNumber: String,
-                    completion: @escaping (HTTPClientError?) -> Void) {
+                    completion: @escaping (Device?, HTTPClientError?) -> Void) {
         
         var params: [String: Any] = [
             "os" : "iOS",
-            "model": UIDevice.current.model,
+            "model": modelIdentifier(),
             "version": UIDevice.current.systemVersion,
             "phone_number" : phoneNumber
         ]
@@ -158,7 +181,10 @@ class UserManager: UserManagerProtocol {
         }
         
         HTTPClient.shared.request(method: .POST, path: .userRegisterDevice, data: params) { (response: UserRegisterDeviceResponse?, error) in
-            completion(error)
+            if let device = response?.data {
+                UserManager.shared.devices = [device]
+            }
+            completion(response?.data, error)
         }
     }
     
@@ -167,6 +193,9 @@ class UserManager: UserManagerProtocol {
                       completion: @escaping (HTTPClientError?) -> Void) {
         
         let params: [String: Any] = [
+            "os" : "iOS",
+            "model": modelIdentifier(),
+            "version": UIDevice.current.systemVersion,
             "id" : device.id,
             "phone_number" : phoneNumber
         ]
@@ -177,8 +206,11 @@ class UserManager: UserManagerProtocol {
     }
     
     func listDevices(completion: @escaping ([Device]? , HTTPClientError?) -> Void) {
-                
+        
         HTTPClient.shared.request(method: .POST, path: .userDeviceList) { (response: UserDeviceListResponse?, error) in
+            if let devices = response?.data {
+                UserManager.shared.devices = devices
+            }
             completion(response?.data, error)
         }
     }
@@ -186,8 +218,47 @@ class UserManager: UserManagerProtocol {
     /// TAX
     
     func saveTaxInfo(ruc: String, socialReason: String, completion: @escaping (HTTPClientError?) -> Void ) {
+        let params: [String: Any] = ["ruc_number": ruc,
+                                     "social_reason": socialReason]
+        HTTPClient.shared.request(method: .POST, path: .userTaxCreate, data: params) { (response: UserRegisterNewTaxResponse?, error) in
+            if let tax = response?.data {
+                UserManager.shared.userTax = [tax]
+            }
+            completion(error)
+        }
         
+    }
+    
+    func updateTaxInfo(id: Int, ruc: String, socialReason: String, completion: @escaping (HTTPClientError?) -> Void ) {
+        let params: [String: Any] = ["id": id,
+                                     "ruc_number": ruc,
+                                     "social_reason": socialReason]
+        HTTPClient.shared.request(method: .POST, path: .userTaxUpdate, data: params) { (response: UserRegisterNewTaxResponse?, error) in
+            if let tax = response?.data {
+                UserManager.shared.userTax = [tax]
+            }
+            completion(error)
+        }
+        
+    }
+    
+    func getTaxInfo(completion: @escaping (HTTPClientError?) -> Void ) {
+        HTTPClient.shared.request(method: .POST, path: .userTaxList) { (response: UserTaxInfoListResponse?, error) in
+            if let tax = response?.data.first {
+                UserManager.shared.userTax = [tax]
+            }
+            completion(error)
+        }
+        
+    }
+    
+    private func modelIdentifier() -> String {
+        if let simulatorModelIdentifier = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] { return simulatorModelIdentifier }
+        var sysinfo = utsname()
+        uname(&sysinfo) // ignore return value
+        return String(bytes: Data(bytes: &sysinfo.machine, count: Int(_SYS_NAMELEN)), encoding: .ascii)!.trimmingCharacters(in: .controlCharacters)
     }
     
     
 }
+

@@ -39,7 +39,7 @@ struct CategoryViewModel {
 class HomeTableViewController: BaseTableViewController {
     
     var popup: PopupTableViewController!
-
+    
     
     var userAddressesViewModel: [AddressViewModel] = []
     
@@ -72,16 +72,21 @@ class HomeTableViewController: BaseTableViewController {
         fetchData()
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        fetchData()
-//    }
-//    
+    //    override func viewDidAppear(_ animated: Bool) {
+    //        super.viewDidAppear(animated)
+    //        fetchData()
+    //    }
+    //
     private func fetchData() {
         fetchServiceCategories()
         if AuthManager.isLogged() {
             fetchAddresses()
+            
         }
+    }
+    
+    private func loadPoints() {
+        
     }
     
     private func fetchAddresses() {
@@ -183,14 +188,16 @@ class HomeTableViewController: BaseTableViewController {
             return
         }
         
-        guard userAddressesViewModel.count != 0 else {
-            let addressesStoryboard = UIStoryboard(name: "Addresses", bundle: nil)
-            let addAddressVC =  addressesStoryboard.instantiateViewController(withIdentifier: "AddAddressTableViewControllerID") as! AddAddressTableViewController
-            addAddressVC.delegate = self
-            present(addAddressVC, animated: true, completion: nil)
+        guard UserManager.shared.loggedUser?.addresses.count != 0 else {
+            AlertManager.showNotice(in: self, title: "Necesitamos tu dirección", description: "Para poder solicitar un servicio, agrega tu primera dirección.", acceptButtonTitle: "Agregar Dirección") {
+                let addressesStoryboard = UIStoryboard(name: "Addresses", bundle: nil)
+                let addAddressVC =  addressesStoryboard.instantiateViewController(withIdentifier: "AddAddressTableViewControllerID") as! AddAddressTableViewController
+                addAddressVC.delegate = self
+                self.present(addAddressVC, animated: true, completion: nil)
+            }
             return
         }
-
+        
         showServiceCategoryPopup(serviceCategory: serviceCategory)
     }
     
@@ -233,7 +240,7 @@ class HomeTableViewController: BaseTableViewController {
                 }
             }
         }
-
+        
         
         let data = ServiceCategorySelectionData(address: AddressViewModel(address: defaultAddress).addressFormatted,
                                                 addressId: defaultAddress.id,

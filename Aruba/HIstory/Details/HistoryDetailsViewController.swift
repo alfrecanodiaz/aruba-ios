@@ -38,7 +38,7 @@ struct HistoryDetailsViewModel {
         time = appointment.hourStartPretty
         duration = "\(appointment.duration/60) minutos"
         address = appointment.fullAddress
-        paymentMethod = appointment.transaction.transactionableType
+        paymentMethod = appointment.transaction.readableTransactionType()
         total =  Int(appointment.price).asGs() ?? ""
         canCancelAppointment = appointment.currentStateID == 1
         appointmentId = appointment.id

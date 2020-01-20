@@ -60,6 +60,12 @@ class HTTPClient {
         case userRegisterDevice = "user/device/create"
         case userDeviceList = "user/device/list"
         case userDeviceUpdate = "user/device/update"
+        // tax
+        case userTaxCreate = "user/factura/create"
+        case userTaxUpdate = "user/factura/update"
+        case userTaxDelete = "user/factura/delete"
+        case userTaxList = "user/factura/list"
+
     }
 
     lazy var sessionManager: SessionManager = {

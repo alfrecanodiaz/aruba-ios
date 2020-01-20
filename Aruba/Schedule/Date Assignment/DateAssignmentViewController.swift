@@ -62,6 +62,13 @@ class DateAssignmentViewController: BaseViewController {
     var dateSelected: Date?
     var timeSelected: Date?
     
+    lazy var dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        return dateFormatter
+    }()
+    
     struct Cells {
         static let Professional = "ProfessionalCell"
     }
@@ -85,6 +92,7 @@ class DateAssignmentViewController: BaseViewController {
     private func setupView() {
         clientLabel.text = "¡Hola \(clientName)!"
         categoryLabel.text = "Estas en la categoria \(category.title.uppercased())"
+        dateTextField.text = dateFormatter.string(from: Date())
     }
     
     private func fetchProfessionals() {
@@ -121,10 +129,6 @@ class DateAssignmentViewController: BaseViewController {
     }
     
     @objc private func datePickerChanged(sender: UIDatePicker) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = .none
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-        dateSelected = sender.date
         dateTextField.text = dateFormatter.string(from: sender.date)
     }
     
