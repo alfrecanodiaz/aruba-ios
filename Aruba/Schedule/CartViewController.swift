@@ -79,7 +79,7 @@ class CartViewController: BaseViewController {
     }
     
     private func finishAppointment(paymentType: Int, clientAmount: String?) {
-        ALoader.show()
+        ALoader.showCalendarLoader()
         var params: [String: Any] = [
             "professional_id":cartData.professional.id,
             "address_id": cartData.addressId,
@@ -92,7 +92,7 @@ class CartViewController: BaseViewController {
             params["client_amount"] = clientAmount
         }
         HTTPClient.shared.request(method: .POST, path: .createAppointment, data: params) { (response: CreateAppointmentResponse?, error) in
-            ALoader.hide()
+            ALoader.hideCalendarLoader()
             if let _ = response {
                 self.showSuccessPopup()
             } else if let error = error {
@@ -111,6 +111,7 @@ class CartViewController: BaseViewController {
         popover?.sourceView = view
         popover?.sourceRect = view.bounds
         popover?.permittedArrowDirections = .init(rawValue: 0)
+        popup.clientName = cartData.clientName
         addBlackBackgroundView()
         present(popup, animated: true, completion: nil)
     }
@@ -119,6 +120,10 @@ class CartViewController: BaseViewController {
 extension CartViewController: CardPaymentDelegate {
     func successCardPayment() {
         self.showSuccessPopup()
+    }
+    
+    func canceledCardPayment() {
+        
     }
 }
 

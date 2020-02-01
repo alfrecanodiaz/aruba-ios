@@ -120,6 +120,7 @@ class ProfessionalsTableViewController: UITableViewController {
         if segue.identifier == Segues.details,
             let dvc = segue.destination as? ProfesionalDetailsViewController {
             dvc.professional = selectedProfessional
+            dvc.delegate = self
         }
     }
 }
@@ -133,5 +134,6 @@ extension ProfessionalsTableViewController: ProfessionalLikedDelegate {
         if let index = viewModel.firstIndex(where: {$0.id == professionalId}) {
             viewModel[index].like(liked)
         }
+        tableView.reloadData()
     }
 }

@@ -81,7 +81,8 @@ class ProfessionalsViewController: UIViewController {
                                               width: view.bounds.width,
                                               height: view.bounds.height),
                                 pageMenuOptions: parameters)
-        
+        self.addChild(pageMenu!)
+        pageMenu?.didMove(toParent: self)
         self.pageMenuContainerView.addSubview(pageMenu!.view)
     }
     
@@ -92,7 +93,7 @@ class ProfessionalsViewController: UIViewController {
             if let categories = categoryList {
                 self.categories = categories.data.map({CategoryViewModel(category: $0)})
             } else if let error = error {
-                AlertManager.showNotice(in: self, title: "Lo sentimos", description: error.message) {
+                AlertManager.showErrorNotice(in: self, error: error) {
                     self.fetchServiceCategories()
                 }
             }

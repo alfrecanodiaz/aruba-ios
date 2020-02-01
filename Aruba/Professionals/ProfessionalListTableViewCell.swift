@@ -44,6 +44,8 @@ class ProfessionalListTableViewCell: UITableViewCell {
     }
     
     func configure(professional: Professional) {
+        professional.isLikedByMe ? self.likeButton.setImage(#imageLiteral(resourceName: "heart_filled_big"), for: .normal) : self.likeButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
+        isProfessionalLiked = professional.isLikedByMe
         professionalId = professional.id
         professionalNameLabel.text = professional.firstName + " " + professional.lastName
         serviceCountLabel.text = "\(professional.servicesCount ?? 0)"

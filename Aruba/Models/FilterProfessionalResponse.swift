@@ -15,7 +15,7 @@ struct FilterProfessionalResponse: Codable {
 
 struct Professional: Codable {
     let id: Int
-    let reviewsWithCommentsCount: Int
+    let reviewsWithCommentsCount: Int?
     let firstName, lastName, email, emailVerifiedAt: String
     let facebookID: String?
     let enabled: Bool?
@@ -29,8 +29,10 @@ struct Professional: Codable {
     let arubaSalesThisMonth: Int?
     let categories: [ServiceCategory]?
     let appointments: [Appointment]?
+    var isLikedByMe: Bool
     
     mutating func like(_ like: Bool) {
+        isLikedByMe = like
         if like {
             if likes != nil {
                 likes! += 1
@@ -63,6 +65,7 @@ struct Professional: Codable {
         case arubaSalesThisMonth = "aruba_sales_this_month"
         case categories, appointments
         case reviewsWithCommentsCount = "reviews_with_comments_count"
+        case isLikedByMe = "is_liked_by_me"
     }
 }
 

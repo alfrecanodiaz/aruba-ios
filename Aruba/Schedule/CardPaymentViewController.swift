@@ -10,6 +10,7 @@ import UIKit
 import WebKit
 protocol CardPaymentDelegate: class {
     func successCardPayment()
+    func canceledCardPayment()
 }
 class CardPaymentViewController: UIViewController {
     
@@ -25,8 +26,10 @@ class CardPaymentViewController: UIViewController {
             isModalInPresentation = true
         }
         activityIndicator = UIActivityIndicatorView(style: .gray)
-        activityIndicator?.center = self.webView.center
+        activityIndicator?.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(activityIndicator!)
+        activityIndicator?.centerYAnchor.constraint(equalTo: webView.centerYAnchor).isActive = true
+        activityIndicator?.centerXAnchor.constraint(equalTo: webView.centerXAnchor).isActive = true
         cancelButton.setEnabled(false)
         activityIndicator?.startAnimating()
         fetchProcessId()
@@ -70,11 +73,10 @@ class CardPaymentViewController: UIViewController {
         let params: [String: Any] = ["shop_process_id": processId]
         HTTPClient.shared.request(method: .POST, path: .cancelBancardPayment, data: params) { (response: DefaultResponseAsString?, error) in
             ALoader.hide()
-            
             if let response = response {
                 if response.success {
                     self.dismiss(animated: true) {
-                        self.delegate?.successCardPayment()
+                        self.delegate?.canceledCardPayment()
                     }
                 }
             } else if let error = error {

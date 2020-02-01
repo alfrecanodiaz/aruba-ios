@@ -32,6 +32,7 @@ class ProfesionalDetailsViewController: UIViewController {
             commentsTableView.rowHeight = UITableView.automaticDimension
             commentsTableView.estimatedRowHeight = 100
             commentsTableView.backgroundView = spinner
+            commentsTableView.register(UINib(nibName: "HistoryServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "HistoryServiceCell")
         }
     }
     @IBOutlet weak var likeButton: UIButton! {
@@ -52,11 +53,12 @@ class ProfesionalDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        liked = professional.isLikedByMe
         liked ? likeButton.setImage(#imageLiteral(resourceName: "heart_filled_big"), for: .normal) : likeButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
         loadReviews()
         likeCountLabel.text = "\(professional.likes ?? 0)"
         servicesCountLabel.text = "\(professional.servicesCount ?? 0)"
-        commentsCountLabel.text = "\(professional.reviewsWithCommentsCount)"
+        commentsCountLabel.text = "\(professional.reviewsWithCommentsCount ?? 0)"
         reviewAverageLabel.text = "\(Int(professional.averageReviews ?? 0))"
         professionalNameLabel.text = professional.firstName + " " + professional.lastName
         guard let url = URL(string: professional.avatarURL ?? "") else {
@@ -84,9 +86,21 @@ class ProfesionalDetailsViewController: UIViewController {
               ALoader.hide()
             self.spinner.stopAnimating()
             self.comments = response?.data.data ?? []
+            self.commentsTableView.backgroundView = self.comments.isEmpty ? self.emptyCommentsView : nil
             self.commentsTableView.reloadData()
           }
     }
+    
+    private lazy var emptyCommentsView: UIView = {
+      let lbl = UILabel()
+        lbl.font = AFont.with(size: 13, weight: .regular)
+        lbl.textColor = Colors.ButtonGreen
+        lbl.text = "El profesional aún no cuenta con comentarios."
+        lbl.numberOfLines = 0
+        lbl.textAlignment = .center
+        lbl.frame = commentsTableView.bounds
+        return lbl
+    }()
     
     private func likedHandler() {
         showLottieSuccess()
@@ -133,25 +147,20 @@ extension ProfesionalDetailsViewController: UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let comment = comments[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else {
-            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
-            return configure(cell: cell, with: comment)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryServiceCell") as? HistoryServiceTableViewCell else {
+            return UITableViewCell()
         }
         return configure(cell: cell, with: comment)
     }
     
-    private func configure(cell: UITableViewCell, with data: RatingData) -> UITableViewCell {
-        cell.textLabel?.text = data.text
-        cell.imageView?.contentMode = .scaleAspectFill
-        cell.imageView?.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        cell.imageView?.layer.cornerRadius = 25
-        cell.detailTextLabel?.text = data.createdAt
-        cell.imageView?.image = Constants.userPlaceholder
-        cell.imageView?.clipsToBounds = true
-        guard let avatar = data.reviewer.avatarURL, let url = URL(string: avatar) else { return cell}
-        cell.imageView?.hnk_setImageFromURL(url, placeholder: Constants.userPlaceholder)
-        cell.setNeedsLayout()
-        cell.layoutSubviews()
+    
+    private func configure(cell: HistoryServiceTableViewCell, with data: RatingData) -> HistoryServiceTableViewCell {
+        cell.serviceNameLabel.text = data.text
+        cell.serviceDescriptionLabel.text = data.createdAt
+        cell.serviceImageView?.image = Constants.userPlaceholder
+        cell.selectionStyle = .none
+        guard let avatar = data.reviewer.avatarURL, let url = URL(string: avatar) else { return cell }
+        cell.serviceImageView?.hnk_setImageFromURL(url, placeholder: Constants.userPlaceholder)
         return cell
     }
 }

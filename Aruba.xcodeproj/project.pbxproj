@@ -70,6 +70,7 @@
 		3B7D4BCA23E6022E00FA6FDA /* like_aruba.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B7D4BC923E6022D00FA6FDA /* like_aruba.json */; };
 		3B7D4BCD23E6029E00FA6FDA /* ProfesionalDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7D4BCC23E6029E00FA6FDA /* ProfesionalDetailsViewController.swift */; };
 		3B7D4BCF23E6134C00FA6FDA /* ProfessionalReviewsListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7D4BCE23E6134C00FA6FDA /* ProfessionalReviewsListResponse.swift */; };
+		3B7D4BD323E6239600FA6FDA /* calendar_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B7D4BD223E6239600FA6FDA /* calendar_loading.json */; };
 		3B7EC0AD225C20A300ED799D /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7EC0AC225C20A300ED799D /* Schedule.storyboard */; };
 		3B7EC0AF225C219200ED799D /* PeopleQuantiySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0AE225C219200ED799D /* PeopleQuantiySelectionViewController.swift */; };
 		3B7EC0B1225C21D500ED799D /* PeopleQuantityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0B0225C21D500ED799D /* PeopleQuantityView.swift */; };
@@ -214,6 +215,7 @@
 		3B7D4BC923E6022D00FA6FDA /* like_aruba.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = like_aruba.json; sourceTree = "<group>"; };
 		3B7D4BCC23E6029E00FA6FDA /* ProfesionalDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfesionalDetailsViewController.swift; sourceTree = "<group>"; };
 		3B7D4BCE23E6134C00FA6FDA /* ProfessionalReviewsListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalReviewsListResponse.swift; sourceTree = "<group>"; };
+		3B7D4BD223E6239600FA6FDA /* calendar_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = calendar_loading.json; sourceTree = "<group>"; };
 		3B7EC0AC225C20A300ED799D /* Schedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
 		3B7EC0AE225C219200ED799D /* PeopleQuantiySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleQuantiySelectionViewController.swift; sourceTree = "<group>"; };
 		3B7EC0B0225C21D500ED799D /* PeopleQuantityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleQuantityView.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 		3B26A3A922584BD10063ECAA = {
 			isa = PBXGroup;
 			children = (
+				3B7D4BD223E6239600FA6FDA /* calendar_loading.json */,
 				3B7D4BC923E6022D00FA6FDA /* like_aruba.json */,
 				3B7D4BC723E5ECB900FA6FDA /* aruba_loading.json */,
 				3B02964C228E070000D08789 /* success.json */,
@@ -863,6 +866,7 @@
 				3BAF8329228268480056C0D5 /* Addresses.storyboard in Resources */,
 				3B7EC0E52264066C00ED799D /* ProfessionalTableViewCell.xib in Resources */,
 				3B1D90B723B5384C003D01D1 /* HistoryTableViewCell.xib in Resources */,
+				3B7D4BD323E6239600FA6FDA /* calendar_loading.json in Resources */,
 				3B26A3BB22584BD10063ECAA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

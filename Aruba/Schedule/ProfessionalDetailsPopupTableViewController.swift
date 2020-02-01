@@ -15,6 +15,7 @@ protocol ProfessionalDetailsPopupTableViewControllerDelegate: class {
 
 class ProfessionalDetailsPopupTableViewController: APopoverTableViewController {
     
+    @IBOutlet weak var likedImageView: UIImageView!
     @IBOutlet weak var professionalNameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
@@ -47,12 +48,15 @@ class ProfessionalDetailsPopupTableViewController: APopoverTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let filled = #imageLiteral(resourceName: "heart_filled_big")
+        let unfilled = #imageLiteral(resourceName: "heart")
+        likedImageView.image = professional.isLikedByMe ? filled : unfilled
         dateLabel.text = date
         timeLabel.text = time
         likesLabel.text = "\(professional.likes ?? 0)"
         appointmentCountLabel.text = "\(professional.servicesCount ?? 0)"
-        commentsLabel.text = "\(professional.reviewsWithCommentsCount)"
-        averageLabel.text = "\(professional.averageReviews ?? 0)"
+        commentsLabel.text = "\(professional.reviewsWithCommentsCount ?? 0)"
+        averageLabel.text = "\(Int(professional.averageReviews ?? 0))"
         professionalNameLabel.text = professional.firstName + " " + professional.lastName
         guard let url = URL(string: professional.avatarURL ?? "") else {
             return
