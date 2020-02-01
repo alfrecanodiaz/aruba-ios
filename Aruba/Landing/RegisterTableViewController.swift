@@ -47,7 +47,7 @@ class RegisterTableViewController: BaseTableViewController {
             present(alert, animated: true)
             return
         }
-        
+        tableView.endEditing(true)
         ALoader.show()
         AuthManager.registerEmail(firstName: firstName,
                                   lastName: lastName,

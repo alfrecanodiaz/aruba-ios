@@ -100,11 +100,19 @@ class ProfileViewController: UIViewController {
     }
     
     private func saveProfileData() {
+        
         guard let profileTVC = profileTVC,
             let firstName = profileTVC.firstNameTextField.text,
-            let lastName = profileTVC.lastNameTextField.text,
-            !firstName.isEmpty,
-            !lastName.isEmpty else { return }
+            !firstName.isEmpty else {
+                self.profileTVC?.firstNameTextField.setError(ValidationError.missingField, animated: true)
+                return
+        }
+        
+        guard let lastName = profileTVC.lastNameTextField.text,
+            !lastName.isEmpty else {
+                self.profileTVC?.lastNameTextField.setError(ValidationError.missingField, animated: true)
+                return
+        }
         
         savingProfileData = true
         ALoader.show()
@@ -124,12 +132,28 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    enum ValidationError: Error {
+        case missingField
+        
+        var localizedDescription: String {
+            return "Debes completar este campo."
+        }
+
+    }
+    
     private func saveTaxData() {
         guard let profileTVC = profileTVC,
             let ruc = profileTVC.rucTextField.text,
-            let socialReason = profileTVC.socialReasonTextField.text,
-            !ruc.isEmpty,
-            !socialReason.isEmpty else { return }
+            !ruc.isEmpty else {
+                self.profileTVC?.rucTextField.setError(ValidationError.missingField, animated: true)
+                return
+        }
+        
+        guard let socialReason = profileTVC.socialReasonTextField.text,
+            !socialReason.isEmpty else {
+                self.profileTVC?.socialReasonTextField.setError(ValidationError.missingField, animated: true)
+                return
+        }
         savingTaxData = true
         if let taxInfo = UserManager.shared.userTax.first {
             ALoader.show()

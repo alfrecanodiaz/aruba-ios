@@ -8,6 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
         <array key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
         </array>
@@ -486,6 +489,32 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="57" id="Kyb-rA-IBb">
+                                        <rect key="frame" x="0.0" y="514" width="414" height="57"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kyb-rA-IBb" id="uZh-J5-SAY">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="57"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gzw-o5-wkN">
+                                                    <rect key="frame" x="9" y="9" width="396" height="39"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="15"/>
+                                                    <state key="normal" title="¿Olvidaste tu Contraseña?">
+                                                        <color key="titleColor" red="0.51597004768160515" green="0.71967025036528498" blue="0.68468526179342104" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="resetPasswordAction:" destination="aPJ-dX-J58" eventType="touchUpInside" id="rX0-2Y-MMK"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Gzw-o5-wkN" firstAttribute="top" secondItem="uZh-J5-SAY" secondAttribute="top" constant="9" id="4Yh-c6-AR8"/>
+                                                <constraint firstAttribute="trailing" secondItem="Gzw-o5-wkN" secondAttribute="trailing" constant="9" id="Jvx-UD-wtJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="Gzw-o5-wkN" secondAttribute="bottom" constant="9" id="Ke3-h2-9KT"/>
+                                                <constraint firstItem="Gzw-o5-wkN" firstAttribute="leading" secondItem="uZh-J5-SAY" secondAttribute="leading" constant="9" id="f8i-Ml-vPQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -501,7 +530,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sXM-W5-2aR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="212" y="-605"/>
+            <point key="canvasLocation" x="211.59420289855075" y="-605.35714285714278"/>
         </scene>
     </scenes>
     <resources>

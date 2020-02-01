@@ -13,6 +13,10 @@ class ProfessionalsTableViewController: UITableViewController {
     // Inject in prepareForSegue
     var serviceCategoryId: Int!
     
+    enum Segues {
+        static let details = "showProfessionalDetailsSegue"
+    }
+    
     var viewModel: [Professional] = [] {
         didSet {
             if viewModel.isEmpty {
@@ -23,6 +27,8 @@ class ProfessionalsTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
+    
+    var selectedProfessional: Professional?
     
     var filteredViewModel: [Professional] = [] {
         didSet {
@@ -77,7 +83,14 @@ class ProfessionalsTableViewController: UITableViewController {
         }
         let professional = searching ? filteredViewModel[indexPath.row] : viewModel[indexPath.row]
         cell.configure(professional: professional)
+        cell.delegate = self
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        selectedProfessional = searching ? filteredViewModel[indexPath.row] : viewModel[indexPath.row]
+        self.performSegue(withIdentifier: Segues.details, sender: self)
     }
     
     private func fetchProfessionals() {
@@ -103,5 +116,22 @@ class ProfessionalsTableViewController: UITableViewController {
         return label
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.details,
+            let dvc = segue.destination as? ProfesionalDetailsViewController {
+            dvc.professional = selectedProfessional
+        }
+    }
+}
+
+extension ProfessionalsTableViewController: ProfessionalLikedDelegate {
+    func didLikedProfessional(professionalId: Int, liked: Bool) {
+        
+        if let index = filteredViewModel.firstIndex(where: {$0.id == professionalId}) {
+            filteredViewModel[index].like(liked)
+        }
+        if let index = viewModel.firstIndex(where: {$0.id == professionalId}) {
+            viewModel[index].like(liked)
+        }
+    }
 }

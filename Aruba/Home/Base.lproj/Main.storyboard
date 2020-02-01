@@ -94,7 +94,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Wl-80-kus">
-                                                            <rect key="frame" x="235" y="110.5" width="45" height="32"/>
+                                                            <rect key="frame" x="235" y="109.5" width="48" height="33"/>
                                                             <fontDescription key="fontDescription" name="Lato-Black" family="Lato" pointSize="17"/>
                                                             <state key="normal" title="Editar">
                                                                 <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -741,9 +741,6 @@
                     <navigationItem key="navigationItem" id="XCc-2x-IRC">
                         <barButtonItem key="rightBarButtonItem" title="Atras" style="done" id="cVx-Hh-IWV">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="closeAction:" destination="SsZ-dg-WdO" id="wp2-zI-ZHe"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -874,15 +871,17 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="54l-ol-gUF">
-                        <barButtonItem key="leftBarButtonItem" image="menu" id="Sfx-5e-1CY">
+                        <barButtonItem key="leftBarButtonItem" image="menu" style="plain" id="Sfx-5e-1CY">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="Tgc-lM-rbv" kind="presentation" id="weK-vN-6oi"/>
+                                <action selector="showSideMenuAction:" destination="EKl-x7-gw9" id="jJb-Fk-elz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="sideMenuButton" destination="Sfx-5e-1CY" id="Alr-vf-AnZ"/>
                         <segue destination="JNC-Pr-vLc" kind="show" identifier="scheduleServiceSegue" id="iHf-2c-acN"/>
+                        <segue destination="Tgc-lM-rbv" kind="presentation" identifier="presentSideMenuSegue" id="KNc-p2-Adl"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V5i-JQ-wVH" userLabel="First Responder" sceneMemberID="firstResponder"/>

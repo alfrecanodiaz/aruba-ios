@@ -51,7 +51,7 @@ class ProfessionalDetailsPopupTableViewController: APopoverTableViewController {
         timeLabel.text = time
         likesLabel.text = "\(professional.likes ?? 0)"
         appointmentCountLabel.text = "\(professional.servicesCount ?? 0)"
-        commentsLabel.text = "\(professional.averageReviews ?? 0)"
+        commentsLabel.text = "\(professional.reviewsWithCommentsCount)"
         averageLabel.text = "\(professional.averageReviews ?? 0)"
         professionalNameLabel.text = professional.firstName + " " + professional.lastName
         guard let url = URL(string: professional.avatarURL ?? "") else {

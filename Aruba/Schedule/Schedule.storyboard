@@ -131,7 +131,7 @@
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gs. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uv9-Qz-VxI">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gs. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Uv9-Qz-VxI">
                                                         <rect key="frame" x="361" y="22" width="37" height="20.5"/>
                                                         <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -144,7 +144,7 @@
                                                     <constraint firstItem="JZf-Zh-ID0" firstAttribute="centerY" secondItem="l1l-PP-11u" secondAttribute="centerY" id="Cz8-Mg-fYL"/>
                                                     <constraint firstAttribute="trailing" secondItem="Uv9-Qz-VxI" secondAttribute="trailing" constant="16" id="DiN-5v-KqE"/>
                                                     <constraint firstItem="Uv9-Qz-VxI" firstAttribute="centerY" secondItem="l1l-PP-11u" secondAttribute="centerY" id="HvV-Op-OJq"/>
-                                                    <constraint firstItem="Uv9-Qz-VxI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JZf-Zh-ID0" secondAttribute="trailing" constant="20" id="thi-tb-8b4"/>
+                                                    <constraint firstItem="Uv9-Qz-VxI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JZf-Zh-ID0" secondAttribute="trailing" constant="50" id="thi-tb-8b4"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEF-00-e9P">

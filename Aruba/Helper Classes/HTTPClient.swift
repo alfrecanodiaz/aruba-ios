@@ -43,6 +43,7 @@ class HTTPClient {
         case userRegisterFacebook = "user/register/facebook"
         case userLogin = "user/login"
         case userModify = "user/update"
+        case userForgotPassword = "user/password/reset"
         case userAddressAdd = "user/address/create"
         case userAddressList = "user/address/list"
         case userAddressRemove = "user/address/delete"
@@ -65,6 +66,11 @@ class HTTPClient {
         case userTaxUpdate = "user/factura/update"
         case userTaxDelete = "user/factura/delete"
         case userTaxList = "user/factura/list"
+        
+        // professionals
+        
+        case likeProfessional = "user/professional/like"
+        case professionalReviewsList = "user/professional/reviews"
 
     }
 
@@ -135,10 +141,10 @@ class HTTPClient {
                     print("error with \(error)")
                     if error._code == NSURLErrorTimedOut {
                         print("Request timeout!")
-                        completion(nil, HTTPClientError(message: error.localizedDescription))
+                        completion(nil, HTTPClientError(message: "La operación no se pudo completar en este momento."))
                         return
                     }
-                    completion(nil, HTTPClientError(message: error.localizedDescription))
+                    completion(nil, HTTPClientError(message: "Revisa tu conexión a internet."))
                 }
         }
     }

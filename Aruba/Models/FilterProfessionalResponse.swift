@@ -15,6 +15,7 @@ struct FilterProfessionalResponse: Codable {
 
 struct Professional: Codable {
     let id: Int
+    let reviewsWithCommentsCount: Int
     let firstName, lastName, email, emailVerifiedAt: String
     let facebookID: String?
     let enabled: Bool?
@@ -24,10 +25,22 @@ struct Professional: Codable {
     let birthdate, document: String?
     let avatarURL: String?
     let averageReviews: Double?
-    let servicesCount, likes, salesThisMonth: Int?
+    var servicesCount, likes, salesThisMonth: Int?
     let arubaSalesThisMonth: Int?
     let categories: [ServiceCategory]?
     let appointments: [Appointment]?
+    
+    mutating func like(_ like: Bool) {
+        if like {
+            if likes != nil {
+                likes! += 1
+            }
+        } else {
+            if likes != nil {
+                likes! -= 1
+            }
+        }
+    }
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -49,6 +62,7 @@ struct Professional: Codable {
         case salesThisMonth = "sales_this_month"
         case arubaSalesThisMonth = "aruba_sales_this_month"
         case categories, appointments
+        case reviewsWithCommentsCount = "reviews_with_comments_count"
     }
 }
 

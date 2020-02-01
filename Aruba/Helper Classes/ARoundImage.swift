@@ -27,5 +27,6 @@ class ARoundImage: UIImageView {
         super.layoutSubviews()
         self.layer.cornerRadius = self.frame.size.height / 2
         self.clipsToBounds = true
+        self.contentMode = .scaleAspectFill
     }
 }

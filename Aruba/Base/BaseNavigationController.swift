@@ -9,20 +9,39 @@
 import UIKit
 
 class BaseNavigationController: UINavigationController {
-
+    
+    private lazy var logoView: UIView = {
+        self.makeLogoView()
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let imgView = UIImageView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width*CGFloat(0.5), height: 15))
-        imgView.contentMode = .scaleAspectFit
-        imgView.image = UIImage(named: "ARUBA_LOGO-BLANCO")
-        viewControllers.first?.navigationItem.titleView = imgView
+        viewControllers.first?.navigationItem.titleView = logoView
     }
-
+    
+    private func makeLogoView() -> UIView {
+        let view = UIView(frame: CGRect(x: navigationBar.center.x - 80, y: 0, width: 160, height: navigationBar.bounds.height))
+        let imgView = UIImageView(image: UIImage(named: "ARUBA_LOGO"))
+        imgView.contentMode = .scaleAspectFit
+        view.addSubviewConstrained(subview: imgView)
+        return view
+    }
+    
     override public func pushViewController(_ viewController: UIViewController, animated: Bool) {
         super.pushViewController(viewController, animated: animated)
-        let imgView = UIImageView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width*CGFloat(0.5), height: 15))
-        imgView.contentMode = .scaleAspectFit
-        imgView.image = UIImage(named: "ARUBA_LOGO-BLANCO")
-        viewController.navigationItem.titleView = imgView
+        viewController.navigationItem.titleView = logoView
+    }
+}
+
+extension UIView {
+    func addSubviewConstrained(subview: UIView) {
+        addSubview(subview)
+        subview.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            subview.topAnchor.constraint(equalTo: self.topAnchor),
+            subview.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            subview.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            subview.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        ])
     }
 }

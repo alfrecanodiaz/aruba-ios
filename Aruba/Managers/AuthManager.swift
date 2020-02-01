@@ -60,6 +60,13 @@ final class AuthManager {
         }
     }
     
+    static func resetPassword(email: String, completion: @escaping (String?, HTTPClientError?) -> Void) {
+        let params = ["email": email]
+        HTTPClient.shared.request(method: .POST, path: .userForgotPassword, data: params) { (resetResponse: DefaultResponseAsString?, error) in
+            completion(resetResponse?.data, error)
+        }
+    }
+    
     static func registerEmail(firstName: String,
                               lastName: String,
                               username: String,

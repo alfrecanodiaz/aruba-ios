@@ -64,6 +64,12 @@
 		3B6ECA0023BE634800F94A89 /* ProfessionalListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6EC9FE23BE634800F94A89 /* ProfessionalListTableViewCell.swift */; };
 		3B6ECA0123BE634800F94A89 /* ProfessionalListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6EC9FF23BE634800F94A89 /* ProfessionalListTableViewCell.xib */; };
 		3B72058523BFF1D2001FBCA4 /* RateProfessionalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B72058423BFF1D2001FBCA4 /* RateProfessionalTableViewController.swift */; };
+		3B7D4BC523E5E7C400FA6FDA /* HistoryServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7D4BC323E5E7C400FA6FDA /* HistoryServiceTableViewCell.swift */; };
+		3B7D4BC623E5E7C400FA6FDA /* HistoryServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B7D4BC423E5E7C400FA6FDA /* HistoryServiceTableViewCell.xib */; };
+		3B7D4BC823E5ECB900FA6FDA /* aruba_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B7D4BC723E5ECB900FA6FDA /* aruba_loading.json */; };
+		3B7D4BCA23E6022E00FA6FDA /* like_aruba.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B7D4BC923E6022D00FA6FDA /* like_aruba.json */; };
+		3B7D4BCD23E6029E00FA6FDA /* ProfesionalDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7D4BCC23E6029E00FA6FDA /* ProfesionalDetailsViewController.swift */; };
+		3B7D4BCF23E6134C00FA6FDA /* ProfessionalReviewsListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7D4BCE23E6134C00FA6FDA /* ProfessionalReviewsListResponse.swift */; };
 		3B7EC0AD225C20A300ED799D /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7EC0AC225C20A300ED799D /* Schedule.storyboard */; };
 		3B7EC0AF225C219200ED799D /* PeopleQuantiySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0AE225C219200ED799D /* PeopleQuantiySelectionViewController.swift */; };
 		3B7EC0B1225C21D500ED799D /* PeopleQuantityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0B0225C21D500ED799D /* PeopleQuantityView.swift */; };
@@ -202,6 +208,12 @@
 		3B6EC9FE23BE634800F94A89 /* ProfessionalListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalListTableViewCell.swift; sourceTree = "<group>"; };
 		3B6EC9FF23BE634800F94A89 /* ProfessionalListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfessionalListTableViewCell.xib; sourceTree = "<group>"; };
 		3B72058423BFF1D2001FBCA4 /* RateProfessionalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateProfessionalTableViewController.swift; sourceTree = "<group>"; };
+		3B7D4BC323E5E7C400FA6FDA /* HistoryServiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryServiceTableViewCell.swift; sourceTree = "<group>"; };
+		3B7D4BC423E5E7C400FA6FDA /* HistoryServiceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryServiceTableViewCell.xib; sourceTree = "<group>"; };
+		3B7D4BC723E5ECB900FA6FDA /* aruba_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = aruba_loading.json; sourceTree = "<group>"; };
+		3B7D4BC923E6022D00FA6FDA /* like_aruba.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = like_aruba.json; sourceTree = "<group>"; };
+		3B7D4BCC23E6029E00FA6FDA /* ProfesionalDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfesionalDetailsViewController.swift; sourceTree = "<group>"; };
+		3B7D4BCE23E6134C00FA6FDA /* ProfessionalReviewsListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalReviewsListResponse.swift; sourceTree = "<group>"; };
 		3B7EC0AC225C20A300ED799D /* Schedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
 		3B7EC0AE225C219200ED799D /* PeopleQuantiySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleQuantiySelectionViewController.swift; sourceTree = "<group>"; };
 		3B7EC0B0225C21D500ED799D /* PeopleQuantityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleQuantityView.swift; sourceTree = "<group>"; };
@@ -331,6 +343,8 @@
 		3B26A3A922584BD10063ECAA = {
 			isa = PBXGroup;
 			children = (
+				3B7D4BC923E6022D00FA6FDA /* like_aruba.json */,
+				3B7D4BC723E5ECB900FA6FDA /* aruba_loading.json */,
 				3B02964C228E070000D08789 /* success.json */,
 				3B26A3B422584BD10063ECAA /* Aruba */,
 				3B26A3C922584BD30063ECAA /* ArubaTests */,
@@ -354,34 +368,34 @@
 		3B26A3B422584BD10063ECAA /* Aruba */ = {
 			isa = PBXGroup;
 			children = (
-				3B72058323BFF1B0001FBCA4 /* Rate Professional */,
-				3B1D90B323B53806003D01D1 /* HIstory */,
 				3BAF8324228268150056C0D5 /* Addresses */,
-				3B048F03227F191F00EBE6FD /* Managers */,
-				3BD43CF922585B6900AC3411 /* Landing */,
-				3B048EEC226CCA8500EBE6FD /* Protocols */,
-				3B048EEA226CBA5800EBE6FD /* GoogleService-Info.plist */,
-				3B7EC0AB225C206F00ED799D /* Schedule */,
-				3B28FFF62259557F004268CB /* Fonts */,
-				3B28FFEA225947F3004268CB /* Popup */,
-				3BD43D0D2259155200AC3411 /* Profile */,
-				3BD43D0A2259121700AC3411 /* Side Menu */,
-				3BD43D072258FCBA00AC3411 /* Home */,
-				3BD43D06225864CF00AC3411 /* Aruba.entitlements */,
-				3BD43D03225861B700AC3411 /* Models */,
 				3B26A3B522584BD10063ECAA /* AppDelegate.swift */,
+				3BD43D06225864CF00AC3411 /* Aruba.entitlements */,
 				3B26A3BC22584BD30063ECAA /* Assets.xcassets */,
-				3B26A3BE22584BD30063ECAA /* LaunchScreen.storyboard */,
-				3B26A3C122584BD30063ECAA /* Info.plist */,
-				3BD43CF4225858B500AC3411 /* Helper Classes */,
-				3BD43CF72258595100AC3411 /* Constants */,
-				3BD43D022258608B00AC3411 /* Extensions */,
 				3B28FFF32259516A004268CB /* Base */,
-				3B069B792396E7C9003B5479 /* SplashLoaderViewController.swift */,
+				3BD43CF72258595100AC3411 /* Constants */,
 				3B639521239EB376005E0CB4 /* Constants.swift */,
-				3B6EC9F923BE542B00F94A89 /* Professionals */,
 				3B3FC0E223D6694400FF53FA /* ContactInfoTableViewController.swift */,
+				3BD43D022258608B00AC3411 /* Extensions */,
+				3B28FFF62259557F004268CB /* Fonts */,
+				3B048EEA226CBA5800EBE6FD /* GoogleService-Info.plist */,
+				3BD43CF4225858B500AC3411 /* Helper Classes */,
+				3B1D90B323B53806003D01D1 /* HIstory */,
+				3BD43D072258FCBA00AC3411 /* Home */,
+				3B26A3C122584BD30063ECAA /* Info.plist */,
+				3BD43CF922585B6900AC3411 /* Landing */,
+				3B26A3BE22584BD30063ECAA /* LaunchScreen.storyboard */,
+				3B048F03227F191F00EBE6FD /* Managers */,
+				3BD43D03225861B700AC3411 /* Models */,
+				3B28FFEA225947F3004268CB /* Popup */,
 				3B3FC0E423D66E3400FF53FA /* PrivacyViewController.swift */,
+				3B6EC9F923BE542B00F94A89 /* Professionals */,
+				3BD43D0D2259155200AC3411 /* Profile */,
+				3B048EEC226CCA8500EBE6FD /* Protocols */,
+				3B72058323BFF1B0001FBCA4 /* Rate Professional */,
+				3B7EC0AB225C206F00ED799D /* Schedule */,
+				3BD43D0A2259121700AC3411 /* Side Menu */,
+				3B069B792396E7C9003B5479 /* SplashLoaderViewController.swift */,
 			);
 			path = Aruba;
 			sourceTree = "<group>";
@@ -444,6 +458,7 @@
 		3B6EC9F923BE542B00F94A89 /* Professionals */ = {
 			isa = PBXGroup;
 			children = (
+				3B7D4BCB23E6028C00FA6FDA /* Details */,
 				3B6EC9F723BE542600F94A89 /* Professionals.storyboard */,
 				3B6EC9FA23BE56A700F94A89 /* ProfessionalsViewController.swift */,
 				3B6EC9FC23BE57CF00F94A89 /* ProfessionalsTableViewController.swift */,
@@ -459,6 +474,14 @@
 				3B72058423BFF1D2001FBCA4 /* RateProfessionalTableViewController.swift */,
 			);
 			path = "Rate Professional";
+			sourceTree = "<group>";
+		};
+		3B7D4BCB23E6028C00FA6FDA /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				3B7D4BCC23E6029E00FA6FDA /* ProfesionalDetailsViewController.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		3B7EC0AB225C206F00ED799D /* Schedule */ = {
@@ -618,6 +641,7 @@
 				3B4F5FE123D4B1B500C38C31 /* UserRegisterDeviceResponse.swift */,
 				3B4F5FE323D4B47000C38C31 /* UserDeviceListResponse.swift */,
 				3B4F5FE523D4E94300C38C31 /* UserRegisterNewTaxResponse.swift */,
+				3B7D4BCE23E6134C00FA6FDA /* ProfessionalReviewsListResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -667,6 +691,8 @@
 			isa = PBXGroup;
 			children = (
 				3BEEE93823B6729B007570DA /* HistoryDetailsViewController.swift */,
+				3B7D4BC323E5E7C400FA6FDA /* HistoryServiceTableViewCell.swift */,
+				3B7D4BC423E5E7C400FA6FDA /* HistoryServiceTableViewCell.xib */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -821,7 +847,10 @@
 				3B7EC0B3225C21E600ED799D /* PeopleQuantityView.xib in Resources */,
 				3B7EC0BA225C347F00ED799D /* ServiceSelectionTableViewCell.xib in Resources */,
 				3B26A3C022584BD30063ECAA /* LaunchScreen.storyboard in Resources */,
+				3B7D4BCA23E6022E00FA6FDA /* like_aruba.json in Resources */,
 				3B28FFFA22595588004268CB /* Lato-Bold.ttf in Resources */,
+				3B7D4BC623E5E7C400FA6FDA /* HistoryServiceTableViewCell.xib in Resources */,
+				3B7D4BC823E5ECB900FA6FDA /* aruba_loading.json in Resources */,
 				3B02964D228E070000D08789 /* success.json in Resources */,
 				3B6ECA0123BE634800F94A89 /* ProfessionalListTableViewCell.xib in Resources */,
 				3B7EC0AD225C20A300ED799D /* Schedule.storyboard in Resources */,
@@ -996,12 +1025,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B7D4BCD23E6029E00FA6FDA /* ProfesionalDetailsViewController.swift in Sources */,
 				3BC30F6E23A5479E00BD9700 /* ProfessionalDetailsPopupTableViewController.swift in Sources */,
 				3B7EC0C0225D692C00ED799D /* ARoundButton.swift in Sources */,
 				3BD43CF3225858B000AC3411 /* AButton.swift in Sources */,
 				3BD43CF62258594D00AC3411 /* Colors.swift in Sources */,
 				3B28FFF022594C6B004268CB /* UIViewController+Utils.swift in Sources */,
 				3BAF83272282683C0056C0D5 /* AddAddressTableViewController.swift in Sources */,
+				3B7D4BC523E5E7C400FA6FDA /* HistoryServiceTableViewCell.swift in Sources */,
 				3B048EFA226D04D200EBE6FD /* String+Utils.swift in Sources */,
 				3B048F05227F192C00EBE6FD /* AuthManager.swift in Sources */,
 				3B28FFF522595178004268CB /* BaseViewController.swift in Sources */,
@@ -1042,6 +1073,7 @@
 				3BD43D2422592DE200AC3411 /* UIColor+Utils.swift in Sources */,
 				3B4F5FE423D4B47000C38C31 /* UserDeviceListResponse.swift in Sources */,
 				3B048EF5226D001100EBE6FD /* ALoader.swift in Sources */,
+				3B7D4BCF23E6134C00FA6FDA /* ProfessionalReviewsListResponse.swift in Sources */,
 				3BD43D012258608700AC3411 /* JSONDecoder+Utils.swift in Sources */,
 				3BC30F7423A7FB7100BD9700 /* CartViewController.swift in Sources */,
 				3BD43D112259170C00AC3411 /* ProfileHeaderTableViewCell.swift in Sources */,
@@ -1264,7 +1296,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aruba/Aruba.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11.0;
+				CURRENT_PROJECT_VERSION = 13.0;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = Aruba/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1289,7 +1321,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aruba/Aruba.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11.0;
+				CURRENT_PROJECT_VERSION = 13.0;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = Aruba/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

@@ -48,12 +48,12 @@ class HistoryViewController: UIViewController {
     
     private func fetchAppointments() {
         ALoader.show()
-        HTTPClient.shared.request(method: .POST, path: .appointments, data: nil) { (response: UserAppointmentList?, error) in
+        HTTPClient.shared.request(method: .POST, path: .appointments) { (response: UserAppointmentList?, error) in
             ALoader.hide()
             if let response = response {
                 self.appointments = response.data.data
             } else if let error = error {
-                AlertManager.showNotice(in: self, title: "Lo sentimos", description: error.message) {
+                AlertManager.showErrorNotice(in: self, error: error) {
                     self.fetchAppointments()
                 }
             }

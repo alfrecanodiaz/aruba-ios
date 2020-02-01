@@ -15,7 +15,7 @@ struct RateProfessionalResponse: Codable {
 
 struct RatingData: Codable {
     let ratingNumber: Int
-    let text: String
+    let text: String?
     let userID, reviewerID: Int
     let updatedAt, createdAt: String
     let id: Int
@@ -37,13 +37,13 @@ struct Reviewer: Codable {
     let id: Int
     let firstName, lastName, email: String
     let emailVerifiedAt: String?
-    let facebookID: String
+    let facebookID: String?
     let enabled: Bool
     let deletedAt: String?
-    let createdAt, updatedAt: String
+    let createdAt, updatedAt: String?
     let canMakeAppointment: Bool
     let birthdate, document: String?
-    let avatarURL: String
+    let avatarURL: String?
 
     enum CodingKeys: String, CodingKey {
         case id

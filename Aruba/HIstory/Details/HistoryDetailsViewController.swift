@@ -65,6 +65,7 @@ class HistoryDetailsViewController: BaseViewController {
             tableView.tableFooterView = UIView(frame: CGRect.zero)
             tableView.dataSource = self
             tableView.rowHeight = UITableView.automaticDimension
+            tableView.register(UINib(nibName: "HistoryServiceTableViewCell", bundle: nil), forCellReuseIdentifier: "HistoryServiceCell")
         }
     }
     
@@ -77,6 +78,9 @@ class HistoryDetailsViewController: BaseViewController {
     }
     
     private func setupView() {
+        
+        
+        
         professionalLabel.text = "Profesional: \(viewModel.professionalName)"
         dateLabel.text = "Fecha: \(viewModel.date)"
         timeLabel.text = "Hora: \(viewModel.time)"
@@ -139,24 +143,19 @@ extension HistoryDetailsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let service = viewModel.services[indexPath.row]
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else {
-            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
-            return configure(cell: cell, service: service)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryServiceCell") as? HistoryServiceTableViewCell else {
+            return UITableViewCell()
         }
         return configure(cell: cell, service: service)
     }
     
-    private func configure(cell: UITableViewCell, service: Service) -> UITableViewCell {
-        cell.imageView?.contentMode = .scaleAspectFill
-        cell.imageView?.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        cell.textLabel?.text = service.displayName
-        cell.textLabel?.font = AFont.with(size: 17, weight: .regular)
-        cell.detailTextLabel?.text = "Duración aproximada de \(service.duration/60) minutos"
-        cell.detailTextLabel?.font = AFont.with(size: 13, weight: .regular)
-        cell.imageView?.image = Constants.imagePlaceholder
+    private func configure(cell: HistoryServiceTableViewCell, service: Service) -> HistoryServiceTableViewCell {
+        cell.serviceNameLabel.text = service.displayName
+        cell.serviceDescriptionLabel.text = "Duración aproximada de \(service.duration/60) minutos"
         cell.selectionStyle = .none
         guard let url = URL(string: service.imageURL) else { return cell }
-        cell.imageView?.hnk_setImageFromURL(url, placeholder: Constants.imagePlaceholder)
+        cell.serviceImageView.hnk_setImageFromURL(url, placeholder: Constants.imagePlaceholder)
+
         return cell
     }
     

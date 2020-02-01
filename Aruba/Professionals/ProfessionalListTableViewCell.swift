@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Lottie
 
 class ProfessionalListTableViewCell: UITableViewCell {
     
@@ -16,11 +17,21 @@ class ProfessionalListTableViewCell: UITableViewCell {
     @IBOutlet weak var rating4: UIImageView!
     @IBOutlet weak var rating5: UIImageView!
     
+    @IBOutlet weak var likeButton: UIButton! {
+        didSet {
+            likeButton.imageView?.contentMode = .scaleAspectFit
+        }
+    }
     
     @IBOutlet weak var professionalImageView: ARoundImage!
     @IBOutlet weak var professionalNameLabel: UILabel!
     @IBOutlet weak var likeCountLabel: UILabel!
     @IBOutlet weak var serviceCountLabel: UILabel!
+    
+    var professionalId: Int!
+    var isProfessionalLiked: Bool = false
+    weak var delegate: ProfessionalLikedDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -33,6 +44,7 @@ class ProfessionalListTableViewCell: UITableViewCell {
     }
     
     func configure(professional: Professional) {
+        professionalId = professional.id
         professionalNameLabel.text = professional.firstName + " " + professional.lastName
         serviceCountLabel.text = "\(professional.servicesCount ?? 0)"
         likeCountLabel.text = "\(professional.likes ?? 0)"
@@ -77,5 +89,38 @@ class ProfessionalListTableViewCell: UITableViewCell {
         
         guard let url = URL(string: professional.avatarURL ?? "") else { return }
         professionalImageView.hnk_setImageFromURL(url, placeholder: Constants.userPlaceholder)
+    }
+    
+    @IBAction func likeAction(_ sender: UIButton) {
+        ALoader.show()
+        let params = ["professional_id": professionalId]
+        HTTPClient.shared.request(method: .POST, path: .likeProfessional, data: params as [String : Any]) { (response: DefaultResponseAsString?, error) in
+            ALoader.hide()
+            self.isProfessionalLiked.toggle()
+            self.delegate?.didLikedProfessional(professionalId: self.professionalId, liked: self.isProfessionalLiked)
+            self.isProfessionalLiked ? self.likedHandler() : self.unlikeHandler()
+        }
+    }
+    
+    private func likedHandler() {
+        showLottieSuccess()
+        self.likeButton.setImage(#imageLiteral(resourceName: "heart_filled_big"), for: .normal)
+        likeCountLabel.text = "\((Int(likeCountLabel.text ?? "0") ?? 0) + 1)"
+    }
+    
+    private func unlikeHandler() {
+        self.likeButton.setImage(#imageLiteral(resourceName: "heart"), for: .normal)
+        likeCountLabel.text = "\((Int(likeCountLabel.text ?? "0") ?? 0) - 1)"
+    }
+    
+    private func showLottieSuccess() {
+        let lottieView = AnimationView(name: "like_aruba")
+        lottieView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        lottieView.contentMode = .scaleAspectFit
+        UIApplication.shared.keyWindow!.addSubview(lottieView)
+        lottieView.center = UIApplication.shared.keyWindow!.center
+        lottieView.play { (_) in
+            lottieView.removeFromSuperview()
+        }
     }
 }

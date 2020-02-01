@@ -36,6 +36,7 @@ class ServiceSelectionViewController: BaseViewController {
     var addressId: Int!
     
     private var selectedServices: [[IndexPath]] = []
+    private let minimumAmount: Int = 70000
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -124,7 +125,7 @@ class ServiceSelectionViewController: BaseViewController {
     private func setupView(for person: Person) {
         tableView.reloadData()
         continueBtn.setEnabled(false)
-        calculateTotal()
+        setTotalValueLabel()
     }
 
     public func showServiceDescriptionPopup(indexPath: IndexPath, segmentedIndex: Int) {
@@ -177,26 +178,28 @@ extension ServiceSelectionViewController: UITableViewDataSource, UITableViewDele
         return cell
     }
 
-    private func calculateTotal() {
+    private func setTotalValueLabel() {
+        let total = selectedServicesTotal()
+        if total >= minimumAmount {
+            totalLbl.text = selectedServicesTotal().asGs()
+        } else {
+            totalLbl.text = (selectedServicesTotal().asGs() ?? "") + " (el monto mínimo es \(minimumAmount.asGs() ?? ""))"
+        }
+    }
+    
+    private func selectedServicesTotal() -> Int {
         var total: Int = 0
         for (index, service) in selectedServices.enumerated() {
             for indexPath in service {
                 total = services[index][indexPath.row].price + total
             }
         }
-        totalLbl.text = total.asGs()
+        return total
     }
-    
+        
     private func updateScreenForServiceUpdate() {
-        var hasSelection: Bool = false
-        for service in selectedServices {
-            if hasSelection {
-                break
-            }
-            hasSelection = !service.isEmpty
-        }
-        continueBtn.setEnabled(hasSelection)
-        calculateTotal()
+        setTotalValueLabel()
+        continueBtn.setEnabled(selectedServicesTotal() >=  minimumAmount)
     }
 
 }

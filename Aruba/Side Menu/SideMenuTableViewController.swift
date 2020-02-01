@@ -30,9 +30,15 @@ class SideMenuTableViewController: UITableViewController {
         profileImageView.clipsToBounds = true
         guard let url = URL(string: UserManager.shared.loggedUser?.avatarURL ?? "") else { return }
         profileImageView.hnk_setImageFromURL(url, placeholder: Constants.userPlaceholder)
+        
+        let backButton = UIBarButtonItem(title: "Atras", style: .done, target: self, action: #selector(closeAction(_:)))
+        navigationItem.rightBarButtonItem = backButton
+        
+        backButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)
+
     }
     
-    @IBAction func closeAction(_ sender: UIBarButtonItem) {
+    @objc func closeAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
     

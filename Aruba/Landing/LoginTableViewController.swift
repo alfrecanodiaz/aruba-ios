@@ -23,7 +23,9 @@ class LoginTableViewController: BaseTableViewController {
     }
 
     @IBAction func loginAction(_ sender: AButton) {
-        guard let email = emailTxt.text, let password = passwordTxt.text else { return }
+        guard let email = emailTxt.text, !email.isEmpty,
+            let password = passwordTxt.text, !password.isEmpty else { return }
+        tableView.endEditing(true)
         ALoader.show()
         AuthManager.login(username: email, password: password) { [weak self] (loginVM, error) in
             ALoader.hide()
@@ -37,7 +39,21 @@ class LoginTableViewController: BaseTableViewController {
             }
         }
     }
-
+    
+    @IBAction func resetPasswordAction(_ sender: Any) {
+        guard let email = emailTxt.text, !email.isEmpty else { return }
+        tableView.endEditing(true)
+        ALoader.show()
+        AuthManager.resetPassword(email: email) { (message, error) in
+            ALoader.hide()
+            if let message = message {
+                AlertManager.showNotice(in: self, title: "¡Listo!", description: message)
+            } else if let error = error {
+                AlertManager.showErrorNotice(in: self, error: error)
+            }
+        }
+    }
+    
     @IBAction func backAction(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }

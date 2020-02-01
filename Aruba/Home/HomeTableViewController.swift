@@ -59,6 +59,8 @@ class HomeTableViewController: BaseTableViewController {
     var addressName: String?
     var addressDetails: String?
     
+    @IBOutlet weak var sideMenuButton: UIBarButtonItem!
+    
     struct Cells {
         static let Category = "homeCategoryCell"
     }
@@ -70,6 +72,7 @@ class HomeTableViewController: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchData()
+        sideMenuButton.isEnabled = AuthManager.isLogged()
     }
     
     //    override func viewDidAppear(_ animated: Bool) {
@@ -138,6 +141,13 @@ class HomeTableViewController: BaseTableViewController {
         alert.addAction(retry)
         present(alert, animated: true, completion: nil)
     }
+    
+    @IBAction func showSideMenuAction(_ sender: Any) {
+        if AuthManager.isLogged() {
+            performSegue(withIdentifier: "presentSideMenuSegue", sender: self)
+        }
+    }
+    
     
     // MARK: - Table view data source
     
