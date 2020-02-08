@@ -26,7 +26,6 @@ class DateAssignmentViewController: BaseViewController {
         didSet {
             let datePicker = UIDatePicker()
             datePicker.datePickerMode = .date
-            
             datePicker.addTarget(self, action: #selector(datePickerChanged(sender:)), for: .valueChanged)
             dateTextField.aDelegate = self
             dateTextField.inputView = datePicker
@@ -151,9 +150,7 @@ class DateAssignmentViewController: BaseViewController {
                 return
             }
             let hourStartAsSeconds = dateFormatter.string(from: timeSelected).secondFromString
-            
-            
-            dvc.category = category
+                        
             dvc.cartData = CartData(addressId: addressId,
                                     addressName: addressName,
                                     addressDetail: addressDetails,
@@ -169,7 +166,8 @@ class DateAssignmentViewController: BaseViewController {
                                     }),
                                     professional: professional,
                                     hourStartAsSeconds: hourStartAsSeconds,
-                                    date: dateTextField.text!)
+                                    date: dateTextField.text!,
+                                    categoryImageUrl: category.imageURL ?? "")
         }
     }
     
@@ -198,6 +196,8 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        dateTextField.resignFirstResponder()
+        timeTextField.resignFirstResponder()
         let selectedProfessional = professionals[indexPath.row]
         showProfessionalPopup(professional: selectedProfessional)
     }

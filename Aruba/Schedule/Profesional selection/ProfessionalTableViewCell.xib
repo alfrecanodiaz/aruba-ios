@@ -23,20 +23,20 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Oro-Ye-a7k" customClass="ARoundImage" customModule="Aruba" customModuleProvider="target">
-                        <rect key="frame" x="10" y="24" width="60" height="60"/>
+                        <rect key="frame" x="16" y="24" width="60" height="60"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="I1l-fq-3bK"/>
                             <constraint firstAttribute="width" constant="60" id="eZY-C2-We2"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monica" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oA-qf-03C">
-                        <rect key="frame" x="90" y="24" width="253" height="60"/>
-                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="96" y="24" width="239" height="60"/>
+                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="16"/>
+                        <color key="textColor" red="0.33725490200000002" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xy4-sB-WvL">
-                        <rect key="frame" x="351" y="39" width="30" height="30"/>
+                        <rect key="frame" x="343" y="39" width="30" height="30"/>
                         <subviews>
                             <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evA-x9-Ngz">
                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -53,12 +53,12 @@
                     <constraint firstItem="5oA-qf-03C" firstAttribute="height" secondItem="Oro-Ye-a7k" secondAttribute="height" id="2Bq-zO-2oY"/>
                     <constraint firstItem="xy4-sB-WvL" firstAttribute="leading" secondItem="5oA-qf-03C" secondAttribute="trailing" constant="8" id="6vS-es-Npo"/>
                     <constraint firstItem="Oro-Ye-a7k" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="73u-s5-FLj"/>
-                    <constraint firstItem="Oro-Ye-a7k" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="8O7-bJ-8hw"/>
+                    <constraint firstItem="Oro-Ye-a7k" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="8O7-bJ-8hw"/>
                     <constraint firstAttribute="bottom" secondItem="Oro-Ye-a7k" secondAttribute="bottom" constant="24" id="QjI-l1-86K"/>
                     <constraint firstItem="5oA-qf-03C" firstAttribute="leading" secondItem="Oro-Ye-a7k" secondAttribute="trailing" constant="20" id="RQc-Ul-akB"/>
                     <constraint firstItem="xy4-sB-WvL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="WcV-A5-pS5"/>
                     <constraint firstItem="5oA-qf-03C" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rAq-F9-GCG"/>
-                    <constraint firstAttribute="trailing" secondItem="xy4-sB-WvL" secondAttribute="trailing" constant="8" id="tRC-GE-xyU"/>
+                    <constraint firstAttribute="trailing" secondItem="xy4-sB-WvL" secondAttribute="trailing" constant="16" id="tRC-GE-xyU"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

@@ -1399,8 +1399,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre del Cliente" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EQi-oa-EkS" customClass="ATextField" customModule="Aruba" customModuleProvider="target">
-                                                    <rect key="frame" x="28" y="10" width="358" height="34"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre del cliente" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EQi-oa-EkS" customClass="ATextField" customModule="Aruba" customModuleProvider="target">
+                                                    <rect key="frame" x="28" y="10" width="358" height="32.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
@@ -1420,29 +1420,29 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Tipo de Cliente" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRx-r6-aDY">
-                                                    <rect key="frame" x="28" y="0.0" width="115.5" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="28" y="0.0" width="99" height="18"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                    <color key="textColor" red="0.33725490196078434" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="BZw-P3-zSM">
-                                                    <rect key="frame" x="28" y="35.5" width="358" height="104.5"/>
+                                                    <rect key="frame" x="28" y="33" width="358" height="107"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wBU-M1-fmi">
-                                                            <rect key="frame" x="0.0" y="0.0" width="108.5" height="104.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="108.5" height="107"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconos_usuario (arrastrado) 41" translatesAutoresizingMaskIntoConstraints="NO" id="E0F-AF-uaf">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="108.5" height="85"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="108.5" height="89"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Mujer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4If-vF-k94">
-                                                                    <rect key="frame" x="0.0" y="85" width="108.5" height="19.5"/>
-                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
-                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="mujer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4If-vF-k94">
+                                                                    <rect key="frame" x="0.0" y="89" width="108.5" height="18"/>
+                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                                    <color key="textColor" red="0.33725490196078434" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aiR-eg-2rK">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="108.5" height="104.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="108.5" height="107"/>
                                                                     <connections>
                                                                         <action selector="womanAction:" destination="njP-Oh-ljI" eventType="touchUpInside" id="eFa-3Z-pdB"/>
                                                                     </connections>
@@ -1464,20 +1464,20 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hmq-S9-GsL">
-                                                            <rect key="frame" x="124.5" y="0.0" width="109" height="104.5"/>
+                                                            <rect key="frame" x="124.5" y="0.0" width="109" height="107"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconos_usuario (arrastrado) 32" translatesAutoresizingMaskIntoConstraints="NO" id="Gdn-8E-Du6">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="109" height="85"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="109" height="89"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Hombre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mH3-RS-1Sb">
-                                                                    <rect key="frame" x="0.0" y="85" width="109" height="19.5"/>
-                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
-                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="hombre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mH3-RS-1Sb">
+                                                                    <rect key="frame" x="0.0" y="89" width="109" height="18"/>
+                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                                    <color key="textColor" red="0.33725490196078434" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkp-GK-ebS">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="109" height="104.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="109" height="107"/>
                                                                     <connections>
                                                                         <action selector="manAction:" destination="njP-Oh-ljI" eventType="touchUpInside" id="Ei0-tp-MeX"/>
                                                                     </connections>
@@ -1499,20 +1499,20 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yTf-QV-LXZ">
-                                                            <rect key="frame" x="249.5" y="0.0" width="108.5" height="104.5"/>
+                                                            <rect key="frame" x="249.5" y="0.0" width="108.5" height="107"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconos_usuario (arrastrado) 33" translatesAutoresizingMaskIntoConstraints="NO" id="7zc-aZ-xEp">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="108.5" height="85"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="108.5" height="89"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Niño/a" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2g-20-64M">
-                                                                    <rect key="frame" x="0.0" y="85" width="108.5" height="19.5"/>
-                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
-                                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="niño/a" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2g-20-64M">
+                                                                    <rect key="frame" x="0.0" y="89" width="108.5" height="18"/>
+                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                                                                    <color key="textColor" red="0.33725490196078434" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMJ-o0-eTp">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="108.5" height="104.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="108.5" height="107"/>
                                                                     <connections>
                                                                         <action selector="kidAction:" destination="njP-Oh-ljI" eventType="touchUpInside" id="YU1-I8-q39"/>
                                                                     </connections>

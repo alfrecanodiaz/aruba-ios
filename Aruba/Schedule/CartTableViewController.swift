@@ -23,6 +23,7 @@ struct CartData {
     var professional: Professional
     var hourStartAsSeconds: Int
     var date: String
+    let categoryImageUrl: String
 }
 
 class CartTableViewController: UITableViewController {
@@ -38,6 +39,7 @@ class CartTableViewController: UITableViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var changeAmountTextField: ATextField!
     @IBOutlet weak var paymentInfoLabel: UILabel!
+    @IBOutlet weak var serviceIconImageView: ARoundImage!
     
     var cartData: CartData!
     
@@ -56,6 +58,8 @@ class CartTableViewController: UITableViewController {
         socialReasonTextField.text = UserManager.shared.userTax.first?.socialReason
         rucTextField.text = UserManager.shared.userTax.first?.rucNumber
         segmentedControl.sendActions(for: .valueChanged)
+        guard let url = URL(string: cartData.categoryImageUrl) else { return }
+        serviceIconImageView.hnk_setImageFromURL(url)
     }
     
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
@@ -64,16 +68,16 @@ class CartTableViewController: UITableViewController {
             changeAmountTextField.isHidden = true
             paymentInfoLabel.isHidden = false
             let transferDataString = NSMutableAttributedString()
-            let boldFont =  AFont.with(size: 15, weight: .bold)
-            let regularFont = AFont.with(size: 15, weight: .regular)
-            transferDataString.append(NSAttributedString(string: "Anota estos datos para poder realizar la transferencia ", attributes: [.font: boldFont]))
-            transferDataString.append(NSAttributedString(string: "\nBanco: ", attributes: [.font: boldFont]))
-            transferDataString.append(NSAttributedString(string: "Visión Banco", attributes: [.font: regularFont]))
-            transferDataString.append(NSAttributedString(string: "\nCta. №: ", attributes: [.font: boldFont]))
-            transferDataString.append(NSAttributedString(string: "1433 1724", attributes: [.font: regularFont]))
-            transferDataString.append(NSAttributedString(string: "\nC.I. №: ", attributes: [.font: boldFont]))
-            transferDataString.append(NSAttributedString(string: "3.399.394", attributes: [.font: regularFont]))
-            transferDataString.append(NSAttributedString(string: "\nMaria Martha Cabello", attributes: [.font: regularFont]))
+            let boldFont =  AFont.with(size: 15, weight: .regular)
+            let attr: [NSAttributedString.Key: Any] = [.font: boldFont, .foregroundColor: UIColor(hexRGB: "A9A9AA")!]
+            transferDataString.append(NSAttributedString(string: "Anota estos datos para poder realizar la transferencia ", attributes: attr))
+            transferDataString.append(NSAttributedString(string: "\nBanco: ", attributes: attr))
+            transferDataString.append(NSAttributedString(string: "Visión Banco", attributes: attr))
+            transferDataString.append(NSAttributedString(string: "\nCta. №: ", attributes: attr))
+            transferDataString.append(NSAttributedString(string: "1433 1724", attributes: attr))
+            transferDataString.append(NSAttributedString(string: "\nC.I. №: ", attributes: attr))
+            transferDataString.append(NSAttributedString(string: "3.399.394", attributes: attr))
+            transferDataString.append(NSAttributedString(string: "\nMaria Martha Cabello", attributes: attr))
             paymentInfoLabel.attributedText = transferDataString
         } else if sender.selectedSegmentIndex == 1 {
             changeAmountTextField.isHidden = true

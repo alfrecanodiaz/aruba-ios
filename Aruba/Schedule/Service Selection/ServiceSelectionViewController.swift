@@ -14,7 +14,11 @@ class ServiceSelectionViewController: BaseViewController {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var totalLbl: UILabel!
-    @IBOutlet weak var subCategorySegmentedControl: UISegmentedControl!
+    @IBOutlet weak var subCategorySegmentedControl: UISegmentedControl! {
+        didSet {
+            
+        }
+    }
     @IBOutlet weak var continueBtn: AButton!
 
     struct Cells {

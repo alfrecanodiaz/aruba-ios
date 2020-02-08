@@ -116,12 +116,11 @@ class HTTPClient {
 //            }
 //            parameters["access_token"] = token
 //        }
-        print("Calling endopint: \(path.rawValue) with params: \(parameters)")
+//        print("Calling endopint: \(path.rawValue) with params: \(parameters)")
         sessionManager.request(url, method: method.value, parameters: parameters, encoding: JSONEncoding.default)
             .responseData { response in
                 switch response.result {
                 case .success(let data):
-                    print("Success with data: \(data)")
                     let decoder = JSONDecoder()
                     do {
                         let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
@@ -138,7 +137,6 @@ class HTTPClient {
                     let result: Result<T> = decoder.decodeResponse(from: response)
                     completion(result.value, nil)
                 case .failure(let error):
-                    print("error with \(error)")
                     if error._code == NSURLErrorTimedOut {
                         print("Request timeout!")
                         completion(nil, HTTPClientError(message: "La operación no se pudo completar en este momento."))

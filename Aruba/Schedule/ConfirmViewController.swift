@@ -12,12 +12,7 @@ class ConfirmViewController: UIViewController {
     
     @IBOutlet weak var categoryNameLabel: UILabel!
     
-    @IBOutlet weak var serviceImageView: UIImageView! {
-        didSet {
-            serviceImageView.layer.cornerRadius = 25
-            serviceImageView.clipsToBounds = true
-        }
-    }
+    @IBOutlet weak var serviceImageView: ARoundImage!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var dateTimeLabel: UILabel!
     @IBOutlet weak var clientNameLabel: UILabel!
@@ -25,7 +20,6 @@ class ConfirmViewController: UIViewController {
     @IBOutlet weak var servicesLabel: UILabel!
     @IBOutlet weak var addressNameLabel: UILabel!
     @IBOutlet weak var addressDetailsLabel: UILabel!
-    var category: CategoryViewModel!
     
     var cartData: CartData!
     
@@ -36,7 +30,7 @@ class ConfirmViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        categoryNameLabel.text = "Estas en la categoria \(category.title.uppercased())"
+        categoryNameLabel.text = "Estas en la categoria \(cartData.categoryName.uppercased())"
         
         addressNameLabel.text = cartData.addressName.uppercased()
         addressDetailsLabel.text = cartData.addressDetail
@@ -45,7 +39,7 @@ class ConfirmViewController: UIViewController {
         clientNameLabel.text = cartData.professional.firstName + " " + cartData.professional.lastName
         dateTimeLabel.text = cartData.fullDate
         totalLabel.text = cartData.total.asGs()
-        guard let categoryUrl = category.imageURL, let url = URL(string: categoryUrl) else {
+        guard let url = URL(string: cartData.categoryImageUrl) else {
             return
         }
         serviceImageView.hnk_setImageFromURL(url, placeholder: Constants.imagePlaceholder )

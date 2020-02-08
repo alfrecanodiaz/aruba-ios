@@ -15,12 +15,7 @@ protocol SuccessPopoverDelegate: class {
 class SuccessPopoverTableViewController: APopoverTableViewController {
 
     @IBOutlet weak var clientNameLabel: UILabel!
-    @IBOutlet weak var clientAvatarImageView: UIImageView! {
-        didSet {
-            clientAvatarImageView.layer.cornerRadius = 40
-            clientAvatarImageView.clipsToBounds = true
-        }
-    }
+    @IBOutlet weak var clientAvatarImageView: ARoundImage!
     
     weak var delegate: SuccessPopoverDelegate?
     var clientName: String?

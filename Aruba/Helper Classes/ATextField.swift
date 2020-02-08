@@ -37,6 +37,10 @@ class ATextField: MFTextField {
         return doneButton
     }()
     
+    enum Styles {
+        static let textColor = #colorLiteral(red: 0.662745098, green: 0.662745098, blue: 0.6666666667, alpha: 1)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         applyStyles()
@@ -49,9 +53,10 @@ class ATextField: MFTextField {
 
     private func applyStyles() {
         tintColor = Colors.ButtonGreen
-        placeholderFont = UIFont(name: "Lato-Regular", size: 17)
+        placeholderFont = AFont.with(size: 15, weight: .regular)
         errorFont = UIFont(name: "Lato-Bold", size: 13)
-        font = UIFont(name: "Lato-Regular", size: 17)
+        textColor = Styles.textColor
+        font = AFont.with(size: 15, weight: .regular)
         addCustomAccessories()
     }
 
