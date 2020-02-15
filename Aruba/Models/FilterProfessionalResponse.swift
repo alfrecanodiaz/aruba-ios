@@ -30,8 +30,7 @@ struct Professional: Codable {
     let categories: [ServiceCategory]?
     let appointments: [Appointment]?
     var isLikedByMe: Bool
-    let availableSchedules: AvailableSchedulesUnion
-    let schedules: [Schedule]
+    let availableSchedules: [AvailableSchedule]
     
     mutating func like(_ like: Bool) {
         isLikedByMe = like
@@ -69,7 +68,15 @@ struct Professional: Codable {
         case reviewsWithCommentsCount = "reviews_with_comments_count"
         case isLikedByMe = "is_liked_by_me"
         case availableSchedules
-        case schedules
+    }
+}
+
+struct AvailableSchedule: Codable {
+    let hourStart, hourEnd: Int
+
+    enum CodingKeys: String, CodingKey {
+        case hourStart = "hour_start"
+        case hourEnd = "hour_end"
     }
 }
 

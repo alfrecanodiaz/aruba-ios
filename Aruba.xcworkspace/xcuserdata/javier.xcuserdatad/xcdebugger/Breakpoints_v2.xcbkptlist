@@ -808,8 +808,8 @@
             filePath = "Aruba/Schedule/Date Assignment/DateAssignmentViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
             landmarkName = "makeRangesFor(hourStart:hourEnd:divideAmount:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -824,8 +824,8 @@
             filePath = "Aruba/Schedule/Date Assignment/DateAssignmentViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
             landmarkName = "makeRangesFor(hourStart:hourEnd:divideAmount:)"
             landmarkType = "7">
          </BreakpointContent>

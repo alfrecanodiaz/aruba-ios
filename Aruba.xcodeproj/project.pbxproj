@@ -51,6 +51,7 @@
 		3B42E61923F8585D001F1A94 /* ProfessionalScheduleTimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B42E61723F8585D001F1A94 /* ProfessionalScheduleTimeCollectionViewCell.xib */; };
 		3B42E61B23F86F76001F1A94 /* APaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42E61A23F86F76001F1A94 /* APaddedLabel.swift */; };
 		3B42E61D23F87B7C001F1A94 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42E61C23F87B7C001F1A94 /* DateCollectionViewCell.swift */; };
+		3B42E61F23F88C1A001F1A94 /* ProfessionalsAvailableScheduleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42E61E23F88C1A001F1A94 /* ProfessionalsAvailableScheduleResponse.swift */; };
 		3B456CA2239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B456CA1239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift */; };
 		3B4F5FDE23D36D8800C38C31 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F5FDD23D36D8800C38C31 /* ProfileViewController.swift */; };
 		3B4F5FE023D374D700C38C31 /* AddressesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F5FDF23D374D700C38C31 /* AddressesTableViewController.swift */; };
@@ -201,6 +202,7 @@
 		3B42E61723F8585D001F1A94 /* ProfessionalScheduleTimeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfessionalScheduleTimeCollectionViewCell.xib; sourceTree = "<group>"; };
 		3B42E61A23F86F76001F1A94 /* APaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APaddedLabel.swift; sourceTree = "<group>"; };
 		3B42E61C23F87B7C001F1A94 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
+		3B42E61E23F88C1A001F1A94 /* ProfessionalsAvailableScheduleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalsAvailableScheduleResponse.swift; sourceTree = "<group>"; };
 		3B456CA1239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategorySelectionPopupTableViewController.swift; sourceTree = "<group>"; };
 		3B4F5FDD23D36D8800C38C31 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3B4F5FDF23D374D700C38C31 /* AddressesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesTableViewController.swift; sourceTree = "<group>"; };
@@ -559,6 +561,7 @@
 				3B7EC0D72263F1B200ED799D /* HourAssignmentViewController.swift */,
 				3B7EC0DB2263FADC00ED799D /* HourCollectionViewCell.swift */,
 				3B42E61C23F87B7C001F1A94 /* DateCollectionViewCell.swift */,
+				3B42E61E23F88C1A001F1A94 /* ProfessionalsAvailableScheduleResponse.swift */,
 			);
 			path = "Date Selection";
 			sourceTree = "<group>";
@@ -1102,6 +1105,7 @@
 				3BC30F7423A7FB7100BD9700 /* CartViewController.swift in Sources */,
 				3BD43D112259170C00AC3411 /* ProfileHeaderTableViewCell.swift in Sources */,
 				3B7EC0B1225C21D500ED799D /* PeopleQuantityView.swift in Sources */,
+				3B42E61F23F88C1A001F1A94 /* ProfessionalsAvailableScheduleResponse.swift in Sources */,
 				3B7EC0BC225C352300ED799D /* ServiceSelectionViewController.swift in Sources */,
 				3B28FFEE22594892004268CB /* APopoverTableViewController.swift in Sources */,
 				3BEEE93923B6729B007570DA /* HistoryDetailsViewController.swift in Sources */,

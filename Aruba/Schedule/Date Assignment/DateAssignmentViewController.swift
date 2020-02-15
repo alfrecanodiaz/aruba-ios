@@ -235,37 +235,12 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
         }
     }
     
-    private func dateRangesFrom(schedules: AvailableSchedulesUnion, servicesTotalTime: Int) -> [String] {
-        var ranges: [String] = [];
-        switch schedules {
-        case .availableSchedulesClass(let schedules):
-            
-            schedules.the1?.forEach {
-                ranges += makeRangesFor(hourStart: $0.hourStart, hourEnd: $0.hourEnd - servicesTotalTime, divideAmount: 30*60)
-            }
-            //            schedules.the2?.forEach {
-            //                ranges += makeRangesFor(hourStart: $0.hourStart, hourEnd: $0.hourEnd - servicesTotalTime)
-            //            }
-            //            schedules.the3?.forEach {
-            //                ranges += makeRangesFor(hourStart: $0.hourStart, hourEnd: $0.hourEnd - servicesTotalTime)
-            //            }
-            //            schedules.the4?.forEach {
-            //                ranges += makeRangesFor(hourStart: $0.hourStart, hourEnd: $0.hourEnd - servicesTotalTime)
-            //            }
-            //            schedules.the5?.forEach {
-            //                ranges += makeRangesFor(hourStart: $0.hourStart, hourEnd: $0.hourEnd - servicesTotalTime)
-            //            }
-            //            schedules.the6?.forEach {
-            //                ranges += makeRangesFor(hourStart: $0.hourStart, hourEnd: $0.hourEnd - servicesTotalTime)
-            //            }
-            //            schedules.the7?.forEach {
-            //                ranges += makeRangesFor(hourStart: $0.hourStart, hourEnd: $0.hourEnd - servicesTotalTime)
-            //            }
-        //
-        default:
-            break
+    private func dateRangesFrom(schedules: [AvailableSchedule], servicesTotalTime: Int) -> [String] {
+        schedules.map {
+            makeRangesFor(hourStart: $0.hourStart, hourEnd: $0.hourEnd - servicesTotalTime, divideAmount: 30*60)
+        }.reduce([String]()) { result, value  in
+            result + value
         }
-        return ranges
     }
     
     /// Generate an array with date ranges splitted with the specified parameters
@@ -273,7 +248,7 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
     private func makeRangesFor(hourStart: Int, hourEnd: Int, divideAmount: Int) -> [String] {
         var difference = hourEnd - hourStart
         var ranges: [String] = []
-        while difference >= divideAmount {
+        while difference >= 0 {
             ranges.append((hourEnd - difference).asHourMinuteString())
             difference = difference - divideAmount
         }
