@@ -15,29 +15,32 @@ protocol Fetcher: class {
 }
 
 class HTTPClient {
-
+    
     static let shared = HTTPClient()
-
-    let baseURL: String = "https://aruba.com.py/api/client/mobile/"
-//    let baseURL: String = "https://develop.aruba.com.py/api/client/mobile/"
+    
+    //    let baseURL: String = "https://aruba.com.py/api/client/mobile/" // production
+    //    let baseURL: String = "https://develop.aruba.com.py/api/client/mobile/" // develop
+    
+    //localhost
+    let baseURL: String = "http://192.168.100.12/api/client/mobile/"
     
     enum ApiError: Error {
         case noInternet, api500, api401, noData
     }
-
+    
     enum Mehtod {
         case GET, POST
-
+        
         var value: Alamofire.HTTPMethod {
             switch self {
             case .GET:
-                return Alamofire.HTTPMethod.get
+                return .get
             case .POST:
-                return Alamofire.HTTPMethod.post
+                return .post
             }
         }
     }
-
+    
     enum Endpoint: String {
         case userRegisterEmail = "user/register/email"
         case userRegisterFacebook = "user/register/facebook"
@@ -52,6 +55,7 @@ class HTTPClient {
         case serviceCategoryList = "serviceCategory/list"
         case servicesList = "service/list"
         case professionalsFilter = "user/professional/list"
+        case professionalsFilterWithAvailableSchedules = "user/professional/listAvailable"
         case bancardPayment = "user/appointment/bancard"
         case cancelBancardPayment = "user/appointment/bancard/cancel"
         case createAppointment = "user/appointment/create"
@@ -71,16 +75,17 @@ class HTTPClient {
         
         case likeProfessional = "user/professional/like"
         case professionalReviewsList = "user/professional/reviews"
-
+        
     }
-
+    
     lazy var sessionManager: SessionManager = {
         let configuration = URLSessionConfiguration.default
-
+        
         if AuthManager.isLogged() {
             configuration.httpAdditionalHeaders = ["Content-Type": "application/json",
-            "Accept": "application/json",
-            "Authorization": "Bearer \(AuthManager.getCurrentAccessToken() ?? "")"]
+                                                   "Accept": "application/json",
+                                                   "Authorization": "Bearer \(AuthManager.getCurrentAccessToken() ?? "")"]
+            print("✅ Access token: \(AuthManager.getCurrentAccessToken() ?? "")")
         } else {
             configuration.httpAdditionalHeaders = ["Content-Type": "application/json",
                                                    "Accept": "application/json"]
@@ -93,8 +98,8 @@ class HTTPClient {
         let configuration = URLSessionConfiguration.default
         if let token = token {
             configuration.httpAdditionalHeaders = ["Content-Type": "application/json",
-            "Accept": "application/json",
-            "Authorization": "Bearer \(token)"]
+                                                   "Accept": "application/json",
+                                                   "Authorization": "Bearer \(token)"]
         } else {
             configuration.httpAdditionalHeaders = ["Content-Type": "application/json",
                                                    "Accept": "application/json"]
@@ -102,25 +107,21 @@ class HTTPClient {
         let sessionManager = SessionManager(configuration: configuration)
         HTTPClient.shared.sessionManager = sessionManager
     }
-
+    
     func request<T: Codable>(method: Mehtod, path: HTTPClient.Endpoint, data: [String: Any]? = nil, completion: @escaping (T?, HTTPClientError?) -> Void) {
         let url = baseURL + path.rawValue
         var parameters = [String: Any]()
         if let data = data {
             parameters = data
         }
-//        if AuthManager.isLogged() {
-//            guard let token = AuthManager.getCurrentAccessToken() else {
-//                print("Tried to retrieve access token from Auth Manager but there is not one stored.")
-//                return
-//            }
-//            parameters["access_token"] = token
-//        }
-//        print("Calling endopint: \(path.rawValue) with params: \(parameters)")
         sessionManager.request(url, method: method.value, parameters: parameters, encoding: JSONEncoding.default)
             .responseData { response in
                 switch response.result {
                 case .success(let data):
+                    if response.response?.statusCode == 401 {
+                        self.showLoginScreen()
+                        completion(nil, nil)
+                    }
                     let decoder = JSONDecoder()
                     do {
                         let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
@@ -145,6 +146,12 @@ class HTTPClient {
                     completion(nil, HTTPClientError(message: "Revisa tu conexión a internet."))
                 }
         }
+    }
+    
+    private func showLoginScreen() {
+        let storyboard = UIStoryboard(name: "Start", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "LandingViewControllerID")
+        UIApplication.shared.keyWindow?.rootViewController?.transition(to: vc, completion: nil)
     }
 }
 

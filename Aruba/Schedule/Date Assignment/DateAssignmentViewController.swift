@@ -18,6 +18,7 @@ class DateAssignmentViewController: BaseViewController {
         didSet {
             tableView.tableFooterView = nil
             tableView.register(UINib(nibName: "ProfessionalTableViewCell", bundle: nil), forCellReuseIdentifier: Cells.Professional)
+            tableView.register(UINib(nibName: "ProfessionalScheduleTableViewCell", bundle: nil), forCellReuseIdentifier: ProfessionalScheduleTableViewCell.Constants.reuseIdentifier)
             
         }
     }
@@ -41,13 +42,32 @@ class DateAssignmentViewController: BaseViewController {
             timeTextField.inputView = datePicker
         }
     }
-    @IBOutlet weak var clientLabel: UILabel!
-    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var dateCollectionView: UICollectionView! {
+        didSet {
+            dateCollectionView.dataSource = self
+            dateCollectionView.delegate = self
+        }
+    }
     
     var entryAnimationDone: Bool = false
     var scheduleData: ScheduleData!
     
-    var professionals: [Professional] = []
+    var professionals: [Professional] = [] {
+        didSet {
+            self.viewModel = self.professionals.enumerated().map {
+                ProfessionalScheduleCellViewModel(
+                    availableSchedules: dateRangesFrom(
+                        schedules: $0.element.availableSchedules,
+                        servicesTotalTime: servicesTotalTime()
+                    ),
+                    professionalName: $0.element.fullName(),
+                    professionalAvatarUrl: $0.element.avatarURL ?? "",
+                    index: $0.offset,
+                    selectedSchedule: nil
+                )
+            }
+        }
+    }
     var addressId: Int!
     var addressName: String!
     var addressDetails: String!
@@ -78,6 +98,12 @@ class DateAssignmentViewController: BaseViewController {
         static let Confirmation = "showConfirmation"
     }
     
+    enum Constants {
+        static let dateCell = "DateCollectionCell"
+    }
+    
+    var viewModel: [ProfessionalScheduleCellViewModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -89,8 +115,6 @@ class DateAssignmentViewController: BaseViewController {
     }
     
     private func setupView() {
-        clientLabel.text = "¡Hola \(clientName)!"
-        categoryLabel.text = "Estas en la categoria \(category.title.uppercased())"
         dateTextField.text = dateFormatter.string(from: Date())
     }
     
@@ -113,7 +137,7 @@ class DateAssignmentViewController: BaseViewController {
         let params: [String: Any] = ["address_id": addressId, "services": servicesIds, "hour_start": hourStart, "date": dateText]
         
         ALoader.show()
-        HTTPClient.shared.request(method: .POST, path: .professionalsFilter, data: params) { (response: FilterProfessionalResponse?, error) in
+        HTTPClient.shared.request(method: .POST, path: .professionalsFilterWithAvailableSchedules, data: params) { (response: FilterProfessionalResponse?, error) in
             ALoader.hide()
             if let error = error {
                 self.professionals = []
@@ -150,7 +174,7 @@ class DateAssignmentViewController: BaseViewController {
                 return
             }
             let hourStartAsSeconds = dateFormatter.string(from: timeSelected).secondFromString
-                        
+            
             dvc.cartData = CartData(addressId: addressId,
                                     addressName: addressName,
                                     addressDetail: addressDetails,
@@ -181,7 +205,7 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return professionals.count
+        return viewModel.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -189,8 +213,11 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Cells.Professional, for: indexPath) as! ProfessionalTableViewCell
-        cell.configure(professional: professionals[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProfessionalScheduleTableViewCell.Constants.reuseIdentifier, for: indexPath) as! ProfessionalScheduleTableViewCell
+        //        cell.configure(professional: professionals[indexPath.row])
+
+        cell.viewModel = viewModel[indexPath.row]
+        cell.delegate = self
         return cell
     }
     
@@ -200,6 +227,57 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
         timeTextField.resignFirstResponder()
         let selectedProfessional = professionals[indexPath.row]
         showProfessionalPopup(professional: selectedProfessional)
+    }
+    
+    private func servicesTotalTime() -> Int {
+        services.reduce(0) { result, service in
+            result + service.duration
+        }
+    }
+    
+    private func dateRangesFrom(schedules: AvailableSchedulesUnion, servicesTotalTime: Int) -> [String] {
+        var ranges: [String] = [];
+        switch schedules {
+        case .availableSchedulesClass(let schedules):
+            
+            schedules.the1?.forEach {
+                ranges += makeRangesFor(hourStart: $0.hourStart, hourEnd: $0.hourEnd - servicesTotalTime, divideAmount: 30*60)
+            }
+            //            schedules.the2?.forEach {
+            //                ranges += makeRangesFor(hourStart: $0.hourStart, hourEnd: $0.hourEnd - servicesTotalTime)
+            //            }
+            //            schedules.the3?.forEach {
+            //                ranges += makeRangesFor(hourStart: $0.hourStart, hourEnd: $0.hourEnd - servicesTotalTime)
+            //            }
+            //            schedules.the4?.forEach {
+            //                ranges += makeRangesFor(hourStart: $0.hourStart, hourEnd: $0.hourEnd - servicesTotalTime)
+            //            }
+            //            schedules.the5?.forEach {
+            //                ranges += makeRangesFor(hourStart: $0.hourStart, hourEnd: $0.hourEnd - servicesTotalTime)
+            //            }
+            //            schedules.the6?.forEach {
+            //                ranges += makeRangesFor(hourStart: $0.hourStart, hourEnd: $0.hourEnd - servicesTotalTime)
+            //            }
+            //            schedules.the7?.forEach {
+            //                ranges += makeRangesFor(hourStart: $0.hourStart, hourEnd: $0.hourEnd - servicesTotalTime)
+            //            }
+        //
+        default:
+            break
+        }
+        return ranges
+    }
+    
+    /// Generate an array with date ranges splitted with the specified parameters
+    /// - Parameter divideAmount: amount of seconds into which to split the dates
+    private func makeRangesFor(hourStart: Int, hourEnd: Int, divideAmount: Int) -> [String] {
+        var difference = hourEnd - hourStart
+        var ranges: [String] = []
+        while difference >= divideAmount {
+            ranges.append((hourEnd - difference).asHourMinuteString())
+            difference = difference - divideAmount
+        }
+        return ranges.sorted()
     }
     
     private func showProfessionalPopup(professional: Professional) {
@@ -264,11 +342,11 @@ extension DateAssignmentViewController: ProfessionalDetailsPopupTableViewControl
     
 }
 extension String{
-
+    
     var integer: Int {
         return Int(self) ?? 0
     }
-
+    
     var secondFromString : Int{
         let components: Array = self.components(separatedBy: ":")
         let hours = components[0].integer
@@ -276,4 +354,44 @@ extension String{
         let seconds = components[2].integer
         return Int((hours * 60 * 60) + (minutes * 60) + seconds)
     }
+}
+
+extension Int {
+    /// Convert a seconds int to a human readable hour minute string
+    func asHourMinuteString() -> String {
+        let hours = Int(floor(Double(self/60/60)))
+        let minutes = self/60 - hours*60
+        var hoursString: String = "\(hours)"
+        var minutesString: String = "\(minutes)"
+        if minutes < 10 {
+            minutesString = "0\(minutesString)"
+        }
+        if hours < 10 {
+            hoursString = "0\(hoursString)"
+        }
+        return hoursString + ":" + minutesString
+    }
+}
+
+extension DateAssignmentViewController: ProfessionalScheduleTableViewCellDelegate {
+    
+    func didChangeSelectedSchedules(index: Int, selectedSchedule: Int?) {
+        self.viewModel[index].selectedSchedule = selectedSchedule
+    }
+    
+    
+}
+
+extension DateAssignmentViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 7
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.dateCell,
+                                                      for: indexPath) as? DateCollectionViewCell
+        cell?.dateLabel.text = "\(indexPath.row)"
+        return cell ?? UICollectionViewCell()
+    }
+    
 }

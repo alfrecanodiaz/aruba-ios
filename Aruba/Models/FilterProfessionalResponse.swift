@@ -30,6 +30,8 @@ struct Professional: Codable {
     let categories: [ServiceCategory]?
     let appointments: [Appointment]?
     var isLikedByMe: Bool
+    let availableSchedules: AvailableSchedulesUnion
+    let schedules: [Schedule]
     
     mutating func like(_ like: Bool) {
         isLikedByMe = like
@@ -66,6 +68,8 @@ struct Professional: Codable {
         case categories, appointments
         case reviewsWithCommentsCount = "reviews_with_comments_count"
         case isLikedByMe = "is_liked_by_me"
+        case availableSchedules
+        case schedules
     }
 }
 
@@ -425,3 +429,74 @@ extension CategoryPivot {
     }
 }
 
+
+enum AvailableSchedulesUnion: Codable {
+    case anythingArray([JSONAny])
+    case availableSchedulesClass(AvailableSchedulesClass)
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if let x = try? container.decode(AvailableSchedulesClass.self) {
+            self = .availableSchedulesClass(x)
+            return
+        }
+        if let x = try? container.decode([JSONAny].self) {
+            self = .anythingArray(x)
+            return
+        }
+        throw DecodingError.typeMismatch(AvailableSchedulesUnion.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for AvailableSchedulesUnion"))
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        switch self {
+        case .anythingArray(let x):
+            try container.encode(x)
+        case .availableSchedulesClass(let x):
+            try container.encode(x)
+        }
+    }
+}
+
+struct AvailableSchedulesClass: Codable {
+    let the1, the2, the3, the4, the5,the6, the7: [The1]?
+
+    enum CodingKeys: String, CodingKey {
+        case the6 = "6"
+        case the7 = "7"
+        case the1 = "1"
+        case the2 = "2"
+        case the3 = "3"
+        case the4 = "4"
+        case the5 = "5"
+    }
+}
+
+struct The1: Codable {
+    let hourStart, hourEnd: Int
+
+    enum CodingKeys: String, CodingKey {
+        case hourStart = "hour_start"
+        case hourEnd = "hour_end"
+    }
+}
+
+struct Schedule: Codable {
+    let id, userID, weekDay, hourStart: Int
+    let hourEnd: Int
+    let enabled: Bool
+    let deletedAt: JSONNull?
+    let createdAt, updatedAt: String
+
+    enum CodingKeys: String, CodingKey {
+        case id
+        case userID = "user_id"
+        case weekDay = "week_day"
+        case hourStart = "hour_start"
+        case hourEnd = "hour_end"
+        case enabled
+        case deletedAt = "deleted_at"
+        case createdAt = "created_at"
+        case updatedAt = "updated_at"
+    }
+}

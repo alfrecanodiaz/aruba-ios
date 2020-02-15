@@ -112,8 +112,8 @@
             filePath = "Aruba/Helper Classes/HTTPClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "request(method:path:data:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -595,6 +595,238 @@
             startingLineNumber = "114"
             endingLineNumber = "114"
             landmarkName = "unlikeHandler()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "939BCD96-0677-4D56-8B48-07CC2B4C5276"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aruba/Schedule/CardPaymentViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "webView(_:didFinish:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0C06A119-2129-4278-9CF9-45A678857B06"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aruba/SplashLoaderViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "checkUserLoggedIn()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DFDA371C-E0ED-4C86-A791-8E34F9BA190E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aruba/Helper Classes/HTTPClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "request(method:path:data:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DFDA371C-E0ED-4C86-A791-8E34F9BA190E - 53f46c6e9f065770"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "generic specialization &lt;Aruba.ProfessionalReviewsListResponse&gt; of closure #1 (Alamofire.DataResponse&lt;Foundation.Data&gt;) -&gt; () in Aruba.HTTPClient.request&lt;A where A: Swift.Decodable, A: Swift.Encodable&gt;(method: Aruba.HTTPClient.Mehtod, path: Aruba.HTTPClient.Endpoint, data: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, completion: (Swift.Optional&lt;A&gt;, Swift.Optional&lt;Aruba.HTTPClientError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Aruba"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/javier/Aruba-iOS/Aruba/Helper%20Classes/HTTPClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "DFDA371C-E0ED-4C86-A791-8E34F9BA190E - 4654098d716c7582"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "generic specialization &lt;Aruba.DefaultResponseAsString&gt; of closure #1 (Alamofire.DataResponse&lt;Foundation.Data&gt;) -&gt; () in Aruba.HTTPClient.request&lt;A where A: Swift.Decodable, A: Swift.Encodable&gt;(method: Aruba.HTTPClient.Mehtod, path: Aruba.HTTPClient.Endpoint, data: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, completion: (Swift.Optional&lt;A&gt;, Swift.Optional&lt;Aruba.HTTPClientError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Aruba"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/javier/Aruba-iOS/Aruba/Helper%20Classes/HTTPClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "DFDA371C-E0ED-4C86-A791-8E34F9BA190E - 5349ac6cb384d076"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "generic specialization &lt;Aruba.UserAddressStoreSuccessResponse&gt; of closure #1 (Alamofire.DataResponse&lt;Foundation.Data&gt;) -&gt; () in Aruba.HTTPClient.request&lt;A where A: Swift.Decodable, A: Swift.Encodable&gt;(method: Aruba.HTTPClient.Mehtod, path: Aruba.HTTPClient.Endpoint, data: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, completion: (Swift.Optional&lt;A&gt;, Swift.Optional&lt;Aruba.HTTPClientError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Aruba"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/javier/Aruba-iOS/Aruba/Helper%20Classes/HTTPClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "DFDA371C-E0ED-4C86-A791-8E34F9BA190E - f839e044b2f95474"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "generic specialization &lt;Aruba.UserLoginResponse&gt; of closure #1 (Alamofire.DataResponse&lt;Foundation.Data&gt;) -&gt; () in Aruba.HTTPClient.request&lt;A where A: Swift.Decodable, A: Swift.Encodable&gt;(method: Aruba.HTTPClient.Mehtod, path: Aruba.HTTPClient.Endpoint, data: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, completion: (Swift.Optional&lt;A&gt;, Swift.Optional&lt;Aruba.HTTPClientError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Aruba"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/javier/Aruba-iOS/Aruba/Helper%20Classes/HTTPClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "DFDA371C-E0ED-4C86-A791-8E34F9BA190E - dc31cd962dd27f6b"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "generic specialization &lt;Aruba.UserMeResponse&gt; of closure #1 (Alamofire.DataResponse&lt;Foundation.Data&gt;) -&gt; () in Aruba.HTTPClient.request&lt;A where A: Swift.Decodable, A: Swift.Encodable&gt;(method: Aruba.HTTPClient.Mehtod, path: Aruba.HTTPClient.Endpoint, data: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, completion: (Swift.Optional&lt;A&gt;, Swift.Optional&lt;Aruba.HTTPClientError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Aruba"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/javier/Aruba-iOS/Aruba/Helper%20Classes/HTTPClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "DFDA371C-E0ED-4C86-A791-8E34F9BA190E - 927b2b0c1c1b67bd"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "generic specialization &lt;Aruba.RateProfessionalResponse&gt; of closure #1 (Alamofire.DataResponse&lt;Foundation.Data&gt;) -&gt; () in Aruba.HTTPClient.request&lt;A where A: Swift.Decodable, A: Swift.Encodable&gt;(method: Aruba.HTTPClient.Mehtod, path: Aruba.HTTPClient.Endpoint, data: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, completion: (Swift.Optional&lt;A&gt;, Swift.Optional&lt;Aruba.HTTPClientError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Aruba"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/javier/Aruba-iOS/Aruba/Helper%20Classes/HTTPClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "DFDA371C-E0ED-4C86-A791-8E34F9BA190E - c51c0d96743613a4"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "generic specialization &lt;Aruba.UserRegisterDeviceResponse&gt; of closure #1 (Alamofire.DataResponse&lt;Foundation.Data&gt;) -&gt; () in Aruba.HTTPClient.request&lt;A where A: Swift.Decodable, A: Swift.Encodable&gt;(method: Aruba.HTTPClient.Mehtod, path: Aruba.HTTPClient.Endpoint, data: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, completion: (Swift.Optional&lt;A&gt;, Swift.Optional&lt;Aruba.HTTPClientError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Aruba"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/javier/Aruba-iOS/Aruba/Helper%20Classes/HTTPClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "DFDA371C-E0ED-4C86-A791-8E34F9BA190E - c51c0d96743613a4"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "generic specialization &lt;Aruba.UserRegisterNewTaxResponse&gt; of closure #1 (Alamofire.DataResponse&lt;Foundation.Data&gt;) -&gt; () in Aruba.HTTPClient.request&lt;A where A: Swift.Decodable, A: Swift.Encodable&gt;(method: Aruba.HTTPClient.Mehtod, path: Aruba.HTTPClient.Endpoint, data: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, completion: (Swift.Optional&lt;A&gt;, Swift.Optional&lt;Aruba.HTTPClientError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Aruba"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/javier/Aruba-iOS/Aruba/Helper%20Classes/HTTPClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "DFDA371C-E0ED-4C86-A791-8E34F9BA190E - d2a4841841bd25b0"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "generic specialization &lt;Aruba.CreateAppointmentResponse&gt; of closure #1 (Alamofire.DataResponse&lt;Foundation.Data&gt;) -&gt; () in Aruba.HTTPClient.request&lt;A where A: Swift.Decodable, A: Swift.Encodable&gt;(method: Aruba.HTTPClient.Mehtod, path: Aruba.HTTPClient.Endpoint, data: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, completion: (Swift.Optional&lt;A&gt;, Swift.Optional&lt;Aruba.HTTPClientError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Aruba"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/javier/Aruba-iOS/Aruba/Helper%20Classes/HTTPClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "DFDA371C-E0ED-4C86-A791-8E34F9BA190E - 518ea4346054159d"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "generic specialization &lt;Aruba.UserAppointmentList&gt; of closure #1 (Alamofire.DataResponse&lt;Foundation.Data&gt;) -&gt; () in Aruba.HTTPClient.request&lt;A where A: Swift.Decodable, A: Swift.Encodable&gt;(method: Aruba.HTTPClient.Mehtod, path: Aruba.HTTPClient.Endpoint, data: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, completion: (Swift.Optional&lt;A&gt;, Swift.Optional&lt;Aruba.HTTPClientError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Aruba"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/javier/Aruba-iOS/Aruba/Helper%20Classes/HTTPClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C33076F1-7458-4C61-98C5-292997415779"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aruba/Schedule/Date Assignment/DateAssignmentViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
+            landmarkName = "makeRangesFor(hourStart:hourEnd:divideAmount:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FE39D7E4-66E7-4597-9DA1-DC539952ED94"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aruba/Schedule/Date Assignment/DateAssignmentViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
+            landmarkName = "makeRangesFor(hourStart:hourEnd:divideAmount:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

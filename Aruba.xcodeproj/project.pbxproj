@@ -45,6 +45,12 @@
 		3B3BDBFF23B53FEE00BBB7B3 /* UserAppointmentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3BDBFE23B53FEE00BBB7B3 /* UserAppointmentList.swift */; };
 		3B3FC0E323D6694400FF53FA /* ContactInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3FC0E223D6694400FF53FA /* ContactInfoTableViewController.swift */; };
 		3B3FC0E523D66E3400FF53FA /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3FC0E423D66E3400FF53FA /* PrivacyViewController.swift */; };
+		3B42E61423F855E0001F1A94 /* ProfessionalScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42E61223F855E0001F1A94 /* ProfessionalScheduleTableViewCell.swift */; };
+		3B42E61523F855E0001F1A94 /* ProfessionalScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B42E61323F855E0001F1A94 /* ProfessionalScheduleTableViewCell.xib */; };
+		3B42E61823F8585D001F1A94 /* ProfessionalScheduleTimeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42E61623F8585D001F1A94 /* ProfessionalScheduleTimeCollectionViewCell.swift */; };
+		3B42E61923F8585D001F1A94 /* ProfessionalScheduleTimeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B42E61723F8585D001F1A94 /* ProfessionalScheduleTimeCollectionViewCell.xib */; };
+		3B42E61B23F86F76001F1A94 /* APaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42E61A23F86F76001F1A94 /* APaddedLabel.swift */; };
+		3B42E61D23F87B7C001F1A94 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42E61C23F87B7C001F1A94 /* DateCollectionViewCell.swift */; };
 		3B456CA2239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B456CA1239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift */; };
 		3B4F5FDE23D36D8800C38C31 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F5FDD23D36D8800C38C31 /* ProfileViewController.swift */; };
 		3B4F5FE023D374D700C38C31 /* AddressesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F5FDF23D374D700C38C31 /* AddressesTableViewController.swift */; };
@@ -81,7 +87,6 @@
 		3B7EC0BC225C352300ED799D /* ServiceSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0BB225C352300ED799D /* ServiceSelectionViewController.swift */; };
 		3B7EC0BE225D679700ED799D /* ARoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0BD225D679700ED799D /* ARoundView.swift */; };
 		3B7EC0C0225D692C00ED799D /* ARoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0BF225D692C00ED799D /* ARoundButton.swift */; };
-		3B7EC0C3225D6EE700ED799D /* TransparentPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0C2225D6EE700ED799D /* TransparentPopupViewController.swift */; };
 		3B7EC0C8225D727500ED799D /* DateAssignmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0C7225D727500ED799D /* DateAssignmentTableViewCell.swift */; };
 		3B7EC0CA225D773A00ED799D /* DateAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0C9225D773A00ED799D /* DateAssignmentViewController.swift */; };
 		3B7EC0D42263D4C700ED799D /* DateSelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0D32263D4C700ED799D /* DateSelectionCollectionViewCell.swift */; };
@@ -190,6 +195,12 @@
 		3B3BDBFE23B53FEE00BBB7B3 /* UserAppointmentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAppointmentList.swift; sourceTree = "<group>"; };
 		3B3FC0E223D6694400FF53FA /* ContactInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoTableViewController.swift; sourceTree = "<group>"; };
 		3B3FC0E423D66E3400FF53FA /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
+		3B42E61223F855E0001F1A94 /* ProfessionalScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		3B42E61323F855E0001F1A94 /* ProfessionalScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfessionalScheduleTableViewCell.xib; sourceTree = "<group>"; };
+		3B42E61623F8585D001F1A94 /* ProfessionalScheduleTimeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalScheduleTimeCollectionViewCell.swift; sourceTree = "<group>"; };
+		3B42E61723F8585D001F1A94 /* ProfessionalScheduleTimeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfessionalScheduleTimeCollectionViewCell.xib; sourceTree = "<group>"; };
+		3B42E61A23F86F76001F1A94 /* APaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APaddedLabel.swift; sourceTree = "<group>"; };
+		3B42E61C23F87B7C001F1A94 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		3B456CA1239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategorySelectionPopupTableViewController.swift; sourceTree = "<group>"; };
 		3B4F5FDD23D36D8800C38C31 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3B4F5FDF23D374D700C38C31 /* AddressesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesTableViewController.swift; sourceTree = "<group>"; };
@@ -226,7 +237,6 @@
 		3B7EC0BB225C352300ED799D /* ServiceSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSelectionViewController.swift; sourceTree = "<group>"; };
 		3B7EC0BD225D679700ED799D /* ARoundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARoundView.swift; sourceTree = "<group>"; };
 		3B7EC0BF225D692C00ED799D /* ARoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARoundButton.swift; sourceTree = "<group>"; };
-		3B7EC0C2225D6EE700ED799D /* TransparentPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentPopupViewController.swift; sourceTree = "<group>"; };
 		3B7EC0C7225D727500ED799D /* DateAssignmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAssignmentTableViewCell.swift; sourceTree = "<group>"; };
 		3B7EC0C9225D773A00ED799D /* DateAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAssignmentViewController.swift; sourceTree = "<group>"; };
 		3B7EC0D32263D4C700ED799D /* DateSelectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -467,6 +477,10 @@
 				3B6EC9FC23BE57CF00F94A89 /* ProfessionalsTableViewController.swift */,
 				3B6EC9FE23BE634800F94A89 /* ProfessionalListTableViewCell.swift */,
 				3B6EC9FF23BE634800F94A89 /* ProfessionalListTableViewCell.xib */,
+				3B42E61223F855E0001F1A94 /* ProfessionalScheduleTableViewCell.swift */,
+				3B42E61323F855E0001F1A94 /* ProfessionalScheduleTableViewCell.xib */,
+				3B42E61623F8585D001F1A94 /* ProfessionalScheduleTimeCollectionViewCell.swift */,
+				3B42E61723F8585D001F1A94 /* ProfessionalScheduleTimeCollectionViewCell.xib */,
 			);
 			path = Professionals;
 			sourceTree = "<group>";
@@ -524,7 +538,6 @@
 		3B7EC0C1225D6EC800ED799D /* Transparent Popup */ = {
 			isa = PBXGroup;
 			children = (
-				3B7EC0C2225D6EE700ED799D /* TransparentPopupViewController.swift */,
 			);
 			path = "Transparent Popup";
 			sourceTree = "<group>";
@@ -545,6 +558,7 @@
 				3B7EC0D52263E95300ED799D /* DateSelectionViewController.swift */,
 				3B7EC0D72263F1B200ED799D /* HourAssignmentViewController.swift */,
 				3B7EC0DB2263FADC00ED799D /* HourCollectionViewCell.swift */,
+				3B42E61C23F87B7C001F1A94 /* DateCollectionViewCell.swift */,
 			);
 			path = "Date Selection";
 			sourceTree = "<group>";
@@ -589,6 +603,7 @@
 				3B048EF4226D001100EBE6FD /* ALoader.swift */,
 				3B048F01227F170A00EBE6FD /* ATextField.swift */,
 				3B6CE454229AB87600FB19AC /* AFont.swift */,
+				3B42E61A23F86F76001F1A94 /* APaddedLabel.swift */,
 			);
 			path = "Helper Classes";
 			sourceTree = "<group>";
@@ -852,6 +867,7 @@
 				3B26A3C022584BD30063ECAA /* LaunchScreen.storyboard in Resources */,
 				3B7D4BCA23E6022E00FA6FDA /* like_aruba.json in Resources */,
 				3B28FFFA22595588004268CB /* Lato-Bold.ttf in Resources */,
+				3B42E61523F855E0001F1A94 /* ProfessionalScheduleTableViewCell.xib in Resources */,
 				3B7D4BC623E5E7C400FA6FDA /* HistoryServiceTableViewCell.xib in Resources */,
 				3B7D4BC823E5ECB900FA6FDA /* aruba_loading.json in Resources */,
 				3B02964D228E070000D08789 /* success.json in Resources */,
@@ -868,6 +884,7 @@
 				3B1D90B723B5384C003D01D1 /* HistoryTableViewCell.xib in Resources */,
 				3B7D4BD323E6239600FA6FDA /* calendar_loading.json in Resources */,
 				3B26A3BB22584BD10063ECAA /* Main.storyboard in Resources */,
+				3B42E61923F8585D001F1A94 /* ProfessionalScheduleTimeCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1031,7 +1048,9 @@
 			files = (
 				3B7D4BCD23E6029E00FA6FDA /* ProfesionalDetailsViewController.swift in Sources */,
 				3BC30F6E23A5479E00BD9700 /* ProfessionalDetailsPopupTableViewController.swift in Sources */,
+				3B42E61423F855E0001F1A94 /* ProfessionalScheduleTableViewCell.swift in Sources */,
 				3B7EC0C0225D692C00ED799D /* ARoundButton.swift in Sources */,
+				3B42E61D23F87B7C001F1A94 /* DateCollectionViewCell.swift in Sources */,
 				3BD43CF3225858B000AC3411 /* AButton.swift in Sources */,
 				3BD43CF62258594D00AC3411 /* Colors.swift in Sources */,
 				3B28FFF022594C6B004268CB /* UIViewController+Utils.swift in Sources */,
@@ -1039,6 +1058,7 @@
 				3B7D4BC523E5E7C400FA6FDA /* HistoryServiceTableViewCell.swift in Sources */,
 				3B048EFA226D04D200EBE6FD /* String+Utils.swift in Sources */,
 				3B048F05227F192C00EBE6FD /* AuthManager.swift in Sources */,
+				3B42E61823F8585D001F1A94 /* ProfessionalScheduleTimeCollectionViewCell.swift in Sources */,
 				3B28FFF522595178004268CB /* BaseViewController.swift in Sources */,
 				3B6CE457229B660D00FB19AC /* UserAddressListResponse.swift in Sources */,
 				3BD43D1822591A7100AC3411 /* GenericDataCellTableViewCell.swift in Sources */,
@@ -1063,7 +1083,6 @@
 				3BD43CFD22585B9200AC3411 /* RegisterTableViewController.swift in Sources */,
 				3B3FC0E323D6694400FF53FA /* ContactInfoTableViewController.swift in Sources */,
 				3B72058523BFF1D2001FBCA4 /* RateProfessionalTableViewController.swift in Sources */,
-				3B7EC0C3225D6EE700ED799D /* TransparentPopupViewController.swift in Sources */,
 				3B639524239ED243005E0CB4 /* FilterProfessionalResponse.swift in Sources */,
 				3BC30F7823A81A2700BD9700 /* CreateAppointmentResponse.swift in Sources */,
 				3B67BA4022690FC500871F77 /* ProductDescriptionPopupTableViewController.swift in Sources */,
@@ -1079,6 +1098,7 @@
 				3B048EF5226D001100EBE6FD /* ALoader.swift in Sources */,
 				3B7D4BCF23E6134C00FA6FDA /* ProfessionalReviewsListResponse.swift in Sources */,
 				3BD43D012258608700AC3411 /* JSONDecoder+Utils.swift in Sources */,
+				3B42E61B23F86F76001F1A94 /* APaddedLabel.swift in Sources */,
 				3BC30F7423A7FB7100BD9700 /* CartViewController.swift in Sources */,
 				3BD43D112259170C00AC3411 /* ProfileHeaderTableViewCell.swift in Sources */,
 				3B7EC0B1225C21D500ED799D /* PeopleQuantityView.swift in Sources */,
@@ -1300,7 +1320,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aruba/Aruba.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15.0;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = Aruba/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1308,6 +1328,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = py.com.nextgen.Aruba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1325,7 +1346,7 @@
 				CODE_SIGN_ENTITLEMENTS = Aruba/Aruba.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 15.0;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_TEAM = P5FUN8DH8K;
 				INFOPLIST_FILE = Aruba/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1333,6 +1354,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = py.com.nextgen.Aruba;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

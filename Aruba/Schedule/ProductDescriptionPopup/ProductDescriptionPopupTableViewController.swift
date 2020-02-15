@@ -27,7 +27,6 @@ class ProductDescriptionPopupTableViewController: APopoverTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-
     }
 
     private func setupView() {
@@ -52,5 +51,12 @@ class ProductDescriptionPopupTableViewController: APopoverTableViewController {
         self.dismiss(animated: true) {
             self.delegate?.didSelectService(service: self.service, segmentedIndex: self.segmentedIndex, indexPath: self.indexPath)
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 3 {
+            return UIScreen.main.bounds.height*0.3
+        }
+        return UITableView.automaticDimension
     }
 }

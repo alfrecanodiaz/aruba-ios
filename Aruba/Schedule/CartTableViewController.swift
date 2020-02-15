@@ -41,6 +41,7 @@ class CartTableViewController: UITableViewController {
     @IBOutlet weak var paymentInfoLabel: UILabel!
     @IBOutlet weak var serviceIconImageView: ARoundImage!
     
+    // Inject in prepare for segue
     var cartData: CartData!
     
     override func viewDidLoad() {
@@ -74,10 +75,10 @@ class CartTableViewController: UITableViewController {
             transferDataString.append(NSAttributedString(string: "\nBanco: ", attributes: attr))
             transferDataString.append(NSAttributedString(string: "Visión Banco", attributes: attr))
             transferDataString.append(NSAttributedString(string: "\nCta. №: ", attributes: attr))
-            transferDataString.append(NSAttributedString(string: "1433 1724", attributes: attr))
-            transferDataString.append(NSAttributedString(string: "\nC.I. №: ", attributes: attr))
-            transferDataString.append(NSAttributedString(string: "3.399.394", attributes: attr))
-            transferDataString.append(NSAttributedString(string: "\nMaria Martha Cabello", attributes: attr))
+            transferDataString.append(NSAttributedString(string: "14525758", attributes: attr))
+            transferDataString.append(NSAttributedString(string: "\nRUC: ", attributes: attr))
+            transferDataString.append(NSAttributedString(string: "80109397-0", attributes: attr))
+            transferDataString.append(NSAttributedString(string: "\nBeauty Smart S.A.", attributes: attr))
             paymentInfoLabel.attributedText = transferDataString
         } else if sender.selectedSegmentIndex == 1 {
             changeAmountTextField.isHidden = true
