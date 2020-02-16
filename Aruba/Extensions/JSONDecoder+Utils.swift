@@ -12,22 +12,20 @@ import Alamofire
 extension JSONDecoder {
     func decodeResponse<T: Decodable>(from response: DataResponse<Data>) -> Result<T> {
         guard response.error == nil else {
-            print(response.error!)
+            print("⛔️ Response has errors: ", response.error!)
             return .failure(response.error!)
         }
 
         guard let responseData = response.data else {
-            print("didn't get any data from API")
+            print("⛔️ Didn't get any data from API")
             return .failure(HTTPClient.ApiError.noData)
         }
 
         do {
-            print(String(data: responseData, encoding: .utf8) ?? "")
             let item = try decode(T.self, from: responseData)
             return .success(item)
         } catch {
-            print("error trying to decode response")
-            print(error)
+            print("⛔️  Error trying to decode response: ", error)
             return .failure(error)
         }
     }

@@ -100,18 +100,21 @@ class DateAssignmentViewController: BaseViewController {
         static let dateCell = "DateCollectionCell"
     }
     
+    var isFirstAppear: Bool = false
+    
     var viewModel: [ProfessionalScheduleCellViewModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            self.dateTextField.becomeFirstResponder()
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if !isFirstAppear {
+            dateTextField.becomeFirstResponder()
+            isFirstAppear = true
+        }
     }
     
     private func setupView() {

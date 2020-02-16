@@ -116,11 +116,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
 
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-        print(remoteMessage)
+        print("✅ Recieved remote message: ", remoteMessage)
     }
 
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        print(fcmToken)
+        print("✅ Current push token: ", fcmToken)
         UserManager.shared.pushToken = fcmToken
     }
 }
