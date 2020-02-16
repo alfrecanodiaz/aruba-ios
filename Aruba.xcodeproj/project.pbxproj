@@ -52,6 +52,7 @@
 		3B42E61B23F86F76001F1A94 /* APaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42E61A23F86F76001F1A94 /* APaddedLabel.swift */; };
 		3B42E61D23F87B7C001F1A94 /* DateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42E61C23F87B7C001F1A94 /* DateCollectionViewCell.swift */; };
 		3B42E61F23F88C1A001F1A94 /* ProfessionalsAvailableScheduleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42E61E23F88C1A001F1A94 /* ProfessionalsAvailableScheduleResponse.swift */; };
+		3B42E62123F9D0BE001F1A94 /* Int+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B42E62023F9D0BE001F1A94 /* Int+Utils.swift */; };
 		3B456CA2239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B456CA1239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift */; };
 		3B4F5FDE23D36D8800C38C31 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F5FDD23D36D8800C38C31 /* ProfileViewController.swift */; };
 		3B4F5FE023D374D700C38C31 /* AddressesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F5FDF23D374D700C38C31 /* AddressesTableViewController.swift */; };
@@ -203,6 +204,7 @@
 		3B42E61A23F86F76001F1A94 /* APaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APaddedLabel.swift; sourceTree = "<group>"; };
 		3B42E61C23F87B7C001F1A94 /* DateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCollectionViewCell.swift; sourceTree = "<group>"; };
 		3B42E61E23F88C1A001F1A94 /* ProfessionalsAvailableScheduleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalsAvailableScheduleResponse.swift; sourceTree = "<group>"; };
+		3B42E62023F9D0BE001F1A94 /* Int+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Utils.swift"; sourceTree = "<group>"; };
 		3B456CA1239C12700009B343 /* ServiceCategorySelectionPopupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCategorySelectionPopupTableViewController.swift; sourceTree = "<group>"; };
 		3B4F5FDD23D36D8800C38C31 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3B4F5FDF23D374D700C38C31 /* AddressesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressesTableViewController.swift; sourceTree = "<group>"; };
@@ -638,6 +640,7 @@
 				3B28FFEF22594C6B004268CB /* UIViewController+Utils.swift */,
 				3B7EC0B4225C2A5200ED799D /* UIView+Utils.swift */,
 				3B048EF9226D04D200EBE6FD /* String+Utils.swift */,
+				3B42E62023F9D0BE001F1A94 /* Int+Utils.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1066,6 +1069,7 @@
 				3B6CE457229B660D00FB19AC /* UserAddressListResponse.swift in Sources */,
 				3BD43D1822591A7100AC3411 /* GenericDataCellTableViewCell.swift in Sources */,
 				3B3FC0E523D66E3400FF53FA /* PrivacyViewController.swift in Sources */,
+				3B42E62123F9D0BE001F1A94 /* Int+Utils.swift in Sources */,
 				3BD43CFF22585EF000AC3411 /* HTTPClient.swift in Sources */,
 				3B7EC0D82263F1B200ED799D /* HourAssignmentViewController.swift in Sources */,
 				3B39509623954B3A004FD9B8 /* ServiceCategoryListResponse.swift in Sources */,

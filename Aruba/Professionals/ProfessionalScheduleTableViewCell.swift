@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Cosmos
 
 struct ProfessionalScheduleCellViewModel {
-    let availableSchedules: [String]
+    let availableSchedules: [Int]
     let professionalName: String
     let professionalAvatarUrl: String
+    let professionalRating: Int
+    let professional: Professional
     let index: Int
     var selectedSchedule:Int?
 }
@@ -21,7 +24,22 @@ protocol ProfessionalScheduleTableViewCellDelegate: NSObject {
 }
 
 class ProfessionalScheduleTableViewCell: UITableViewCell {
+    @IBOutlet weak var shadowView: UIView! {
+        didSet {
+            shadowView.applyshadow()
+        }
+    }
+    @IBOutlet weak var noSchedulesLabel: UILabel!
     
+    @IBOutlet weak var containerView: UIView! {
+        didSet {
+            containerView.layer.cornerRadius = 8
+            containerView.clipsToBounds = true
+            containerView.layer.borderWidth = 1
+            containerView.layer.borderColor = Colors.AlertTintColor.cgColor
+        }
+    }
+    @IBOutlet weak var cosmosView: CosmosView!
     @IBOutlet weak var avatarImageView: ARoundImage!
     @IBOutlet weak var professionalNameLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView! {
@@ -33,8 +51,8 @@ class ProfessionalScheduleTableViewCell: UITableViewCell {
                 forCellWithReuseIdentifier: ProfessionalScheduleTimeCollectionViewCell.Constants.reuseIdentifier
             )
             if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-                 flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-              }
+                flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+            }
         }
     }
     
@@ -53,16 +71,21 @@ class ProfessionalScheduleTableViewCell: UITableViewCell {
     weak var delegate: ProfessionalScheduleTableViewCellDelegate?
     
     private func configureCell() {
-        index = viewModel?.index ?? 0
-        professionalNameLabel.text = viewModel?.professionalName
+        guard let viewModel = viewModel else { return }
+        cosmosView.rating = Double(viewModel.professionalRating)
+        index = viewModel.index
+        professionalNameLabel.text = viewModel.professionalName
         collectionView.reloadData()
-        guard let url = URL(string: viewModel?.professionalAvatarUrl ?? "") else { return }
+        noSchedulesLabel.isHidden = !viewModel.availableSchedules.isEmpty
+        guard let url = URL(string: viewModel.professionalAvatarUrl) else { return }
         avatarImageView.hnk_setImageFromURL(url)
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        selectionStyle = .none
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -90,7 +113,7 @@ extension ProfessionalScheduleTableViewCell: UICollectionViewDataSource, UIColle
             ) as? ProfessionalScheduleTimeCollectionViewCell, let viewModel = viewModel else {
                 return UICollectionViewCell()
         }
-        cell.timeLabel.text = viewModel.availableSchedules[indexPath.item]
+        cell.timeLabel.text = viewModel.availableSchedules[indexPath.item].asHourMinuteString()
         var selected: Bool = false
         if viewModel.selectedSchedule == indexPath.item {
             selected = true
@@ -106,8 +129,20 @@ extension ProfessionalScheduleTableViewCell: UICollectionViewDataSource, UIColle
         } else {
             self.viewModel?.selectedSchedule = nil
         }
-        collectionView.reloadData()
         delegate?.didChangeSelectedSchedules(index: index, selectedSchedule: self.viewModel?.selectedSchedule)
     }
     
+}
+extension UIView {
+    func applyshadow(){
+        clipsToBounds = false
+        layer.shadowColor = UIColor.darkGray.cgColor
+        layer.shadowOpacity = 1
+        layer.shadowOffset = CGSize(width: 0, height: 1)
+        layer.shadowRadius = 2
+        layer.shadowPath = UIBezierPath(
+            roundedRect: bounds,
+            cornerRadius: 20
+        ).cgPath
+    }
 }

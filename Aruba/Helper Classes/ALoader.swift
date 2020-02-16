@@ -63,13 +63,13 @@ class ALoader {
     }()
     
     class func showCalendarLoader() {
-        if calendarLoader.superview == nil {
+        if calendarLoaderContainer.superview == nil {
             window.addSubview(calendarLoaderContainer)
             calendarLoaderContainer.alpha = 0
-            calendarLoader.play()
             calendarLoaderContainer.fadeIn { _ in }
+            calendarLoader.play()
         } else {
-            print("Trying to show loader on top of loader")
+            print("Trying to show calemdar loader on top of loader")
         }
     }
     

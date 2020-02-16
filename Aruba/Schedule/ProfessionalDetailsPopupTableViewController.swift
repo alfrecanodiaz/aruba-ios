@@ -63,16 +63,10 @@ class ProfessionalDetailsPopupTableViewController: APopoverTableViewController {
         }
         userAvatarImageView.hnk_setImageFromURL(url, placeholder: Constants.userPlaceholder)
     }
-
-    @IBAction func changeProfessionalAction(_ sender: AButton) {
-        dismiss(animated: true) {
-            self.delegate?.didCancelPopupForProfessional(professional: self.professional)
-        }
-    }
     
     @IBAction func selectProfessionalAction(_ sender: AButton) {
         dismiss(animated: true) {
-            self.delegate?.didSelectProfessional(professional: self.professional)
+            self.delegate?.didCancelPopupForProfessional(professional: self.professional)
         }
     }
 }

@@ -18,11 +18,11 @@ class HTTPClient {
     
     static let shared = HTTPClient()
     
-    //    let baseURL: String = "https://aruba.com.py/api/client/mobile/" // production
+        let baseURL: String = "https://aruba.com.py/api/client/mobile/" // production
     //    let baseURL: String = "https://develop.aruba.com.py/api/client/mobile/" // develop
     
     //localhost
-    let baseURL: String = "http://192.168.100.12/api/client/mobile/"
+//    let baseURL: String = "http://192.168.100.12/api/client/mobile/"
     
     enum ApiError: Error {
         case noInternet, api500, api401, noData
@@ -121,6 +121,9 @@ class HTTPClient {
                     if response.response?.statusCode == 401 {
                         self.showLoginScreen()
                         completion(nil, nil)
+                    }
+                    if response.response?.statusCode == 503 {
+                        completion(nil, HTTPClientError(message: "La plataforma se esta actualizando.. Intente de nuevo mas tarde."))
                     }
                     let decoder = JSONDecoder()
                     do {

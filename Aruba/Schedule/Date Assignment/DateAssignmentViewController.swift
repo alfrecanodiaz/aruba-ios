@@ -17,6 +17,7 @@ class DateAssignmentViewController: BaseViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.tableFooterView = nil
+            tableView.separatorStyle = .none
             tableView.register(UINib(nibName: "ProfessionalTableViewCell", bundle: nil), forCellReuseIdentifier: Cells.Professional)
             tableView.register(UINib(nibName: "ProfessionalScheduleTableViewCell", bundle: nil), forCellReuseIdentifier: ProfessionalScheduleTableViewCell.Constants.reuseIdentifier)
             
@@ -32,36 +33,33 @@ class DateAssignmentViewController: BaseViewController {
             dateTextField.inputView = datePicker
         }
     }
-    @IBOutlet weak var timeTextField: ATextField! {
-        didSet {
-            let datePicker = UIDatePicker()
-            datePicker.datePickerMode = .time
-            datePicker.minuteInterval = 15
-            timeTextField.aDelegate = self
-            datePicker.addTarget(self, action: #selector(timePickerChanged(sender:)), for: .valueChanged)
-            timeTextField.inputView = datePicker
-        }
-    }
-    @IBOutlet weak var dateCollectionView: UICollectionView! {
-        didSet {
-            dateCollectionView.dataSource = self
-            dateCollectionView.delegate = self
-        }
-    }
+    @IBOutlet weak var continueButton: AButton!
     
     var entryAnimationDone: Bool = false
     var scheduleData: ScheduleData!
     
     var professionals: [Professional] = [] {
         didSet {
-            self.viewModel = self.professionals.enumerated().map {
+            self.viewModel = self.professionals.sorted(by: { (pr1, pr2) -> Bool in
+                guard let av1 = pr1.availableSchedules,
+                    let av2 = pr2.availableSchedules,
+                    let rating1 = pr1.averageReviews,
+                    let rating2 = pr2.averageReviews else {
+                    return false
+                }
+                return !av1.isEmpty ?
+                    rating1 > rating2
+                    : av1.count > av2.count
+            }).enumerated().map {
                 ProfessionalScheduleCellViewModel(
                     availableSchedules: dateRangesFrom(
-                        schedules: $0.element.availableSchedules,
+                        schedules: $0.element.availableSchedules ?? [],
                         servicesTotalTime: servicesTotalTime()
                     ),
                     professionalName: $0.element.fullName(),
                     professionalAvatarUrl: $0.element.avatarURL ?? "",
+                    professionalRating: Int($0.element.averageReviews ?? 0),
+                    professional: $0.element,
                     index: $0.offset,
                     selectedSchedule: nil
                 )
@@ -79,7 +77,7 @@ class DateAssignmentViewController: BaseViewController {
     var cartData: CartData?
     
     var dateSelected: Date?
-    var timeSelected: Date?
+    var timeSelected: Int? // amount of seconds
     
     lazy var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -107,15 +105,20 @@ class DateAssignmentViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.dateTextField.becomeFirstResponder()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        dateTextField.becomeFirstResponder()
     }
     
     private func setupView() {
         dateTextField.text = dateFormatter.string(from: Date())
+        DispatchQueue.main.async {
+            self.continueButton.setEnabled(false)
+        }
     }
     
     private func fetchProfessionals() {
@@ -123,18 +126,11 @@ class DateAssignmentViewController: BaseViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "h:mm a"
         
-        guard let addressId = addressId, let dateText = dateTextField.text,
-            let timeText = timeTextField.text, let timeDate = dateFormatter.date(from: timeText) else {
-                return
+        guard let addressId = addressId, let dateText = dateTextField.text else {
+            return
         }
         
-        let calendar = Calendar.current
-        
-        let hour = calendar.component(.hour, from: timeDate)
-        let minutes = calendar.component(.minute, from: timeDate)
-        let hourStart: Int = hour*60*60 + minutes*60
-        
-        let params: [String: Any] = ["address_id": addressId, "services": servicesIds, "hour_start": hourStart, "date": dateText]
+        let params: [String: Any] = ["address_id": addressId, "services": servicesIds, "date": dateText]
         
         ALoader.show()
         HTTPClient.shared.request(method: .POST, path: .professionalsFilterWithAvailableSchedules, data: params) { (response: FilterProfessionalResponse?, error) in
@@ -142,11 +138,12 @@ class DateAssignmentViewController: BaseViewController {
             if let error = error {
                 self.professionals = []
                 AlertManager.showNotice(in: self, title: "Lo sentimos", description: error.message) {
-                    self.timeTextField.becomeFirstResponder()
+                    self.dateTextField.becomeFirstResponder()
                 }
             } else if let response = response {
                 self.professionals = response.data
             }
+            self.continueButton.setEnabled(false)
             self.tableView.reloadData()
         }
     }
@@ -155,33 +152,22 @@ class DateAssignmentViewController: BaseViewController {
         dateTextField.text = dateFormatter.string(from: sender.date)
     }
     
-    @objc private func timePickerChanged(sender: UIDatePicker) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "h:mm a"
-        timeSelected = sender.date
-        timeTextField.text = dateFormatter.string(from: sender.date)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.DateAssignment, let dvc = segue.destination as? DateSelectionViewController {
             dvc.scheduleData = scheduleData
         }
         
-        if segue.identifier == Segues.Confirmation, let dvc = segue.destination as? ConfirmViewController, let professional = selectedProfessional {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "HH:mm:ss"
-            guard let timeSelected = timeSelected else {
-                return
-            }
-            let hourStartAsSeconds = dateFormatter.string(from: timeSelected).secondFromString
-            
+        if segue.identifier == Segues.Confirmation,
+            let dvc = segue.destination as? ConfirmViewController,
+            let professional = selectedProfessional,
+            let timeSelected = timeSelected {
             dvc.cartData = CartData(addressId: addressId,
                                     addressName: addressName,
                                     addressDetail: addressDetails,
                                     categoryName: category.title,
                                     services: services.map({$0.displayName}).joined(separator: ", "),
                                     clientName: clientName,
-                                    fullDate: dateTextField.text! + " " + timeTextField.text!,
+                                    fullDate: dateTextField.text! + " " + timeSelected.asHourMinuteString(),
                                     servicesIds: servicesIds,
                                     socialReason: "",
                                     ruc: "",
@@ -189,12 +175,15 @@ class DateAssignmentViewController: BaseViewController {
                                         return sum + service.price
                                     }),
                                     professional: professional,
-                                    hourStartAsSeconds: hourStartAsSeconds,
+                                    hourStartAsSeconds: timeSelected,
                                     date: dateTextField.text!,
                                     categoryImageUrl: category.imageURL ?? "")
         }
     }
     
+    @IBAction func continueAction(_ sender: Any) {
+        performSegue(withIdentifier: Segues.Confirmation, sender: self)
+    }
 }
 
 extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelegate {
@@ -213,9 +202,10 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ProfessionalScheduleTableViewCell.Constants.reuseIdentifier, for: indexPath) as! ProfessionalScheduleTableViewCell
-        //        cell.configure(professional: professionals[indexPath.row])
-
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: ProfessionalScheduleTableViewCell.Constants.reuseIdentifier,
+            for: indexPath
+            ) as! ProfessionalScheduleTableViewCell
         cell.viewModel = viewModel[indexPath.row]
         cell.delegate = self
         return cell
@@ -224,9 +214,12 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         dateTextField.resignFirstResponder()
-        timeTextField.resignFirstResponder()
-        let selectedProfessional = professionals[indexPath.row]
-        showProfessionalPopup(professional: selectedProfessional)
+        let selectedProfessional = viewModel[indexPath.row].professional
+        var hourSelected: String = ""
+        if let selectedSchedule = viewModel[indexPath.row].selectedSchedule {
+            hourSelected = viewModel[indexPath.row].availableSchedules[selectedSchedule].asHourMinuteString()
+        }
+        showProfessionalPopup(professional: selectedProfessional, hourString: hourSelected)
     }
     
     private func servicesTotalTime() -> Int {
@@ -235,34 +228,36 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
         }
     }
     
-    private func dateRangesFrom(schedules: [AvailableSchedule], servicesTotalTime: Int) -> [String] {
+    private func dateRangesFrom(schedules: [AvailableSchedule], servicesTotalTime: Int) -> [Int] {
         schedules.map {
-            makeRangesFor(hourStart: $0.hourStart, hourEnd: $0.hourEnd - servicesTotalTime, divideAmount: 30*60)
-        }.reduce([String]()) { result, value  in
+            makeRangesFor(hourStart: $0.hourStart,
+                          hourEnd: $0.hourEnd - servicesTotalTime,
+                          divideAmount: 30*60)
+        }.reduce([Int]()) { result, value  in
             result + value
         }
     }
     
-    /// Generate an array with date ranges splitted with the specified parameters
+    /// Generate an array with date ranges splitted with the specified `divideAmount`
     /// - Parameter divideAmount: amount of seconds into which to split the dates
-    private func makeRangesFor(hourStart: Int, hourEnd: Int, divideAmount: Int) -> [String] {
+    private func makeRangesFor(hourStart: Int, hourEnd: Int, divideAmount: Int) -> [Int] {
         var difference = hourEnd - hourStart
-        var ranges: [String] = []
-        while difference >= 0 {
-            ranges.append((hourEnd - difference).asHourMinuteString())
+        var ranges: [Int] = []
+        while difference >= divideAmount {
+            ranges.append((hourEnd - difference))
             difference = difference - divideAmount
         }
         return ranges.sorted()
     }
     
-    private func showProfessionalPopup(professional: Professional) {
+    private func showProfessionalPopup(professional: Professional, hourString: String) {
         let popup = self.storyboard?.instantiateViewController(withIdentifier: "ProfessionalDetailsPopupTableViewControllerID") as! ProfessionalDetailsPopupTableViewController
         
         popup.modalPresentationStyle = .popover
         popup.delegate = self
         popup.professional = professional
         popup.date = dateTextField.text
-        popup.time = timeTextField.text
+        popup.time =  hourString
         let popover = popup.popoverPresentationController
         popover?.delegate = self
         popover?.sourceView = view
@@ -295,10 +290,6 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
 extension DateAssignmentViewController: ATextFieldDelegate {
     
     func didPressDone(textField: ATextField) {
-        if timeTextField.text == nil || timeTextField.text == "" {
-            timeTextField.becomeFirstResponder()
-            return
-        }
         fetchProfessionals()
     }
 }
@@ -316,57 +307,22 @@ extension DateAssignmentViewController: ProfessionalDetailsPopupTableViewControl
     
     
 }
-extension String{
-    
-    var integer: Int {
-        return Int(self) ?? 0
-    }
-    
-    var secondFromString : Int{
-        let components: Array = self.components(separatedBy: ":")
-        let hours = components[0].integer
-        let minutes = components[1].integer
-        let seconds = components[2].integer
-        return Int((hours * 60 * 60) + (minutes * 60) + seconds)
-    }
-}
-
-extension Int {
-    /// Convert a seconds int to a human readable hour minute string
-    func asHourMinuteString() -> String {
-        let hours = Int(floor(Double(self/60/60)))
-        let minutes = self/60 - hours*60
-        var hoursString: String = "\(hours)"
-        var minutesString: String = "\(minutes)"
-        if minutes < 10 {
-            minutesString = "0\(minutesString)"
-        }
-        if hours < 10 {
-            hoursString = "0\(hoursString)"
-        }
-        return hoursString + ":" + minutesString
-    }
-}
 
 extension DateAssignmentViewController: ProfessionalScheduleTableViewCellDelegate {
     
     func didChangeSelectedSchedules(index: Int, selectedSchedule: Int?) {
+        for ind in 0...(viewModel.count - 1) {
+            self.viewModel[ind].selectedSchedule = nil
+        }
         self.viewModel[index].selectedSchedule = selectedSchedule
-    }
-    
-    
-}
-
-extension DateAssignmentViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.dateCell,
-                                                      for: indexPath) as? DateCollectionViewCell
-        cell?.dateLabel.text = "\(indexPath.row)"
-        return cell ?? UICollectionViewCell()
+        selectedProfessional = self.viewModel[index].professional
+        continueButton.setEnabled(selectedSchedule != nil)
+        if let selectedSchedule = selectedSchedule {
+            self.timeSelected = self.viewModel[index].availableSchedules[selectedSchedule]
+        } else {
+            self.timeSelected = nil
+        }
+        self.tableView.reloadData()
     }
     
 }

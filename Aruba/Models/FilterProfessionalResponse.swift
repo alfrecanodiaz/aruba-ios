@@ -30,7 +30,7 @@ struct Professional: Codable {
     let categories: [ServiceCategory]?
     let appointments: [Appointment]?
     var isLikedByMe: Bool
-    let availableSchedules: [AvailableSchedule]
+    let availableSchedules: [AvailableSchedule]?
     
     mutating func like(_ like: Bool) {
         isLikedByMe = like

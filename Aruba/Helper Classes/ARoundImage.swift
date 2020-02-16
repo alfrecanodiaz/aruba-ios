@@ -29,4 +29,5 @@ class ARoundImage: UIImageView {
         self.clipsToBounds = true
         self.contentMode = .scaleAspectFill
     }
+    
 }
