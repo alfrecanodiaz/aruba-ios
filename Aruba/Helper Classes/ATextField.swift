@@ -17,6 +17,7 @@ class ATextField: MFTextField {
     var toolbar: UIToolbar?
     weak var aDelegate: ATextFieldDelegate?
     
+    
     lazy var accessory: UIView = {
         let accessoryView = UIView(frame: .zero)
         accessoryView.backgroundColor = Colors.ButtonGreen
@@ -61,18 +62,6 @@ class ATextField: MFTextField {
     }
 
     func addCustomAccessories() {
-//        toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 90))
-//        let dismissBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "dismissKeyboard"), style: .done, target: self, action: #selector(dismissKeyboard))
-////        let dismissBarButton = UIBarButtonItem(title: "Listo", style: .done, target: self, action: #selector(dismissKeyboard))
-//
-//        toolbar?.tintColor = Colors.ButtonGreen
-//        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-//        toolbar?.items?.append(flexSpace)
-//        toolbar?.items?.append(dismissBarButton)
-//        self.inputAccessoryView = toolbar
-//        self.inputAccessoryView?.autoresizingMask = .flexibleHeight
-        
-        
         accessory.frame = CGRect(x: 0, y: 0, width: frame.width, height: 45)
         accessory.translatesAutoresizingMaskIntoConstraints = false
         inputAccessoryView = accessory

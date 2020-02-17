@@ -80,9 +80,6 @@
 		3B7D4BCF23E6134C00FA6FDA /* ProfessionalReviewsListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7D4BCE23E6134C00FA6FDA /* ProfessionalReviewsListResponse.swift */; };
 		3B7D4BD323E6239600FA6FDA /* calendar_loading.json in Resources */ = {isa = PBXBuildFile; fileRef = 3B7D4BD223E6239600FA6FDA /* calendar_loading.json */; };
 		3B7EC0AD225C20A300ED799D /* Schedule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B7EC0AC225C20A300ED799D /* Schedule.storyboard */; };
-		3B7EC0AF225C219200ED799D /* PeopleQuantiySelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0AE225C219200ED799D /* PeopleQuantiySelectionViewController.swift */; };
-		3B7EC0B1225C21D500ED799D /* PeopleQuantityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0B0225C21D500ED799D /* PeopleQuantityView.swift */; };
-		3B7EC0B3225C21E600ED799D /* PeopleQuantityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B7EC0B2225C21E600ED799D /* PeopleQuantityView.xib */; };
 		3B7EC0B5225C2A5200ED799D /* UIView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0B4225C2A5200ED799D /* UIView+Utils.swift */; };
 		3B7EC0B9225C347F00ED799D /* ServiceSelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7EC0B7225C347F00ED799D /* ServiceSelectionTableViewCell.swift */; };
 		3B7EC0BA225C347F00ED799D /* ServiceSelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B7EC0B8225C347F00ED799D /* ServiceSelectionTableViewCell.xib */; };
@@ -232,9 +229,6 @@
 		3B7D4BCE23E6134C00FA6FDA /* ProfessionalReviewsListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalReviewsListResponse.swift; sourceTree = "<group>"; };
 		3B7D4BD223E6239600FA6FDA /* calendar_loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = calendar_loading.json; sourceTree = "<group>"; };
 		3B7EC0AC225C20A300ED799D /* Schedule.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Schedule.storyboard; sourceTree = "<group>"; };
-		3B7EC0AE225C219200ED799D /* PeopleQuantiySelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleQuantiySelectionViewController.swift; sourceTree = "<group>"; };
-		3B7EC0B0225C21D500ED799D /* PeopleQuantityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleQuantityView.swift; sourceTree = "<group>"; };
-		3B7EC0B2225C21E600ED799D /* PeopleQuantityView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PeopleQuantityView.xib; sourceTree = "<group>"; };
 		3B7EC0B4225C2A5200ED799D /* UIView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Utils.swift"; sourceTree = "<group>"; };
 		3B7EC0B7225C347F00ED799D /* ServiceSelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceSelectionTableViewCell.swift; sourceTree = "<group>"; };
 		3B7EC0B8225C347F00ED799D /* ServiceSelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ServiceSelectionTableViewCell.xib; sourceTree = "<group>"; };
@@ -516,9 +510,6 @@
 				3B7EC0C4225D722E00ED799D /* Date Assignment */,
 				3B7EC0C1225D6EC800ED799D /* Transparent Popup */,
 				3B7EC0B6225C345400ED799D /* Service Selection */,
-				3B7EC0AE225C219200ED799D /* PeopleQuantiySelectionViewController.swift */,
-				3B7EC0B0225C21D500ED799D /* PeopleQuantityView.swift */,
-				3B7EC0B2225C21E600ED799D /* PeopleQuantityView.xib */,
 				3BC30F6D23A5479E00BD9700 /* ProfessionalDetailsPopupTableViewController.swift */,
 				3BC30F6F23A54E2B00BD9700 /* CartTableViewController.swift */,
 				3BC30F7123A55BE400BD9700 /* ConfirmViewController.swift */,
@@ -868,7 +859,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B048EEB226CBA5800EBE6FD /* GoogleService-Info.plist in Resources */,
-				3B7EC0B3225C21E600ED799D /* PeopleQuantityView.xib in Resources */,
 				3B7EC0BA225C347F00ED799D /* ServiceSelectionTableViewCell.xib in Resources */,
 				3B26A3C022584BD30063ECAA /* LaunchScreen.storyboard in Resources */,
 				3B7D4BCA23E6022E00FA6FDA /* like_aruba.json in Resources */,
@@ -1108,7 +1098,6 @@
 				3B42E61B23F86F76001F1A94 /* APaddedLabel.swift in Sources */,
 				3BC30F7423A7FB7100BD9700 /* CartViewController.swift in Sources */,
 				3BD43D112259170C00AC3411 /* ProfileHeaderTableViewCell.swift in Sources */,
-				3B7EC0B1225C21D500ED799D /* PeopleQuantityView.swift in Sources */,
 				3B42E61F23F88C1A001F1A94 /* ProfessionalsAvailableScheduleResponse.swift in Sources */,
 				3B7EC0BC225C352300ED799D /* ServiceSelectionViewController.swift in Sources */,
 				3B28FFEE22594892004268CB /* APopoverTableViewController.swift in Sources */,
@@ -1126,7 +1115,6 @@
 				3B6CE453229AAD4300FB19AC /* LoginTableViewController.swift in Sources */,
 				3BD43D2022591FC700AC3411 /* GenericDataCellViewModel.swift in Sources */,
 				3BC30F7A23A8200900BD9700 /* SuccessPopoverTableViewController.swift in Sources */,
-				3B7EC0AF225C219200ED799D /* PeopleQuantiySelectionViewController.swift in Sources */,
 				3B4F5FE223D4B1B500C38C31 /* UserRegisterDeviceResponse.swift in Sources */,
 				3B048EF1226CF8B400EBE6FD /* ARoundImage.swift in Sources */,
 				3BD43D2222592B4700AC3411 /* HomeCategoryTableViewCell.swift in Sources */,

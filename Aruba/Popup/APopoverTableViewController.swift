@@ -26,7 +26,9 @@ class APopoverTableViewController: BaseTableViewController {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         if context == &kvoContext, keyPath == #keyPath(tableView.contentSize),
             let contentSize = change?[NSKeyValueChangeKey.newKey] as? CGSize {
-            self.popoverPresentationController?.presentedViewController.preferredContentSize = contentSize
+            if (self.isViewLoaded && self.view.window != nil) {
+                self.popoverPresentationController?.presentedViewController.preferredContentSize = contentSize
+            }
         }
     }
 }

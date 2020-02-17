@@ -8,6 +8,7 @@
 
 import Foundation
 import FBSDKLoginKit
+import Firebase
 
 struct LoginViewModel {
     let user: User
@@ -50,6 +51,10 @@ final class AuthManager {
         let params: [String: Any] = ["email": username, "password": password]
         HTTPClient.shared.request(method: .POST, path: .userLogin, data: params) { (loginResponse: UserLoginResponse?, error) in
             if let response = loginResponse {
+                Analytics.logEvent(AnalyticsEventLogin, parameters: [
+                    AnalyticsParameterSuccess: 1,
+                    "AppParameterUserId": response.data.user.id
+                ])
                 AuthManager.setUserLogged(isLogged: true)
                 AuthManager.setCurrentAccessToken(token: response.data.accessToken)
                 UserManager.shared.loggedUser = response.data.user
@@ -78,8 +83,11 @@ final class AuthManager {
                                      "password": password]
         HTTPClient.shared.request(method: .POST, path: .userRegisterEmail, data: params) { (loginResponse: UserLoginResponse?, error) in
             if let response = loginResponse {
-                print(response)
-                
+                Analytics.logEvent(AnalyticsEventSignUp, parameters: [
+                    AnalyticsParameterSuccess: 1,
+                    AnalyticsParameterSignUpMethod: "email",
+                    "AppParameterUserId": response.data.user.id
+                ])
                 let loginVM = LoginViewModel(user: response.data.user)
                 AuthManager.setUserLogged(isLogged: true)
                 AuthManager.setCurrentAccessToken(token: response.data.accessToken)
@@ -97,6 +105,11 @@ final class AuthManager {
         HTTPClient.shared.request(method: .POST, path: .userRegisterFacebook, data: data) { (loginResponse: UserLoginResponse?, error) in
             if let response = loginResponse {
                 let loginVM = LoginViewModel(user: response.data.user)
+                Analytics.logEvent(AnalyticsEventSignUp, parameters: [
+                    AnalyticsParameterSuccess: 1,
+                    AnalyticsParameterSignUpMethod: "facebook",
+                    "AppParameterUserId": response.data.user.id
+                ])
                 AuthManager.setUserLogged(isLogged: true)
                 AuthManager.setCurrentAccessToken(token: response.data.accessToken)
                 UserManager.shared.loggedUser = response.data.user
@@ -118,8 +131,6 @@ final class AuthManager {
                     completion?(nil, "Cancelado por el usuario.")
                 } else {
                     guard let token = result.token else { return }
-                    print("fb token: ", token.tokenString)
-                    
                     AuthManager.registerFacebook(token: token.tokenString,
                                                  completion: { (loginVM: LoginViewModel?, error) in
                                                     if let error = error {

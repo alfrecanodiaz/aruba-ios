@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import Firebase
 
 protocol Fetcher: class {
     associatedtype Generic: Codable
@@ -139,7 +140,22 @@ class HTTPClient {
                     }
                     
                     let result: Result<T> = decoder.decodeResponse(from: response)
-                    completion(result.value, nil)
+                    switch result {
+                    case .success(let data):
+                        Analytics.logEvent("AppDecodingErrorEvent", parameters: [
+                            AnalyticsParameterSuccess: 1,
+                            "AppParameterRequestParameters": parameters.asString(),
+                            "AppParameterRequestRoute": url
+                        ])
+                        completion(data, nil)
+                    case .failure(let error):
+                        Analytics.logEvent("AppDecodingErrorEvent", parameters: [
+                            AnalyticsParameterSuccess: 0,
+                            "AppParameterRequestParameters": parameters.asString(),
+                            "AppParameterRequestRoute": url
+                        ])
+                        completion(nil, HTTPClientError(message: error.localizedDescription))
+                    }
                 case .failure(let error):
                     if error._code == NSURLErrorTimedOut {
                         print("Request timeout!")
@@ -160,4 +176,14 @@ class HTTPClient {
 
 struct HTTPClientError: Error {
     let message: String
+}
+
+extension Dictionary {
+    func asString() -> String {
+        var fullString = ""
+        self.forEach { key, value in
+            fullString += ": \(key) -> \(value) :"
+        }
+        return fullString
+    }
 }

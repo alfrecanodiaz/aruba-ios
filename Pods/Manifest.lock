@@ -14,6 +14,8 @@ PODS:
     - FBSDKLoginKit/Login (= 5.11.1)
   - FBSDKLoginKit/Login (5.11.1):
     - FBSDKCoreKit (~> 5.0)
+  - Firebase/Analytics (6.13.0):
+    - Firebase/Core
   - Firebase/Core (6.13.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 6.1.6)
@@ -113,6 +115,7 @@ DEPENDENCIES:
   - Crashlytics
   - Fabric
   - FBSDKLoginKit
+  - Firebase/Analytics
   - Firebase/Core
   - Firebase/Messaging
   - GoogleMaps
@@ -207,6 +210,6 @@ SPEC CHECKSUMS:
   SwiftLint: 4105f061f9812b214568b736dab580ab2c73a582
   Windless: c6b7d63ac3a0c7e6b241e316650d4605abf71894
 
-PODFILE CHECKSUM: a7bf90db6adaa8e345952e60fff964b1019e6f8a
+PODFILE CHECKSUM: 0bdf0d8e27ade352eaffcd9b3c29037441ef9ad3
 
-COCOAPODS: 1.8.0
+COCOAPODS: 1.8.4

@@ -13,6 +13,7 @@ target 'Aruba' do
   pod 'SVProgressHUD'
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
+  pod 'Firebase/Analytics'
   pod 'Fabric'
   pod 'Crashlytics'
   pod 'FBSDKLoginKit'
