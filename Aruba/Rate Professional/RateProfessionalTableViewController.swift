@@ -92,6 +92,6 @@ extension UIImageView {
         guard let url = URL(string: urlString) else {
             return
         }
-        hnk_setImageFromURL(url, placeholder: Constants.userPlaceholder)
+        hnk_setImageFromURL(url, placeholder: GlobalConstants.userPlaceholder)
     }
 }

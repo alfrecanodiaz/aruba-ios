@@ -47,9 +47,9 @@ class HistoryTableViewCell: UITableViewCell {
         stateLabel.text = viewModel.state
         categoryNameLabel.text = viewModel.categoryName
         categoryDetailsLabel.text = viewModel.categoryDetails
-        categoryImageView.image = Constants.imagePlaceholder
+        categoryImageView.image = GlobalConstants.imagePlaceholder
         guard let url = viewModel.categoryURL else { return }
-        categoryImageView.hnk_setImageFromURL(url, placeholder: Constants.imagePlaceholder)
+        categoryImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.imagePlaceholder)
     }
     
 }

@@ -59,7 +59,7 @@
 		3B4F5FE223D4B1B500C38C31 /* UserRegisterDeviceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F5FE123D4B1B500C38C31 /* UserRegisterDeviceResponse.swift */; };
 		3B4F5FE423D4B47000C38C31 /* UserDeviceListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F5FE323D4B47000C38C31 /* UserDeviceListResponse.swift */; };
 		3B4F5FE623D4E94300C38C31 /* UserRegisterNewTaxResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4F5FE523D4E94300C38C31 /* UserRegisterNewTaxResponse.swift */; };
-		3B639522239EB376005E0CB4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B639521239EB376005E0CB4 /* Constants.swift */; };
+		3B639522239EB376005E0CB4 /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B639521239EB376005E0CB4 /* GlobalConstants.swift */; };
 		3B639524239ED243005E0CB4 /* FilterProfessionalResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B639523239ED243005E0CB4 /* FilterProfessionalResponse.swift */; };
 		3B67BA4022690FC500871F77 /* ProductDescriptionPopupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B67BA3F22690FC500871F77 /* ProductDescriptionPopupTableViewController.swift */; };
 		3B6CE45122961F6500FB19AC /* ServicesListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6CE45022961F6500FB19AC /* ServicesListResponse.swift */; };
@@ -106,6 +106,7 @@
 		3BC30F7623A800C000BD9700 /* CardPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC30F7523A800C000BD9700 /* CardPaymentViewController.swift */; };
 		3BC30F7823A81A2700BD9700 /* CreateAppointmentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC30F7723A81A2700BD9700 /* CreateAppointmentResponse.swift */; };
 		3BC30F7A23A8200900BD9700 /* SuccessPopoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC30F7923A8200900BD9700 /* SuccessPopoverTableViewController.swift */; };
+		3BC7B33923FB44200058F5B1 /* CalendarDayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC7B33823FB44200058F5B1 /* CalendarDayCollectionViewCell.swift */; };
 		3BD43CF1225856B900AC3411 /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BD43CF0225856B900AC3411 /* Start.storyboard */; };
 		3BD43CF3225858B000AC3411 /* AButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CF2225858B000AC3411 /* AButton.swift */; };
 		3BD43CF62258594D00AC3411 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD43CF52258594D00AC3411 /* Colors.swift */; };
@@ -208,7 +209,7 @@
 		3B4F5FE123D4B1B500C38C31 /* UserRegisterDeviceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterDeviceResponse.swift; sourceTree = "<group>"; };
 		3B4F5FE323D4B47000C38C31 /* UserDeviceListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDeviceListResponse.swift; sourceTree = "<group>"; };
 		3B4F5FE523D4E94300C38C31 /* UserRegisterNewTaxResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterNewTaxResponse.swift; sourceTree = "<group>"; };
-		3B639521239EB376005E0CB4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3B639521239EB376005E0CB4 /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 		3B639523239ED243005E0CB4 /* FilterProfessionalResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterProfessionalResponse.swift; sourceTree = "<group>"; };
 		3B67BA3F22690FC500871F77 /* ProductDescriptionPopupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDescriptionPopupTableViewController.swift; sourceTree = "<group>"; };
 		3B6CE45022961F6500FB19AC /* ServicesListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesListResponse.swift; sourceTree = "<group>"; };
@@ -255,6 +256,7 @@
 		3BC30F7523A800C000BD9700 /* CardPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaymentViewController.swift; sourceTree = "<group>"; };
 		3BC30F7723A81A2700BD9700 /* CreateAppointmentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAppointmentResponse.swift; sourceTree = "<group>"; };
 		3BC30F7923A8200900BD9700 /* SuccessPopoverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessPopoverTableViewController.swift; sourceTree = "<group>"; };
+		3BC7B33823FB44200058F5B1 /* CalendarDayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDayCollectionViewCell.swift; sourceTree = "<group>"; };
 		3BD43CF0225856B900AC3411 /* Start.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Start.storyboard; sourceTree = "<group>"; };
 		3BD43CF2225858B000AC3411 /* AButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AButton.swift; sourceTree = "<group>"; };
 		3BD43CF52258594D00AC3411 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -385,7 +387,7 @@
 				3B26A3BC22584BD30063ECAA /* Assets.xcassets */,
 				3B28FFF32259516A004268CB /* Base */,
 				3BD43CF72258595100AC3411 /* Constants */,
-				3B639521239EB376005E0CB4 /* Constants.swift */,
+				3B639521239EB376005E0CB4 /* GlobalConstants.swift */,
 				3B3FC0E223D6694400FF53FA /* ContactInfoTableViewController.swift */,
 				3BD43D022258608B00AC3411 /* Extensions */,
 				3B28FFF62259557F004268CB /* Fonts */,
@@ -542,6 +544,7 @@
 			children = (
 				3B7EC0C7225D727500ED799D /* DateAssignmentTableViewCell.swift */,
 				3B7EC0C9225D773A00ED799D /* DateAssignmentViewController.swift */,
+				3BC7B33823FB44200058F5B1 /* CalendarDayCollectionViewCell.swift */,
 			);
 			path = "Date Assignment";
 			sourceTree = "<group>";
@@ -1063,6 +1066,7 @@
 				3BD43CFF22585EF000AC3411 /* HTTPClient.swift in Sources */,
 				3B7EC0D82263F1B200ED799D /* HourAssignmentViewController.swift in Sources */,
 				3B39509623954B3A004FD9B8 /* ServiceCategoryListResponse.swift in Sources */,
+				3BC7B33923FB44200058F5B1 /* CalendarDayCollectionViewCell.swift in Sources */,
 				3B6ECA0023BE634800F94A89 /* ProfessionalListTableViewCell.swift in Sources */,
 				3B4F5FE023D374D700C38C31 /* AddressesTableViewController.swift in Sources */,
 				3B6EC9FB23BE56A700F94A89 /* ProfessionalsViewController.swift in Sources */,
@@ -1102,7 +1106,7 @@
 				3B7EC0BC225C352300ED799D /* ServiceSelectionViewController.swift in Sources */,
 				3B28FFEE22594892004268CB /* APopoverTableViewController.swift in Sources */,
 				3BEEE93923B6729B007570DA /* HistoryDetailsViewController.swift in Sources */,
-				3B639522239EB376005E0CB4 /* Constants.swift in Sources */,
+				3B639522239EB376005E0CB4 /* GlobalConstants.swift in Sources */,
 				3B048EFD226D08AF00EBE6FD /* Person.swift in Sources */,
 				3B048EFF226D08BA00EBE6FD /* ScheduleData.swift in Sources */,
 				3B6CE45122961F6500FB19AC /* ServicesListResponse.swift in Sources */,

@@ -31,7 +31,7 @@ class HomeCategoryTableViewCell: UITableViewCell {
         iconImage.image = category.image
         titleLbl.text = category.title
         if let url = URL(string: category.imageURL ?? "") {
-            iconImage.hnk_setImageFromURL(url, placeholder: Constants.imagePlaceholder)
+            iconImage.hnk_setImageFromURL(url, placeholder: GlobalConstants.imagePlaceholder)
         }
         disabledMessageLabel.isHidden = category.enabled
         disabledMessageLabel.text = category.inactiveText

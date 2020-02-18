@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double WindlessVersionNumber;
-FOUNDATION_EXPORT const unsigned char WindlessVersionString[];
+FOUNDATION_EXPORT double JTAppleCalendarVersionNumber;
+FOUNDATION_EXPORT const unsigned char JTAppleCalendarVersionString[];
 

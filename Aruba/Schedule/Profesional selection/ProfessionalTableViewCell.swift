@@ -23,7 +23,7 @@ class ProfessionalTableViewCell: UITableViewCell {
     func configure(professional: Professional) {
         nameLbl.text = professional.firstName + " " + professional.lastName
         guard let url = URL(string: professional.avatarURL ?? "") else { return }
-        profileImageView.hnk_setImageFromURL(url, placeholder: Constants.userPlaceholder)
+        profileImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.userPlaceholder)
     }
     
     override func awakeFromNib() {

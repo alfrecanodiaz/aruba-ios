@@ -7,10 +7,7 @@
 //
 
 import UIKit
-
-struct ScheduleDate {
-    
-}
+import JTAppleCalendar
 
 class DateAssignmentViewController: BaseViewController {
     
@@ -23,20 +20,38 @@ class DateAssignmentViewController: BaseViewController {
             
         }
     }
-    
-    @IBOutlet weak var dateTextField: ATextField! {
+    @IBOutlet weak var continueButton: AButton! {
         didSet {
-            let datePicker = UIDatePicker()
-            datePicker.datePickerMode = .date
-            datePicker.addTarget(self, action: #selector(datePickerChanged(sender:)), for: .valueChanged)
-            dateTextField.aDelegate = self
-            dateTextField.inputView = datePicker
+            continueButton.titleEdgeInsets = UIEdgeInsets(top: 10, left: -37, bottom: 0, right: 10)
         }
     }
-    @IBOutlet weak var continueButton: AButton!
+    @IBOutlet weak var calendarView: JTACMonthView! {
+        didSet {
+            calendarView.scrollingMode = .stopAtEachCalendarFrame
+            calendarView.showsHorizontalScrollIndicator = false
+            calendarView.layer.borderColor = Colors.Greens.borderLine.cgColor
+            calendarView.layer.borderWidth = 1
+            calendarView.layer.cornerRadius = 5
+            calendarView.clipsToBounds = true
+            calendarView.allowsRangedSelection = false
+            calendarView.allowsMultipleSelection = false
+        }
+    }
     
     var entryAnimationDone: Bool = false
     var scheduleData: ScheduleData!
+    
+    lazy var onlyDayFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E"
+        return formatter
+    }()
+    
+    lazy var onlyMonthAndYearFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMMM yyyy"
+        return formatter
+    }()
     
     var professionals: [Professional] = [] {
         didSet {
@@ -45,7 +60,7 @@ class DateAssignmentViewController: BaseViewController {
                     let av2 = pr2.availableSchedules,
                     let rating1 = pr1.averageReviews,
                     let rating2 = pr2.averageReviews else {
-                    return false
+                        return false
                 }
                 return !av1.isEmpty ?
                     rating1 > rating2
@@ -103,22 +118,22 @@ class DateAssignmentViewController: BaseViewController {
     var isFirstAppear: Bool = false
     
     var viewModel: [ProfessionalScheduleCellViewModel] = []
-    
+    private var selectedDate: Date = Date()
+    private let initialDate = Date()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setupCalendar()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if !isFirstAppear {
-            dateTextField.becomeFirstResponder()
-            isFirstAppear = true
-        }
+    private func setupCalendar() {
+        calendarView.selectDates([initialDate])
+        calendarView.scrollToDate(initialDate)
+        selectedDate = initialDate
+        fetchProfessionals()
     }
     
     private func setupView() {
-        dateTextField.text = dateFormatter.string(from: Date())
         DispatchQueue.main.async {
             self.continueButton.setEnabled(false)
         }
@@ -127,32 +142,30 @@ class DateAssignmentViewController: BaseViewController {
     private func fetchProfessionals() {
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "h:mm a"
+        dateFormatter.dateFormat = "d-MM-Y"
         
-        guard let addressId = addressId, let dateText = dateTextField.text else {
-            return
+        guard let addressId = addressId else {
+                return
         }
+        let dateText = dateFormatter.string(from: selectedDate)
+        let params: [String: Any] = [
+            "address_id": addressId,
+            "services": servicesIds,
+            "date": dateText
+        ]
         
-        let params: [String: Any] = ["address_id": addressId, "services": servicesIds, "date": dateText]
-        
-        ALoader.show()
+        ALoader.showCalendarLoader()
         HTTPClient.shared.request(method: .POST, path: .professionalsFilterWithAvailableSchedules, data: params) { (response: FilterProfessionalResponse?, error) in
-            ALoader.hide()
+            ALoader.hideCalendarLoader()
             if let error = error {
                 self.professionals = []
-                AlertManager.showNotice(in: self, title: "Lo sentimos", description: error.message) {
-                    self.dateTextField.becomeFirstResponder()
-                }
+                AlertManager.showNotice(in: self, title: "Lo sentimos", description: error.message)
             } else if let response = response {
                 self.professionals = response.data
             }
             self.continueButton.setEnabled(false)
-            self.tableView.reloadData()
+            self.tableView.reloadSections(IndexSet(arrayLiteral: 0), with: .automatic)
         }
-    }
-    
-    @objc private func datePickerChanged(sender: UIDatePicker) {
-        dateTextField.text = dateFormatter.string(from: sender.date)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -170,7 +183,7 @@ class DateAssignmentViewController: BaseViewController {
                                     categoryName: category.title,
                                     services: services.map({$0.displayName}).joined(separator: ", "),
                                     clientName: clientName,
-                                    fullDate: dateTextField.text! + " " + timeSelected.asHourMinuteString(),
+                                    fullDate: "todo" + " " + timeSelected.asHourMinuteString(),
                                     servicesIds: servicesIds,
                                     socialReason: "",
                                     ruc: "",
@@ -179,13 +192,19 @@ class DateAssignmentViewController: BaseViewController {
                                     }),
                                     professional: professional,
                                     hourStartAsSeconds: timeSelected,
-                                    date: dateTextField.text!,
+                                    date: "todo",
                                     categoryImageUrl: category.imageURL ?? "")
         }
     }
     
     @IBAction func continueAction(_ sender: Any) {
         performSegue(withIdentifier: Segues.Confirmation, sender: self)
+    }
+    
+    private func servicesTotalTime() -> Int {
+        services.reduce(0) { result, service in
+            result + service.duration
+        }
     }
 }
 
@@ -204,6 +223,15 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
         return UITableView.automaticDimension
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let lbl = UILabel()
+        lbl.text = "Profesionales disponibles"
+        lbl.textColor = Colors.Greens.professionalListHeader
+        lbl.font = AFont.with(size: 14, weight: .regular)
+        lbl.sizeToFit()
+        return lbl
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: ProfessionalScheduleTableViewCell.Constants.reuseIdentifier,
@@ -216,19 +244,12 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        dateTextField.resignFirstResponder()
         let selectedProfessional = viewModel[indexPath.row].professional
         var hourSelected: String = ""
         if let selectedSchedule = viewModel[indexPath.row].selectedSchedule {
             hourSelected = viewModel[indexPath.row].availableSchedules[selectedSchedule].asHourMinuteString()
         }
         showProfessionalPopup(professional: selectedProfessional, hourString: hourSelected)
-    }
-    
-    private func servicesTotalTime() -> Int {
-        services.reduce(0) { result, service in
-            result + service.duration
-        }
     }
     
     private func dateRangesFrom(schedules: [AvailableSchedule], servicesTotalTime: Int) -> [Int] {
@@ -259,7 +280,7 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
         popup.modalPresentationStyle = .popover
         popup.delegate = self
         popup.professional = professional
-        popup.date = dateTextField.text
+        popup.date = "todo"
         popup.time =  hourString
         let popover = popup.popoverPresentationController
         popover?.delegate = self
@@ -284,8 +305,8 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
         }
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return professionals.isEmpty ? "" : "Profesionales"
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return professionals.isEmpty ? 0 : 16
     }
     
 }
@@ -328,4 +349,93 @@ extension DateAssignmentViewController: ProfessionalScheduleTableViewCellDelegat
         self.tableView.reloadData()
     }
     
+}
+
+// MARK: JTACMonthViewDataSource & JTACMonthViewDelegate
+extension DateAssignmentViewController: JTACMonthViewDataSource, JTACMonthViewDelegate {
+    
+    func calendar(_ calendar: JTACMonthView, willDisplay cell: JTACDayCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
+        guard var cell = cell as? CalendarDayCollectionViewCell else { return }
+        configureCell(cell: &cell, text: cellState.text, date: date, isSelected: cellState.isSelected)
+    }
+    
+    
+    func configureCalendar(_ calendar: JTACMonthView) -> ConfigurationParameters {
+        let year = Calendar.current.component(.year, from: selectedDate)
+        if let firstOfNextYear = Calendar.current.date(from: DateComponents(year: year + 1, month: 1, day: 1)),
+            let endDate = Calendar.current.date(byAdding: .day, value: -1, to: firstOfNextYear) {
+            return ConfigurationParameters(
+                startDate: selectedDate,
+                endDate: endDate,
+                numberOfRows: 1,
+                generateInDates: .off,
+                generateOutDates: .tillEndOfGrid,
+                hasStrictBoundaries: true
+            )
+        }
+        return ConfigurationParameters(startDate: Date(), endDate: Date(), numberOfRows: 1)
+    }
+    
+    func calendar(_ calendar: JTACMonthView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTACDayCell {
+        var cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "calendarDayReuseId", for: indexPath) as! CalendarDayCollectionViewCell
+        configureCell(cell: &cell, text: cellState.text, date: date, isSelected: cellState.isSelected)
+        return cell
+    }
+    
+    func configureCell(cell: inout CalendarDayCollectionViewCell, text: String, date: Date, isSelected: Bool) {
+        cell.dateLabel.text = text
+        cell.backgroundRoundView.layer.cornerRadius = cell.backgroundRoundView.bounds.width / 2
+        cell.backgroundRoundView.clipsToBounds = true
+        cell.dayNameLabel.text = onlyDayFormatter.string(from: date)
+        cell.setSelected(isSelected)
+    }
+    
+    func calendar(_ calendar: JTACMonthView, didSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
+        guard let cell = cell as? CalendarDayCollectionViewCell else { return }
+        selectedDate = date
+        cell.setSelected(true)
+        fetchProfessionals()
+    }
+    
+    func calendar(_ calendar: JTACMonthView, shouldSelectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) -> Bool {
+        if cellState.isSelected {
+            return false
+        }
+        if Calendar.current.compare(date, to: Date(), toGranularity: .day) == .orderedAscending {
+            return Calendar.current.compare(date, to: Date(), toGranularity: .month) == .orderedDescending
+        } else {
+            return Calendar.current.compare(date, to: Date(), toGranularity: .month) == .orderedSame ||
+             Calendar.current.compare(date, to: Date(), toGranularity: .month) == .orderedDescending
+        }
+    }
+    
+    func calendar(_ calendar: JTACMonthView, headerViewForDateRange range: (start: Date, end: Date), at indexPath: IndexPath) -> JTACMonthReusableView {
+        let header = calendar.dequeueReusableJTAppleSupplementaryView(withReuseIdentifier: "dateHeaderReuseId", for: indexPath) as! CalendarDayHeaderCollectionViewCell
+        
+        header.monthTitle.text = onlyMonthAndYearFormatter.string(from: range.start)
+        return header
+    }
+    
+    func calendar(_ calendar: JTACMonthView, didDeselectDate date: Date, cell: JTACDayCell?, cellState: CellState, indexPath: IndexPath) {
+        guard let cell = cell as? CalendarDayCollectionViewCell else { return }
+        cell.setSelected(false)
+    }
+    
+    func calendarSizeForMonths(_ calendar: JTACMonthView?) -> MonthSize? {
+        return MonthSize(defaultSize: 40)
+    }
+    
+    func scrollDidEndDecelerating(for calendar: JTACMonthView) {
+        let visibleDates = calendarView.visibleDates()
+        let dateWeShouldNotCross = initialDate
+        let dateToScrollBackTo = initialDate
+        if visibleDates.monthDates.contains (where: {$0.date <= dateWeShouldNotCross}) {
+            calendarView.scrollToDate(dateToScrollBackTo)
+            return
+        }
+    }
+}
+
+class CalendarDayHeaderCollectionViewCell: JTACMonthReusableView  {
+    @IBOutlet var monthTitle: UILabel!
 }

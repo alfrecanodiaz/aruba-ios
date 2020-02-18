@@ -61,7 +61,7 @@ class ProfessionalDetailsPopupTableViewController: APopoverTableViewController {
         guard let url = URL(string: professional.avatarURL ?? "") else {
             return
         }
-        userAvatarImageView.hnk_setImageFromURL(url, placeholder: Constants.userPlaceholder)
+        userAvatarImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.userPlaceholder)
     }
     
     @IBAction func selectProfessionalAction(_ sender: AButton) {

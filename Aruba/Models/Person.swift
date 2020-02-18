@@ -13,7 +13,6 @@ struct Person {
 
     let gender: Gender
     var scheduleProducts: [Service] = []
-    var scheduleDate: ScheduleDate?
     var index: Int = 1
     var id: String
 

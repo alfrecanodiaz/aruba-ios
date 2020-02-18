@@ -44,7 +44,7 @@ class ProductDescriptionPopupTableViewController: APopoverTableViewController {
         guard let url = URL(string: service.imageURL) else {
             return
         }
-        productImageView.hnk_setImageFromURL(url, placeholder: Constants.imagePlaceholder)
+        productImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.imagePlaceholder)
     }
 
     @IBAction func selectAction(_ sender: UIButton) {

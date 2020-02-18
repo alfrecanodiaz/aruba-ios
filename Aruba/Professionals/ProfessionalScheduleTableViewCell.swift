@@ -26,11 +26,10 @@ protocol ProfessionalScheduleTableViewCellDelegate: NSObject {
 class ProfessionalScheduleTableViewCell: UITableViewCell {
     @IBOutlet weak var shadowView: UIView! {
         didSet {
-            shadowView.applyshadow()
+            shadowView.applyshadow(cornerRadius: 20)
         }
     }
     @IBOutlet weak var noSchedulesLabel: UILabel!
-    
     @IBOutlet weak var containerView: UIView! {
         didSet {
             containerView.layer.cornerRadius = 8
@@ -78,7 +77,7 @@ class ProfessionalScheduleTableViewCell: UITableViewCell {
         collectionView.reloadData()
         noSchedulesLabel.isHidden = !viewModel.availableSchedules.isEmpty
         guard let url = URL(string: viewModel.professionalAvatarUrl) else { return }
-        avatarImageView.hnk_setImageFromURL(url)
+        avatarImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.userPlaceholder)
     }
     
     override func awakeFromNib() {
@@ -134,7 +133,7 @@ extension ProfessionalScheduleTableViewCell: UICollectionViewDataSource, UIColle
     
 }
 extension UIView {
-    func applyshadow(){
+    func applyshadow(cornerRadius: CGFloat){
         clipsToBounds = false
         layer.shadowColor = UIColor.darkGray.cgColor
         layer.shadowOpacity = 1
@@ -142,7 +141,7 @@ extension UIView {
         layer.shadowRadius = 2
         layer.shadowPath = UIBezierPath(
             roundedRect: bounds,
-            cornerRadius: 20
+            cornerRadius: cornerRadius
         ).cgPath
     }
 }

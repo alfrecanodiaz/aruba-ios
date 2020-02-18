@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "463FDF7470C2DA48B007EC29BC2739EB"
-               BuildableName = "Windless.framework"
-               BlueprintName = "Windless"
+               BlueprintIdentifier = "421B6ABF460857FE6CA2905EFB5A4F74"
+               BuildableName = "JTAppleCalendar.framework"
+               BlueprintName = "JTAppleCalendar"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

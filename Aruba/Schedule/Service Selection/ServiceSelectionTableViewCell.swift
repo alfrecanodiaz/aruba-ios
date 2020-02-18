@@ -19,6 +19,7 @@ class ServiceSelectionTableViewCell: UITableViewCell {
     @IBOutlet weak var productSwitch: UISwitch!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var detailBtn: UIButton!
+    @IBOutlet weak var priceLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,6 +32,7 @@ class ServiceSelectionTableViewCell: UITableViewCell {
     func configure(service: Service, isSelected: Bool, indexPath: IndexPath) {
         productSwitch.setOn(isSelected, animated: false)
         productName.text = service.displayName
+        priceLabel.text = service.price.asGs()
         self.indexPath = indexPath
     }
 

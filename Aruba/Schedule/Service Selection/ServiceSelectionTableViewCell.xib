@@ -35,6 +35,12 @@
                         <color key="textColor" red="0.33725490200000002" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5E-X9-77L">
+                        <rect key="frame" x="73" y="72" width="24" height="12"/>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="10"/>
+                        <color key="textColor" red="0.51597004769999999" green="0.71967025039999999" blue="0.6846852618" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a96-BM-F68">
                         <rect key="frame" x="387" y="36" width="30" height="25"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -54,7 +60,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="jO3-WF-zTK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="8o6-GY-QGA"/>
+                    <constraint firstItem="g5E-X9-77L" firstAttribute="leading" secondItem="jO3-WF-zTK" secondAttribute="trailing" constant="10" id="C9d-c0-If7"/>
                     <constraint firstItem="l0j-UN-xTI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="25" id="CWI-QU-nV3"/>
+                    <constraint firstItem="g5E-X9-77L" firstAttribute="top" secondItem="l0j-UN-xTI" secondAttribute="bottom" id="L1a-o1-yMo"/>
                     <constraint firstItem="jO3-WF-zTK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Slo-tL-2hz"/>
                     <constraint firstItem="a96-BM-F68" firstAttribute="centerY" secondItem="l0j-UN-xTI" secondAttribute="centerY" id="WtE-ji-hn6"/>
                     <constraint firstItem="a96-BM-F68" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="l0j-UN-xTI" secondAttribute="trailing" constant="20" id="Zwr-Mb-erE"/>
@@ -67,6 +75,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="detailBtn" destination="a96-BM-F68" id="5Q9-6F-BXe"/>
+                <outlet property="priceLabel" destination="g5E-X9-77L" id="800-Go-lHY"/>
                 <outlet property="productName" destination="l0j-UN-xTI" id="JWL-5V-ht3"/>
                 <outlet property="productSwitch" destination="jO3-WF-zTK" id="sbo-Ar-dXA"/>
             </connections>

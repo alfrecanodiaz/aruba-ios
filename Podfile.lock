@@ -93,6 +93,7 @@ PODS:
   - GoogleUtilities/UserDefaults (6.3.2):
     - GoogleUtilities/Logger
   - HanekeSwift (1.1)
+  - JTAppleCalendar (8.0.3)
   - lottie-ios (3.1.5)
   - MaterialTextField (1.0.1)
   - nanopb (0.3.9011):
@@ -107,7 +108,6 @@ PODS:
   - SideMenu (6.4.7)
   - SVProgressHUD (2.2.5)
   - SwiftLint (0.38.0)
-  - Windless (0.1.5)
 
 DEPENDENCIES:
   - Alamofire
@@ -120,6 +120,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - GoogleMaps
   - HanekeSwift (from `https://github.com/Haneke/HanekeSwift.git`, tag `v0.11.1`)
+  - JTAppleCalendar
   - lottie-ios
   - MaterialTextField
   - Nimble
@@ -128,7 +129,6 @@ DEPENDENCIES:
   - SideMenu
   - SVProgressHUD
   - SwiftLint
-  - Windless
 
 SPEC REPOS:
   trunk:
@@ -151,6 +151,7 @@ SPEC REPOS:
     - GoogleDataTransportCCTSupport
     - GoogleMaps
     - GoogleUtilities
+    - JTAppleCalendar
     - lottie-ios
     - MaterialTextField
     - nanopb
@@ -160,7 +161,6 @@ SPEC REPOS:
     - SideMenu
     - SVProgressHUD
     - SwiftLint
-    - Windless
 
 EXTERNAL SOURCES:
   HanekeSwift:
@@ -198,6 +198,7 @@ SPEC CHECKSUMS:
   GoogleMaps: 82f8fe307193bb4de6ef6bf9e88f1d624b718f9d
   GoogleUtilities: 547a86735c6f0ee30ad17e94df4fc21f616b71cb
   HanekeSwift: cb662a1f22b10ff3ff1d7b5030ae451da5d93831
+  JTAppleCalendar: 932cadea40b1051beab10f67843451d48ba16c99
   lottie-ios: 32bf84389337d86fbc8b12266e88452e0abf1dee
   MaterialTextField: f1a0786588e4d3610cb9bb62d2adbe9777cebbf9
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
@@ -208,8 +209,7 @@ SPEC CHECKSUMS:
   SideMenu: 928a015669c3afc201e1fe3a87f1b0bc8993a664
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 4105f061f9812b214568b736dab580ab2c73a582
-  Windless: c6b7d63ac3a0c7e6b241e316650d4605abf71894
 
-PODFILE CHECKSUM: 0bdf0d8e27ade352eaffcd9b3c29037441ef9ad3
+PODFILE CHECKSUM: a9ba9ae1206e5ecb070a5a25a7d4de4d802d9d01
 
 COCOAPODS: 1.8.4

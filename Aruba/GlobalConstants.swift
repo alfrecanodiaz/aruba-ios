@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum Constants {
+enum GlobalConstants {
     static let imagePlaceholder: UIImage = #imageLiteral(resourceName: "iconos_usuario (arrastrado) 7")
     static let userPlaceholder: UIImage = #imageLiteral(resourceName: "iconos_usuario (arrastrado) 36")
 }

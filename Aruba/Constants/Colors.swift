@@ -26,4 +26,16 @@ enum Colors {
     static let Masajes = UIColor(hexRGB: "D5BEAD")!
     static let Nutricion = UIColor(hexRGB: "CCCCCC")!
     static let Barberia = UIColor(hexRGB: "75AEA8")!
+    
+    enum Greens {
+        static let borderLine = #colorLiteral(red: 0.4117647059, green: 0.7647058824, blue: 0.7098039216, alpha: 1)
+        static let calendarSelected = #colorLiteral(red: 0.4117647059, green: 0.7647058824, blue: 0.7098039216, alpha: 1)
+        static let calendarLabel = #colorLiteral(red: 0.1529411765, green: 0.2392156863, blue: 0.3215686275, alpha: 0.9029214349)
+        // #2D8679
+        static let professionalListHeader = #colorLiteral(red: 0.1764705882, green: 0.5254901961, blue: 0.4745098039, alpha: 1)
+    }
+    
+    enum Whites {
+        static let calendarUnselected = #colorLiteral(red: 0.9647058824, green: 0.9725490196, blue: 0.9764705882, alpha: 1)
+    }
 }

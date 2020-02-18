@@ -55,7 +55,7 @@ class ProfileTableViewController: UITableViewController {
         rucTextField.text = UserManager.shared.userTax.first?.rucNumber
         greetingLabel.text = "¡Hola \(user.firstName)!"
         guard let url = URL(string: user.avatarURL) else { return }
-        profileImageView.hnk_setImageFromURL(url, placeholder: Constants.userPlaceholder)
+        profileImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.userPlaceholder)
     }
     
     private func loadDevices() {

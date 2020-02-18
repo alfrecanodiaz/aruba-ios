@@ -42,7 +42,7 @@ class ConfirmViewController: UIViewController {
         guard let url = URL(string: cartData.categoryImageUrl) else {
             return
         }
-        serviceImageView.hnk_setImageFromURL(url, placeholder: Constants.imagePlaceholder )
+        serviceImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.imagePlaceholder )
     }
     
     

@@ -64,7 +64,7 @@ class ProfesionalDetailsViewController: UIViewController {
         guard let url = URL(string: professional.avatarURL ?? "") else {
             return
         }
-        professionalImageView.hnk_setImageFromURL(url, placeholder: Constants.userPlaceholder)
+        professionalImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.userPlaceholder)
     }
     
     @IBAction func likeAction(_ sender: Any) {
@@ -157,10 +157,10 @@ extension ProfesionalDetailsViewController: UITableViewDataSource, UITableViewDe
     private func configure(cell: HistoryServiceTableViewCell, with data: RatingData) -> HistoryServiceTableViewCell {
         cell.serviceNameLabel.text = data.text
         cell.serviceDescriptionLabel.text = data.createdAt
-        cell.serviceImageView?.image = Constants.userPlaceholder
+        cell.serviceImageView?.image = GlobalConstants.userPlaceholder
         cell.selectionStyle = .none
         guard let avatar = data.reviewer.avatarURL, let url = URL(string: avatar) else { return cell }
-        cell.serviceImageView?.hnk_setImageFromURL(url, placeholder: Constants.userPlaceholder)
+        cell.serviceImageView?.hnk_setImageFromURL(url, placeholder: GlobalConstants.userPlaceholder)
         return cell
     }
 }
