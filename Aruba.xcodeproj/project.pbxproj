@@ -99,6 +99,8 @@
 		3B7EC0E52264066C00ED799D /* ProfessionalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B7EC0E32264066C00ED799D /* ProfessionalTableViewCell.xib */; };
 		3BAF83272282683C0056C0D5 /* AddAddressTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAF83262282683C0056C0D5 /* AddAddressTableViewController.swift */; };
 		3BAF8329228268480056C0D5 /* Addresses.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BAF8328228268480056C0D5 /* Addresses.storyboard */; };
+		3BB033B523FC1519003E6F2D /* BottomTotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB033B423FC1519003E6F2D /* BottomTotalView.swift */; };
+		3BB033B723FC1528003E6F2D /* BottomTotalView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BB033B623FC1528003E6F2D /* BottomTotalView.xib */; };
 		3BC30F6E23A5479E00BD9700 /* ProfessionalDetailsPopupTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC30F6D23A5479E00BD9700 /* ProfessionalDetailsPopupTableViewController.swift */; };
 		3BC30F7023A54E2B00BD9700 /* CartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC30F6F23A54E2B00BD9700 /* CartTableViewController.swift */; };
 		3BC30F7223A55BE400BD9700 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC30F7123A55BE400BD9700 /* ConfirmViewController.swift */; };
@@ -249,6 +251,8 @@
 		3B7EC0E32264066C00ED799D /* ProfessionalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfessionalTableViewCell.xib; sourceTree = "<group>"; };
 		3BAF83262282683C0056C0D5 /* AddAddressTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressTableViewController.swift; sourceTree = "<group>"; };
 		3BAF8328228268480056C0D5 /* Addresses.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Addresses.storyboard; sourceTree = "<group>"; };
+		3BB033B423FC1519003E6F2D /* BottomTotalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTotalView.swift; sourceTree = "<group>"; };
+		3BB033B623FC1528003E6F2D /* BottomTotalView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BottomTotalView.xib; sourceTree = "<group>"; };
 		3BC30F6D23A5479E00BD9700 /* ProfessionalDetailsPopupTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalDetailsPopupTableViewController.swift; sourceTree = "<group>"; };
 		3BC30F6F23A54E2B00BD9700 /* CartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewController.swift; sourceTree = "<group>"; };
 		3BC30F7123A55BE400BD9700 /* ConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
@@ -504,6 +508,7 @@
 		3B7EC0AB225C206F00ED799D /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				3BB033B323FC14EF003E6F2D /* TotalView */,
 				3B7EC0AC225C20A300ED799D /* Schedule.storyboard */,
 				3B048EF6226D00E300EBE6FD /* Success Schedule */,
 				3B67BA3E22690C8F00871F77 /* ProductDescriptionPopup */,
@@ -587,6 +592,15 @@
 				3BAF83262282683C0056C0D5 /* AddAddressTableViewController.swift */,
 			);
 			path = "Add new address";
+			sourceTree = "<group>";
+		};
+		3BB033B323FC14EF003E6F2D /* TotalView */ = {
+			isa = PBXGroup;
+			children = (
+				3BB033B423FC1519003E6F2D /* BottomTotalView.swift */,
+				3BB033B623FC1528003E6F2D /* BottomTotalView.xib */,
+			);
+			path = TotalView;
 			sourceTree = "<group>";
 		};
 		3BD43CF4225858B500AC3411 /* Helper Classes */ = {
@@ -869,6 +883,7 @@
 				3B42E61523F855E0001F1A94 /* ProfessionalScheduleTableViewCell.xib in Resources */,
 				3B7D4BC623E5E7C400FA6FDA /* HistoryServiceTableViewCell.xib in Resources */,
 				3B7D4BC823E5ECB900FA6FDA /* aruba_loading.json in Resources */,
+				3BB033B723FC1528003E6F2D /* BottomTotalView.xib in Resources */,
 				3B02964D228E070000D08789 /* success.json in Resources */,
 				3B6ECA0123BE634800F94A89 /* ProfessionalListTableViewCell.xib in Resources */,
 				3B7EC0AD225C20A300ED799D /* Schedule.storyboard in Resources */,
@@ -1049,6 +1064,7 @@
 				3BC30F6E23A5479E00BD9700 /* ProfessionalDetailsPopupTableViewController.swift in Sources */,
 				3B42E61423F855E0001F1A94 /* ProfessionalScheduleTableViewCell.swift in Sources */,
 				3B7EC0C0225D692C00ED799D /* ARoundButton.swift in Sources */,
+				3BB033B523FC1519003E6F2D /* BottomTotalView.swift in Sources */,
 				3B42E61D23F87B7C001F1A94 /* DateCollectionViewCell.swift in Sources */,
 				3BD43CF3225858B000AC3411 /* AButton.swift in Sources */,
 				3BD43CF62258594D00AC3411 /* Colors.swift in Sources */,

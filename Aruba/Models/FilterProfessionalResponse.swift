@@ -25,6 +25,7 @@ struct Professional: Codable {
     let birthdate, document: String?
     let avatarURL: String?
     let averageReviews: Double?
+    let reviewsCount: Int?
     var servicesCount, likes, salesThisMonth: Int?
     let arubaSalesThisMonth: Int?
     let categories: [ServiceCategory]?
@@ -68,6 +69,7 @@ struct Professional: Codable {
         case reviewsWithCommentsCount = "reviews_with_comments_count"
         case isLikedByMe = "is_liked_by_me"
         case availableSchedules
+        case reviewsCount = "reviews_count"
     }
 }
 

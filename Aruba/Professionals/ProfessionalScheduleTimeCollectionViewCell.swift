@@ -12,10 +12,11 @@ class ProfessionalScheduleTimeCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var timeLabel: APaddedLabel! {
         didSet {
-            timeLabel.layer.borderColor = UIColor.darkGray.cgColor
+            timeLabel.layer.borderColor = Colors.Grays.enabledDateText.cgColor
             timeLabel.layer.borderWidth = 0.5
-            timeLabel.layer.cornerRadius = 8
+            timeLabel.layer.cornerRadius = 5
             timeLabel.clipsToBounds = true
+            timeLabel.textColor = Colors.Grays.enabledDateText
             timeLabel.font = AFont.with(size: 12, weight: .regular)
         }
     }
@@ -29,9 +30,24 @@ class ProfessionalScheduleTimeCollectionViewCell: UICollectionViewCell {
     }
     
     func setSelected(_ selected: Bool) {
-        timeLabel.layer.borderColor = selected ? Colors.AlertTintColor.cgColor : UIColor.darkGray.cgColor
-        timeLabel.textColor = selected ? .white : .darkGray
-        timeLabel.backgroundColor = selected ? Colors.AlertTintColor : .clear
+        timeLabel.layer.borderColor = selected
+            ? Colors.Greens.calendarSelected.cgColor
+            : Colors.Grays.enabledDateText.cgColor
+        timeLabel.textColor = selected
+            ? .white
+            : Colors.Grays.enabledDateText
+        timeLabel.backgroundColor = selected
+            ? Colors.Greens.calendarSelected
+            : .clear
+    }
+    
+    func setEnabled(_ enabled: Bool) {
+        timeLabel.textColor = enabled
+            ? Colors.Grays.enabledDateText
+            : Colors.Grays.disabledDateText
+        timeLabel.layer.borderColor = enabled
+            ? Colors.Grays.enabledDateText.cgColor
+            : Colors.Grays.disabledDateText.cgColor
     }
 
 }

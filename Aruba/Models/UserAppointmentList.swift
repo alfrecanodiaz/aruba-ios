@@ -17,13 +17,15 @@ struct PaginatedData: Codable {
     let currentPage: Int
     let data: [Appointment]
     let firstPageURL: String
-    let from, lastPage: Int
+    let from: Int?
+    let lastPage: Int
     let lastPageURL: String
     let nextPageURL: String?
     let path: String
     let perPage: Int
     let prevPageURL: String?
-    let to, total: Int
+    let to: Int?
+    let total: Int
 
     enum CodingKeys: String, CodingKey {
         case currentPage = "current_page"

@@ -176,11 +176,24 @@ class HomeTableViewController: BaseTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let serviceCategory = categoriesViewModel[indexPath.row]
+        let hasSubcategoriesEnabled = serviceCategory.subCategories.reduce(false) { partial, next in
+            partial || next.enabled
+        }
+        
+        guard hasSubcategoriesEnabled else {
+            let alert = UIAlertController(title: "Lo sentimos", message: "No hay subcategorias disponibles para este servicio.", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Aceptar", style: .cancel, handler: nil)
+            alert.addAction(cancel)
+            alert.view.tintColor = Colors.AlertTintColor
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        
         guard serviceCategory.enabled else {
             let alert = UIAlertController(title: "Lo sentimos", message: serviceCategory.inactiveText ?? "", preferredStyle: .alert)
             let cancel = UIAlertAction(title: "Aceptar", style: .cancel, handler: nil)
             alert.addAction(cancel)
-            alert.view.tintColor = Colors.ButtonGreen
+            alert.view.tintColor = Colors.AlertTintColor
             present(alert, animated: true, completion: nil)
             return
         }
@@ -191,7 +204,7 @@ class HomeTableViewController: BaseTableViewController {
                 self.transition(to: loginVC, completion: nil)
             }
             alert.addAction(register)
-            alert.view.tintColor = Colors.ButtonGreen
+            alert.view.tintColor = Colors.AlertTintColor
             let cancel = UIAlertAction(title: "Aceptar", style: .cancel, handler: nil)
             alert.addAction(cancel)
             present(alert, animated: true, completion: nil)

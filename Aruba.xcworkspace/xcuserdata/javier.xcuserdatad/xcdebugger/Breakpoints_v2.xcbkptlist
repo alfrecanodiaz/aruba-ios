@@ -128,8 +128,8 @@
             filePath = "Aruba/Home/HomeTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -160,8 +160,8 @@
             filePath = "Aruba/Schedule/Service Selection/ServiceSelectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "setupView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -808,8 +808,8 @@
             filePath = "Aruba/Schedule/Date Assignment/DateAssignmentViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
             landmarkName = "DateAssignmentViewController"
             landmarkType = "21">
          </BreakpointContent>
@@ -824,8 +824,8 @@
             filePath = "Aruba/Schedule/Date Assignment/DateAssignmentViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
             landmarkName = "makeRangesFor(hourStart:hourEnd:divideAmount:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -840,25 +840,9 @@
             filePath = "Aruba/Professionals/ProfessionalScheduleTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "configureCell()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "E15D0690-7536-4996-A62A-7439FBB07176"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Aruba/Schedule/Date Assignment/DateAssignmentViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "344"
-            endingLineNumber = "344"
-            landmarkName = "didChangeSelectedSchedules(index:selectedSchedule:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -872,9 +856,9 @@
             filePath = "Aruba/Professionals/ProfessionalScheduleTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "applyshadow(cornerRadius:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -888,8 +872,8 @@
             filePath = "Aruba/Schedule/Date Assignment/DateAssignmentViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "341"
-            endingLineNumber = "341"
+            startingLineNumber = "356"
+            endingLineNumber = "356"
             landmarkName = "didChangeSelectedSchedules(index:selectedSchedule:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -966,8 +950,8 @@
             filePath = "Aruba/Schedule/Date Assignment/DateAssignmentViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "376"
-            endingLineNumber = "376"
+            startingLineNumber = "391"
+            endingLineNumber = "391"
             landmarkName = "configureCalendar(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -982,8 +966,8 @@
             filePath = "Aruba/Schedule/Date Assignment/DateAssignmentViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "367"
-            endingLineNumber = "367"
+            startingLineNumber = "382"
+            endingLineNumber = "382"
             landmarkName = "configureCalendar(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1126,8 +1110,8 @@
             filePath = "Aruba/Schedule/Date Assignment/DateAssignmentViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "396"
-            endingLineNumber = "396"
+            startingLineNumber = "411"
+            endingLineNumber = "411"
             landmarkName = "calendar(_:didSelectDate:cell:cellState:indexPath:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1142,8 +1126,8 @@
             filePath = "Aruba/Schedule/Date Assignment/DateAssignmentViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "fetchProfessionals()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1158,8 +1142,8 @@
             filePath = "Aruba/Schedule/Date Assignment/DateAssignmentViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "415"
-            endingLineNumber = "415"
+            startingLineNumber = "430"
+            endingLineNumber = "430"
             landmarkName = "calendar(_:headerViewForDateRange:at:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1174,8 +1158,8 @@
             filePath = "Aruba/Schedule/Date Assignment/DateAssignmentViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "404"
-            endingLineNumber = "404"
+            startingLineNumber = "419"
+            endingLineNumber = "419"
             landmarkName = "calendar(_:shouldSelectDate:cell:cellState:indexPath:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1190,9 +1174,89 @@
             filePath = "Aruba/Schedule/Date Assignment/DateAssignmentViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "410"
-            endingLineNumber = "410"
+            startingLineNumber = "425"
+            endingLineNumber = "425"
             landmarkName = "calendar(_:shouldSelectDate:cell:cellState:indexPath:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "145842D9-5B14-48C2-834B-2C5E9199B307"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aruba/Schedule/Service Selection/ServiceSelectionViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "setupSegmentedControl()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "28897258-BAA7-4409-8C54-C67037BCB5F5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aruba/HIstory/HistoryViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "fetchAppointments()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7CDB81F7-11E5-4091-BA0C-AEA3EDF56402"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aruba/Extensions/JSONDecoder+Utils.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "decodeResponse(from:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5AF0FC4A-7CD9-42DF-9B14-913786058BAC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aruba/Professionals/ProfessionalScheduleTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "68084D19-2AEE-4017-BA96-67E33B0EA3DE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Aruba/Professionals/ProfessionalScheduleTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "collectionView(_:numberOfItemsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -9,26 +9,26 @@
 import UIKit
 
 class ServiceSelectionViewController: BaseViewController {
-
+    
     @IBOutlet weak var clientLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var totalLbl: UILabel!
     @IBOutlet weak var subCategorySegmentedControl: UISegmentedControl! {
         didSet {
             
         }
     }
-    @IBOutlet weak var continueBtn: AButton!
-
+    @IBOutlet weak var bottomContainerView: UIView!
+    
     struct Cells {
         static let ServiceSelection = "ServiceSelectionCell"
     }
-
+    
     struct Segues {
         static let DateSelection = "showDateSelectionSegue"
         static let Popup = "presentPopup"
         static let ProductPopup = "showProductPopover"
+        static let Cart = "showCart"
     }
     
     var category: CategoryViewModel!
@@ -42,29 +42,46 @@ class ServiceSelectionViewController: BaseViewController {
     private var selectedServices: [[IndexPath]] = []
     private let minimumAmount: Int = 70000
     
+    lazy var bottomTotalView: BottomTotalView = {
+       let view = BottomTotalView.build(delegate: self)
+        view.totalLabel.adjustsFontSizeToFitWidth = true
+        view.totalLabel.text = "Total:   0 Gs."
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         fetchServices()
     }
-
+    
+    private func setupBottomView() {
+        bottomContainerView.addSubview(bottomTotalView)
+        bottomTotalView.constraintToSuperView()
+    }
+    
     func setupView() {
-        tableView.register(UINib(nibName: "ServiceSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: Cells.ServiceSelection)
-        tableView.tableFooterView = nil
-        tableView.dataSource = self
-        tableView.delegate = self
+        clientLabel.text = "¡Hola \(clientName)!"
+        categoryLabel.text = "Estas en la categoria \(category.title.uppercased())"
+        setupTableView()
+        setupSegmentedControl()
+        setupBottomView()
+    }
+    
+    private func setupSegmentedControl() {
         subCategorySegmentedControl.removeAllSegments()
-        
         for cat in category.subCategories.reversed() where cat.enabled {
             subCategorySegmentedControl.insertSegment(withTitle: cat.title.uppercased(), at: 0, animated: false)
             services.insert([], at: 0)
             selectedServices.insert([], at: 0)
         }
-        
-        clientLabel.text = "¡Hola \(clientName)!"
-        categoryLabel.text = "Estas en la categoria \(category.title.uppercased())"
-        
-        continueBtn.setEnabled(false)
+    }
+    
+    private func setupTableView() {
+        tableView.register(UINib(nibName: "ServiceSelectionTableViewCell", bundle: nil), forCellReuseIdentifier: Cells.ServiceSelection)
+        tableView.tableFooterView = UIView()
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     private func fetchServices() {
@@ -97,9 +114,9 @@ class ServiceSelectionViewController: BaseViewController {
                 self.tableView.reloadData()
             }
         }
-
+        
     }
-
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.DateSelection {
@@ -108,7 +125,7 @@ class ServiceSelectionViewController: BaseViewController {
             
             var servicesIds:[Int] = []
             var servicesSelected:[Service] = []
-
+            
             for (index, selectedService) in selectedServices.enumerated() {
                 servicesSelected += selectedService.map({services[index][$0.row]})
                 servicesIds += selectedService.map({services[index][$0.row].id})
@@ -122,16 +139,10 @@ class ServiceSelectionViewController: BaseViewController {
             dvc.category = category
         }
         if segue.identifier == Segues.Popup {
-
+            
         }
     }
-
-    private func setupView(for person: Person) {
-        tableView.reloadData()
-        continueBtn.setEnabled(false)
-        setTotalValueLabel()
-    }
-
+    
     public func showServiceDescriptionPopup(indexPath: IndexPath, segmentedIndex: Int) {
         let popup = self.storyboard?.instantiateViewController(withIdentifier: "ProductDescriptionPopupTableViewControllerID") as! ProductDescriptionPopupTableViewController
         let service = servicesDisplaying[indexPath.row]
@@ -144,7 +155,7 @@ class ServiceSelectionViewController: BaseViewController {
         popover?.sourceView = view
         popover?.sourceRect = view.bounds
         popover?.permittedArrowDirections = .init(rawValue: 0)
-
+        
         popup.delegate = self
         addBlackBackgroundView()
         present(popup, animated: true, completion: nil)
@@ -159,35 +170,35 @@ class ServiceSelectionViewController: BaseViewController {
 }
 
 extension ServiceSelectionViewController: UITableViewDataSource, UITableViewDelegate {
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return servicesDisplaying.count
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Cells.ServiceSelection, for: indexPath) as? ServiceSelectionTableViewCell else { return UITableViewCell() }
-
+        
         let index = subCategorySegmentedControl.selectedSegmentIndex
         let service = servicesDisplaying[indexPath.row]
         let selectedIndexes = selectedServices[index]
         cell.configure(service: service,
                        isSelected: selectedIndexes.contains(indexPath),
                        indexPath: indexPath)
-
+        
         cell.delegate = self
         return cell
     }
-
+    
     private func setTotalValueLabel() {
         let total = selectedServicesTotal()
         if total >= minimumAmount {
-            totalLbl.text = selectedServicesTotal().asGs()
+            bottomTotalView.totalLabel.text = "Total:   \(selectedServicesTotal().asGs() ?? "")"
         } else {
-            totalLbl.text = (selectedServicesTotal().asGs() ?? "") + " (el monto mínimo es \(minimumAmount.asGs() ?? ""))"
+            bottomTotalView.totalLabel.text = (selectedServicesTotal().asGs() ?? "") + " (monto mínimo: \(minimumAmount.asGs() ?? ""))"
         }
     }
     
@@ -200,12 +211,12 @@ extension ServiceSelectionViewController: UITableViewDataSource, UITableViewDele
         }
         return total
     }
-        
+    
     private func updateScreenForServiceUpdate() {
         setTotalValueLabel()
-        continueBtn.setEnabled(selectedServicesTotal() >=  minimumAmount)
+        bottomTotalView.continueButton.setEnabled(selectedServicesTotal() >=  minimumAmount)
     }
-
+    
 }
 
 extension ServiceSelectionViewController: ServiceSelectionTableViewCellDelegate {
@@ -214,7 +225,7 @@ extension ServiceSelectionViewController: ServiceSelectionTableViewCellDelegate 
         let segmentedIndex = subCategorySegmentedControl.selectedSegmentIndex
         showServiceDescriptionPopup(indexPath: indexPath, segmentedIndex: segmentedIndex)
     }
-
+    
     func didSelectProduct(selected: Bool, at indexPath: IndexPath) {
         let selectedSegment = subCategorySegmentedControl.selectedSegmentIndex
         if selected {
@@ -223,7 +234,7 @@ extension ServiceSelectionViewController: ServiceSelectionTableViewCellDelegate 
             guard let index =  selectedServices[selectedSegment].firstIndex(of: indexPath) else { return }
             selectedServices[selectedSegment].remove(at: index)
         }
-
+        
         updateScreenForServiceUpdate()
     }
 }
@@ -238,5 +249,11 @@ extension ServiceSelectionViewController: ProductPopupDelegate {
         updateScreenForServiceUpdate()
         removeBlackBackgroundView()
     }
+    
+}
 
+extension ServiceSelectionViewController: BottomTotalViewDelegate {
+    func didSelectContinue(view: BottomTotalView) {
+        performSegue(withIdentifier: Segues.DateSelection, sender: self)
+    }
 }

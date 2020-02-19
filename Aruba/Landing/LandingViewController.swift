@@ -27,7 +27,14 @@ class LandingViewController: UIViewController {
     
     @IBOutlet weak var servicesBtn: AButton!
     
-    private var acceptedTerms: Bool = false
+    private var acceptedTerms: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: "UserAcceptedTermsKey")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "UserAcceptedTermsKey")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

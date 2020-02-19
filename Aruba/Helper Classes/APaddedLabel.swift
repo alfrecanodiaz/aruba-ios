@@ -10,10 +10,10 @@ import UIKit
 
 class APaddedLabel: UILabel {
 
-    @IBInspectable var topInset: CGFloat = 8.0
-    @IBInspectable var bottomInset: CGFloat = 8.0
-    @IBInspectable var leftInset: CGFloat = 16.0
-    @IBInspectable var rightInset: CGFloat = 16.0
+    @IBInspectable var topInset: CGFloat = 4.0
+    @IBInspectable var bottomInset: CGFloat = 4.0
+    @IBInspectable var leftInset: CGFloat = 8.0
+    @IBInspectable var rightInset: CGFloat = 8.0
 
     override func drawText(in rect: CGRect) {
         let insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)

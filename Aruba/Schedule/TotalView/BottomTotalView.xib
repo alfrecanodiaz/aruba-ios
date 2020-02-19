@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BottomTotalView" customModule="Aruba" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="446" height="106"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0x-yb-xKd">
+                    <rect key="frame" x="0.0" y="0.0" width="446" height="72"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mx-II-t6h">
+                            <rect key="frame" x="16" y="26" width="40.5" height="20"/>
+                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                            <color key="textColor" red="0.1764705882" green="0.52549019610000003" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p00-AI-ReQ" customClass="AButton" customModule="Aruba" customModuleProvider="target">
+                            <rect key="frame" x="286" y="16.5" width="144" height="39"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="39" id="Iiw-gK-ZiG"/>
+                                <constraint firstAttribute="width" constant="144" id="RYr-MF-GOq"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="19"/>
+                            <state key="normal" title="Continuar">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="color" keyPath="buttonColor">
+                                    <color key="value" red="0.1764705882" green="0.52549019610000003" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="continueTouchUpInside:" destination="iN0-l3-epB" eventType="touchUpInside" id="2zE-8Y-zHF"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="p00-AI-ReQ" firstAttribute="centerY" secondItem="K0x-yb-xKd" secondAttribute="centerY" id="8h2-NH-lym"/>
+                        <constraint firstItem="p00-AI-ReQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3mx-II-t6h" secondAttribute="trailing" constant="16" id="A3a-lJ-3bh"/>
+                        <constraint firstItem="3mx-II-t6h" firstAttribute="leading" secondItem="K0x-yb-xKd" secondAttribute="leading" constant="16" id="FIA-Is-jPa"/>
+                        <constraint firstAttribute="trailing" secondItem="p00-AI-ReQ" secondAttribute="trailing" constant="16" id="PyX-tA-keE"/>
+                        <constraint firstItem="3mx-II-t6h" firstAttribute="centerY" secondItem="K0x-yb-xKd" secondAttribute="centerY" id="Q0c-cr-FmE"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="K0x-yb-xKd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2rV-8Q-aAM"/>
+                <constraint firstItem="K0x-yb-xKd" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="8lT-ix-YDO"/>
+                <constraint firstItem="K0x-yb-xKd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Fp4-iX-rcI"/>
+                <constraint firstAttribute="trailing" secondItem="K0x-yb-xKd" secondAttribute="trailing" id="OzX-y5-VZC"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="containerView" destination="K0x-yb-xKd" id="fGB-Cu-X5m"/>
+                <outlet property="continueButton" destination="p00-AI-ReQ" id="fpD-lW-fzE"/>
+                <outlet property="totalLabel" destination="3mx-II-t6h" id="JzZ-Af-o2f"/>
+            </connections>
+            <point key="canvasLocation" x="114.49275362318842" y="-113.83928571428571"/>
+        </view>
+    </objects>
+</document>

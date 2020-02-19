@@ -13,23 +13,27 @@ class ConfirmViewController: UIViewController {
     @IBOutlet weak var categoryNameLabel: UILabel!
     
     @IBOutlet weak var serviceImageView: ARoundImage!
-    @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var dateTimeLabel: UILabel!
     @IBOutlet weak var clientNameLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var servicesLabel: UILabel!
     @IBOutlet weak var addressNameLabel: UILabel!
     @IBOutlet weak var addressDetailsLabel: UILabel!
-    
+    @IBOutlet weak var bottomTotalContainerView: UIView!
+
     var cartData: CartData!
     
     struct Segues {
         static let Cart = "showCart"
     }
     
+    lazy var bottomTotalView: BottomTotalView = {
+        BottomTotalView.build(delegate: self)
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupBottomTotalView()
         categoryNameLabel.text = "Estas en la categoria \(cartData.categoryName.uppercased())"
         
         addressNameLabel.text = cartData.addressName.uppercased()
@@ -38,14 +42,20 @@ class ConfirmViewController: UIViewController {
         servicesLabel.text = cartData.services
         clientNameLabel.text = cartData.professional.firstName + " " + cartData.professional.lastName
         dateTimeLabel.text = cartData.fullDate
-        totalLabel.text = cartData.total.asGs()
         guard let url = URL(string: cartData.categoryImageUrl) else {
             return
         }
         serviceImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.imagePlaceholder )
     }
     
-    
+    private func setupBottomTotalView() {
+        bottomTotalContainerView.addSubview(bottomTotalView)
+        bottomTotalView.constraintToSuperView()
+        DispatchQueue.main.async {
+            self.bottomTotalView.continueButton.setEnabled(true, animated: false)
+        }
+        bottomTotalView.totalLabel.text = "Total:   \(cartData.total.asGs() ?? "")"
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.Cart, let dvc = segue.destination as? CartViewController {
@@ -68,5 +78,11 @@ extension Int {
         formatter.numberStyle = .currency
         formatter.locale = Locale(identifier: "es_PY")
         return formatter.string(from: NSNumber(value: self))
+    }
+}
+
+extension ConfirmViewController: BottomTotalViewDelegate {
+    func didSelectContinue(view: BottomTotalView) {
+        performSegue(withIdentifier: Segues.Cart, sender: self)
     }
 }

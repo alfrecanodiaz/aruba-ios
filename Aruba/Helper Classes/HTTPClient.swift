@@ -19,14 +19,18 @@ class HTTPClient {
     
     static let shared = HTTPClient()
     
-        let baseURL: String = "https://aruba.com.py/api/client/mobile/" // production
-    //    let baseURL: String = "https://develop.aruba.com.py/api/client/mobile/" // develop
-    
+    let baseURL: String = "https://aruba.com.py/api/client/mobile/" // production
+    let developBaseURL: String = "https://develop.aruba.com.py/api/client/mobile/" // develop
+    var currentUrl: String = ""
     //localhost
-//    let baseURL: String = "http://192.168.100.12/api/client/mobile/"
+    let localhostURL: String = "http://192.168.100.12/api/client/mobile/"
     
     enum ApiError: Error {
         case noInternet, api500, api401, noData
+    }
+    
+    init() {
+        currentUrl = baseURL
     }
     
     enum Mehtod {
@@ -110,7 +114,7 @@ class HTTPClient {
     }
     
     func request<T: Codable>(method: Mehtod, path: HTTPClient.Endpoint, data: [String: Any]? = nil, completion: @escaping (T?, HTTPClientError?) -> Void) {
-        let url = baseURL + path.rawValue
+        let url = currentUrl + path.rawValue
         var parameters = [String: Any]()
         if let data = data {
             parameters = data

@@ -58,13 +58,25 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="starSize">
                                         <real key="value" value="13"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(10 ratings)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9w1-pp-bCB">
+                                <rect key="frame" x="153" y="30" width="50" height="12"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="10"/>
+                                <color key="textColor" red="0.15294117647058825" green="0.23921568627450979" blue="0.32156862745098036" alpha="0.40248129399999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="SKO-1v-kAD">
-                                <rect key="frame" x="16" y="58" width="496" height="50"/>
+                                <rect key="frame" x="16" y="58" width="496" height="25"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Hil-9H-1yk"/>
+                                    <constraint firstAttribute="height" constant="25" id="Hil-9H-1yk"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eFy-T9-JAB">
                                     <size key="itemSize" width="50" height="50"/>
@@ -74,19 +86,21 @@
                                 </collectionViewFlowLayout>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sin horarios disponibles." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KrF-WE-xyT">
-                                <rect key="frame" x="16" y="58" width="496" height="50"/>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="16" y="58" width="496" height="25"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                <color key="textColor" red="0.1764705882" green="0.52549019610000003" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="gbL-hN-x8m" firstAttribute="top" secondItem="pRT-cP-2iH" secondAttribute="top" constant="8" id="0z1-hh-nfU"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="SKO-1v-kAD" secondAttribute="bottom" id="AT0-c5-9Bh"/>
+                            <constraint firstItem="9w1-pp-bCB" firstAttribute="top" secondItem="gbL-hN-x8m" secondAttribute="bottom" constant="4" id="1JF-UH-K0S"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="SKO-1v-kAD" secondAttribute="bottom" constant="8" id="AT0-c5-9Bh"/>
                             <constraint firstItem="gbL-hN-x8m" firstAttribute="leading" secondItem="Fo6-gf-XJo" secondAttribute="trailing" constant="8" id="C0b-ws-jEL"/>
                             <constraint firstItem="KrF-WE-xyT" firstAttribute="centerY" secondItem="SKO-1v-kAD" secondAttribute="centerY" id="Chq-Z0-hSh"/>
                             <constraint firstItem="SKO-1v-kAD" firstAttribute="top" secondItem="Fo6-gf-XJo" secondAttribute="bottom" constant="10" id="DVx-75-811"/>
+                            <constraint firstItem="9w1-pp-bCB" firstAttribute="leading" secondItem="inp-Ql-aTa" secondAttribute="trailing" constant="4" id="G3u-Gv-wlv"/>
                             <constraint firstItem="Fo6-gf-XJo" firstAttribute="leading" secondItem="pRT-cP-2iH" secondAttribute="leading" constant="16" id="Hhq-bw-V5Q"/>
                             <constraint firstItem="inp-Ql-aTa" firstAttribute="top" secondItem="gbL-hN-x8m" secondAttribute="bottom" constant="4" id="Pd5-Bg-aJU"/>
                             <constraint firstItem="inp-Ql-aTa" firstAttribute="leading" secondItem="Fo6-gf-XJo" secondAttribute="trailing" constant="8" id="Q0z-R3-eQ7"/>
@@ -114,6 +128,7 @@
                 <outlet property="cosmosView" destination="inp-Ql-aTa" id="jJF-57-NVt"/>
                 <outlet property="noSchedulesLabel" destination="KrF-WE-xyT" id="plL-ey-S0v"/>
                 <outlet property="professionalNameLabel" destination="gbL-hN-x8m" id="g7Y-cz-ILm"/>
+                <outlet property="ratingCountLabel" destination="9w1-pp-bCB" id="gAb-tZ-w5A"/>
                 <outlet property="shadowView" destination="Fo6-gf-XJo" id="dbL-By-f6e"/>
             </connections>
             <point key="canvasLocation" x="-1.4492753623188408" y="184.15178571428569"/>

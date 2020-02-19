@@ -13,22 +13,34 @@ protocol CartDelegate: class {
 }
 class CartViewController: BaseViewController {
     
-    @IBOutlet weak var contitnueButton: AButton!
+    @IBOutlet weak var bottomTotalContainerView: UIView!
     var cartData: CartData!
     weak var delegate: CartDelegate?
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-    }
-    
     weak var cartTVC: CartTableViewController?
+    
+    lazy var bottomTotalView: BottomTotalView = {
+        BottomTotalView.build(delegate: self)
+    }()
     
     struct Segues {
         static let Cart = "cartEmbeded"
         static let CardPayment = "showCardPayment"
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupBottomTotalView()
+    }
+    
+    private func setupBottomTotalView() {
+        bottomTotalContainerView.addSubview(bottomTotalView)
+        bottomTotalView.constraintToSuperView()
+        bottomTotalView.totalLabel.text = "Total:   \(cartData.total.asGs() ?? "")"
+        DispatchQueue.main.async {
+            self.bottomTotalView.continueButton.setEnabled(true, animated: false)
+        }
+    }
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -57,24 +69,9 @@ class CartViewController: BaseViewController {
                                                 self.storePhoneNumber()
                                             }
                                         } else {
-                                            self.continueAction(self.contitnueButton)
+                                            self.didSelectContinue(view: self.bottomTotalView)
                                         }
                                     }
-        }
-    }
-    
-    @IBAction func continueAction(_ sender: AButton) {
-        
-        if UserManager.shared.currentPhoneNumber == nil {
-            storePhoneNumber()
-            return
-        }
-        
-        if cartTVC?.segmentedControl.selectedSegmentIndex == 0 {
-            finishAppointment(paymentType: 3, clientAmount: nil)
-        }
-        if cartTVC?.segmentedControl.selectedSegmentIndex == 1 {
-            performSegue(withIdentifier: Segues.CardPayment, sender: nil)
         }
     }
     
@@ -130,5 +127,21 @@ extension CartViewController: CardPaymentDelegate {
 extension CartViewController: SuccessPopoverDelegate {
     func didPressBack() {
         self.navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+extension CartViewController: BottomTotalViewDelegate {
+    func didSelectContinue(view: BottomTotalView) {
+        if UserManager.shared.currentPhoneNumber == nil {
+            storePhoneNumber()
+            return
+        }
+        
+        if cartTVC?.segmentedControl.selectedSegmentIndex == 0 {
+            finishAppointment(paymentType: 3, clientAmount: nil)
+        }
+        if cartTVC?.segmentedControl.selectedSegmentIndex == 1 {
+            performSegue(withIdentifier: Segues.CardPayment, sender: nil)
+        }
     }
 }

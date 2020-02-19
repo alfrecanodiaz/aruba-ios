@@ -26,6 +26,7 @@ class SideMenuTableViewController: UITableViewController {
         setupTableView()
     }
     
+    
     func setupView() {
         profileImageView.clipsToBounds = true
         guard let url = URL(string: UserManager.shared.loggedUser?.avatarURL ?? "") else { return }
@@ -34,8 +35,41 @@ class SideMenuTableViewController: UITableViewController {
         let backButton = UIBarButtonItem(image: UIImage(named: "atras"), style: .done, target: self, action: #selector(closeAction(_:)))
         navigationItem.leftBarButtonItem = backButton
         backButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)
-
+        
+        #if DEBUG
+        let doubleTap = UITapGestureRecognizer()
+        doubleTap.numberOfTapsRequired = 2
+        profileImageView.addGestureRecognizer(doubleTap)
+        profileImageView.isUserInteractionEnabled = true
+        doubleTap.addTarget(self, action: #selector(showAdminOptions))
+        #endif
+        
     }
+    
+    #if DEBUG
+    @objc private func showAdminOptions() {
+        let alert = UIAlertController(title: "Opciones", message: nil, preferredStyle: .actionSheet)
+        let developAction = UIAlertAction(title: "Apuntar a Develop", style: .default) { action in
+            HTTPClient.shared.currentUrl = HTTPClient.shared.developBaseURL
+            self.handleLogout()
+        }
+        let productionAction = UIAlertAction(title: "Apuntar a Producción", style: .default) { action in
+            HTTPClient.shared.currentUrl = HTTPClient.shared.baseURL
+            self.handleLogout()
+            
+        }
+        let localhostAction = UIAlertAction(title: "Apuntar a Localhost", style: .default) { action in
+            HTTPClient.shared.currentUrl = HTTPClient.shared.localhostURL
+            self.handleLogout()
+        }
+        alert.addAction(localhostAction)
+        alert.addAction(developAction)
+        alert.addAction(productionAction)
+        alert.addAction(UIAlertAction(title: "Atras", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    #endif
+    
     
     @objc func closeAction(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)

@@ -20,7 +20,14 @@ class RegisterTableViewController: BaseTableViewController {
 
     }
     
-    var acceptedTerms: Bool = false
+    var acceptedTerms: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: "UserAcceptedTermsKey")
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "UserAcceptedTermsKey")
+        }
+    }
 
     @IBAction func registerAction(_ sender: AButton) {
         guard let firstName = firstNameTxt.text, let lastName = lastNameTxt.text, let email = emailTxt.text, let password = passwordTxt.text else {

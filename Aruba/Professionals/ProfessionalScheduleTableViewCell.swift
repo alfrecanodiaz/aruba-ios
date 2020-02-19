@@ -32,10 +32,10 @@ class ProfessionalScheduleTableViewCell: UITableViewCell {
     @IBOutlet weak var noSchedulesLabel: UILabel!
     @IBOutlet weak var containerView: UIView! {
         didSet {
-            containerView.layer.cornerRadius = 8
+            containerView.layer.cornerRadius = 5
             containerView.clipsToBounds = true
             containerView.layer.borderWidth = 1
-            containerView.layer.borderColor = Colors.AlertTintColor.cgColor
+            containerView.layer.borderColor = Colors.Greens.borderLine.cgColor
         }
     }
     @IBOutlet weak var cosmosView: CosmosView!
@@ -45,15 +45,18 @@ class ProfessionalScheduleTableViewCell: UITableViewCell {
         didSet {
             collectionView.dataSource = self
             collectionView.delegate = self
+            collectionView.showsHorizontalScrollIndicator = false
             collectionView.register(
                 UINib(nibName: "ProfessionalScheduleTimeCollectionViewCell", bundle: nil),
                 forCellWithReuseIdentifier: ProfessionalScheduleTimeCollectionViewCell.Constants.reuseIdentifier
             )
             if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-                flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+                flowLayout.itemSize = CGSize(width: 70, height: 20)
+//                flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
             }
         }
     }
+    @IBOutlet weak var ratingCountLabel: UILabel!
     
     enum Constants {
         static let reuseIdentifier = "professionalScheduleReuseID"
@@ -71,28 +74,25 @@ class ProfessionalScheduleTableViewCell: UITableViewCell {
     
     private func configureCell() {
         guard let viewModel = viewModel else { return }
-        cosmosView.rating = Double(viewModel.professionalRating)
+        cosmosView.rating = viewModel.professional.averageReviews ?? 0
         index = viewModel.index
         professionalNameLabel.text = viewModel.professionalName
         collectionView.reloadData()
         noSchedulesLabel.isHidden = !viewModel.availableSchedules.isEmpty
+        ratingCountLabel.text = viewModel.professionalRating > 0
+            ? "(\(viewModel.professional.reviewsCount ?? 0) reviews)"
+        : "Sin reviews."
+        if let selected = viewModel.selectedSchedule {
+            collectionView.scrollToItem(at: IndexPath(item: selected, section: 0), at: .top, animated: true)
+        }
         guard let url = URL(string: viewModel.professionalAvatarUrl) else { return }
         avatarImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.userPlaceholder)
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         selectionStyle = .none
-        
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
 }
 
 extension ProfessionalScheduleTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -136,9 +136,9 @@ extension UIView {
     func applyshadow(cornerRadius: CGFloat){
         clipsToBounds = false
         layer.shadowColor = UIColor.darkGray.cgColor
-        layer.shadowOpacity = 1
+        layer.shadowOpacity = 0.5
         layer.shadowOffset = CGSize(width: 0, height: 1)
-        layer.shadowRadius = 2
+        layer.shadowRadius = 1
         layer.shadowPath = UIBezierPath(
             roundedRect: bounds,
             cornerRadius: cornerRadius

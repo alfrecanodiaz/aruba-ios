@@ -18,6 +18,11 @@ class HistoryViewController: UIViewController {
     
     var appointments: [Appointment] = [] {
         didSet {
+            if appointments.count == 0 {
+                self.tableView.backgroundView = noDataLabel
+            } else {
+                self.tableView.backgroundView = nil
+            }
             self.tableView.reloadData()
         }
     }
@@ -29,6 +34,16 @@ class HistoryViewController: UIViewController {
     enum Segues {
         static let Detail = "ShowDetail"
     }
+    
+    lazy var noDataLabel: UILabel = {
+        let label = UILabel()
+        label.font = AFont.with(size: 16, weight: .bold)
+        label.textColor = Colors.AlertTintColor
+        label.text = "No tienes reservas."
+        label.sizeToFit()
+        label.textAlignment = .center
+        return label
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -20,11 +20,7 @@ class DateAssignmentViewController: BaseViewController {
             
         }
     }
-    @IBOutlet weak var continueButton: AButton! {
-        didSet {
-            continueButton.titleEdgeInsets = UIEdgeInsets(top: 10, left: -37, bottom: 0, right: 10)
-        }
-    }
+
     @IBOutlet weak var calendarView: JTACMonthView! {
         didSet {
             calendarView.scrollingMode = .stopAtEachCalendarFrame
@@ -37,6 +33,7 @@ class DateAssignmentViewController: BaseViewController {
             calendarView.allowsMultipleSelection = false
         }
     }
+    @IBOutlet weak var bottomTotalContainerView: UIView!
     
     var entryAnimationDone: Bool = false
     var scheduleData: ScheduleData!
@@ -109,6 +106,7 @@ class DateAssignmentViewController: BaseViewController {
     struct Segues {
         static let DateAssignment = "DateAssignmentSegue"
         static let Confirmation = "showConfirmation"
+        static let Cart = "showCart"
     }
     
     enum Constants {
@@ -120,10 +118,25 @@ class DateAssignmentViewController: BaseViewController {
     var viewModel: [ProfessionalScheduleCellViewModel] = []
     private var selectedDate: Date = Date()
     private let initialDate = Date()
+    
+    lazy var bottomTotalView: BottomTotalView = {
+        BottomTotalView.build(delegate: self)
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+    
+    private func setupView() {
         setupCalendar()
+        setupBottomView()
+    }
+    
+    private func setupBottomView() {
+        self.bottomTotalContainerView.addSubview(bottomTotalView)
+        bottomTotalView.constraintToSuperView()
+        bottomTotalView.totalLabel.text = "Total:    \(servicesTotalPrice())"
     }
     
     private func setupCalendar() {
@@ -132,12 +145,7 @@ class DateAssignmentViewController: BaseViewController {
         selectedDate = initialDate
         fetchProfessionals()
     }
-    
-    private func setupView() {
-        DispatchQueue.main.async {
-            self.continueButton.setEnabled(false)
-        }
-    }
+
     
     private func fetchProfessionals() {
         
@@ -163,7 +171,7 @@ class DateAssignmentViewController: BaseViewController {
             } else if let response = response {
                 self.professionals = response.data
             }
-            self.continueButton.setEnabled(false)
+            self.bottomTotalView.continueButton.setEnabled(false)
             self.tableView.reloadSections(IndexSet(arrayLiteral: 0), with: .automatic)
         }
     }
@@ -173,17 +181,20 @@ class DateAssignmentViewController: BaseViewController {
             dvc.scheduleData = scheduleData
         }
         
-        if segue.identifier == Segues.Confirmation,
-            let dvc = segue.destination as? ConfirmViewController,
+        if segue.identifier == Segues.Cart,
+            let dvc = segue.destination as? CartViewController,
             let professional = selectedProfessional,
             let timeSelected = timeSelected {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy"
+            let date = formatter.string(from: selectedDate)
             dvc.cartData = CartData(addressId: addressId,
                                     addressName: addressName,
                                     addressDetail: addressDetails,
                                     categoryName: category.title,
                                     services: services.map({$0.displayName}).joined(separator: ", "),
                                     clientName: clientName,
-                                    fullDate: "todo" + " " + timeSelected.asHourMinuteString(),
+                                    fullDate: date + " " + timeSelected.asHourMinuteString(),
                                     servicesIds: servicesIds,
                                     socialReason: "",
                                     ruc: "",
@@ -192,7 +203,7 @@ class DateAssignmentViewController: BaseViewController {
                                     }),
                                     professional: professional,
                                     hourStartAsSeconds: timeSelected,
-                                    date: "todo",
+                                    date: date,
                                     categoryImageUrl: category.imageURL ?? "")
         }
     }
@@ -205,6 +216,12 @@ class DateAssignmentViewController: BaseViewController {
         services.reduce(0) { result, service in
             result + service.duration
         }
+    }
+    
+    private func servicesTotalPrice() -> String {
+        services.reduce(0, { (sum, service) in
+            return sum + service.price
+            }).asGs() ?? ""
     }
 }
 
@@ -227,8 +244,9 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
         let lbl = UILabel()
         lbl.text = "Profesionales disponibles"
         lbl.textColor = Colors.Greens.professionalListHeader
-        lbl.font = AFont.with(size: 14, weight: .regular)
+        lbl.font = AFont.with(size: 14, weight: .bold)
         lbl.sizeToFit()
+        lbl.backgroundColor = .white
         return lbl
     }
     
@@ -253,7 +271,7 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
     }
     
     private func dateRangesFrom(schedules: [AvailableSchedule], servicesTotalTime: Int) -> [Int] {
-        schedules.map {
+        return schedules.map {
             makeRangesFor(hourStart: $0.hourStart,
                           hourEnd: $0.hourEnd - servicesTotalTime,
                           divideAmount: 30*60)
@@ -280,8 +298,6 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
         popup.modalPresentationStyle = .popover
         popup.delegate = self
         popup.professional = professional
-        popup.date = "todo"
-        popup.time =  hourString
         let popover = popup.popoverPresentationController
         popover?.delegate = self
         popover?.sourceView = view
@@ -340,7 +356,7 @@ extension DateAssignmentViewController: ProfessionalScheduleTableViewCellDelegat
         }
         self.viewModel[index].selectedSchedule = selectedSchedule
         selectedProfessional = self.viewModel[index].professional
-        continueButton.setEnabled(selectedSchedule != nil)
+        self.bottomTotalView.continueButton.setEnabled(selectedSchedule != nil)
         if let selectedSchedule = selectedSchedule {
             self.timeSelected = self.viewModel[index].availableSchedules[selectedSchedule]
         } else {
@@ -438,4 +454,24 @@ extension DateAssignmentViewController: JTACMonthViewDataSource, JTACMonthViewDe
 
 class CalendarDayHeaderCollectionViewCell: JTACMonthReusableView  {
     @IBOutlet var monthTitle: UILabel!
+}
+
+extension DateAssignmentViewController: BottomTotalViewDelegate {
+    func didSelectContinue(view: BottomTotalView) {
+        performSegue(withIdentifier: Segues.Cart, sender: self)
+    }
+    
+}
+
+extension UIView {
+    func constraintToSuperView() {
+        guard let superView = self.superview else { return }
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.leadingAnchor.constraint(equalTo: superView.leadingAnchor),
+            self.trailingAnchor.constraint(equalTo: superView.trailingAnchor),
+            self.topAnchor.constraint(equalTo: superView.topAnchor),
+            self.bottomAnchor.constraint(equalTo: superView.bottomAnchor),
+        ])
+    }
 }
