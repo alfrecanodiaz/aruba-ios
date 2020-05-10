@@ -44,7 +44,7 @@ class ProductDescriptionPopupTableViewController: APopoverTableViewController {
         guard let url = URL(string: service.imageURL) else {
             return
         }
-        productImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.imagePlaceholder)
+        productImageView.kf.setImage(with: url, placeholder: GlobalConstants.imagePlaceholder)
     }
 
     @IBAction func selectAction(_ sender: UIButton) {
@@ -54,7 +54,7 @@ class ProductDescriptionPopupTableViewController: APopoverTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 3 {
+        if indexPath.row == 2 {
             return UIScreen.main.bounds.height*0.3
         }
         return UITableView.automaticDimension

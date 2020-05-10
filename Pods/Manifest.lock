@@ -92,8 +92,10 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (6.3.2):
     - GoogleUtilities/Logger
-  - HanekeSwift (1.1)
   - JTAppleCalendar (8.0.3)
+  - Kingfisher (5.13.1):
+    - Kingfisher/Core (= 5.13.1)
+  - Kingfisher/Core (5.13.1)
   - lottie-ios (3.1.5)
   - MaterialTextField (1.0.1)
   - nanopb (0.3.9011):
@@ -105,7 +107,6 @@ PODS:
   - PageMenu (2.0.0)
   - Protobuf (3.11.1)
   - Quick (2.2.0)
-  - SideMenu (6.4.7)
   - SVProgressHUD (2.2.5)
   - SwiftLint (0.38.0)
 
@@ -119,14 +120,13 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Messaging
   - GoogleMaps
-  - HanekeSwift (from `https://github.com/Haneke/HanekeSwift.git`, tag `v0.11.1`)
   - JTAppleCalendar
+  - Kingfisher
   - lottie-ios
   - MaterialTextField
   - Nimble
   - PageMenu (from `https://github.com/1986webdeveloper/PageMenu`)
   - Quick
-  - SideMenu
   - SVProgressHUD
   - SwiftLint
 
@@ -152,27 +152,21 @@ SPEC REPOS:
     - GoogleMaps
     - GoogleUtilities
     - JTAppleCalendar
+    - Kingfisher
     - lottie-ios
     - MaterialTextField
     - nanopb
     - Nimble
     - Protobuf
     - Quick
-    - SideMenu
     - SVProgressHUD
     - SwiftLint
 
 EXTERNAL SOURCES:
-  HanekeSwift:
-    :git: https://github.com/Haneke/HanekeSwift.git
-    :tag: v0.11.1
   PageMenu:
     :git: https://github.com/1986webdeveloper/PageMenu
 
 CHECKOUT OPTIONS:
-  HanekeSwift:
-    :git: https://github.com/Haneke/HanekeSwift.git
-    :tag: v0.11.1
   PageMenu:
     :commit: 30606ae924cfe52bdc9905a8b3284a75017c52ef
     :git: https://github.com/1986webdeveloper/PageMenu
@@ -197,8 +191,8 @@ SPEC CHECKSUMS:
   GoogleDataTransportCCTSupport: ef79a4728b864946a8aafdbab770d5294faf3b5f
   GoogleMaps: 82f8fe307193bb4de6ef6bf9e88f1d624b718f9d
   GoogleUtilities: 547a86735c6f0ee30ad17e94df4fc21f616b71cb
-  HanekeSwift: cb662a1f22b10ff3ff1d7b5030ae451da5d93831
   JTAppleCalendar: 932cadea40b1051beab10f67843451d48ba16c99
+  Kingfisher: f33a848445e33c543620812158dc5d47f6bf90df
   lottie-ios: 32bf84389337d86fbc8b12266e88452e0abf1dee
   MaterialTextField: f1a0786588e4d3610cb9bb62d2adbe9777cebbf9
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
@@ -206,10 +200,9 @@ SPEC CHECKSUMS:
   PageMenu: 50134deb498b120cfcd086fee1bce35a4b2f9c81
   Protobuf: 20d79da7f20b5928b80043b05080b816e802659e
   Quick: 7fb19e13be07b5dfb3b90d4f9824c855a11af40e
-  SideMenu: 928a015669c3afc201e1fe3a87f1b0bc8993a664
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 4105f061f9812b214568b736dab580ab2c73a582
 
-PODFILE CHECKSUM: a9ba9ae1206e5ecb070a5a25a7d4de4d802d9d01
+PODFILE CHECKSUM: 38e5ca198a1299d844b469310f3d73945850136c
 
 COCOAPODS: 1.8.4

@@ -52,17 +52,7 @@ class DateAssignmentViewController: BaseViewController {
     
     var professionals: [Professional] = [] {
         didSet {
-            self.viewModel = self.professionals.sorted(by: { (pr1, pr2) -> Bool in
-                guard let av1 = pr1.availableSchedules,
-                    let av2 = pr2.availableSchedules,
-                    let rating1 = pr1.averageReviews,
-                    let rating2 = pr2.averageReviews else {
-                        return false
-                }
-                return !av1.isEmpty ?
-                    rating1 > rating2
-                    : av1.count > av2.count
-            }).enumerated().map {
+            self.viewModel = self.professionals.enumerated().map {
                 ProfessionalScheduleCellViewModel(
                     availableSchedules: dateRangesFrom(
                         schedules: $0.element.availableSchedules ?? [],
@@ -76,6 +66,16 @@ class DateAssignmentViewController: BaseViewController {
                     selectedSchedule: nil
                 )
             }
+            /// TODO
+//            .sorted(by: { (pr1, pr2) -> Bool in
+//                if pr1.availableSchedules.isEmpty && !pr2.availableSchedules.isEmpty {
+//                    return false
+//                }
+//                if !pr1.availableSchedules.isEmpty && pr2.availableSchedules.isEmpty {
+//                    return true
+//                }
+//                return pr1.professionalRating > pr2.professionalRating
+//            })
         }
     }
     var addressId: Int!
@@ -150,7 +150,7 @@ class DateAssignmentViewController: BaseViewController {
     private func fetchProfessionals() {
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d-MM-Y"
+        dateFormatter.dateFormat = "dd-MM-Y"
         
         guard let addressId = addressId else {
                 return

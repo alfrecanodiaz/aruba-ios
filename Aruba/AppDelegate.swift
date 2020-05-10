@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SideMenu
 import Firebase
 import Fabric
 import Crashlytics

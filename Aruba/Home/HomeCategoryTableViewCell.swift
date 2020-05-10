@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Haneke
+import Kingfisher
 
 class HomeCategoryTableViewCell: UITableViewCell {
 
@@ -31,7 +31,7 @@ class HomeCategoryTableViewCell: UITableViewCell {
         iconImage.image = category.image
         titleLbl.text = category.title
         if let url = URL(string: category.imageURL ?? "") {
-            iconImage.hnk_setImageFromURL(url, placeholder: GlobalConstants.imagePlaceholder)
+            iconImage.kf.setImage(with: url, placeholder: GlobalConstants.imagePlaceholder)
         }
         disabledMessageLabel.isHidden = category.enabled
         disabledMessageLabel.text = category.inactiveText

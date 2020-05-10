@@ -86,7 +86,7 @@ class ProfessionalScheduleTableViewCell: UITableViewCell {
             collectionView.scrollToItem(at: IndexPath(item: selected, section: 0), at: .top, animated: true)
         }
         guard let url = URL(string: viewModel.professionalAvatarUrl) else { return }
-        avatarImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.userPlaceholder)
+        avatarImageView.kf.setImage(with: url, placeholder: GlobalConstants.userPlaceholder)
     }
     
     override func awakeFromNib() {

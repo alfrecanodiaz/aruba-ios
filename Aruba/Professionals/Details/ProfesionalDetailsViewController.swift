@@ -8,6 +8,7 @@
 
 import UIKit
 import Lottie
+import Kingfisher
 
 protocol ProfessionalLikedDelegate: NSObject {
     func didLikedProfessional(professionalId: Int, liked: Bool)
@@ -64,7 +65,7 @@ class ProfesionalDetailsViewController: UIViewController {
         guard let url = URL(string: professional.avatarURL ?? "") else {
             return
         }
-        professionalImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.userPlaceholder)
+        professionalImageView.kf.setImage(with: url, placeholder: GlobalConstants.userPlaceholder)
     }
     
     @IBAction func likeAction(_ sender: Any) {
@@ -160,7 +161,7 @@ extension ProfesionalDetailsViewController: UITableViewDataSource, UITableViewDe
         cell.serviceImageView?.image = GlobalConstants.userPlaceholder
         cell.selectionStyle = .none
         guard let avatar = data.reviewer.avatarURL, let url = URL(string: avatar) else { return cell }
-        cell.serviceImageView?.hnk_setImageFromURL(url, placeholder: GlobalConstants.userPlaceholder)
+        cell.serviceImageView?.kf.setImage(with: url, placeholder: GlobalConstants.userPlaceholder)
         return cell
     }
 }

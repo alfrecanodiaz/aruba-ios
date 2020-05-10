@@ -19,7 +19,7 @@ class ProfileHeaderTableViewCell: UITableViewCell {
         guard let loggedUser = UserManager.shared.loggedUser else { return }
         greetingLbl.text = "¡Hola \(loggedUser.firstName)!"
         guard let url = URL(string: UserManager.shared.loggedUser?.avatarURL ?? "") else { return }
-        profileImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.userPlaceholder)
+        profileImageView.kf.setImage(with: url, placeholder: GlobalConstants.userPlaceholder)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

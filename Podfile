@@ -9,7 +9,6 @@ target 'Aruba' do
   # Pods for Aruba
   pod 'Alamofire'
   pod 'SwiftLint'
-  pod 'SideMenu'
   pod 'MaterialTextField'
   pod 'SVProgressHUD'
   pod 'Firebase/Core'
@@ -20,7 +19,7 @@ target 'Aruba' do
   pod 'FBSDKLoginKit'
   pod 'GoogleMaps'
   pod 'lottie-ios'
-  pod 'HanekeSwift', :git => 'https://github.com/Haneke/HanekeSwift.git', :tag => 'v0.11.1'
+  pod 'Kingfisher'
   pod 'PageMenu', :git => 'https://github.com/1986webdeveloper/PageMenu'
   pod 'Cosmos'
   pod 'JTAppleCalendar'

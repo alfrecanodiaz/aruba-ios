@@ -90,7 +90,7 @@ class ProfessionalListTableViewCell: UITableViewCell {
         }
         
         guard let url = URL(string: professional.avatarURL ?? "") else { return }
-        professionalImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.userPlaceholder)
+        professionalImageView.kf.setImage(with: url, placeholder: GlobalConstants.userPlaceholder)
     }
     
     @IBAction func likeAction(_ sender: UIButton) {

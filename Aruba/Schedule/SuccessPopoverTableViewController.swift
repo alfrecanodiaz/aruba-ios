@@ -27,7 +27,7 @@ class SuccessPopoverTableViewController: APopoverTableViewController {
         guard let urlString = UserManager.shared.loggedUser?.avatarURL, let url = URL(string: urlString) else {
             return
         }
-        clientAvatarImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.userPlaceholder)
+        clientAvatarImageView.kf.setImage(with: url, placeholder: GlobalConstants.userPlaceholder)
     }
 
 

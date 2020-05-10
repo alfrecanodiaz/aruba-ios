@@ -119,8 +119,10 @@ extension CartViewController: CardPaymentDelegate {
         self.showSuccessPopup()
     }
     
-    func canceledCardPayment() {
-        
+    func canceledCardPayment(message: String?) {
+        if let message = message {
+            AlertManager.showErrorNotice(in: self, error: HTTPClientError(message: message))
+        }
     }
 }
 

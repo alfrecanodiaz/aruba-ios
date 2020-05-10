@@ -91,7 +91,7 @@ class HistoryDetailsViewController: BaseViewController {
         cancelButton.isHidden = !viewModel.canCancelAppointment
         rateButton.isHidden = !viewModel.canRateAppointment
         guard let url = URL(string: viewModel.professionalAvatarURL) else { return }
-        professionalAvatarImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.userPlaceholder)
+        professionalAvatarImageView.kf.setImage(with: url, placeholder: GlobalConstants.userPlaceholder)
 
     }
     
@@ -154,7 +154,7 @@ extension HistoryDetailsViewController: UITableViewDataSource {
         cell.serviceDescriptionLabel.text = "Duración aproximada de \(service.duration/60) minutos"
         cell.selectionStyle = .none
         guard let url = URL(string: service.imageURL) else { return cell }
-        cell.serviceImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.imagePlaceholder)
+        cell.serviceImageView.kf.setImage(with: url, placeholder: GlobalConstants.imagePlaceholder)
 
         return cell
     }

@@ -49,7 +49,7 @@ class HistoryTableViewCell: UITableViewCell {
         categoryDetailsLabel.text = viewModel.categoryDetails
         categoryImageView.image = GlobalConstants.imagePlaceholder
         guard let url = viewModel.categoryURL else { return }
-        categoryImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.imagePlaceholder)
+        categoryImageView.kf.setImage(with: url, placeholder: GlobalConstants.imagePlaceholder)
     }
     
 }

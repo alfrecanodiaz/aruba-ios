@@ -30,7 +30,7 @@ class SideMenuTableViewController: UITableViewController {
     func setupView() {
         profileImageView.clipsToBounds = true
         guard let url = URL(string: UserManager.shared.loggedUser?.avatarURL ?? "") else { return }
-        profileImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.userPlaceholder)
+        profileImageView.kf.setImage(with: url, placeholder: GlobalConstants.userPlaceholder)
         
         let backButton = UIBarButtonItem(image: UIImage(named: "atras"), style: .done, target: self, action: #selector(closeAction(_:)))
         navigationItem.leftBarButtonItem = backButton

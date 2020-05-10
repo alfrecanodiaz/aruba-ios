@@ -179,49 +179,39 @@
                         <sections>
                             <tableViewSection id="MMR-ep-x4N">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="HuO-pZ-reX">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HuO-pZ-reX" id="FYb-I9-KmQ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="76" id="caU-Ax-WGY">
-                                        <rect key="frame" x="0.0" y="72" width="414" height="76"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="126" id="caU-Ax-WGY">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="126"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="caU-Ax-WGY" id="cCb-Gy-v7v">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="126"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="m1c-1C-k5N">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Que Incluye?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WX-t5-acK">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
-                                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
-                                                            <color key="textColor" red="0.33725490196078434" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shampo plus belle " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dq-IK-fW7">
-                                                            <rect key="frame" x="0.0" y="28.5" width="414" height="20.5"/>
-                                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
-                                                            <color key="textColor" red="0.33725490196078434" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="¿Que Incluye?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WX-t5-acK">
+                                                    <rect key="frame" x="16" y="8" width="382" height="20.5"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                                                    <color key="textColor" red="0.33725490196078434" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Shampo plus belle " textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dq-IK-fW7">
+                                                    <rect key="frame" x="16" y="40.5" width="382" height="77.5"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                                    <color key="textColor" red="0.33725490196078434" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="m1c-1C-k5N" secondAttribute="bottom" id="RN7-Yt-yvm"/>
-                                                <constraint firstItem="m1c-1C-k5N" firstAttribute="leading" secondItem="cCb-Gy-v7v" secondAttribute="leading" id="bFK-aP-vWz"/>
-                                                <constraint firstAttribute="trailing" secondItem="m1c-1C-k5N" secondAttribute="trailing" id="bgJ-V7-G1H"/>
-                                                <constraint firstItem="m1c-1C-k5N" firstAttribute="top" secondItem="cCb-Gy-v7v" secondAttribute="top" id="wBC-Vw-Lma"/>
+                                                <constraint firstItem="1dq-IK-fW7" firstAttribute="top" secondItem="4WX-t5-acK" secondAttribute="bottom" constant="12" id="JtS-jM-knD"/>
+                                                <constraint firstAttribute="trailing" secondItem="4WX-t5-acK" secondAttribute="trailing" constant="16" id="LV9-th-WBL"/>
+                                                <constraint firstItem="4WX-t5-acK" firstAttribute="leading" secondItem="cCb-Gy-v7v" secondAttribute="leading" constant="16" id="Pch-gM-Nbz"/>
+                                                <constraint firstItem="1dq-IK-fW7" firstAttribute="leading" secondItem="cCb-Gy-v7v" secondAttribute="leading" constant="16" id="WwA-nX-LBR"/>
+                                                <constraint firstItem="4WX-t5-acK" firstAttribute="top" secondItem="cCb-Gy-v7v" secondAttribute="top" constant="8" id="ZOx-hp-4AD"/>
+                                                <constraint firstAttribute="bottom" secondItem="1dq-IK-fW7" secondAttribute="bottom" constant="8" id="nOO-oI-YNR"/>
+                                                <constraint firstAttribute="trailing" secondItem="1dq-IK-fW7" secondAttribute="trailing" constant="16" id="r49-fn-olI"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="209" id="1Ht-aG-Z5S">
-                                        <rect key="frame" x="0.0" y="148" width="414" height="209"/>
+                                        <rect key="frame" x="0.0" y="154" width="414" height="209"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Ht-aG-Z5S" id="SAM-Uj-73w">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="209"/>
@@ -240,7 +230,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="179" id="AN1-gM-IWz">
-                                        <rect key="frame" x="0.0" y="357" width="414" height="179"/>
+                                        <rect key="frame" x="0.0" y="363" width="414" height="179"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AN1-gM-IWz" id="X68-QF-AFE">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="179"/>
@@ -264,7 +254,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="57" id="StS-0P-8Kj">
-                                        <rect key="frame" x="0.0" y="536" width="414" height="57"/>
+                                        <rect key="frame" x="0.0" y="542" width="414" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="StS-0P-8Kj" id="7TO-PE-egA">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="57"/>

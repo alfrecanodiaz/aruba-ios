@@ -45,7 +45,7 @@ class ConfirmViewController: UIViewController {
         guard let url = URL(string: cartData.categoryImageUrl) else {
             return
         }
-        serviceImageView.hnk_setImageFromURL(url, placeholder: GlobalConstants.imagePlaceholder )
+        serviceImageView.kf.setImage(with: url, placeholder: GlobalConstants.imagePlaceholder )
     }
     
     private func setupBottomTotalView() {

@@ -180,12 +180,8 @@ class HomeTableViewController: BaseTableViewController {
             partial || next.enabled
         }
         
-        guard hasSubcategoriesEnabled else {
-            let alert = UIAlertController(title: "Lo sentimos", message: "No hay subcategorias disponibles para este servicio.", preferredStyle: .alert)
-            let cancel = UIAlertAction(title: "Aceptar", style: .cancel, handler: nil)
-            alert.addAction(cancel)
-            alert.view.tintColor = Colors.AlertTintColor
-            present(alert, animated: true, completion: nil)
+        guard !needsShowCovidAlert() else {
+            showCovidAlert()
             return
         }
         
@@ -197,6 +193,16 @@ class HomeTableViewController: BaseTableViewController {
             present(alert, animated: true, completion: nil)
             return
         }
+        
+        guard hasSubcategoriesEnabled else {
+            let alert = UIAlertController(title: "Lo sentimos", message: "No hay subcategorias disponibles para este servicio.", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Aceptar", style: .cancel, handler: nil)
+            alert.addAction(cancel)
+            alert.view.tintColor = Colors.AlertTintColor
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        
         guard AuthManager.isLogged() else {
             let alert = UIAlertController(title: "Lo sentimos", message: "Debes registrarte para poder acceder a este servicio.", preferredStyle: .alert)
             let register = UIAlertAction(title: "Registrarme", style: .default) { (action) in
@@ -224,6 +230,21 @@ class HomeTableViewController: BaseTableViewController {
         showServiceCategoryPopup(serviceCategory: serviceCategory)
     }
     
+    private func needsShowCovidAlert() -> Bool {
+        let needsShow = UserDefaults.standard.value(forKey: CovidAlertController.Constants.covidAlert) as? Bool ?? true
+        return needsShow
+    }
+    
+    private func showCovidAlert() {
+        let alert = CovidAlertController()
+        alert.modalPresentationStyle = .popover
+        let popover = alert.popoverPresentationController
+        popover?.delegate = self
+        popover?.permittedArrowDirections = .init(rawValue: 0)
+        popover?.sourceView = view
+        popover?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+        present(alert, animated: true, completion: nil)
+    }
     
     private func showServiceCategoryPopup(serviceCategory: CategoryViewModel) {
         guard let defaultAddress = UserManager.shared.loggedUser?.addresses.filter({$0.isDefault}).first else { return }
@@ -336,4 +357,145 @@ extension HomeTableViewController: ServiceCategorySelectionDelegate {
         removeBlackBackgroundView()
     }
     
+}
+
+
+class CovidAlertController: UIViewController {
+    
+    let check1 = ACheckBoxButton()
+    let check2 = ACheckBoxButton()
+    let check3 = ACheckBoxButton()
+    
+    enum Constants {
+        static let covidAlert = "CovidAlertKey"
+    }
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.alignment = .fill
+        stackView.distribution = .fillProportionally
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureView()
+    }
+    
+    private func configureView() {
+        view.backgroundColor = .white
+        view.addSubview(stackView)
+        stackView.backgroundColor = .white
+        
+        let bottomConstraint = stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        bottomConstraint.priority = .defaultLow
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 25),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            bottomConstraint
+        ])
+        
+        let top = UILabel()
+        top.text = "Medidas de Seguridad"
+        top.textColor = Colors.ButtonGreen
+        top.textAlignment = .center
+        stackView.addArrangedSubview(top)
+        
+        let title = UILabel()
+        title.text = "Por medidas de seguridad y prevencion declaro bajo fe de juramento que ni yo y ninguna de las personas que solicitan los servicios de Aruba:"
+        title.textColor = .lightGray
+        title.numberOfLines = 0
+        title.font = AFont.with(size: 13, weight: .regular)
+        stackView.addArrangedSubview(title)
+        
+        check1.setTitle("Tengo/tienen ningún síntoma relacionado al Covid-19 (fiebre, dolor de cabeza, tos, estornudo, secreción nasal, fatiga, dolor de garganta, dificultad para respirar)", for: .normal)
+        check1.addTarget(self, action: #selector(check1Tapped), for: .touchUpInside)
+        stackView.addArrangedSubview(check1)
+        
+        check2.setTitle("Estuve/estuvieron en contacto con personas que volvieron de paises del exterior durante el periodo de cuarentena.", for: .normal)
+        stackView.addArrangedSubview(check2)
+        check2.addTarget(self, action: #selector(check2Tapped), for: .touchUpInside)
+        
+        check3.setTitle("Estuve/estuvieron contacto con personas de forma directa con personas que dieron positivcas al Covid-19.", for: .normal)
+        stackView.addArrangedSubview(check3)
+        check3.addTarget(self, action: #selector(check3Tapped), for: .touchUpInside)
+
+        
+        let accept = AButton()
+        accept.setTitle("EMPEZAR A RESERVAR", for: .normal)
+        stackView.addArrangedSubview(accept)
+        stackView.setCustomSpacing(20, after: check3)
+        accept.addTarget(self, action: #selector(didTapAccept), for: .touchUpInside)
+    }
+    
+    @objc func check1Tapped() {
+        check1.isSelected.toggle()
+    }
+    
+    @objc func check2Tapped() {
+        check2.isSelected.toggle()
+    }
+    
+    @objc func check3Tapped() {
+        check3.isSelected.toggle()
+    }
+    
+    @objc func didTapAccept() {
+        guard check1.isSelected && check2.isSelected && check3.isSelected else {
+            return
+        }
+        UserDefaults.standard.setValue(false, forKey: Constants.covidAlert)
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+class ACheckBoxButton: UIButton {
+    
+    
+    init() {
+        super.init(frame: .zero)
+        translatesAutoresizingMaskIntoConstraints = false
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func commonInit() {
+        configureButton(self)
+    }
+    
+    private func configureButton(_ button: UIButton) {
+           button.setTitleColor(.black, for: .normal)
+            button.titleLabel?.font = AFont.with(size: 12, weight: .regular)
+            button.setImage(#imageLiteral(resourceName: "checkbox-empty"), for: .normal)
+            button.setImage(#imageLiteral(resourceName: "checkbox-checked"), for: .selected)
+            button.titleLabel?.numberOfLines = 0
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+       }
+
+    override var intrinsicContentSize: CGSize {
+        return titleLabel?.intrinsicContentSize ?? CGSize(width: 100, height: 100)
+    }
+    
+    override func layoutSubviews() {
+        titleLabel?.preferredMaxLayoutWidth = self.titleLabel?.frame.size.width ?? 0
+        super.layoutSubviews()
+    }
 }

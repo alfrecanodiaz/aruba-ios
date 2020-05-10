@@ -60,7 +60,7 @@ class CartTableViewController: UITableViewController {
         rucTextField.text = UserManager.shared.userTax.first?.rucNumber
         segmentedControl.sendActions(for: .valueChanged)
         guard let url = URL(string: cartData.categoryImageUrl) else { return }
-        serviceIconImageView.hnk_setImageFromURL(url)
+        serviceIconImageView.kf.setImage(with: url)
     }
     
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {

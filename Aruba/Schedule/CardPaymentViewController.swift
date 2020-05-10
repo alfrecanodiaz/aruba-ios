@@ -10,7 +10,7 @@ import UIKit
 import WebKit
 protocol CardPaymentDelegate: class {
     func successCardPayment()
-    func canceledCardPayment()
+    func canceledCardPayment(message: String?)
 }
 class CardPaymentViewController: UIViewController {
     
@@ -76,7 +76,7 @@ class CardPaymentViewController: UIViewController {
             if let response = response {
                 if response.success {
                     self.dismiss(animated: true) {
-                        self.delegate?.canceledCardPayment()
+                        self.delegate?.canceledCardPayment(message: nil)
                     }
                 }
             } else if let error = error {
@@ -112,7 +112,8 @@ extension CardPaymentViewController: WKNavigationDelegate {
         self.activityIndicator = nil
         webView.evaluateJavaScript("document.body.innerHTML", completionHandler: { (jsonRaw: Any?, error: Error?) in
             guard let jsonString = jsonRaw as? String,
-                let json = try? JSONSerialization.jsonObject(with: jsonString.withoutHtml.asData(), options: [.allowFragments, .mutableContainers]) as? [String: Any] else {
+                let data = jsonString.withoutHtml.data(using: .utf8),
+                let json = try? JSONSerialization.jsonObject(with: data, options: [.allowFragments, .mutableContainers]) as? [String: Any] else {
                     return
             }
             if json?["success"] as? Bool == true {
@@ -121,9 +122,10 @@ extension CardPaymentViewController: WKNavigationDelegate {
                 }
 
             } else {
-                AlertManager.showErrorNotice(in: self, error: HTTPClientError(message: json?["data"] as? String ?? "Ocurrio un error con el pago."))
+                self.dismiss(animated: true) {
+                    self.delegate?.canceledCardPayment(message: json?["data"] as? String ?? "Ocurrio un error con el pago.")
+                }
             }
-            // do stuff
         })
     }
 }
