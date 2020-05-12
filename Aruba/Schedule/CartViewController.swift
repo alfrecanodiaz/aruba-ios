@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FacebookCore
 
 protocol CartDelegate: class {
     func didCreateAppointment(appointment: Appointment)
@@ -91,11 +93,21 @@ class CartViewController: BaseViewController {
         HTTPClient.shared.request(method: .POST, path: .createAppointment, data: params) { (response: CreateAppointmentResponse?, error) in
             ALoader.hideCalendarLoader()
             if let _ = response {
+                self.logPurchasedEvent(cartData: self.cartData, isCardPayment: false)
                 self.showSuccessPopup()
             } else if let error = error {
                 AlertManager.showNotice(in: self, title: "Lo sentimos", description: error.message)
             }
         }
+    }
+    
+    private func logPurchasedEvent(cartData: CartData, isCardPayment: Bool) {
+        AppEvents.logEvent(.purchased, parameters: [
+            "services_id": cartData.servicesIds,
+            "professional_id": cartData.professional.id,
+            "date": cartData.date,
+            "payment_type": isCardPayment ? "tarjeta" : "transferencia_bancaria"
+        ])
     }
     
     private func showSuccessPopup() {
@@ -116,6 +128,8 @@ class CartViewController: BaseViewController {
 
 extension CartViewController: CardPaymentDelegate {
     func successCardPayment() {
+        //log the event
+        logPurchasedEvent(cartData: self.cartData, isCardPayment: true)
         self.showSuccessPopup()
     }
     

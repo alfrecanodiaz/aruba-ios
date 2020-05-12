@@ -4,6 +4,8 @@ PODS:
   - Crashlytics (3.14.0):
     - Fabric (~> 1.10.2)
   - Fabric (1.10.2)
+  - FacebookCore (0.9.0):
+    - FBSDKCoreKit (~> 5.0)
   - FBSDKCoreKit (5.12.0):
     - FBSDKCoreKit/Basics (= 5.12.0)
     - FBSDKCoreKit/Core (= 5.12.0)
@@ -115,6 +117,7 @@ DEPENDENCIES:
   - Cosmos
   - Crashlytics
   - Fabric
+  - FacebookCore
   - FBSDKLoginKit
   - Firebase/Analytics
   - Firebase/Core
@@ -136,6 +139,7 @@ SPEC REPOS:
     - Cosmos
     - Crashlytics
     - Fabric
+    - FacebookCore
     - FBSDKCoreKit
     - FBSDKLoginKit
     - Firebase
@@ -176,6 +180,7 @@ SPEC CHECKSUMS:
   Cosmos: b47fddf2102bb48580cd3025d9ce0a5c658a65da
   Crashlytics: 540b7e5f5da5a042647227a5e3ac51d85eed06df
   Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
+  FacebookCore: ba86524b66cfa86d0f8e65d08faa8504a9f732dd
   FBSDKCoreKit: fa3ac4dc9b1afc9ae70b3de4dd704d1b6aeeed0d
   FBSDKLoginKit: 0e4572e0279e477103b57978e3ea05fac1dd673d
   Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
@@ -203,6 +208,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 4105f061f9812b214568b736dab580ab2c73a582
 
-PODFILE CHECKSUM: 38e5ca198a1299d844b469310f3d73945850136c
+PODFILE CHECKSUM: 7e29b665a721c418c5425588bdc39571a7354dad
 
 COCOAPODS: 1.8.4

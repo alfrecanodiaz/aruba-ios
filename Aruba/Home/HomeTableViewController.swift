@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FacebookCore
 
 struct CategoryViewModel {
     let image: UIImage?
@@ -176,6 +177,7 @@ class HomeTableViewController: BaseTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let serviceCategory = categoriesViewModel[indexPath.row]
+        AppEvents.logEvent(.viewedContent, parameters: ["service_category": serviceCategory.id, "service_category_display_name": serviceCategory.title])
         let hasSubcategoriesEnabled = serviceCategory.subCategories.reduce(false) { partial, next in
             partial || next.enabled
         }
