@@ -464,14 +464,14 @@ extension DateAssignmentViewController: BottomTotalViewDelegate {
 }
 
 extension UIView {
-    func constraintToSuperView() {
+    func constraintToSuperView(insets: UIEdgeInsets = .zero) {
         guard let superView = self.superview else { return }
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.leadingAnchor.constraint(equalTo: superView.leadingAnchor),
-            self.trailingAnchor.constraint(equalTo: superView.trailingAnchor),
-            self.topAnchor.constraint(equalTo: superView.topAnchor),
-            self.bottomAnchor.constraint(equalTo: superView.bottomAnchor),
+            self.leadingAnchor.constraint(equalTo: superView.leadingAnchor, constant: insets.left),
+            self.trailingAnchor.constraint(equalTo: superView.trailingAnchor, constant: insets.right),
+            self.topAnchor.constraint(equalTo: superView.topAnchor, constant: insets.top),
+            self.bottomAnchor.constraint(equalTo: superView.bottomAnchor, constant: insets.bottom),
         ])
     }
 }

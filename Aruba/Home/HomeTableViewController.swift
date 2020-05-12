@@ -233,18 +233,12 @@ class HomeTableViewController: BaseTableViewController {
     }
     
     private func needsShowCovidAlert() -> Bool {
-        let needsShow = UserDefaults.standard.value(forKey: CovidAlertController.Constants.covidAlert) as? Bool ?? true
-        return needsShow
+        return true
+        UserDefaults.standard.value(forKey: CovidAlertController.Constants.covidAlert) as? Bool ?? true
     }
     
     private func showCovidAlert() {
         let alert = CovidAlertController()
-        alert.modalPresentationStyle = .popover
-        let popover = alert.popoverPresentationController
-        popover?.delegate = self
-        popover?.permittedArrowDirections = .init(rawValue: 0)
-        popover?.sourceView = view
-        popover?.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
         present(alert, animated: true, completion: nil)
     }
     
@@ -361,8 +355,33 @@ extension HomeTableViewController: ServiceCategorySelectionDelegate {
     
 }
 
+class AScrollingStackView: UIViewController {
+    
+    let scrollView = UIScrollView()
+    let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.axis = .vertical
+        stackView.spacing = 10
+        return stackView
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.addSubview(scrollView)
+        scrollView.constraintToSuperView(insets: UIEdgeInsets(top: 0, left: 16, bottom: 0, right: -16))
+        scrollView.addSubview(stackView)
+        stackView.constraintToSuperView()
+        let heightConstraint = scrollView.heightAnchor.constraint(equalTo: stackView.heightAnchor)
+        heightConstraint.priority = .defaultLow
+        heightConstraint.isActive = true
+        scrollView.widthAnchor.constraint(equalTo: stackView.widthAnchor).isActive = true
+    }
+}
 
-class CovidAlertController: UIViewController {
+
+class CovidAlertController: AScrollingStackView {
     
     let check1 = ACheckBoxButton()
     let check2 = ACheckBoxButton()
@@ -381,17 +400,6 @@ class CovidAlertController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.alignment = .fill
-        stackView.distribution = .fillProportionally
-        stackView.axis = .vertical
-        stackView.spacing = 10
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
@@ -399,17 +407,22 @@ class CovidAlertController: UIViewController {
     
     private func configureView() {
         view.backgroundColor = .white
-        view.addSubview(stackView)
-        stackView.backgroundColor = .white
         
-        let bottomConstraint = stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        bottomConstraint.priority = .defaultLow
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 25),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            bottomConstraint
-        ])
+        let closeView = UIView()
+        let close = UIButton()
+        close.translatesAutoresizingMaskIntoConstraints = false
+        closeView.addSubview(close)
+        close.setTitle("Atras", for: .normal)
+        close.setTitleColor(Colors.ButtonGreen, for: .normal)
+        close.titleLabel?.font = AFont.with(size: 14, weight: .regular)
+        close.addTarget(self, action: #selector(didTapClose), for: .touchUpInside)
+        
+        closeView.translatesAutoresizingMaskIntoConstraints = false
+        closeView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        close.trailingAnchor.constraint(equalTo: closeView.trailingAnchor).isActive = true
+        close.centerYAnchor.constraint(equalTo: closeView.centerYAnchor).isActive = true
+        
+        stackView.addArrangedSubview(closeView)
         
         let top = UILabel()
         top.text = "Medidas de Seguridad"
@@ -436,8 +449,33 @@ class CovidAlertController: UIViewController {
         stackView.addArrangedSubview(check3)
         check3.addTarget(self, action: #selector(check3Tapped), for: .touchUpInside)
 
+        let line = UIView()
+        line.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        line.backgroundColor = .lightGray
+        stackView.addArrangedSubview(line)
+        
+        let protocolsTitleLbl = UILabel()
+        protocolsTitleLbl.text = "Protocolos de seguridad del MSPBS:"
+        protocolsTitleLbl.font = AFont.with(size: 13, weight: .regular)
+        stackView.addArrangedSubview(protocolsTitleLbl)
+        
+        let link1 = UIButton()
+        link1.setTitle("Entornos Laborales - ver mas", for: .normal)
+        link1.setTitleColor(.blue, for: .normal)
+        link1.titleLabel?.font = AFont.with(size: 12, weight: .regular)
+        link1.addTarget(self, action: #selector(link1Tapped), for: .touchUpInside)
+        stackView.addArrangedSubview(link1)
+        
+        let link2 = UIButton()
+        link2.setTitle("Servicios a domicilio - ver mas", for: .normal)
+        link2.setTitleColor(.blue, for: .normal)
+        link2.titleLabel?.font = AFont.with(size: 12, weight: .regular)
+        link2.addTarget(self, action: #selector(link2Tapped), for: .touchUpInside)
+        stackView.addArrangedSubview(link2)
+        
         
         let accept = AButton()
+
         accept.setTitle("EMPEZAR A RESERVAR", for: .normal)
         stackView.addArrangedSubview(accept)
         stackView.setCustomSpacing(20, after: check3)
@@ -456,12 +494,31 @@ class CovidAlertController: UIViewController {
         check3.isSelected.toggle()
     }
     
+    @objc func link1Tapped() {
+        guard let url = URL(string: "https://www.mspbs.gov.py/dependencias/portal/adjunto/74f0e8-ProtocoloEntornosLaborales01.05.20.pdf") else {
+            return
+        }
+        UIApplication.shared.open(url)
+    }
+
+    @objc func link2Tapped() {
+        guard let url = URL(string: "https://www.mspbs.gov.py/dependencias/portal/adjunto/bab140-InstructivoSERVICIOADOMICILIO01.5.20.pdf") else {
+            return
+        }
+        UIApplication.shared.open(url)
+    }
+    
     @objc func didTapAccept() {
         guard check1.isSelected && check2.isSelected && check3.isSelected else {
             return
         }
         UserDefaults.standard.setValue(false, forKey: Constants.covidAlert)
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @objc func didTapClose() {
+        dismiss(animated: true, completion: nil)
     }
     
 }
