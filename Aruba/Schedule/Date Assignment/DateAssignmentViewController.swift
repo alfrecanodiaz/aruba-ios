@@ -196,6 +196,7 @@ class DateAssignmentViewController: BaseViewController {
                                     clientName: clientName,
                                     fullDate: date + " " + timeSelected.asHourMinuteString(),
                                     servicesIds: servicesIds,
+                                    servicesTotals: services,
                                     socialReason: "",
                                     ruc: "",
                                     total: services.reduce(0, { (sum, service) in
@@ -285,7 +286,7 @@ extension DateAssignmentViewController: UITableViewDataSource, UITableViewDelega
     private func makeRangesFor(hourStart: Int, hourEnd: Int, divideAmount: Int) -> [Int] {
         var difference = hourEnd - hourStart
         var ranges: [Int] = []
-        while difference >= divideAmount {
+        while difference >= 0 {
             ranges.append((hourEnd - difference))
             difference = difference - divideAmount
         }

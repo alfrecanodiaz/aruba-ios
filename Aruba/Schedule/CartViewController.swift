@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import FBSDKCoreKit
 import FacebookCore
 
 protocol CartDelegate: class {
@@ -102,12 +101,16 @@ class CartViewController: BaseViewController {
     }
     
     private func logPurchasedEvent(cartData: CartData, isCardPayment: Bool) {
-        AppEvents.logEvent(.purchased, parameters: [
-            "services_id": cartData.servicesIds,
-            "professional_id": cartData.professional.id,
-            "date": cartData.date,
-            "payment_type": isCardPayment ? "tarjeta" : "transferencia_bancaria"
-        ])
+        for service in cartData.servicesTotals {
+            AppEvents.logEvent(.purchased,valueToSum: Double(service.price), parameters: [
+                "service_id": service.id,
+                  "professional_id": cartData.professional.id,
+                  "date": cartData.date,
+                  "payment_type": isCardPayment ? "tarjeta" : "transferencia_bancaria",
+                  AppEvents.ParameterName.currency.rawValue: "PYG",
+              ])
+        }
+  
     }
     
     private func showSuccessPopup() {

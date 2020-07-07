@@ -17,6 +17,7 @@ struct CartData {
     let clientName: String
     let fullDate: String
     let servicesIds: [Int]
+    let servicesTotals: [Service]
     var socialReason: String
     var ruc: String
     var total: Int

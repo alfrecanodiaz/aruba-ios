@@ -153,7 +153,6 @@ class HomeTableViewController: BaseTableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
@@ -178,22 +177,27 @@ class HomeTableViewController: BaseTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let serviceCategory = categoriesViewModel[indexPath.row]
         AppEvents.logEvent(.viewedContent, parameters: ["service_category": serviceCategory.id, "service_category_display_name": serviceCategory.title])
-        let hasSubcategoriesEnabled = serviceCategory.subCategories.reduce(false) { partial, next in
-            partial || next.enabled
-        }
-        
-        guard !needsShowCovidAlert() else {
-            showCovidAlert()
-            return
-        }
-        
+        showCovidAlert(categoryIndex: indexPath.row)
+        presentServiceCategoryPopup(serviceCategory: serviceCategory)
+    }
+    
+    private func presentServiceCategoryPopup(serviceCategory: CategoryViewModel) {
+        guard prepareForPresentingCategoryPopup(serviceCategory: serviceCategory) else { return }
+        showServiceCategoryPopup(serviceCategory: serviceCategory)
+    }
+    
+    private func prepareForPresentingCategoryPopup(serviceCategory: CategoryViewModel) -> Bool {
         guard serviceCategory.enabled else {
             let alert = UIAlertController(title: "Lo sentimos", message: serviceCategory.inactiveText ?? "", preferredStyle: .alert)
             let cancel = UIAlertAction(title: "Aceptar", style: .cancel, handler: nil)
             alert.addAction(cancel)
             alert.view.tintColor = Colors.AlertTintColor
             present(alert, animated: true, completion: nil)
-            return
+            return false
+        }
+        
+        let hasSubcategoriesEnabled = serviceCategory.subCategories.reduce(false) { partial, next in
+            partial || next.enabled
         }
         
         guard hasSubcategoriesEnabled else {
@@ -202,7 +206,7 @@ class HomeTableViewController: BaseTableViewController {
             alert.addAction(cancel)
             alert.view.tintColor = Colors.AlertTintColor
             present(alert, animated: true, completion: nil)
-            return
+            return false
         }
         
         guard AuthManager.isLogged() else {
@@ -216,7 +220,7 @@ class HomeTableViewController: BaseTableViewController {
             let cancel = UIAlertAction(title: "Aceptar", style: .cancel, handler: nil)
             alert.addAction(cancel)
             present(alert, animated: true, completion: nil)
-            return
+            return false
         }
         
         guard UserManager.shared.loggedUser?.addresses.count != 0 else {
@@ -226,19 +230,19 @@ class HomeTableViewController: BaseTableViewController {
                 addAddressVC.delegate = self
                 self.present(addAddressVC, animated: true, completion: nil)
             }
-            return
+            return false
         }
         
-        showServiceCategoryPopup(serviceCategory: serviceCategory)
+        return true
     }
     
     private func needsShowCovidAlert() -> Bool {
-        return true
         UserDefaults.standard.value(forKey: CovidAlertController.Constants.covidAlert) as? Bool ?? true
     }
     
-    private func showCovidAlert() {
-        let alert = CovidAlertController()
+    private func showCovidAlert(categoryIndex: Int) {
+        let alert = CovidAlertController(categoryIndex: categoryIndex)
+        alert.delegate = self
         present(alert, animated: true, completion: nil)
     }
     
@@ -355,6 +359,12 @@ extension HomeTableViewController: ServiceCategorySelectionDelegate {
     
 }
 
+extension HomeTableViewController: CovidAlertDelegate {
+    func didSelectStart(categoryIndex: Int) {
+        presentServiceCategoryPopup(serviceCategory: categoriesViewModel[categoryIndex])
+    }
+}
+
 class AScrollingStackView: UIViewController {
     
     let scrollView = UIScrollView()
@@ -380,18 +390,27 @@ class AScrollingStackView: UIViewController {
     }
 }
 
+protocol CovidAlertDelegate: class {
+    func didSelectStart(categoryIndex: Int)
+}
 
 class CovidAlertController: AScrollingStackView {
     
-    let check1 = ACheckBoxButton()
-    let check2 = ACheckBoxButton()
-    let check3 = ACheckBoxButton()
+//    let check1 = ACheckBoxButton()
+//    let check2 = ACheckBoxButton()
+//    let check3 = ACheckBoxButton()
+    let checkbox = ACheckBoxButton()
+    
+    let categoryIndex: Int
     
     enum Constants {
         static let covidAlert = "CovidAlertKey"
     }
     
-    init() {
+    weak var delegate: CovidAlertDelegate?
+    
+    init(categoryIndex: Int) {
+        self.categoryIndex = categoryIndex
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -437,17 +456,21 @@ class CovidAlertController: AScrollingStackView {
         title.font = AFont.with(size: 13, weight: .regular)
         stackView.addArrangedSubview(title)
         
-        check1.setTitle("Tengo/tienen ningún síntoma relacionado al Covid-19 (fiebre, dolor de cabeza, tos, estornudo, secreción nasal, fatiga, dolor de garganta, dificultad para respirar)", for: .normal)
-        check1.addTarget(self, action: #selector(check1Tapped), for: .touchUpInside)
-        stackView.addArrangedSubview(check1)
+//        check1.setTitle("Tengo/tienen ningún síntoma relacionado al Covid-19 (fiebre, dolor de cabeza, tos, estornudo, secreción nasal, fatiga, dolor de garganta, dificultad para respirar)", for: .normal)
+//        check1.addTarget(self, action: #selector(check1Tapped), for: .touchUpInside)
+//        stackView.addArrangedSubview(check1)
+//
+//        check2.setTitle("Estuve/estuvieron en contacto con personas que volvieron de paises del exterior durante el periodo de cuarentena.", for: .normal)
+//        stackView.addArrangedSubview(check2)
+//        check2.addTarget(self, action: #selector(check2Tapped), for: .touchUpInside)
+//
+//        check3.setTitle("Estuve/estuvieron contacto con personas de forma directa con personas que dieron positivas al Covid-19.", for: .normal)
+//        stackView.addArrangedSubview(check3)
+//        check3.addTarget(self, action: #selector(check3Tapped), for: .touchUpInside)
         
-        check2.setTitle("Estuve/estuvieron en contacto con personas que volvieron de paises del exterior durante el periodo de cuarentena.", for: .normal)
-        stackView.addArrangedSubview(check2)
-        check2.addTarget(self, action: #selector(check2Tapped), for: .touchUpInside)
-        
-        check3.setTitle("Estuve/estuvieron contacto con personas de forma directa con personas que dieron positivcas al Covid-19.", for: .normal)
-        stackView.addArrangedSubview(check3)
-        check3.addTarget(self, action: #selector(check3Tapped), for: .touchUpInside)
+        checkbox.setTitle("No tengo / no tienen ningún síntoma relacionado al Covid-19 (fiebre, dolor de cabeza, tos, estornudo, secreción nasal, fatiga, dolor de garganta, dificultad para respirar)\nNo estuve / no estuvieron en contacto con personas que volvieron de paises del exterior durante el periodo de cuarentena.\nNo estuve / no estuvieron contacto con personas de forma directa con personas que dieron positivas al Covid-19.", for: .normal)
+        checkbox.addTarget(self, action: #selector(checkboxTapped), for: .touchUpInside)
+        stackView.addArrangedSubview(checkbox)
 
         let line = UIView()
         line.heightAnchor.constraint(equalToConstant: 1).isActive = true
@@ -478,20 +501,25 @@ class CovidAlertController: AScrollingStackView {
 
         accept.setTitle("EMPEZAR A RESERVAR", for: .normal)
         stackView.addArrangedSubview(accept)
-        stackView.setCustomSpacing(20, after: check3)
+//        stackView.setCustomSpacing(20, after: check3)
+        stackView.setCustomSpacing(20, after: checkbox)
         accept.addTarget(self, action: #selector(didTapAccept), for: .touchUpInside)
     }
     
-    @objc func check1Tapped() {
-        check1.isSelected.toggle()
-    }
+//    @objc func check1Tapped() {
+//        check1.isSelected.toggle()
+//    }
+//
+//    @objc func check2Tapped() {
+//        check2.isSelected.toggle()
+//    }
+//
+//    @objc func check3Tapped() {
+//        check3.isSelected.toggle()
+//    }
     
-    @objc func check2Tapped() {
-        check2.isSelected.toggle()
-    }
-    
-    @objc func check3Tapped() {
-        check3.isSelected.toggle()
+    @objc func checkboxTapped() {
+        checkbox.isSelected.toggle()
     }
     
     @objc func link1Tapped() {
@@ -509,11 +537,14 @@ class CovidAlertController: AScrollingStackView {
     }
     
     @objc func didTapAccept() {
-        guard check1.isSelected && check2.isSelected && check3.isSelected else {
+//        guard check1.isSelected && check2.isSelected && check3.isSelected else {
+        guard checkbox.isSelected else {
             return
         }
         UserDefaults.standard.setValue(false, forKey: Constants.covidAlert)
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true) {
+            self.delegate?.didSelectStart(categoryIndex: self.categoryIndex)
+        }
     }
     
     
@@ -524,7 +555,6 @@ class CovidAlertController: AScrollingStackView {
 }
 
 class ACheckBoxButton: UIButton {
-    
     
     init() {
         super.init(frame: .zero)
